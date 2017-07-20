@@ -16,6 +16,11 @@
   },
   "homepage": "https://github.com/labhackercd/pauta-participativa#readme",
   "devDependencies": {
-    "jquery": "^3.2.1"
+    "autoprefixer": "^7.1.2",
+    "jquery": "^3.2.1",
+    "node-sass": "^4.5.3",
+    "normalize.css": "^7.0.0",
+    "postcss": "^6.0.8",
+    "postcss-cli": "^4.1.0"
   }
 }

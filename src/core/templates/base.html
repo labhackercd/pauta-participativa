@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles compress %}
 
 
 <!DOCTYPE html>
@@ -6,8 +6,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  {% compress css %}
+    <link type="text/x-scss" rel="stylesheet" href="{% static '/styles/app.scss' %}"/>
+  {% endcompress %}
+  <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
 </head>
 <body>
-  <script src="{% static "jquery/dist/jquery.min.js" %}"></script>
 </body>
 </html>

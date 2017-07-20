@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'compressor',
+    'compressor_toolkit',
+
     'core',
 ]
 
@@ -52,22 +56,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'pauta_participativa.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
 
 WSGI_APPLICATION = 'pauta_participativa.wsgi.application'
 
@@ -122,8 +110,59 @@ USE_TZ = True
 STATIC_URL = config('STATIC_URL', default='/static/')
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'public'))
 
-STATICFILES_FINDERS = [
-    'npm.finders.NpmFinder'
-] + default.STATICFILES_FINDERS
+STATICFILES_FINDERS = default.STATICFILES_FINDERS + [
+    'npm.finders.NpmFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 NPM_ROOT_PATH = os.path.dirname(BASE_DIR)
+
+
+COMPRESS_PRECOMPILERS = [
+    ('text/x-scss', 'compressor_toolkit.precompilers.SCSSCompiler'),
+]
+
+NODE_MODULES = os.path.join(os.path.dirname(BASE_DIR), 'node_modules')
+COMPRESS_NODE_MODULES = NODE_MODULES
+COMPRESS_NODE_SASS_BIN = os.path.join(NODE_MODULES, '.bin/node-sass')
+COMPRESS_POSTCSS_BIN = os.path.join(NODE_MODULES, '.bin/postcss')
+
+if not DEBUG:
+    COMPRESS_SCSS_COMPILER_CMD = '{node_sass_bin}' \
+                                 ' --source-map true' \
+                                 ' --source-map-embed true' \
+                                 ' --source-map-contents true' \
+                                 ' --output-style expanded' \
+                                 ' {paths} "{infile}" "{outfile}"' \
+                                 ' &&' \
+                                 ' {postcss_bin}' \
+                                 ' --use "{node_modules}/autoprefixer"' \
+                                 ' --autoprefixer.browsers' \
+                                 ' "{autoprefixer_browsers}"' \
+                                 ' -r "{outfile}"'
+
+DJANGO_CONTEXT_PROCESSORS = [
+    'django.template.context_processors.debug',
+    'django.template.context_processors.request',
+    'django.template.context_processors.media',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+]
+
+THIRD_PARTY_CONTEXT_PROCESSORS = [
+]
+
+CONTEXT_PROCESSORS = DJANGO_CONTEXT_PROCESSORS + THIRD_PARTY_CONTEXT_PROCESSORS
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': CONTEXT_PROCESSORS,
+        },
+    },
+]
