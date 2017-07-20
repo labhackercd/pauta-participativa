@@ -1,0 +1,21 @@
+{
+  "name": "pauta-participativa",
+  "version": "1.0.0",
+  "description": "Pauta Participativa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/labhackercd/pauta-participativa.git"
+  },
+  "author": "Laboratório Hacker",
+  "bugs": {
+    "url": "https://github.com/labhackercd/pauta-participativa/issues"
+  },
+  "homepage": "https://github.com/labhackercd/pauta-participativa#readme",
+  "devDependencies": {
+    "jquery": "^3.2.1"
+  }
+}
