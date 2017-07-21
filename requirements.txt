@@ -3,3 +3,4 @@ python-decouple>=3.0
 django-compressor>=2.1
 django-compressor-toolkit>=0.6.0
 django-npm>=1.0.0
+django-nested-admin>=3.0.19
