@@ -102,3 +102,4 @@ ENV/
 node_modules/
 src/public/
 *.sqlite3
+settings.ini
