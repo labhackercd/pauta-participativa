@@ -63,14 +63,22 @@ DJANGO_MIDDLEWARES = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-THIRD_PARTY_MIDDLEWARES = [
-]
+THIRD_PARTY_MIDDLEWARES = []
 
-MIDDLEWARE = DJANGO_MIDDLEWARES + THIRD_PARTY_MIDDLEWARES
+PAUTA_MIDDLEWARES = []
+
+if config('ENABLE_REMOTE_USER', default=0, cast=bool):
+    PAUTA_MIDDLEWARES += ['accounts.middlewares.PautaRemoteUser']
+    DJANGO_MIDDLEWARES.remove(
+        'django.contrib.auth.middleware.SessionAuthenticationMiddleware'
+    )
+
+MIDDLEWARE = DJANGO_MIDDLEWARES + THIRD_PARTY_MIDDLEWARES + PAUTA_MIDDLEWARES
 
 
 # AUTH SETTINGS
