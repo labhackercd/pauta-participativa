@@ -5,7 +5,7 @@ from django.conf import settings
 # Create your models here.
 
 
-class Poll(models.Model):
+class Agenda(models.Model):
 
     initial_date = models.DateField(verbose_name=_("Initial date"))
     end_date = models.DateField(verbose_name=_("End date"))
@@ -14,8 +14,8 @@ class Poll(models.Model):
     is_visible = models.BooleanField(default=True, verbose_name=_("Visible"))
 
     class Meta:
-        verbose_name = _("Poll")
-        verbose_name_plural = _("Polls")
+        verbose_name = _("Agenda")
+        verbose_name_plural = _("Agendas")
 
     def __str__(self):
         return '{} - {}'.format(self.initial_date, self.end_date)
@@ -26,8 +26,8 @@ class Theme(models.Model):
     name = models.CharField(max_length=250, verbose_name=_("Name"))
     icon = models.CharField(max_length=100, verbose_name=_("Icon"),
                             help_text=_("Can be any icon name from Fontastic"))
-    poll = models.ForeignKey('core.Poll', related_name='themes',
-                             verbose_name=_("Poll"))
+    agenda = models.ForeignKey('core.Agenda', related_name='themes',
+                               verbose_name=_("Agenda"))
 
     class Meta:
         verbose_name = _("Theme")

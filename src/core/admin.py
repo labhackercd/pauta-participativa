@@ -13,16 +13,16 @@ class ItemInline(NestedStackedInline):
 class ThemeInline(NestedStackedInline):
     model = models.Theme
     extra = 1
-    fk_name = 'poll'
+    fk_name = 'agenda'
     inlines = [ItemInline]
     formset = forms.AtLeastOneRequiredFormSet
 
 
-class PollAdmin(NestedModelAdmin):
+class AgendaAdmin(NestedModelAdmin):
     list_display = ('meeting_date', 'briefing', 'initial_date', 'end_date')
     search_fields = ('briefing', )
     list_filter = ('initial_date', 'end_date', 'meeting_date')
     inlines = (ThemeInline, )
 
 
-admin.site.register(models.Poll, PollAdmin)
+admin.site.register(models.Agenda, AgendaAdmin)
