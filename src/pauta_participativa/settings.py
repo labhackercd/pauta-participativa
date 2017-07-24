@@ -7,6 +7,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # APPLICATION SETTINGS
 SECRET_KEY = config('SECRET_KEY', default='secret_key')
+API_KEY = config('API_KEY', default='api_key')
 
 FORCE_SCRIPT_NAME = config('FORCE_SCRIPT_NAME', default=None)
 SITE_ID = 1
@@ -47,10 +48,12 @@ THIRD_PARTY_APPS = [
     'compressor',
     'compressor_toolkit',
     'nested_admin',
+    'tastypie',
 ]
 
 MAIN_APPS = [
     'core',
+    'api',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MAIN_APPS
