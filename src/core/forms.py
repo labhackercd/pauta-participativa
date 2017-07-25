@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class AtLeastRequiredFormSet(BaseInlineFormSet):
-    MIN_ITEMS = 1
+    MIN_FORMS = 1
 
     def clean(self):
         super(AtLeastRequiredFormSet, self).clean()
@@ -17,15 +17,20 @@ class AtLeastRequiredFormSet(BaseInlineFormSet):
             lambda f: f.has_changed() and not self._should_delete_form(f),
             self.extra_forms
         )))
-        if initial_num + extra_num < self.MIN_ITEMS:
+        if initial_num + extra_num < self.MIN_FORMS:
             raise forms.ValidationError(
-                _("At least %s item(s) is required." % self.MIN_ITEMS)
+                _("At least %s item(s) is required." % self.MIN_FORMS)
             )
 
 
-class AtLeastOneRequiredFormSet(AtLeastRequiredFormSet):
-    MIN_ITEMS = 1
+class AgendaFormset(AtLeastRequiredFormSet):
 
-
-class AtLeastTwoRequiredFormSet(AtLeastRequiredFormSet):
-    MIN_ITEMS = 2
+    def clean(self):
+        super(AgendaFormset, self).clean()
+        for form in self.forms:
+            proposals = dict(self.data).get(form.prefix + '-proposals', None)
+            error_message = None
+            if proposals:
+                if len(proposals) < 4:
+                    error_message = _("You must select at least 4 proposals")
+                    raise forms.ValidationError(error_message)

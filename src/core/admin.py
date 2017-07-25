@@ -1,28 +1,34 @@
 from django.contrib import admin
-from nested_admin import NestedStackedInline, NestedModelAdmin
 from core import models, forms
+import nested_admin
 
 
-class ItemInline(NestedStackedInline):
-    model = models.Item
-    extra = 2
-    fk_name = 'theme'
-    formset = forms.AtLeastTwoRequiredFormSet
+@admin.register(models.Theme)
+class ThemeAdmin(admin.ModelAdmin):
+    exclude = ('slug', )
 
 
-class ThemeInline(NestedStackedInline):
-    model = models.Theme
+@admin.register(models.ProposalType)
+class ProposalTypeAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(models.Proposal)
+class ProposalAdmin(admin.ModelAdmin):
+    pass
+
+
+class AgendaThemeInline(nested_admin.NestedStackedInline):
+    model = models.AgendaTheme
     extra = 1
     fk_name = 'agenda'
-    inlines = [ItemInline]
-    formset = forms.AtLeastOneRequiredFormSet
+    filter_horizontal = ('proposals', )
+    formset = forms.AgendaFormset
 
 
-class AgendaAdmin(NestedModelAdmin):
-    list_display = ('meeting_date', 'briefing', 'initial_date', 'end_date')
-    search_fields = ('briefing', )
-    list_filter = ('initial_date', 'end_date', 'meeting_date')
-    inlines = (ThemeInline, )
-
-
-admin.site.register(models.Agenda, AgendaAdmin)
+@admin.register(models.Agenda)
+class AgendaAdmin(nested_admin.NestedModelAdmin):
+    list_display = ('title', 'description', 'initial_date', 'end_date')
+    search_fields = ('description', )
+    list_filter = ('initial_date', 'end_date')
+    inlines = (AgendaThemeInline, )

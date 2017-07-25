@@ -1,16 +1,32 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.conf import settings
+from django.utils.text import slugify
 
-# Create your models here.
+
+class Theme(models.Model):
+
+    name = models.CharField(max_length=250, verbose_name=_("Name"))
+    slug = models.CharField(max_length=250, verbose_name=_("Slug"))
+
+    class Meta:
+        verbose_name = _("Theme")
+        verbose_name_plural = _("Themes")
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        return super(Theme, self).save(*args, **kwargs)
 
 
 class Agenda(models.Model):
 
     initial_date = models.DateField(verbose_name=_("Initial date"))
     end_date = models.DateField(verbose_name=_("End date"))
-    meeting_date = models.DateField(verbose_name=_("Meeting date"))
-    briefing = models.TextField(verbose_name=_("Briefing"))
+    title = models.CharField(max_length=100, verbose_name=_("Title"))
+    description = models.TextField(verbose_name=_("Description"))
     is_visible = models.BooleanField(default=True, verbose_name=_("Visible"))
 
     class Meta:
@@ -21,33 +37,47 @@ class Agenda(models.Model):
         return '{} - {}'.format(self.initial_date, self.end_date)
 
 
-class Theme(models.Model):
+class AgendaTheme(models.Model):
 
-    name = models.CharField(max_length=250, verbose_name=_("Name"))
-    icon = models.CharField(max_length=100, verbose_name=_("Icon"),
-                            help_text=_("Can be any icon name from Fontastic"))
-    agenda = models.ForeignKey('core.Agenda', related_name='themes',
-                               verbose_name=_("Agenda"))
+    theme = models.ForeignKey('core.Theme', related_name='agendas')
+    agenda = models.ForeignKey('core.Agenda', related_name='themes')
+    proposals = models.ManyToManyField('core.Proposal', related_name='themes')
 
     class Meta:
-        verbose_name = _("Theme")
-        verbose_name_plural = _("Themes")
+        verbose_name = "Agenda Theme"
+        verbose_name_plural = "Agenda Themes"
 
     def __str__(self):
-        return self.name
+        return self.theme.slug
 
 
-class Item(models.Model):
+class ProposalType(models.Model):
+
+    description = models.CharField(max_length=50)
+    initials = models.CharField(max_length=25)
+
+    class Meta:
+        verbose_name = "Proposal Type"
+        verbose_name_plural = "Proposal Types"
+
+    def __str__(self):
+        return self.initials
+
+
+class Proposal(models.Model):
 
     title = models.CharField(max_length=250, verbose_name=_("Title"))
     description = models.TextField(verbose_name=_("Description"))
-    link = models.CharField(max_length=250, verbose_name=_("Link"))
-    theme = models.ForeignKey('core.Theme', related_name='items',
-                              verbose_name=_("Theme"))
+    proposal_type = models.ForeignKey('core.ProposalType',
+                                      related_name='proposals')
+    number = models.IntegerField()
+    year = models.IntegerField()
+    url = models.CharField(max_length=250, verbose_name=_("URL"))
 
     class Meta:
-        verbose_name = _("Item")
-        verbose_name_plural = _("Items")
+        verbose_name = _("Proposal")
+        verbose_name_plural = _("Proposals")
+        unique_together = ('proposal_type', 'year', 'number')
 
     def __str__(self):
         return self.title
@@ -57,9 +87,10 @@ class Vote(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("User"),
                              related_name='votes')
-    item = models.ForeignKey('core.Item', verbose_name=_("Item"),
-                             related_name='votes')
+    proposal = models.ForeignKey('core.Proposal', verbose_name=_("Proposal"),
+                                 related_name='votes')
     datetime = models.DateTimeField(auto_now=True)
+    vote = models.BooleanField()
 
     class Meta:
         verbose_name = _("Vote")
