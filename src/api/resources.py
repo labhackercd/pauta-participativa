@@ -26,59 +26,69 @@ class UserResource(ModelResource):
         return bundle
 
 
-class ItemResource(ModelResource):
-
-    class Meta:
-        queryset = models.Item.objects.filter(theme__agenda__is_visible=True)
-        allowed_methods = ['get']
-        filtering = {
-            'id': ALL,
-            'theme': ALL_WITH_RELATIONS,
-            'title': ALL,
-            'description': ALL
-        }
-
-
 class ThemeResource(ModelResource):
 
-    items = fields.ToManyField(ItemResource, 'items', full=True, null=True)
-
     class Meta:
-        queryset = models.Theme.objects.filter(agenda__is_visible=True)
+        queryset = models.Theme.objects.all()
         allowed_methods = ['get']
         filtering = {
             'id': ALL,
-            'name': ALL,
-            'agenda': ALL_WITH_RELATIONS,
+            'slug': ALL
         }
 
 
 class AgendaResource(ModelResource):
 
-    themes = fields.ToManyField(ThemeResource, 'themes', full=True, null=True)
-
     class Meta:
         queryset = models.Agenda.objects.filter(is_visible=True)
         allowed_methods = ['get']
-        excludes = ['is_visible']
         filtering = {
-            'inirial_date': ALL,
+            'id': ALL,
+            'initial_date': ALL,
             'end_date': ALL,
-            'meeting_date': ALL,
+            'title': ALL,
         }
 
 
-class VoteResource(ModelResource):
-
-    user = fields.ToOneField(UserResource, 'user', full=True, null=True)
-    item = fields.ToOneField(ItemResource, 'item', full=True, null=True)
+class ProposalTypeResource(ModelResource):
 
     class Meta:
-        queryset = models.Vote.objects.filter(
-            item__theme__agenda__is_visible=True)
+        queryset = models.ProposalType.objects.all()
         allowed_methods = ['get']
         filtering = {
-            'user': ALL_WITH_RELATIONS,
-            'item': ALL_WITH_RELATIONS,
-            'datetime': ALL
+            'id': ALL,
+            'initials': ALL
+        }
+
+
+class ProposalResource(ModelResource):
+
+    proposal_type = fields.ToOneField(ProposalTypeResource, 'proposal_type',
+                                      full=True, null=True)
+
+    class Meta:
+        queryset = models.Proposal.objects.all()
+        allowed_methods = ['get']
+        filtering = {
+            'id': ALL,
+            'theme': ALL_WITH_RELATIONS,
+            'proposal_type': ALL_WITH_RELATIONS,
+            'title': ALL,
+            'description': ALL
+        }
+
+
+class ProposalGroupResource(ModelResource):
+
+    theme = fields.ToOneField(ThemeResource, 'theme', full=True, null=True)
+    agenda = fields.ToOneField(AgendaResource, 'agenda', full=True, null=True)
+    proposals = fields.ToManyField(ProposalResource, 'proposals',
+                                   full=True, null=True)
+
+    class Meta:
+        queryset = models.ProposalGroup.objects.filter(agenda__is_visible=True)
+        allowed_methods = ['get']
+        filtering = {
+            'id': ALL,
+            'agenda': ALL_WITH_RELATIONS,
         }
