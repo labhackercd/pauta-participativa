@@ -28,6 +28,8 @@ class Agenda(models.Model):
     title = models.CharField(max_length=100, verbose_name=_("Title"))
     description = models.TextField(verbose_name=_("Description"))
     is_visible = models.BooleanField(default=True, verbose_name=_("Visible"))
+    votes_count = models.IntegerField(default=0)
+    participants_count = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = _("Agenda")
@@ -37,15 +39,15 @@ class Agenda(models.Model):
         return '{} - {}'.format(self.initial_date, self.end_date)
 
 
-class AgendaTheme(models.Model):
+class ProposalGroup(models.Model):
 
     theme = models.ForeignKey('core.Theme', related_name='agendas')
-    agenda = models.ForeignKey('core.Agenda', related_name='themes')
-    proposals = models.ManyToManyField('core.Proposal', related_name='themes')
+    agenda = models.ForeignKey('core.Agenda', related_name='groups')
+    proposals = models.ManyToManyField('core.Proposal', related_name='groups')
 
     class Meta:
-        verbose_name = "Agenda Theme"
-        verbose_name_plural = "Agenda Themes"
+        verbose_name = "Proposal Group"
+        verbose_name_plural = "Proposal Groups"
 
     def __str__(self):
         return self.theme.slug
@@ -89,6 +91,9 @@ class Vote(models.Model):
                              related_name='votes')
     proposal = models.ForeignKey('core.Proposal', verbose_name=_("Proposal"),
                                  related_name='votes')
+    proposal_group = models.ForeignKey('core.ProposalGroup',
+                                       verbose_name=_("Proposal Group"),
+                                       related_name='votes')
     datetime = models.DateTimeField(auto_now=True)
     vote = models.BooleanField()
 

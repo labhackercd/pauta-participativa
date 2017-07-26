@@ -18,8 +18,8 @@ class ProposalAdmin(admin.ModelAdmin):
     pass
 
 
-class AgendaThemeInline(nested_admin.NestedStackedInline):
-    model = models.AgendaTheme
+class ProposalGroupInline(nested_admin.NestedStackedInline):
+    model = models.ProposalGroup
     extra = 1
     fk_name = 'agenda'
     filter_horizontal = ('proposals', )
@@ -31,4 +31,5 @@ class AgendaAdmin(nested_admin.NestedModelAdmin):
     list_display = ('title', 'description', 'initial_date', 'end_date')
     search_fields = ('description', )
     list_filter = ('initial_date', 'end_date')
-    inlines = (AgendaThemeInline, )
+    inlines = (ProposalGroupInline, )
+    readonly_fields = ('votes_count', 'participants_count')
