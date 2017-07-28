@@ -1,1 +1,24 @@
 @import 'normalize.css/normalize';
+
+
+.vote {
+  background: #f3f3f3;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 0.2em;
+
+  &.voted {
+    &.upvote {
+      background-color: blue;
+    }
+    &.downvote {
+      background-color: red;
+    }
+  }
+}
+
+.vote-checkbox {
+  display: none;
+}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Pautas Abertas:</h1>
+  <ul>
+    {% for agenda in object_list %}
+      <li>
+        <h2>{{agenda.title}}</h2>
+        <p>{{agenda.description}}</p>
+        <p>{{agenda.votes_count}} votos e {{agenda.participants_count}} participantes</p>
+        <p>Período: {{agenda.initial_date}} até {{agenda.end_date}}</p>
+        <p><a href="{% url 'agenda' pk=agenda.id %}">Participar!</a></p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock content %}
