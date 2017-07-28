@@ -49,6 +49,7 @@ THIRD_PARTY_APPS = [
     'compressor_toolkit',
     'nested_admin',
     'tastypie',
+    'django_js_reverse',
 ]
 
 MAIN_APPS = [

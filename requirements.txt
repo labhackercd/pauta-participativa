@@ -5,3 +5,4 @@ django-compressor-toolkit>=0.6.0
 django-npm>=1.0.0
 django-nested-admin>=3.0.19
 django-tastypie>=0.14.0
+django-js-reverse>=0.7.3
