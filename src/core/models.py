@@ -94,6 +94,8 @@ class Vote(models.Model):
     proposal_group = models.ForeignKey('core.ProposalGroup',
                                        verbose_name=_("Proposal Group"),
                                        related_name='votes')
+    agenda = models.ForeignKey('core.Agenda', verbose_name=_("Proposal Group"),
+                               related_name='participants')
     datetime = models.DateTimeField(auto_now=True)
     vote = models.BooleanField()
 
