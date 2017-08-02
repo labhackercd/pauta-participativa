@@ -42,12 +42,17 @@ class AgendaResource(ModelResource):
     class Meta:
         queryset = models.Agenda.objects.filter(is_visible=True)
         allowed_methods = ['get']
+        excludes = ['is_visible']
         filtering = {
             'id': ALL,
             'initial_date': ALL,
             'end_date': ALL,
             'title': ALL,
         }
+
+    def dehydrate(self, bundle):
+        bundle.data['is_closed'] = bundle.obj.is_closed
+        return bundle
 
 
 class ProposalTypeResource(ModelResource):
