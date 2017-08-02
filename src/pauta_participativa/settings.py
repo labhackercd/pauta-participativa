@@ -9,6 +9,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY', default='secret_key')
 API_KEY = config('API_KEY', default='api_key')
 
+RECAPTCHA_SITE_KEY = config(
+    'RECAPTCHA_SITE_KEY',
+    default='6LeqwioUAAAAAJQwLBKGmmpuazIQM6hEYYoFSTYW'
+)
+RECAPTCHA_PRIVATE_KEY = config(
+    'RECAPTCHA_PRIVATE_KEY',
+    default='6LeqwioUAAAAAHs4i1Zq4D_9kc1I-OL0TmaUowq3'
+)
+
+
 FORCE_SCRIPT_NAME = config('FORCE_SCRIPT_NAME', default=None)
 SITE_ID = 1
 

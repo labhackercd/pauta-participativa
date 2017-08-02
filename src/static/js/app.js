@@ -145,7 +145,7 @@ $('.js-submit-votes-form').submit(function(e) {
 
   $.ajax({
     method: 'POST',
-    url: window.Urls.submit_votes(agendaId),
+    url: window.Urls.agenda(agendaId),
     data: {data: JSON.stringify(data)},
     success: function(data) {
       location.reload();
