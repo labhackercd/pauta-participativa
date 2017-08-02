@@ -31,6 +31,8 @@ class AgendaFormset(AtLeastRequiredFormSet):
             proposals = dict(self.data).get(form.prefix + '-proposals', None)
             error_message = None
             if proposals:
-                if len(proposals) < 4:
-                    error_message = _("You must select at least 4 proposals")
+                if len(proposals) < 4 or len(proposals) > 6:
+                    error_message = _(
+                        "You must select between 4 and 6 proposals"
+                    )
                     raise forms.ValidationError(error_message)
