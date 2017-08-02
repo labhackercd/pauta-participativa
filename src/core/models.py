@@ -2,6 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
+from datetime import date
 
 
 class Theme(models.Model):
@@ -37,6 +38,10 @@ class Agenda(models.Model):
 
     def __str__(self):
         return '{} - {}'.format(self.initial_date, self.end_date)
+
+    @property
+    def is_closed(self):
+        return date.today() > self.end_date
 
 
 class ProposalGroup(models.Model):
