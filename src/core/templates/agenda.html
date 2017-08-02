@@ -63,14 +63,14 @@
                 <li class="item JS-proposal" data-title="{{proposal.title}}">
                   <div class="content">
 
-                    <div class="vote-radio">
-                      <div class="radiobox">
-                        <input class="input" id="group{{group.id}}-upvote{{proposal.id}" type="radio" name="{{proposal.id}}" value="upvote">
+                    <div class="vote-tick">
+                      <div class="tickbox">
+                        <input class="input" id="group{{group.id}}-upvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="upvote">
                         <label class="action -upvote" for="group{{group.id}}-upvote{{proposal.id}" >ON</label>
                       </div>
-                      <div class="radiobox">
-                        <input class="switch-input" id="group{{group.id}}-downvote{{proposal.id}" type="radio" name="{{proposal.id}}" value="downvote" >
-                        <label class="action -downvote" for="group{{group.id}}-downvote{{proposal.id}" >OFF</label>
+                      <div class="tickbox">
+                        <input class="switch-input" id="group{{group.id}}-downvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="downvote" >
+                        <label class="action -downvote" for="group{{group.id}}-downvote{{proposal.id}}" >OFF</label>
                       </div>
                     </div>
 
