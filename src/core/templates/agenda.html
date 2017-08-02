@@ -2,15 +2,20 @@
 {% load pauta_participativa_tags %}
 
 {% block content %}
+
   {% if user|already_voted:object %}
     <div class="">
       <h1>{{object.title}}</h1>
+
       <p>{{object.description}}</p>
+
       {% for group in object.groups.all %}
         <div class="">
           <h2>{{group.theme.name}}</h2>
+
           <ul>
             {% ordered_proposals group object as proposals %}
+
             {% for proposal in proposals %}
               <li>
                 <h3>{{proposal.title}}</h3>
@@ -20,54 +25,107 @@
               </li>
             {% endfor %}
           </ul>
+
         </div>
       {% endfor %}
     </div>
+
   {% else %}
-    <div class="js-agenda" data-agenda-id="{{object.id}}">
+
+    <div class="agenda-block JS-agenda" data-agenda-id="{{object.id}}">
       <h1>{{object.title}}</h1>
+
       <p>{{object.description}}</p>
+
       {% for group in agenda.groups.all %}
-        <div class="js-group" data-group-id="{{group.id}}" data-group-theme>
-          <h2>{{group.theme.name}}</h2>
-          <div class="js-group-header">
-            <span>Seus votos:</span>
-            <ul class="js-votes-list">
-              <li class="js-vote js-upvote">upvote</li>
-              <li class="js-vote js-upvote">upvote</li>
-              <li class="js-vote js-downvote">downvote</li>
-            </ul>
+        <div class="group-block JS-group" data-group-id="{{group.id}}" data-group-theme>
+          <h2 class="theme">{{group.theme.name}}</h2>
+
+          <div class="remaining-votes">
+            <span class="text">Votos restantes:</span>
+
+            <div class="counters">
+              <div class="counter">
+                <span class="number">2</span>
+                <i class="icon icon-lorem"></i>
+              </div>
+
+              <div class="counter">
+                <span class="number">1</span>
+                <i class="icon icon-lorem"></i>
+              </div>
+            </div>
           </div>
-          <form class="js-group-form" action="">
-            <ul>
+
+          <form class="choices-form JS-group-form" action="">
+            <ul class="choice-list">
               {% for proposal in group.proposals.all %}
-                <li class="js-proposal" data-title="{{proposal.title}}">
-                  <h3>{{proposal.title}}</h3>
-                  <input type="checkbox" name="{{proposal.id}}" id="group{{group.id}}-checkbox{{proposal.id}}" class="vote-checkbox js-checkbox">
-                  <label class="vote js-vote-checkbox" for="group{{group.id}}-checkbox{{proposal.id}}"></label>
-                  <p>{{proposal.description}}</p>
+                <li class="item JS-proposal" data-title="{{proposal.title}}">
+                  <div class="content">
+
+                    <div class="vote-radio">
+                      <div class="radiobox">
+                        <input class="input" id="group{{group.id}}-upvote{{proposal.id}" type="radio" name="{{proposal.id}}" value="upvote">
+                        <label class="action -upvote" for="group{{group.id}}-upvote{{proposal.id}" >ON</label>
+                      </div>
+                      <div class="radiobox">
+                        <input class="switch-input" id="group{{group.id}}-downvote{{proposal.id}" type="radio" name="{{proposal.id}}" value="downvote" >
+                        <label class="action -downvote" for="group{{group.id}}-downvote{{proposal.id}" >OFF</label>
+                      </div>
+                    </div>
+
+                    <div class="info">
+                      <h3 class="heading">{{proposal.title}}</h3>
+
+                      <div class="subinfo">
+                        <h4 class="subheading"></h4>
+                        <span class="expand">Ver mais <i class="icon icon-lorem"></i></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="moreinfo">
+                    <p class="description">{{proposal.description}}</p>
+                    <a class="link" href="#">Ler na íntegra</a>
+                  </div>
                 </li>
               {% endfor %}
             </ul>
           </form>
-          <button class="js-next-group">Proximo</button>
         </div>
       {% endfor %}
-      <button class="js-send-votes">Enviar</button>
-      <div class="js-votes-review">
+
+      <div class="navigation-block">
+        <ul class="progress">
+          <li class="step">
+            <i class="icon icon-lorem"></i>
+            <span class="label"></span>
+          </li>
+        </ul>
+
+        <div class="controls-bar">
+          <button class="button -text">Anterior</button>
+          <button class="button">Pular</button>
+          <button class="button JS-next-group">Próximo</button>
+          <button class="button JS-send-votes">Enviar</button>
+        </div>
+      </div>
+
+      <div class="JS-votes-review">
         {% for group in agenda.groups.all %}
-          <div class="js-group-review" data-group-id="{{group.id}}">
+          <div class="JS-group-review" data-group-id="{{group.id}}">
             <h2>{{group.theme.name}}</h2>
-            <ul class="js-voted-list"></ul>
+            <ul class="JS-voted-list"></ul>
           </div>
         {% endfor %}
-        <button class="js-review-back-btn">Voltar</button>
-        <form action="" class="js-submit-votes-form">
+
+        <form action="" class="JS-submit-votes-form">
           {% csrf_token %}
           <div class="g-recaptcha" data-sitekey="6LeqwioUAAAAAJQwLBKGmmpuazIQM6hEYYoFSTYW"></div>
-          <button class="js-submit-votes-btn">Confirmar</button>
+          <button class="JS-submit-votes-btn">Confirmar</button>
         </form>
       </div>
     </div>
   {% endif %}
+
 {% endblock content %}
