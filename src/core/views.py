@@ -1,3 +1,4 @@
+from django.utils.translation import ugettext_lazy as _
 from django.http import Http404, JsonResponse
 from django.views.generic import ListView, DetailView
 from core import models, captcha
@@ -25,8 +26,10 @@ class AgendaView(DetailView):
         if request.user.is_authenticated():
             user = request.user
         else:
-            return JsonResponse({'message': 'Fazer login'},
-                                status=403)
+            return JsonResponse(
+                {'message': _('You must be logged to do this action')},
+                status=403
+            )
 
         data = json.loads(request.POST.get('data'))
         captcha_response = captcha.verify(data['recaptchaResponse'])
@@ -36,19 +39,23 @@ class AgendaView(DetailView):
             empty_groups = 0
             for group in data['groups']:
                 votes = group['votes']
-                if len(votes) == 3:
+                if len(votes) <= 3:
                     self.create_votes(user, votes, group['groupId'])
-                elif len(votes) < 3 and len(votes) > 0:
-                    return JsonResponse({'message': 'Gastar todos os votos'},
-                                        status=400)
+                elif len(votes) > 3:
+                    return JsonResponse(
+                        {'message': _('You can vote at most three times')},
+                        status=400
+                    )
                 else:
                     empty_groups += 1
 
             if groups_count == empty_groups:
-                return JsonResponse({'message': 'Vote em pelo menos um'},
-                                    status=400)
+                return JsonResponse(
+                    {'message': _('You have to vote at least in one group')},
+                    status=400
+                )
             else:
-                return JsonResponse({'message': 'Tudo certo'})
+                return JsonResponse({'message': _('Ok')})
         else:
             message = ' '.join(
                 map(lambda x: captcha.ERRORS[x],

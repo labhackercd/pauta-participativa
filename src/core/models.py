@@ -29,8 +29,10 @@ class Agenda(models.Model):
     title = models.CharField(max_length=100, verbose_name=_("Title"))
     description = models.TextField(verbose_name=_("Description"))
     is_visible = models.BooleanField(default=True, verbose_name=_("Visible"))
-    votes_count = models.IntegerField(default=0)
-    participants_count = models.IntegerField(default=0)
+    votes_count = models.IntegerField(default=0, verbose_name=_("Votes count"))
+    participants_count = models.IntegerField(
+        default=0, verbose_name=_("Participants count")
+    )
 
     class Meta:
         verbose_name = _("Agenda")
@@ -46,9 +48,12 @@ class Agenda(models.Model):
 
 class ProposalGroup(models.Model):
 
-    theme = models.ForeignKey('core.Theme', related_name='agendas')
-    agenda = models.ForeignKey('core.Agenda', related_name='groups')
-    proposals = models.ManyToManyField('core.Proposal', related_name='groups')
+    theme = models.ForeignKey('core.Theme', related_name='agendas',
+                              verbose_name=_("Theme"))
+    agenda = models.ForeignKey('core.Agenda', related_name='groups',
+                               verbose_name=_("Agenda"))
+    proposals = models.ManyToManyField('core.Proposal', related_name='groups',
+                                       verbose_name=_("Proposals"))
 
     class Meta:
         verbose_name = "Proposal Group"
@@ -60,8 +65,10 @@ class ProposalGroup(models.Model):
 
 class ProposalType(models.Model):
 
-    description = models.CharField(max_length=50)
-    initials = models.CharField(max_length=25)
+    description = models.CharField(max_length=50,
+                                   verbose_name=_("Description"))
+    initials = models.CharField(max_length=25,
+                                verbose_name=_("Initials"))
 
     class Meta:
         verbose_name = "Proposal Type"
@@ -76,9 +83,10 @@ class Proposal(models.Model):
     title = models.CharField(max_length=250, verbose_name=_("Title"))
     description = models.TextField(verbose_name=_("Description"))
     proposal_type = models.ForeignKey('core.ProposalType',
-                                      related_name='proposals')
-    number = models.IntegerField()
-    year = models.IntegerField()
+                                      related_name='proposals',
+                                      verbose_name=_("Proposal type"))
+    number = models.IntegerField(verbose_name=_("Number"))
+    year = models.IntegerField(verbose_name=_("Year"))
     url = models.CharField(max_length=250, verbose_name=_("URL"))
 
     class Meta:
@@ -101,8 +109,8 @@ class Vote(models.Model):
                                        related_name='votes')
     agenda = models.ForeignKey('core.Agenda', verbose_name=_("Proposal Group"),
                                related_name='participants')
-    datetime = models.DateTimeField(auto_now=True)
-    vote = models.BooleanField()
+    datetime = models.DateTimeField(auto_now=True, verbose_name=_("Datetime"))
+    vote = models.BooleanField(verbose_name=_("Vote"))
 
     class Meta:
         verbose_name = _("Vote")

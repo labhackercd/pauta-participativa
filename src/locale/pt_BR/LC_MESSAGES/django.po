@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-21 17:24-0300\n"
+"POT-Creation-Date: 2017-08-02 15:47-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,87 +18,147 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: core/captcha.py:7
+msgid "reCAPTCHA: The secret parameter is missing"
+msgstr "reCAPTCHA: Chave secreta não encontrada"
+
+#: core/captcha.py:8
+msgid "reCAPTCHA: The secret parameter is invalid or malformed"
+msgstr "reCAPTCHA: Chave secreta inválida"
+
+#: core/captcha.py:10
+msgid "reCAPTCHA: The response parameter is missing"
+msgstr "reCAPTCHA: Resposta não encontrada"
+
+#: core/captcha.py:12
+msgid "reCAPTCHA: The response parameter is invalid or malformed"
+msgstr "reCAPTCHA: Resposta inválida"
+
+#: core/captcha.py:14
+msgid "reCAPTCHA: The request is invalid or malformed"
+msgstr "reCAPTCHA: Requisição inválida"
+
 #: core/forms.py:22
 #, python-format
 msgid "At least %s item(s) is required."
 msgstr "Pelo menos %s item(s) é obrigatório."
 
+#: core/forms.py:36
+msgid "You must select between 4 and 6 proposals"
+msgstr "Você precisa escolher entre 4 e 6 proposições"
+
 #: core/models.py:10
-msgid "Initial date"
-msgstr "Data inicial"
-
-#: core/models.py:11
-msgid "End date"
-msgstr "Data final"
-
-#: core/models.py:12
-msgid "Meeting date"
-msgstr "Data da reunião"
-
-#: core/models.py:13
-msgid "Briefing"
-msgstr "Briefing"
-
-#: core/models.py:14
-msgid "Visible"
-msgstr "Visível"
-
-#: core/models.py:17 core/models.py:30
-msgid "Poll"
-msgstr "Enquete"
-
-#: core/models.py:18
-msgid "Polls"
-msgstr "Enquetes"
-
-#: core/models.py:26
 msgid "Name"
 msgstr "Nome"
 
-#: core/models.py:27
-msgid "Icon"
-msgstr "Ícone"
+#: core/models.py:11
+msgid "Slug"
+msgstr "Slug"
 
-#: core/models.py:28
-msgid "Can be any icon name from Fontastic"
-msgstr "Pode ser qualquer ícone do Fontastic"
-
-#: core/models.py:33 core/models.py:46
+#: core/models.py:14 core/models.py:52
 msgid "Theme"
 msgstr "Tema"
 
-#: core/models.py:34
+#: core/models.py:15
 msgid "Themes"
 msgstr "Temas"
 
-#: core/models.py:42
+#: core/models.py:27
+msgid "Initial date"
+msgstr "Data inicial"
+
+#: core/models.py:28
+msgid "End date"
+msgstr "Data final"
+
+#: core/models.py:29 core/models.py:83
 msgid "Title"
 msgstr "Título"
 
-#: core/models.py:43
+#: core/models.py:30 core/models.py:69 core/models.py:84
 msgid "Description"
 msgstr "Descrição"
 
-#: core/models.py:44
-msgid "Link"
-msgstr "Link"
+#: core/models.py:31
+msgid "Visible"
+msgstr "Visível"
 
-#: core/models.py:49 core/models.py:60
-msgid "Item"
-msgstr "Item"
+#: core/models.py:32
+msgid "Votes count"
+msgstr "Quantidade de votos"
 
-#: core/models.py:50
-msgid "Items"
-msgstr "Itens"
+#: core/models.py:34
+msgid "Participants count"
+msgstr "Quantidade de participantes"
 
-#: core/models.py:58
+#: core/models.py:38 core/models.py:54
+msgid "Agenda"
+msgstr "Pauta"
+
+#: core/models.py:39
+msgid "Agendas"
+msgstr "Pautas"
+
+#: core/models.py:56 core/models.py:94
+msgid "Proposals"
+msgstr "Proposições"
+
+#: core/models.py:71
+msgid "Initials"
+msgstr "Sigla"
+
+#: core/models.py:87
+msgid "Proposal type"
+msgstr "Tipo de proposição"
+
+#: core/models.py:88
+msgid "Number"
+msgstr "Número"
+
+#: core/models.py:89
+msgid "Year"
+msgstr "Ano"
+
+#: core/models.py:90
+msgid "URL"
+msgstr "URL"
+
+#: core/models.py:93 core/models.py:105
+msgid "Proposal"
+msgstr "Proposição"
+
+#: core/models.py:103
 msgid "User"
 msgstr "Usuário"
 
-#: core/models.py:65
+#: core/models.py:108 core/models.py:110
+msgid "Proposal Group"
+msgstr "Grupo de Proposições"
+
+#: core/models.py:112
+msgid "Datetime"
+msgstr "Data/hora"
+
+#: core/models.py:113 core/models.py:116
 msgid "Vote"
 msgstr "Voto"
 
-#: core/models.py:66
+#: core/models.py:117
 msgid "Votes"
 msgstr "Votos"
+
+#: core/views.py:30
+msgid "You must be logged to do this action"
+msgstr "Você precisa estar logado para realizar essa ação"
+
+#: core/views.py:46
+msgid "You can vote at most three times"
+msgstr "Você pode votar no máximo três vezes"
+
+#: core/views.py:54
+msgid "You have to vote at least in one group"
+msgstr "Você tem que votar no mínimo em um grupo"
+
+#: core/views.py:58
+msgid "Ok"
+msgstr "Ok"
