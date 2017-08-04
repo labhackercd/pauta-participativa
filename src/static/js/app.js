@@ -118,29 +118,17 @@ $('.JS-vote-input').click(function(event) {
   }
 })
 
-$('.js-next-group').click(function(e) {
-  var target = $(e.target);
-  var group = target.closest('.js-group');
-  var userVotesLeft = votesLeft(group);
-
-  if (userVotesLeft.length === 0 || userVotesLeft.length === 3) {
-    alert('Pode ir pro próximo');
-  } else {
-    alert('Opa! Voce precisa gastar todos os votos')
-  }
-})
-
-$('.js-send-votes').click(function(){
-  $('.js-checkbox:checked').each(function() {
-    var title = $(this).closest('.js-proposal').data('title');
+$('.JS-send-votes').click(function(){
+  $('.JS-vote-input:checked').each(function() {
+    var title = $(this).closest('.JS-proposal').data('title');
     var vote = $(this).val();
-    var groupId = $(this).closest('.js-group').data('groupId');
-    var groupReview = $('.js-group-review[data-group-id="' + groupId + '"');
+    var groupId = $(this).closest('.JS-group').data('groupId');
+    var groupReview = $('.JS-group-review[data-group-id="' + groupId + '"');
     var html = '<li><span>' + vote + '</span><span> ' + title + '</span></li>'
-    groupReview.find('.js-voted-list').append(html);
+    groupReview.find('.JS-voted-list').append(html);
   });
 
-  var votedLists = $('.js-voted-list');
+  var votedLists = $('.JS-voted-list');
   var votedListsCount = votedLists.length;
   var emptyVoteList = 0;
 
@@ -163,21 +151,22 @@ $('.js-review-back-btn').click(function() {
   });
 })
 
-$('.js-submit-votes-form').submit(function(e) {
+$('.JS-confirm-votes').submit(function(e) {
   var csrftoken = $(this).find('[name="csrfmiddlewaretoken"]').val();
   var recaptchaResponse = $(this).find('[name="g-recaptcha-response"]').val();
-  var agendaId = $(this).closest('.js-agenda').data('agendaId');
-  // if (!recaptchaResponse) {
-  //   alert('Tem que marcar o reCaptcha');
-  // }
+  var agendaId = $(this).closest('.JS-agenda').data('agendaId');
+  if (!recaptchaResponse) {
+    alert('Tem que marcar o reCaptcha');
+    return false;
+  }
 
   var data = {
     recaptchaResponse: recaptchaResponse,
     groups: []
   };
 
-  $('.js-group-form').each(function() {
-    var groupId = $(this).closest('.js-group').data('groupId');
+  $('.JS-group-form').each(function() {
+    var groupId = $(this).closest('.JS-group').data('groupId');
     var groupData = {
       groupId: groupId,
       votes: $(this).serializeArray()
