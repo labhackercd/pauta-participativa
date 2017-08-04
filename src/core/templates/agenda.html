@@ -46,12 +46,12 @@
 
             <div class="counters">
               <div class="counter">
-                <span class="number">2</span>
+                <span class="number JS-upvote-counter">2</span>
                 <i class="icon icon-lorem"></i>
               </div>
 
               <div class="counter">
-                <span class="number">1</span>
+                <span class="number JS-downvote-counter">1</span>
                 <i class="icon icon-lorem"></i>
               </div>
             </div>
@@ -64,12 +64,12 @@
                   <div class="content">
 
                     <div class="vote-tick">
-                      <div class="tickbox">
-                        <input class="input" id="group{{group.id}}-upvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="upvote">
+                      <div class="tickbox JS-tickbox">
+                        <input class="input JS-vote-input" id="group{{group.id}}-upvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="upvote" data-vote-type="upvote">
                         <label class="action -upvote" for="group{{group.id}}-upvote{{proposal.id}}" >ON</label>
                       </div>
-                      <div class="tickbox">
-                        <input class="switch-input" id="group{{group.id}}-downvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="downvote" >
+                      <div class="tickbox JS-tickbox">
+                        <input class="input JS-vote-input" id="group{{group.id}}-downvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="downvote" data-vote-type="downvote">
                         <label class="action -downvote" for="group{{group.id}}-downvote{{proposal.id}}" >OFF</label>
                       </div>
                     </div>

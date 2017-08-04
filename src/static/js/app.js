@@ -1,6 +1,55 @@
+var Votes = {
+  proposalIsVoted: function(target, sibling) {
+    return sibling.prop('checked') || !target.prop('checked')
+  },
 
-function isVoted(btn) {
-  if (btn.hasClass('voted')) {
+  siblingCheckbox: function(checkbox) {
+    var tickbox = checkbox.closest('.JS-tickbox');
+    return tickbox.siblings('.JS-tickbox').find('.JS-vote-input');
+  },
+
+  getVoteType: function(checkbox) {
+    return checkbox.val();
+  },
+
+  decrementCounter: function(voteType, groupId) {
+    var group = $('.JS-group[data-group-id="' + groupId + '"]');
+    var voteSpan = group.find('.JS-' + voteType + '-counter');
+    var count = parseInt(voteSpan.text());
+    voteSpan.text(count - 1);
+  },
+
+  incrementCounter: function(voteType, groupId) {
+    var group = $('.JS-group[data-group-id="' + groupId + '"]');
+    var voteSpan = group.find('.JS-' + voteType + '-counter');
+    var count = parseInt(voteSpan.text());
+    voteSpan.text(count + 1);
+  },
+
+  remainingVotes: function(voteType, groupId) {
+    var group = $('.JS-group[data-group-id="' + groupId + '"]');
+    var voteSpan = group.find('.JS-' + voteType + '-counter');
+    return parseInt(voteSpan.text());
+  },
+
+  disableUnvoted: function(voteType, groupId) {
+    var group = $('.JS-group[data-group-id="' + groupId + '"]');
+    var selector = '.JS-vote-input[data-vote-type="' + voteType +
+                   '"]:not(:checked)';
+    group.find(selector).attr('disabled', true);
+  },
+
+  enableUnvoted: function(voteType, groupId) {
+    var group = $('.JS-group[data-group-id="' + groupId + '"]');
+    var selector = '.JS-vote-input[data-vote-type="' + voteType +
+                   '"]:not(:checked)';
+    group.find(selector).removeAttr('disabled');
+  },
+}
+
+
+function isVoted(checkbox) {
+  if (checkbox.hasClass('voted')) {
     return true;
   } else {
     return false;
@@ -40,35 +89,34 @@ function updateInputValue(labelFor, value) {
   }
 }
 
-$('.js-vote-checkbox').click(function(e) {
-  var target = $(e.target);
-  var group = target.closest('.js-group');
-  var userVotesLeft = votesLeft(group);
+$('.JS-vote-input').click(function(event) {
+  var target = $(event.target);
+  var siblingCheckbox = Votes.siblingCheckbox(target);
+  var voteType = Votes.getVoteType(target);
+  var groupId = target.closest('.JS-group').data('groupId');
 
-  if (userVotesLeft.length > 0 && !isVoted(target)) {
-    var vote = popVote(group);
-    if (vote.hasClass('js-upvote')) {
-      target.addClass('voted upvote');
-      updateInputValue(target.attr('for'), 'upvote');
+  if (Votes.proposalIsVoted(target, siblingCheckbox)) {
+    if (!target.prop('checked')) {
+      Votes.incrementCounter(voteType, groupId);
     } else {
-      target.addClass('voted downvote');
-      updateInputValue(target.attr('for'), 'downvote');
+      Votes.decrementCounter(voteType, groupId);
+      siblingCheckbox.click();
     }
-  } else if(isVoted(target)) {
-    if (isUpvote(target)) {
-      target.removeClass('upvote');
-      replaceVote(group, 'upvote');
-      updateInputValue(target.attr('for'), '');
+  } else {
+    if (Votes.remainingVotes(voteType, groupId)) {
+      Votes.decrementCounter(voteType, groupId);
     } else {
-      target.removeClass('downvote');
-      replaceVote(group, 'downvote');
-      updateInputValue(target.attr('for'), '');
+      alert('sem votos disponiveis');
+      return false;
     }
-    target.removeClass('voted');
-  } else if (userVotesLeft.length === 0 && !isVoted(target)) {
-    alert('ja gastou todos os votos');
   }
-});
+
+  if (!Votes.remainingVotes(voteType, groupId)) {
+    Votes.disableUnvoted(voteType, groupId);
+  } else {
+    Votes.enableUnvoted(voteType, groupId);
+  }
+})
 
 $('.js-next-group').click(function(e) {
   var target = $(e.target);
