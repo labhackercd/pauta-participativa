@@ -1,0 +1,27 @@
+<div class="group-block JS-group" data-group-id="{{group.id}}" data-group-theme>
+  <h2 class="theme">{{group.theme.name}}</h2>
+
+  <div class="remaining-votes">
+    <span class="text">Votos restantes:</span>
+
+    <div class="counters">
+      <div class="counter">
+        <span class="number JS-upvote-counter">2</span>
+        <i class="icon icon-lorem"></i>
+      </div>
+
+      <div class="counter">
+        <span class="number JS-downvote-counter">1</span>
+        <i class="icon icon-lorem"></i>
+      </div>
+    </div>
+  </div>
+
+  <form class="choices-form JS-group-form" action="">
+    <ul class="choice-list">
+      {% for proposal in group.proposals.all %}
+        {% include "includes/proposal.html" with proposal=proposal %}
+      {% endfor %}
+    </ul>
+  </form>
+</div>

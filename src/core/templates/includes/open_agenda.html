@@ -1,0 +1,40 @@
+<div class="agenda-block JS-agenda" data-agenda-id="{{object.id}}">
+  <h1>{{object.title}}</h1>
+
+  <p>{{object.description}}</p>
+
+  {% for group in agenda.groups.all %}
+    {% include "includes/proposal-group.html" with groups=group %}
+  {% endfor %}
+
+  <div class="navigation-block">
+    <ul class="progress">
+      <li class="step">
+        <i class="icon icon-lorem"></i>
+        <span class="label"></span>
+      </li>
+    </ul>
+
+    <div class="controls-bar">
+      <button class="button -text">Anterior</button>
+      <button class="button">Pular</button>
+      <button class="button JS-next-group">Próximo</button>
+      <button class="button JS-send-votes">Enviar</button>
+    </div>
+  </div>
+
+  <div class="JS-votes-review">
+    {% for group in agenda.groups.all %}
+      <div class="JS-group-review" data-group-id="{{group.id}}">
+        <h2>{{group.theme.name}}</h2>
+        <ul class="JS-voted-list"></ul>
+      </div>
+    {% endfor %}
+
+    <form action="" class="JS-confirm-votes">
+      {% csrf_token %}
+      <div class="g-recaptcha" data-sitekey="6LeqwioUAAAAAJQwLBKGmmpuazIQM6hEYYoFSTYW"></div>
+      <button class="JS-submit-votes-btn">Confirmar</button>
+    </form>
+  </div>
+</div>

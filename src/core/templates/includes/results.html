@@ -1,0 +1,27 @@
+{% load pauta_participativa_tags %}
+
+<div class="">
+  <h1>{{object.title}}</h1>
+
+  <p>{{object.description}}</p>
+
+  {% for group in object.groups.all %}
+    <div class="">
+      <h2>{{group.theme.name}}</h2>
+
+      <ul>
+        {% ordered_proposals group object as proposals %}
+
+        {% for proposal in proposals %}
+          <li>
+            <h3>{{proposal.title}}</h3>
+            <p>Upvotes: {{proposal|upvotes:object}}</p>
+            <p>Downvotes: {{proposal|downvotes:object}}</p>
+            <p>Score: {{proposal|score:object}}</p>
+          </li>
+        {% endfor %}
+      </ul>
+
+    </div>
+  {% endfor %}
+</div>
