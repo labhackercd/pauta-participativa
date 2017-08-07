@@ -115,6 +115,7 @@ class Vote(models.Model):
     class Meta:
         verbose_name = _("Vote")
         verbose_name_plural = _("Votes")
+        unique_together = ('user', 'proposal', 'proposal_group', 'agenda')
 
     def __str__(self):
         return str(self.user)
