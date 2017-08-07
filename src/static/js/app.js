@@ -47,48 +47,6 @@ var Votes = {
   },
 }
 
-
-function isVoted(checkbox) {
-  if (checkbox.hasClass('voted')) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function isUpvote(btn) {
-  return btn.hasClass('upvote');
-}
-
-function votesLeft(groupElement) {
-  var groupVotes = groupElement.find('.js-vote');
-  var votes = $.map(groupVotes, function(vote) {
-    var classes = $(vote).attr('class');
-    return classes.replace('js-vote', '').trim();
-  });
-  return votes;
-}
-
-function popVote(groupElement) {
-  var votesList = groupElement.find('.js-votes-list');
-  return votesList.children('.js-vote').first().detach();
-}
-
-function replaceVote(groupElement, voteType) {
-  var votesList = groupElement.find('.js-votes-list');
-  var newElement = $.parseHTML('<li class="js-vote js-' + voteType + '">' + voteType + '</li>');
-  votesList.prepend(newElement);
-}
-
-function updateInputValue(labelFor, value) {
-  var input = $('#' + labelFor);
-  if (value) {
-    input.val(value);
-  } else {
-    input.removeAttr('value');
-  }
-}
-
 $('.JS-vote-input').click(function(event) {
   var target = $(event.target);
   var siblingCheckbox = Votes.siblingCheckbox(target);
