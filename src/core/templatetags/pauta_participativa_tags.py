@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.template import Library
 register = Library()
 
@@ -31,3 +32,8 @@ def score(proposal, agenda):
 def ordered_proposals(group, agenda):
     queryset = group.proposals.all()
     return sorted(queryset, key=lambda x: score(x, agenda), reverse=True)
+
+
+@register.simple_tag()
+def recaptcha_site_key():
+    return settings.RECAPTCHA_SITE_KEY

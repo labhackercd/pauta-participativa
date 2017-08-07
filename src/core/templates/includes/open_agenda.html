@@ -1,3 +1,5 @@
+{% load pauta_participativa_tags %}
+
 <div class="agenda-block JS-agenda" data-agenda-id="{{object.id}}">
   <h1>{{object.title}}</h1>
 
@@ -41,7 +43,7 @@
 
       <form action="" class="JS-confirm-votes">
         {% csrf_token %}
-        <div class="g-recaptcha" data-sitekey="6LeqwioUAAAAAJQwLBKGmmpuazIQM6hEYYoFSTYW"></div>
+        <div class="g-recaptcha" data-sitekey="{% recaptcha_site_key %}"></div>
         <button class="JS-submit-votes-btn">Confirmar</button>
       </form>
     </div>
