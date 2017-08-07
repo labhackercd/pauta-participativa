@@ -3,6 +3,10 @@
 
   <p>{{object.description}}</p>
 
+  {% if not user.is_authenticated %}
+    <p>Você precisa estar logado no sistema para votar.</p>
+  {% endif %}
+
   {% for group in agenda.groups.all %}
     {% include "includes/proposal-group.html" with groups=group %}
   {% endfor %}
@@ -19,22 +23,27 @@
       <button class="button -text">Anterior</button>
       <button class="button">Pular</button>
       <button class="button JS-next-group">Próximo</button>
-      <button class="button JS-send-votes">Enviar</button>
+
+      {% if user.is_authenticated %}
+        <button class="button JS-send-votes">Enviar</button>
+      {% endif %}
     </div>
   </div>
 
-  <div class="JS-votes-review">
-    {% for group in agenda.groups.all %}
-      <div class="JS-group-review" data-group-id="{{group.id}}">
-        <h2>{{group.theme.name}}</h2>
-        <ul class="JS-voted-list"></ul>
-      </div>
-    {% endfor %}
+  {% if user.is_authenticated %}
+    <div class="JS-votes-review">
+      {% for group in agenda.groups.all %}
+        <div class="JS-group-review" data-group-id="{{group.id}}">
+          <h2>{{group.theme.name}}</h2>
+          <ul class="JS-voted-list"></ul>
+        </div>
+      {% endfor %}
 
-    <form action="" class="JS-confirm-votes">
-      {% csrf_token %}
-      <div class="g-recaptcha" data-sitekey="6LeqwioUAAAAAJQwLBKGmmpuazIQM6hEYYoFSTYW"></div>
-      <button class="JS-submit-votes-btn">Confirmar</button>
-    </form>
-  </div>
+      <form action="" class="JS-confirm-votes">
+        {% csrf_token %}
+        <div class="g-recaptcha" data-sitekey="6LeqwioUAAAAAJQwLBKGmmpuazIQM6hEYYoFSTYW"></div>
+        <button class="JS-submit-votes-btn">Confirmar</button>
+      </form>
+    </div>
+  {% endif %}
 </div>
