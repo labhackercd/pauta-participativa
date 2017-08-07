@@ -17,6 +17,7 @@
   "homepage": "https://github.com/labhackercd/pauta-participativa#readme",
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+    "fontastic-labhacker": "git+https://github.com/labhackercd/fontastic-labhacker.git",
     "jquery": "^3.2.1",
     "node-sass": "^4.5.3",
     "normalize.css": "^7.0.0",
