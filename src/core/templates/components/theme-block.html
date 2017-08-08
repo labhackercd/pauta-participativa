@@ -1,4 +1,4 @@
-<div class="group-block JS-group" data-group-id="{{group.id}}" data-group-theme>
+<div class="theme-block JS-group" data-group-id="{{group.id}}" data-group-theme>
   <h2 class="theme">{{group.theme.name}}</h2>
 
   {% if user.is_authenticated %}
@@ -19,11 +19,11 @@
     </div>
   {% endif %}
 
-  <form class="choices-form JS-group-form" action="">
-    <ul class="choice-list">
+  <form class="theme-form JS-group-form" action="">
+    <ul class="card-list">
       {% for proposal in group.proposals.all %}
-        {% include "includes/proposal.html" with proposal=proposal %}
+        {% include "components/card-item.html" with proposal=proposal %}
       {% endfor %}
     </ul>
   </form>
-</div>
+</div> item

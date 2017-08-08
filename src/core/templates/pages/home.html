@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <section class="landing-section">
+    <img class="logo" src="" alt="Logomarca do Pauta Participativa">
+    <p class="description">{{object.description}}</p>
+  </section>
+
+  <section class="agendas-section">
+
+    <h1 class="open-agendas">Pautas Abertas:</h1>
+
+    <ul class="agenda-list">
+      {% for agenda in object_list %}
+
+        <li class="agenda-item">
+          <h2 class="title">{{agenda.title}}</h2>
+          <div class="time-frame">
+            <span class="begin">{{agenda.initial_date}}</span>
+            <span class="end">{{agenda.end_date}}</span>
+          </div>
+        </li>
+
+        <ul class="themes">
+          <li class="theme"></li>
+        </ul>
+
+        <a class="button" href="{% url 'agenda' pk=agenda.id %}">Participar!</a>
+
+      {% endfor %}
+    </ul>
+
+  </section>
+
+{% endblock content %}

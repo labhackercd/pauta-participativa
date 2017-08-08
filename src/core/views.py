@@ -6,14 +6,14 @@ import json
 
 
 class HomeView(ListView):
-    template_name = 'home.html'
+    template_name = 'pages/home.html'
     model = models.Agenda
     queryset = models.Agenda.objects.filter(is_visible=True)
 
 
 class AgendaView(DetailView):
     model = models.Agenda
-    template_name = 'agenda.html'
+    template_name = 'pages/agenda.html'
 
     def get_object(self, queryset=None):
         obj = super(AgendaView, self).get_object(queryset)

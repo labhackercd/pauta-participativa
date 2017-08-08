@@ -4,9 +4,9 @@
 {% block content %}
 
   {% if user|already_voted:object %}
-    {% include "includes/results.html" with object=object %}
+    {% include "components/results.html" with object=object %}
   {% else %}
-    {% include "includes/open_agenda.html" with object=object %}
+    {% include "components/agenda-block.html" with object=object %}
   {% endif %}
 
 {% endblock content %}

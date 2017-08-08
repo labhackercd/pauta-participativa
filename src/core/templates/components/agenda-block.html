@@ -10,7 +10,7 @@
   {% endif %}
 
   {% for group in agenda.groups.all %}
-    {% include "includes/proposal-group.html" with groups=group %}
+    {% include "components/theme-block.html" with groups=group %}
   {% endfor %}
 
   <div class="navigation-block">
