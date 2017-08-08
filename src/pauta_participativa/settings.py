@@ -194,7 +194,7 @@ STATICFILES_FINDERS = default.STATICFILES_FINDERS + [
     'compressor.finders.CompressorFinder',
 ]
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'core/static')]
 
 NPM_ROOT_PATH = os.path.dirname(BASE_DIR)
 
