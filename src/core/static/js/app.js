@@ -60,19 +60,26 @@ var Votes = {
 
 var Buttons = {
   changeNextButtonState: function(checkbox, groupId) {
+    var nextButton = checkbox.closest('.JS-group').find('.JS-next-group-btn');
     var voteType = Votes.getVoteType(checkbox);
     var downvoteNotAvailable = !Votes.downvoteIsAvailable(groupId);
     var unvote = !checkbox.prop('checked');
     var remainingDownvotes = Votes.remainingVotes('downvote', groupId);
     var remainingUpvotes = Votes.remainingVotes('upvote', groupId);
     if (voteType === 'downvote' && downvoteNotAvailable && !unvote) {
-      alert('avisar sobre ter que gastar todos os votos negativos');
+      nextButton.prop('disabled', true);
+      nextButton.text('Próximo');
     } else if (remainingDownvotes === 0 && remainingUpvotes === 0) {
-      alert('permitir clique depois de votar tudo');
+      nextButton.prop('disabled', false);
+      nextButton.text('Próximo');
     } else if (remainingDownvotes === 1 && remainingUpvotes < 2) {
-      alert('permitir clique');
+      nextButton.prop('disabled', false);
+      nextButton.text('Próximo');
+    } else if (remainingDownvotes === 1 && remainingUpvotes === 2) {
+      nextButton.prop('disabled', false);
+      nextButton.text('Pular');
     } else {
-      alert('desabilitar botao');
+      nextButton.prop('disabled', true);
     }
   },
 }
@@ -136,8 +143,8 @@ $('.JS-vote-input').click(function(event) {
     }
   }
 
-  Buttons.changeNextButtonState(target, groupId);
   Votes.checkUnvoted(voteType, groupId);
+  Buttons.changeNextButtonState(target, groupId);
 })
 
 $('.JS-next-group-btn').click(function(event) {
