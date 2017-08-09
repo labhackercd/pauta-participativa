@@ -1,10 +1,123 @@
 .theme-tag {
   padding: 2px 6px;
-  margin-left: 8px;
-  margin-bottom: 8px;
   border: 1px solid currentColor;
   display: inline;
   color: gold;
-  @include icon($icon-heartbeat);
+
   &::before { margin-right: 4px; }
+
+  &.-documento {
+    color: $color-theme-documento;
+    @include icon($icon-documento);
+  }
+  &.-adm-publica {
+    color: $color-theme-adm-publica;
+    @include icon($icon-adm-publica);
+  }
+  &.-agropecuaria {
+    color: $color-theme-agropecuaria;
+    @include icon($icon-agropecuaria);
+  }
+  &.-assistencia-social {
+    color: $color-theme-assistencia-social;
+    @include icon($icon-assistencia-social);
+  }
+  &.-cidades {
+    color: $color-theme-cidades;
+    @include icon($icon-cidades);
+  }
+  &.-ciencia {
+    color: $color-theme-ciencia;
+    @include icon($icon-ciencia);
+  }
+  &.-comunicacao {
+    color: $color-theme-comunicacao;
+    @include icon($icon-comunicacao);
+  }
+  &.-consumidor {
+    color: $color-theme-consumidor;
+    @include icon($icon-consumidor);
+  }
+  &.-cultura {
+    color: $color-theme-cultura;
+    @include icon($icon-cultura);
+  }
+  &.-direito-e-justica {
+    color: $color-theme-direito-e-justica;
+    @include icon($icon-direito-e-justica);
+  }
+  &.-direitos-humanos {
+    color: $color-theme-direitos-humanos;
+    @include icon($icon-direitos-humanos);
+  }
+  &.-economia {
+    color: $color-theme-economia;
+    @include icon($icon-economia);
+  }
+  &.-educacao {
+    color: $color-theme-educacao;
+    @include icon($icon-educacao);
+  }
+  &.-esportes {
+    color: $color-theme-esportes;
+    @include icon($icon-esportes);
+  }
+  &.-familia {
+    color: $color-theme-familia;
+    @include icon($icon-familia);
+  }
+  &.-industria {
+    color: $color-theme-industria;
+    @include icon($icon-industria);
+  }
+  &.-institucional {
+    color: $color-theme-institucional;
+    @include icon($icon-institucional);
+  }
+  &.-meio-ambiente {
+    color: $color-theme-meio-ambiente;
+    @include icon($icon-meio-ambiente);
+  }
+  &.-participacao-e-transparencia {
+    color: $color-theme-participacao-e-transparencia;
+    @include icon($icon-participacao-e-transparencia);
+  }
+  &.-politica {
+    color: $color-theme-politica;
+    @include icon($icon-politica);
+  }
+  &.-previdencia {
+    color: $color-theme-previdencia;
+    @include icon($icon-previdencia);
+  }
+  &.-relacoes-exteriores {
+    color: $color-theme-relacoes-exteriores;
+    @include icon($icon-relacoes-exteriores);
+  }
+  &.-saude {
+    color: $color-theme-saude;
+    @include icon($icon-saude);
+  }
+  &.-seguranca {
+    color: $color-theme-seguranca;
+    @include icon($icon-seguranca);
+  }
+  &.-trabalho {
+    color: $color-theme-trabalho;
+    @include icon($icon-trabalho);
+  }
+  &.-transporte-e-transito {
+    color: $color-theme-transporte-e-transito;
+    @include icon($icon-transporte-e-transito);
+  }
+  &.-turismo {
+    color: $color-theme-turismo;
+    @include icon($icon-turismo);
+  }
+  &.-reforma-politica {
+    color: $color-theme-reforma-politica;
+    @include icon($icon-reforma-politica);
+  }
+
+
 }
