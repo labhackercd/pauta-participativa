@@ -1,4 +1,4 @@
-<div class="theme-block JS-group" data-group-id="{{group.id}}" data-group-theme>
+<div class="group-block JS-group" data-group-id="{{group.id}}" data-group-theme>
 
   {% if user.is_authenticated %}
     <div class="remaining-votes">
@@ -12,7 +12,7 @@
     </div>
   {% endif %}
 
-  <form class="theme-form JS-group-form" action="">
+  <form class="group-form JS-group-form" action="">
     <ul class="card-list">
       {% for proposal in group.proposals.all %}
         {% include "components/card-item.html" with proposal=proposal %}

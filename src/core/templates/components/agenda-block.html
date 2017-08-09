@@ -10,7 +10,7 @@
 
   <div class="interaction-block">
     {% for group in agenda.groups.all %}
-      {% include "components/theme-block.html" with groups=group %}
+      {% include "components/group-block.html" with groups=group %}
     {% endfor %}
 
     {% if user.is_authenticated %}
