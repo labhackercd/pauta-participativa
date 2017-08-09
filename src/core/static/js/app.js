@@ -45,6 +45,36 @@ var Votes = {
                    '"]:not(:checked)';
     group.find(selector).removeAttr('disabled');
   },
+
+  checkUnvoted: function(voteType, groupId) {
+    if (!this.remainingVotes(voteType, groupId)) {
+      this.disableUnvoted(voteType, groupId);
+    } else {
+      this.enableUnvoted(voteType, groupId);
+    }
+  },
+
+  downvoteIsAvailable: function(groupId) {
+    var upvotesCount = this.remainingVotes('upvote', groupId);
+    return upvotesCount === 0;
+  },
+
+  changeNextButtonState: function(checkbox, groupId) {
+    var voteType = this.getVoteType(checkbox);
+    var downvoteNotAvailable = !this.downvoteIsAvailable(groupId);
+    var unvote = !checkbox.prop('checked');
+    var remainingDownvotes = this.remainingVotes('downvote', groupId);
+    var remainingUpvotes = this.remainingVotes('upvote', groupId);
+    if (voteType === 'downvote' && downvoteNotAvailable && !unvote) {
+      alert('avisar sobre ter que gastar todos os votos negativos');
+    } else if (remainingDownvotes === 0 && remainingUpvotes === 0) {
+      alert('permitir clique depois de votar tudo');
+    } else if (remainingDownvotes === 1 && remainingUpvotes < 2) {
+      alert('permitir clique');
+    } else {
+      alert('desabilitar botao');
+    }
+  },
 }
 
 $('.JS-vote-input').click(function(event) {
@@ -58,7 +88,10 @@ $('.JS-vote-input').click(function(event) {
       Votes.incrementCounter(voteType, groupId);
     } else {
       Votes.decrementCounter(voteType, groupId);
-      siblingCheckbox.click();
+      $(siblingCheckbox).prop('checked', false);
+      var siblingType = Votes.getVoteType(siblingCheckbox);
+      Votes.incrementCounter(siblingType, groupId);
+      Votes.checkUnvoted(siblingType, groupId);
     }
   } else {
     if (Votes.remainingVotes(voteType, groupId)) {
@@ -69,11 +102,8 @@ $('.JS-vote-input').click(function(event) {
     }
   }
 
-  if (!Votes.remainingVotes(voteType, groupId)) {
-    Votes.disableUnvoted(voteType, groupId);
-  } else {
-    Votes.enableUnvoted(voteType, groupId);
-  }
+  Votes.changeNextButtonState(target, groupId);
+  Votes.checkUnvoted(voteType, groupId);
 })
 
 $('.JS-send-votes').click(function(){
