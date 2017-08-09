@@ -14,7 +14,7 @@
     {% endfor %}
 
     {% if user.is_authenticated %}
-      <div class="votes-review JS-votes-review JS-group" data-group-id="finish">
+      <div class="group-block JS-votes-review JS-group" data-group-id="finish">
         {% for group in agenda.groups.all %}
           <div class="JS-group-review" data-group-id="{{group.id}}">
             <h2>{{group.theme.name}}</h2>
