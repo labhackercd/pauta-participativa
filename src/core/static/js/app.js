@@ -14,22 +14,20 @@ var Votes = {
 
   decrementCounter: function(voteType, groupId) {
     var group = $('.JS-group[data-group-id="' + groupId + '"]');
-    var voteSpan = group.find('.JS-' + voteType + '-counter');
-    var count = parseInt(voteSpan.text());
-    voteSpan.text(count - 1);
+    var voteCounter = group.find('.-' + voteType + ':not(.-used).JS-vote-counter').first();
+    voteCounter.addClass('-used');
   },
 
   incrementCounter: function(voteType, groupId) {
     var group = $('.JS-group[data-group-id="' + groupId + '"]');
-    var voteSpan = group.find('.JS-' + voteType + '-counter');
-    var count = parseInt(voteSpan.text());
-    voteSpan.text(count + 1);
+    var voteCounter = group.find('.-' + voteType + '.-used.JS-vote-counter').first();
+    voteCounter.removeClass('-used');
   },
 
   remainingVotes: function(voteType, groupId) {
     var group = $('.JS-group[data-group-id="' + groupId + '"]');
-    var voteSpan = group.find('.JS-' + voteType + '-counter');
-    return parseInt(voteSpan.text());
+    var voteCounters = group.find('.-' + voteType + ':not(.-used).JS-vote-counter');
+    return voteCounters.length
   },
 
   disableUnvoted: function(voteType, groupId) {
