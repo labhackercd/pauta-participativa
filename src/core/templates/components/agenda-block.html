@@ -10,11 +10,11 @@
 
   <div class="interaction-block">
     {% for group in agenda.groups.all %}
-      {% include "components/group-block.html" with groups=group %}
+      {% include "components/group-block.html" with groups=group first=agenda.groups.all|first %}
     {% endfor %}
 
     {% if user.is_authenticated %}
-      <div class="votes-review JS-votes-review">
+      <div class="votes-review JS-votes-review JS-group" data-group-id="finish">
         {% for group in agenda.groups.all %}
           <div class="JS-group-review" data-group-id="{{group.id}}">
             <h2>{{group.theme.name}}</h2>
@@ -31,11 +31,17 @@
     {% endif %}
   </div>
 
-  <nav class="tab-navigation">
-    <a class="item">Açúcar</a>
-    <a class="item">Tempero</a>
-    <a class="item">Tudo de bom</a>
-    <a class="item">👧👧👧</a>
+  <nav class="tab-navigation JS-tab-navigation">
+    {% for group in agenda.groups.all %}
+      {% with agenda.groups.all|first as first_group %}
+        <a class="item {% if group == first_group %}-active{% endif %} JS-tab-item" data-group-id="{{group.id}}">
+          {{group.theme.name}}
+        </a>
+      {% endwith %}
+    {% endfor %}
+    <a class="item JS-tab-item" data-group-id="finish">
+      Finalizar
+    </a>
   </nav>
 
 </div>

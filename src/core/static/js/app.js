@@ -56,13 +56,15 @@ var Votes = {
     var upvotesCount = this.remainingVotes('upvote', groupId);
     return upvotesCount === 0;
   },
+}
 
+var Buttons = {
   changeNextButtonState: function(checkbox, groupId) {
-    var voteType = this.getVoteType(checkbox);
-    var downvoteNotAvailable = !this.downvoteIsAvailable(groupId);
+    var voteType = Votes.getVoteType(checkbox);
+    var downvoteNotAvailable = !Votes.downvoteIsAvailable(groupId);
     var unvote = !checkbox.prop('checked');
-    var remainingDownvotes = this.remainingVotes('downvote', groupId);
-    var remainingUpvotes = this.remainingVotes('upvote', groupId);
+    var remainingDownvotes = Votes.remainingVotes('downvote', groupId);
+    var remainingUpvotes = Votes.remainingVotes('upvote', groupId);
     if (voteType === 'downvote' && downvoteNotAvailable && !unvote) {
       alert('avisar sobre ter que gastar todos os votos negativos');
     } else if (remainingDownvotes === 0 && remainingUpvotes === 0) {
@@ -72,6 +74,40 @@ var Votes = {
     } else {
       alert('desabilitar botao');
     }
+  },
+}
+
+var Tabs = {
+  changeActiveGroup: function(current, next) {
+    var tabNavigation = $('.JS-tab-navigation');
+
+    current.removeClass('-active');
+    var currentGroupId = current.data('groupId');
+    var currentTab = tabNavigation.find('.JS-tab-item[data-group-id="' + currentGroupId + '"]');
+    currentTab.removeClass('-active');
+
+    next.addClass('-active');
+    var nextGroupId = next.data('groupId');
+    var nextTab = tabNavigation.find('.JS-tab-item[data-group-id="' + nextGroupId + '"]');
+    nextTab.addClass('-active');
+  },
+
+  next: function(nextButton) {
+    var group = nextButton.closest('.JS-group');
+    var nextGroup = group.next('.JS-group,JS-votes-review');
+    this.changeActiveGroup(group, nextGroup);
+  },
+
+  previous: function(prevButton) {
+    var group = prevButton.closest('.JS-group');
+    var nextGroup = group.prev('.JS-group');
+    this.changeActiveGroup(group, nextGroup);
+  },
+
+  changeActiveGroupTo: function(currentGroupId, targetGroupId) {
+    var target = $('.JS-group[data-group-id="' + targetGroupId + '"]');
+    var current = $('.JS-group[data-group-id="' + currentGroupId + '"]');
+    this.changeActiveGroup($(current), $(target));
   },
 }
 
@@ -100,9 +136,30 @@ $('.JS-vote-input').click(function(event) {
     }
   }
 
-  Votes.changeNextButtonState(target, groupId);
+  Buttons.changeNextButtonState(target, groupId);
   Votes.checkUnvoted(voteType, groupId);
 })
+
+$('.JS-next-group-btn').click(function(event) {
+  var target = $(event.target);
+  Tabs.next(target);
+});
+
+$('.JS-prev-group-btn').click(function(event) {
+  var target = $(event.target);
+  Tabs.previous(target);
+});
+
+$('.JS-tab-item').click(function(event) {
+  var target = $(event.target);
+  if (target.hasClass('-active')) {
+    return false;
+  } else {
+    var groupId = target.data('groupId');
+    var activeGroup = target.siblings('.JS-tab-item.-active').first();
+    Tabs.changeActiveGroupTo(activeGroup.data('groupId'), groupId);
+  }
+});
 
 $('.JS-send-votes').click(function(){
   $('.JS-vote-input:checked').each(function() {

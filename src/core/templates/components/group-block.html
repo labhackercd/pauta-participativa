@@ -1,4 +1,4 @@
-<div class="group-block JS-group" data-group-id="{{group.id}}" data-group-theme>
+<div class="group-block {% if group == first %}-active{% endif %} JS-group" data-group-id="{{group.id}}" data-group-theme>
 
   {% if user.is_authenticated %}
     <div class="remaining-votes">
@@ -21,13 +21,10 @@
   </form>
 
   <div class="controls-block">
-    <button class="button -text">Anterior</button>
-    <button class="button">Pular</button>
-    <button class="button JS-next-group">Próximo</button>
-
-    {% if user.is_authenticated %}
-      <button class="button JS-send-votes">Enviar</button>
+    {% if group != first %}
+      <button class="button -text JS-prev-group-btn">Anterior</button>
     {% endif %}
+    <button class="button JS-next-group-btn">Pular</button>
   </div>
 
 </div>
