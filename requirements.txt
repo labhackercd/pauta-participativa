@@ -7,3 +7,4 @@ django-nested-admin>=3.0.19
 django-tastypie>=0.14.0
 django-js-reverse>=0.7.3
 requests>=2.18.3
+django-livereload-server>=0.2.3

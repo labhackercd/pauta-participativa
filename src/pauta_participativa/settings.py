@@ -60,6 +60,7 @@ THIRD_PARTY_APPS = [
     'nested_admin',
     'tastypie',
     'django_js_reverse',
+    'livereload',
 ]
 
 MAIN_APPS = [
@@ -82,7 +83,9 @@ DJANGO_MIDDLEWARES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-THIRD_PARTY_MIDDLEWARES = []
+THIRD_PARTY_MIDDLEWARES = [
+    'livereload.middleware.LiveReloadScript',
+]
 
 PAUTA_MIDDLEWARES = []
 
