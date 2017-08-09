@@ -1,51 +1,42 @@
 {% load pauta_participativa_tags %}
 
 <div class="agenda-block JS-agenda" data-agenda-id="{{object.id}}">
+  <img class="logo" src="" alt="">
   <h1>{{object.title}}</h1>
-
-  <p>{{object.description}}</p>
 
   {% if not user.is_authenticated %}
     <p>Você precisa estar logado no sistema para votar.</p>
   {% endif %}
 
-  {% for group in agenda.groups.all %}
-    {% include "components/theme-block.html" with groups=group %}
-  {% endfor %}
+  <div class="interaction-block">
+    {% for group in agenda.groups.all %}
+      {% include "components/theme-block.html" with groups=group %}
+    {% endfor %}
 
-  <div class="navigation-block">
-    <ul class="progress">
-      <li class="step">
-        <i class="icon icon-lorem"></i>
-        <span class="label"></span>
-      </li>
-    </ul>
+    {% if user.is_authenticated %}
+      <div class="votes-review JS-votes-review">
+        {% for group in agenda.groups.all %}
+          <div class="JS-group-review" data-group-id="{{group.id}}">
+            <h2>{{group.theme.name}}</h2>
+            <ul class="JS-voted-list"></ul>
+          </div>
+        {% endfor %}
 
-    <div class="controls-bar">
-      <button class="button -text">Anterior</button>
-      <button class="button">Pular</button>
-      <button class="button JS-next-group">Próximo</button>
-
-      {% if user.is_authenticated %}
-        <button class="button JS-send-votes">Enviar</button>
-      {% endif %}
-    </div>
+        <form action="" class="JS-confirm-votes">
+          {% csrf_token %}
+          <div class="g-recaptcha" data-sitekey="{% recaptcha_site_key %}"></div>
+          <button class="JS-submit-votes-btn">Confirmar</button>
+        </form>
+      </div>
+    {% endif %}
   </div>
 
-  {% if user.is_authenticated %}
-    <div class="JS-votes-review">
-      {% for group in agenda.groups.all %}
-        <div class="JS-group-review" data-group-id="{{group.id}}">
-          <h2>{{group.theme.name}}</h2>
-          <ul class="JS-voted-list"></ul>
-        </div>
-      {% endfor %}
+  <ul class="progress-bar">
+    <li class="step">
+      <i class="icon icon-lorem"></i>
+      <span class="label"></span>
+    </li>
+  </ul>
 
-      <form action="" class="JS-confirm-votes">
-        {% csrf_token %}
-        <div class="g-recaptcha" data-sitekey="{% recaptcha_site_key %}"></div>
-        <button class="JS-submit-votes-btn">Confirmar</button>
-      </form>
-    </div>
-  {% endif %}
+
 </div>

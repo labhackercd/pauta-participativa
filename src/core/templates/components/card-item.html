@@ -1,26 +1,15 @@
 <li class="card-item JS-proposal" data-title="{{proposal.title}}">
+
   <div class="content">
-
-    {% if user.is_authenticated %}
-      <div class="vote-tick">
-        <div class="tickbox JS-tickbox">
-          <input class="input JS-vote-input" id="group{{group.id}}-upvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="upvote" data-vote-type="upvote">
-          <label class="action -upvote" for="group{{group.id}}-upvote{{proposal.id}}"></label>
-        </div>
-        <div class="tickbox JS-tickbox">
-          <input class="input JS-vote-input" id="group{{group.id}}-downvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="downvote" data-vote-type="downvote">
-          <label class="action -downvote" for="group{{group.id}}-downvote{{proposal.id}}"></label>
-        </div>
-      </div>
-    {% endif %}
-
     <div class="info">
+
       <h3 class="heading">{{proposal.title}}</h3>
 
       <div class="subinfo">
         <h4 class="subheading"></h4>
         <span class="expand">Ver mais <i class="icon icon-lorem"></i></span>
       </div>
+
     </div>
   </div>
 
@@ -28,4 +17,18 @@
     <p class="description">{{proposal.description}}</p>
     <a class="link" href="#">Ler na íntegra</a>
   </div>
+
+  {% if user.is_authenticated %}
+    <div class="vote-tick">
+      <div class="tickbox JS-tickbox">
+        <input class="input JS-vote-input" id="group{{group.id}}-upvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="upvote" data-vote-type="upvote">
+        <label class="action -upvote" for="group{{group.id}}-upvote{{proposal.id}}"></label>
+      </div>
+      <div class="tickbox JS-tickbox">
+        <input class="input JS-vote-input" id="group{{group.id}}-downvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="downvote" data-vote-type="downvote">
+        <label class="action -downvote" for="group{{group.id}}-downvote{{proposal.id}}"></label>
+      </div>
+    </div>
+  {% endif %}
+
 </li>

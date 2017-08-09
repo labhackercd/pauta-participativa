@@ -1,20 +1,13 @@
 <div class="theme-block JS-group" data-group-id="{{group.id}}" data-group-theme>
-  <h2 class="theme">{{group.theme.name}}</h2>
 
   {% if user.is_authenticated %}
     <div class="remaining-votes">
-      <span class="text">Votos restantes:</span>
+      <span class="text">Votos disponíveis:</span>
 
       <div class="counters">
-        <div class="counter">
-          <span class="number JS-upvote-counter">2</span>
-          <i class="icon icon-lorem"></i>
-        </div>
-
-        <div class="counter">
-          <span class="number JS-downvote-counter">1</span>
-          <i class="icon icon-lorem"></i>
-        </div>
+        <span class="counter -upvote"></span>
+        <span class="counter -upvote"></span>
+        <span class="counter -downvote"></span>
       </div>
     </div>
   {% endif %}
@@ -26,4 +19,15 @@
       {% endfor %}
     </ul>
   </form>
-</div> item
+
+  <div class="controls-block">
+    <button class="button -text">Anterior</button>
+    <button class="button">Pular</button>
+    <button class="button JS-next-group">Próximo</button>
+
+    {% if user.is_authenticated %}
+      <button class="button JS-send-votes">Enviar</button>
+    {% endif %}
+  </div>
+
+</div>
