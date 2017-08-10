@@ -1,0 +1,34 @@
+<li class="proposal-card JS-proposal" data-title="{{proposal.title}}">
+
+  <div class="content">
+    <div class="info">
+
+      <h3 class="heading">{{proposal.title}}</h3>
+
+      <div class="subinfo">
+        <h4 class="subheading"></h4>
+        <span class="expand">Ver mais <i class="icon icon-lorem"></i></span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="moreinfo">
+    <p class="description">{{proposal.description}}</p>
+    <a class="link" href="#">Ler na íntegra</a>
+  </div>
+
+  {% if user.is_authenticated %}
+    <div class="votes">
+      <div class="vote-button -upvote JS-tickbox">
+        <input class="JS-vote-input" id="group{{group.id}}-upvote" type="checkbox" name="{{proposal.id}}" value="upvote" data-vote-type="upvote">
+        <label for="group{{group.id}}-upvote"></label>
+      </div>
+      <div class="vote-button -downvote JS-tickbox">
+        <input class="JS-vote-input" id="group{{group.id}}-downvote" type="checkbox" name="{{proposal.id}}" value="downvote" data-vote-type="downvote">
+        <label for="group{{group.id}}-downvote"></label>
+      </div>
+    </div>
+  {% endif %}
+
+</li>

@@ -1,10 +1,25 @@
+.votes {
+  width: 100%;
+  display: flex;
+}
+
 .vote-button {
+  margin: 1rem;
+  cursor: pointer;
+
+  &.-upvote {
+    color: $color-positive;
+    > label { @include icon($icon-check); }
+  }
+  &.-downvote {
+    color: $color-negative;
+    > label { @include icon($icon-times); }
+  }
 
   & > label {
-    width: 100px;
-    height: 100px;
-    display: block;
-    background-color: #f00
+    color: inherit;
+    border: 1px solid currentColor;
+    text-align: center;
   }
 
   & > input {
@@ -12,7 +27,8 @@
   }
 
   & > input:checked + label {
-    background-color: #0f0;
+    background-color: currentColor;
+    &::before { color: #fff; }
   }
 
 }

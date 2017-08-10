@@ -1,0 +1,10 @@
+.error-message {
+  background-color: $color-negative;
+  color: #fff;
+  display: none;
+
+  &.-show {
+    display: block;
+  }
+
+}

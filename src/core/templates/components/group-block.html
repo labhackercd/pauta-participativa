@@ -15,7 +15,7 @@
   <form class="group-form JS-group-form" action="">
     <ul class="card-list">
       {% for proposal in group.proposals.all %}
-        {% include "components/card-item.html" with proposal=proposal %}
+        {% include "components/proposal-card.html" with proposal=proposal %}
       {% endfor %}
     </ul>
   </form>
