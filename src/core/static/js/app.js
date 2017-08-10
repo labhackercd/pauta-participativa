@@ -61,6 +61,7 @@ var Votes = {
 var Buttons = {
   changeNextButtonState: function(checkbox, groupId) {
     var nextButton = checkbox.closest('.JS-group').find('.JS-next-group-btn');
+    var errorMessage = $('.JS-error-message');
     var voteType = Votes.getVoteType(checkbox);
     var downvoteNotAvailable = !Votes.downvoteIsAvailable(groupId);
     var unvote = !checkbox.prop('checked');
@@ -69,17 +70,23 @@ var Buttons = {
     if (voteType === 'downvote' && downvoteNotAvailable && !unvote) {
       nextButton.prop('disabled', true);
       nextButton.text('Próximo');
+      errorMessage.addClass('-show');
     } else if (remainingDownvotes === 0 && remainingUpvotes === 0) {
       nextButton.prop('disabled', false);
       nextButton.text('Próximo');
+      errorMessage.removeClass('-show');
+
     } else if (remainingDownvotes === 1 && remainingUpvotes < 2) {
       nextButton.prop('disabled', false);
       nextButton.text('Próximo');
+      errorMessage.removeClass('-show');
     } else if (remainingDownvotes === 1 && remainingUpvotes === 2) {
       nextButton.prop('disabled', false);
       nextButton.text('Pular');
+      errorMessage.removeClass('-show');
     } else {
       nextButton.prop('disabled', true);
+      errorMessage.addClass('-show');
     }
   },
 }
