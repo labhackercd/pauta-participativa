@@ -1,7 +1,7 @@
 <div class="group-block {% if group == first %}-active{% endif %} JS-group" data-group-id="{{group.id}}" data-group-theme>
 
   {% if user.is_authenticated %}
-    <div class="remaining-votes">
+    <div class="remaining-votes JS-remaining-votes">
       <span class="text">Votos disponíveis:</span>
 
       <div class="counters">

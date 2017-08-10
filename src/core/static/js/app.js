@@ -202,6 +202,16 @@ $('.JS-send-votes').click(function(){
   }
 });
 
+$(window).scroll(function(event) {
+  var headerHeight = $('.JS-agenda-header').outerHeight();
+  var remainingVotes = $('.JS-remaining-votes');
+  if ($(document).scrollTop() > headerHeight) {
+    remainingVotes.addClass('-fixed');
+  } else {
+    remainingVotes.removeClass('-fixed');
+  }
+});
+
 $('.js-review-back-btn').click(function() {
   $('.js-voted-list').each(function() {
     $(this).html('');
