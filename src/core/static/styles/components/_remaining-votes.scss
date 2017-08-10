@@ -1,0 +1,49 @@
+.remaining-votes {
+  align-items: center;
+  align-self: center;
+  background-color: white;
+  border-radius: 2rem;
+  display: flex;
+  height: 2rem;
+  justify-content: center;
+  padding: 0 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+
+  > .text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0 0.5rem;
+    color: $color-brand;
+  }
+
+  > .counters {
+    display: flex;
+
+    > .counter {
+      align-items: center;
+      border-radius: 50%;
+      display: inline-flex;
+      font-size: 0.6rem;
+      height: 1rem;
+      justify-content: center;
+      text-shadow: 0 1px 3px rgba(black, 0.4);
+      width: 1rem;
+      margin: 0 0.25rem;
+      color: white;
+
+      &.-upvote {
+        @include icon($icon-check);
+        background-color: $color-positive;
+      }
+
+      &.-downvote {
+        @include icon($icon-times);
+        background-color: $color-negative;
+      }
+
+      &.-used {
+        background-color: hsl(0, 0%, 90%);
+      }
+    }
+  }
+}
