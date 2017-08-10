@@ -18,6 +18,11 @@ class ProposalAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(models.Vote)
+class VoteAdmin(admin.ModelAdmin):
+    pass
+
+
 class ProposalGroupInline(nested_admin.NestedStackedInline):
     model = models.ProposalGroup
     extra = 1

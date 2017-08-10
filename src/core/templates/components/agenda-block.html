@@ -12,17 +12,14 @@
 
   <div class="interaction-block">
     {% for group in agenda.groups.all %}
-      {% include "components/group-block.html" with groups=group first=agenda.groups.all|first %}
+      {% include "components/group-block.html" with groups=group last_group=agenda.groups.last first_group=agenda.groups.first %}
     {% endfor %}
 
     {% if user.is_authenticated %}
       <div class="group-block JS-votes-review JS-group" data-group-id="finish">
         <div class="wrapper">
           {% for group in agenda.groups.all %}
-            <div class="JS-group-review" data-group-id="{{group.id}}">
-              <h2>{{group.theme.name}}</h2>
-              <ul class="JS-voted-list"></ul>
-            </div>
+            {% include "components/review-card.html" with group=group %}
           {% endfor %}
 
           <form action="" class="JS-confirm-votes">

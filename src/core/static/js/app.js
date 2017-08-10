@@ -56,6 +56,16 @@ var Votes = {
     var upvotesCount = this.remainingVotes('upvote', groupId);
     return upvotesCount === 0;
   },
+
+  updateReview: function(vote, voteType, groupId, proposalId) {
+    var groupReview = $('.JS-group-review[data-group-id="' + groupId + '"]');
+    var proposalReview = groupReview.find('.JS-proposal-review[data-proposal-id="' + proposalId + '"]');
+    if (vote) {
+      proposalReview.addClass('-' + voteType);
+    } else {
+      proposalReview.removeClass('-' + voteType);
+    }
+  },
 }
 
 var Buttons = {
@@ -130,20 +140,25 @@ $('.JS-vote-input').click(function(event) {
   var siblingCheckbox = Votes.siblingCheckbox(target);
   var voteType = Votes.getVoteType(target);
   var groupId = target.closest('.JS-group').data('groupId');
+  var proposalId = target.closest('.JS-proposal').data('proposalId');
 
   if (Votes.proposalIsVoted(target, siblingCheckbox)) {
     if (!target.prop('checked')) {
       Votes.incrementCounter(voteType, groupId);
+      Votes.updateReview(false, voteType, groupId, proposalId);
     } else {
       Votes.decrementCounter(voteType, groupId);
+      Votes.updateReview(true, voteType, groupId, proposalId);
       $(siblingCheckbox).prop('checked', false);
       var siblingType = Votes.getVoteType(siblingCheckbox);
       Votes.incrementCounter(siblingType, groupId);
+      Votes.updateReview(false, siblingType, groupId, proposalId);
       Votes.checkUnvoted(siblingType, groupId);
     }
   } else {
     if (Votes.remainingVotes(voteType, groupId)) {
       Votes.decrementCounter(voteType, groupId);
+      Votes.updateReview(true, voteType, groupId, proposalId);
     } else {
       alert('sem votos disponiveis');
       return false;
@@ -175,33 +190,6 @@ $('.JS-tab-item').click(function(event) {
   }
 });
 
-$('.JS-send-votes').click(function(){
-  $('.JS-vote-input:checked').each(function() {
-    var title = $(this).closest('.JS-proposal').data('title');
-    var vote = $(this).val();
-    var groupId = $(this).closest('.JS-group').data('groupId');
-    var groupReview = $('.JS-group-review[data-group-id="' + groupId + '"');
-    var html = '<li><span>' + vote + '</span><span> ' + title + '</span></li>'
-    groupReview.find('.JS-voted-list').append(html);
-  });
-
-  var votedLists = $('.JS-voted-list');
-  var votedListsCount = votedLists.length;
-  var emptyVoteList = 0;
-
-  votedLists.each(function() {
-    var votes = $(this).children();
-    if (votes.length === 0) {
-      $(this).append('<li>Voto em branco</li>');
-      emptyVoteList = emptyVoteList + 1;
-    }
-  });
-
-  if (votedListsCount === emptyVoteList) {
-    alert('Vote em pelo menos um grupo.');
-  }
-});
-
 $(window).scroll(function(event) {
   var headerHeight = $('.JS-agenda-header').outerHeight();
   var remainingVotes = $('.JS-remaining-votes');
@@ -211,12 +199,6 @@ $(window).scroll(function(event) {
     remainingVotes.removeClass('-fixed');
   }
 });
-
-$('.js-review-back-btn').click(function() {
-  $('.js-voted-list').each(function() {
-    $(this).html('');
-  });
-})
 
 $('.JS-confirm-votes').submit(function(e) {
   var csrftoken = $(this).find('[name="csrfmiddlewaretoken"]').val();
