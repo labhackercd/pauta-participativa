@@ -5,3 +5,27 @@
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
 }
+
+@mixin theme-color{
+  @each $theme, $color in $color-theme {
+    &.-#{$theme} {
+      color: $color;
+    }
+  }
+}
+
+@mixin theme-bgcolor{
+  @each $theme, $color in $color-theme {
+    &.-#{$theme} {
+      background-color: $color;
+    }
+  }
+}
+
+@mixin theme-icon{
+  @each $theme, $color in $color-theme {
+    &.-#{$theme} {
+      @include icon($theme);
+    }
+  }
+}

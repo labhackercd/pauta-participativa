@@ -19,22 +19,35 @@
     > a {
       flex: 1;
       width: 8rem;
-      border-top: 1px solid hsl(0, 0%, 80%);
+      box-shadow: 0 1px 0 0 hsl(0, 0%, 80%) inset;
       cursor: pointer;
       text-align: center;
       display: flex;
       flex-direction: column;
+      justify-content: space-around;
+      font-size: $font-size-centi;
+      padding-top: 0.4rem;
+      padding-bottom: 0.3rem;
+      transition: box-shadow 0.3s ease;
+      font-weight: 600;
+      color: $color-brand;
       @include icon('flag-checkered');
 
-      &:hover { background-color: hsl(0, 0%, 95%); }
+      &::before { font-size: $font-size-deca;; }
+
+      &:hover, &:active { background-color: hsl(0, 0%, 95%); }
 
       @include bp-smallonly { min-width: 22vw; }
 
-      @each $theme, $color in $color-theme {
-        &.-#{$theme} {
-          color: $color;
-          @include icon($theme);
-        }
+      @include theme-color;
+      @include theme-icon;
+
+      &.-active {
+        box-shadow: 0 6px 0 0 currentColor inset;
+      }
+
+      &.-disabled {
+        opacity: 0.4;
       }
 
     }

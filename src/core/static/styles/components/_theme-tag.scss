@@ -7,11 +7,7 @@
 
   &::before { margin-right: 4px; }
 
-  @each $theme, $color in $color-theme {
-    &.-#{$theme} {
-      color: $color;
-      @include icon($theme);
-    }
-  }
+  @include theme-color;
+  @include theme-icon;
 
 }
