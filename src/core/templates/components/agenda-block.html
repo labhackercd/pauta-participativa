@@ -17,18 +17,20 @@
 
     {% if user.is_authenticated %}
       <div class="group-block JS-votes-review JS-group" data-group-id="finish">
-        {% for group in agenda.groups.all %}
-          <div class="JS-group-review" data-group-id="{{group.id}}">
-            <h2>{{group.theme.name}}</h2>
-            <ul class="JS-voted-list"></ul>
-          </div>
-        {% endfor %}
+        <div class="wrapper">
+          {% for group in agenda.groups.all %}
+            <div class="JS-group-review" data-group-id="{{group.id}}">
+              <h2>{{group.theme.name}}</h2>
+              <ul class="JS-voted-list"></ul>
+            </div>
+          {% endfor %}
 
-        <form action="" class="JS-confirm-votes">
-          {% csrf_token %}
-          <div class="g-recaptcha" data-sitekey="{% recaptcha_site_key %}"></div>
-          <button class="JS-submit-votes-btn">Confirmar</button>
-        </form>
+          <form action="" class="JS-confirm-votes">
+            {% csrf_token %}
+            <div class="g-recaptcha" data-sitekey="{% recaptcha_site_key %}"></div>
+            <button class="JS-submit-votes-btn">Confirmar</button>
+          </form>
+        </div>
       </div>
     {% endif %}
   </div>
