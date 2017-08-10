@@ -7,32 +7,32 @@ $bp-huge: 1920px;
 
 // Mixins
 
-@mixin breakpoint-small-only {
+@mixin bpg-smallonly {
   @media (max-width: $bp-small) { @content; }
 }
-@mixin breakpoint-medium-only {
+@mixin bpg-mediumonly {
   @media (min-width: $bp-small + 1px) and (max-width: $bp-medium) { @content; }
 }
-@mixin breakpoint-large-only {
+@mixin bpg-largeonly {
   @media (min-width: $bp-medium + 1px) and (max-width: $bp-large) { @content; }
 }
-@mixin breakpoint-huge-only {
+@mixin bpg-hugeonly {
   @media (min-width: $bp-large + 1px) and (max-width: $bp-huge) { @content; }
 }
 
-@mixin breakpoint-medium-up {
+@mixin bpg-mediumup {
   @media (min-width: $bp-medium + 1px) { @content; }
 }
-@mixin breakpoint-large-up {
+@mixin bpg-largeup {
   @media (min-width: $bp-large + 1px) { @content; }
 }
-@mixin breakpoint-huge-up {
+@mixin bpg-hugeup {
   @media (min-width: $bp-huge + 1px) { @content; }
 }
 
-@mixin breakpoint-medium-down {
+@mixin bpg-mediumdown {
   @media (max-width: $bp-medium) { @content; }
 }
-@mixin breakpoint-large-down {
+@mixin bpg-largedown {
   @media (max-width: $bp-large) { @content; }
 }
