@@ -8,9 +8,10 @@
 @import 'ambience/typography';
 
 // Base
+@import 'base/reusables';
+@import 'base/responsive';
 @import 'base/icons';
 @import 'base/unclassed';
-@import 'base/reusables';
 
 // Components
 @import 'components/theme-tag';
