@@ -12,19 +12,24 @@
     </div>
   {% endif %}
 
-  <form class="group-form JS-group-form" action="">
-    <ul class="card-list">
-      {% for proposal in group.proposals.all %}
-        {% include "components/proposal-card.html" with proposal=proposal %}
-      {% endfor %}
-    </ul>
-  </form>
+  <div class="wrapper">
 
-  <div class="controls-block">
-    {% if group != first %}
-      <button class="button -text JS-prev-group-btn">Anterior</button>
-    {% endif %}
-    <button class="button JS-next-group-btn">Pular</button>
+    <form class="group-form JS-group-form" action="">
+      <ul class="proposal-list">
+        <h1>Theme Title</h1>
+        {% for proposal in group.proposals.all %}
+          {% include "components/proposal-card.html" with proposal=proposal %}
+        {% endfor %}
+      </ul>
+    </form>
+
+    <div class="controls-block">
+      {% if group != first %}
+        <button class="button -text JS-prev-group-btn">Anterior</button>
+      {% endif %}
+      <button class="button JS-next-group-btn">Pular</button>
+    </div>
+    
   </div>
 
 </div>

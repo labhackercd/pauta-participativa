@@ -1,6 +1,32 @@
 .proposal-card {
   @extend %card;
 
+  > .title {
+    font-size: $font-size-deca;
+  }
+
+  > .pl {
+    color: hsl(0, 0%, 60%);
+  }
+
+  > .more {
+    @include icon($icon-caret-down, after);
+    color: $color-positive;
+    cursor: pointer;
+    &:hover { border-bottom: 1px solid $color-positive; }
+  }
+
+  > .moreinfo {
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    &.-show {
+      max-height: 80vh;
+    }
+  }
+
   > .votes {
     width: 100%;
     display: flex;

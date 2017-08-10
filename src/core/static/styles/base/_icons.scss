@@ -12,8 +12,8 @@
 }
 
 // Mixin to add icons by using SASS variables. No markup shit.
-@mixin icon($content) {
-  &::before {
+@mixin icon($content, $precedence: before) {
+  &::#{$precedence} {
     content: $content;
     font-family: 'fontastic-labhacker';
     speak: none;

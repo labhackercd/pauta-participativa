@@ -1,21 +1,14 @@
 <li class="proposal-card JS-proposal" data-title="{{proposal.title}}">
 
-  <div class="content">
-    <div class="info">
+  <h3 class="title">{{proposal.title|lower|capfirst}}</h3>
 
-      <h3 class="heading">{{proposal.title}}</h3>
+  <p class="pl">{{proposal.proposal_type.initals}} {{proposal.number}}/{{proposal.year}}</p>
 
-      <div class="subinfo">
-        <h4 class="subheading"></h4>
-        <span class="expand">Ver mais <i class="icon icon-lorem"></i></span>
-      </div>
+  <a class="more">Ver mais</a>
 
-    </div>
-  </div>
-
-  <div class="moreinfo">
+  <div class="moreinfo -show">
     <p class="description">{{proposal.description}}</p>
-    <a class="link" href="#">Ler na íntegra</a>
+    <a class="link">Ler na íntegra</a>
   </div>
 
   {% if user.is_authenticated %}

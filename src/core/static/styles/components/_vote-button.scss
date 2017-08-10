@@ -46,6 +46,7 @@
   & > input:disabled + label {
     color: hsl(0, 0%, 60%);
     background-color: rgba(#000, 0.1);
+    pointer-events: none;
   }
 
 }
