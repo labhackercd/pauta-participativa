@@ -1,5 +1,7 @@
 <div class="group-block {% if group == first %}-active{% endif %} JS-group" data-group-id="{{group.id}}" data-group-theme>
 
+  <h2 class="title">Theme Title</h2>
+
   {% if user.is_authenticated %}
     <div class="remaining-votes JS-remaining-votes">
       <span class="text">Votos disponíveis:</span>
@@ -14,7 +16,6 @@
 
   <form class="group-form JS-group-form" action="">
     <ul class="proposal-list">
-      <h1>Theme Title</h1>
       {% for proposal in group.proposals.all %}
         {% include "components/proposal-card.html" with proposal=proposal %}
       {% endfor %}
