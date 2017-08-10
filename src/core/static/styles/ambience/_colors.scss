@@ -4,31 +4,34 @@ $color-negative: #d55c4d;
 $color-brand: #3b3970;
 
 // e-Democracia default theme colors
-$color-theme-documento: #b1b1ba;
-$color-theme-adm-publica: #5a9ab6;
-$color-theme-agropecuaria: #1a7c7b;
-$color-theme-assistencia-social: #5d7f1a;
-$color-theme-cidades: #657981;
-$color-theme-ciencia: #6b78dd;
-$color-theme-comunicacao: #0d80a0;
-$color-theme-consumidor: #ef4545;
-$color-theme-cultura: #c05fba;
-$color-theme-direito-e-justica: #1844a3;
-$color-theme-direitos-humanos: #a96085;
-$color-theme-economia: #2a8945;
-$color-theme-educacao: #3abf56;
-$color-theme-esportes: #006130;
-$color-theme-familia: #f39a35;
-$color-theme-industria: #544e4e;
-$color-theme-institucional: #22a23d;
-$color-theme-meio-ambiente: #c5db9b;
-$color-theme-participacao-e-transparencia: #4f69de;
-$color-theme-politica: #b0614f;
-$color-theme-previdencia: #52c0ca;
-$color-theme-relacoes-exteriores: #12b5c4;
-$color-theme-saude: #3c864a;
-$color-theme-seguranca: #e6413d;
-$color-theme-trabalho: #6a97b3;
-$color-theme-transporte-e-transito: #71706a;
-$color-theme-turismo: #707a66;
-$color-theme-reforma-politica: #417d62;
+
+$color-theme: (
+  documento: #b1b1ba,
+  adm-publica: #5a9ab6,
+  agropecuaria: #1a7c7b,
+  assistencia-social: #5d7f1a,
+  cidades: #657981,
+  ciencia: #6b78dd,
+  comunicacao: #0d80a0,
+  comercio-consumidor: #ef4545,
+  cultura: #c05fba,
+  direito-e-justica: #1844a3,
+  direitos-humanos: #a96085,
+  economia: #2a8945,
+  educacao: #3abf56,
+  esportes: #006130,
+  familia: #f39a35,
+  industria: #544e4e,
+  institucional: #22a23d,
+  meio-ambiente: #c5db9b,
+  participacao-e-transparencia: #4f69de,
+  politica: #b0614f,
+  previdencia: #52c0ca,
+  relacoes-exteriores: #12b5c4,
+  saude: #3c864a,
+  seguranca: #e6413d,
+  trabalho: #6a97b3,
+  transporte-e-transito: #71706a,
+  turismo: #707a66,
+  reforma-politica: #417d62
+);

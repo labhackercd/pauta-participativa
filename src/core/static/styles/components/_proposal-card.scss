@@ -2,21 +2,25 @@
   @extend %card;
 
   > .title {
+    margin-bottom: 0.5rem;
     font-size: $font-size-deca;
   }
 
   > .pl {
+    margin-bottom: 0.5rem;
     color: hsl(0, 0%, 60%);
   }
 
   > .more {
-    @include icon($icon-caret-down, after);
+    @include icon('caret-down', after);
+    margin-bottom: 0.5rem;
     color: $color-positive;
     cursor: pointer;
     &:hover { border-bottom: 1px solid $color-positive; }
   }
 
   > .moreinfo {
+    margin-bottom: 0.5rem;
     max-height: 0;
     transition: max-height 0.3s ease;
     display: block;

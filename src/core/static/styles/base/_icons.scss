@@ -12,9 +12,9 @@
 }
 
 // Mixin to add icons by using SASS variables. No markup shit.
-@mixin icon($content, $precedence: before) {
+@mixin icon($icon, $precedence: before) {
   &::#{$precedence} {
-    content: $content;
+    content: map-get($icons, $icon);
     font-family: 'fontastic-labhacker';
     speak: none;
     font-style: normal;
@@ -32,638 +32,640 @@
 
 // All of our beautiful icons stored in variables here.
 // Remember to always update this list after adding new icons to Fontastic.
-$icon-500px: "\e000";
-$icon-adjust: "\e001";
-$icon-adn: "\e002";
-$icon-align-center: "\e003";
-$icon-align-justify: "\e004";
-$icon-align-left: "\e005";
-$icon-align-right: "\e006";
-$icon-amazon: "\e007";
-$icon-ambulance: "\e008";
-$icon-anchor: "\e009";
-$icon-android: "\e00a";
-$icon-angellist: "\e00b";
-$icon-angle-double-down: "\e00c";
-$icon-angle-double-left: "\e00d";
-$icon-angle-double-right: "\e00e";
-$icon-angle-double-up: "\e00f";
-$icon-angle-down: "\e010";
-$icon-angle-left: "\e011";
-$icon-angle-right: "\e012";
-$icon-angle-up: "\e013";
-$icon-apple: "\e014";
-$icon-archive: "\e015";
-$icon-area-chart: "\e016";
-$icon-arrow-circle-down: "\e017";
-$icon-arrow-circle-left: "\e018";
-$icon-arrow-circle-o-down: "\e019";
-$icon-arrow-circle-o-left: "\e01a";
-$icon-arrow-circle-o-right: "\e01b";
-$icon-arrow-circle-o-up: "\e01c";
-$icon-arrow-circle-right: "\e01d";
-$icon-arrow-circle-up: "\e01e";
-$icon-arrow-down: "\e01f";
-$icon-arrow-left: "\e020";
-$icon-arrow-right: "\e021";
-$icon-arrow-up: "\e022";
-$icon-arrows: "\e023";
-$icon-arrows-alt: "\e024";
-$icon-arrows-h: "\e025";
-$icon-arrows-v: "\e026";
-$icon-asterisk: "\e027";
-$icon-at: "\e028";
-$icon-backward: "\e029";
-$icon-balance-scale: "\e02a";
-$icon-ban: "\e02b";
-$icon-bar-chart: "\e02c";
-$icon-barcode: "\e02d";
-$icon-bars: "\e02e";
-$icon-battery-empty: "\e02f";
-$icon-battery-full: "\e030";
-$icon-battery-half: "\e031";
-$icon-battery-quarter: "\e032";
-$icon-battery-three-quarters: "\e033";
-$icon-bed: "\e034";
-$icon-beer: "\e035";
-$icon-behance: "\e036";
-$icon-behance-square: "\e037";
-$icon-bell: "\e038";
-$icon-bell-o: "\e039";
-$icon-bell-slash: "\e03a";
-$icon-bell-slash-o: "\e03b";
-$icon-bicycle: "\e03c";
-$icon-binoculars: "\e03d";
-$icon-birthday-cake: "\e03e";
-$icon-bitbucket: "\e03f";
-$icon-bitbucket-square: "\e040";
-$icon-black-tie: "\e041";
-$icon-bold: "\e042";
-$icon-bolt: "\e043";
-$icon-bomb: "\e044";
-$icon-book: "\e045";
-$icon-bookmark: "\e046";
-$icon-bookmark-o: "\e047";
-$icon-briefcase: "\e048";
-$icon-btc: "\e049";
-$icon-bug: "\e04a";
-$icon-building: "\e04b";
-$icon-building-o: "\e04c";
-$icon-bullhorn: "\e04d";
-$icon-bullseye: "\e04e";
-$icon-bus: "\e04f";
-$icon-buysellads: "\e050";
-$icon-calculator: "\e051";
-$icon-calendar: "\e052";
-$icon-calendar-check-o: "\e053";
-$icon-calendar-minus-o: "\e054";
-$icon-calendar-o: "\e055";
-$icon-calendar-plus-o: "\e056";
-$icon-calendar-times-o: "\e057";
-$icon-camera: "\e058";
-$icon-camera-retro: "\e059";
-$icon-car: "\e05a";
-$icon-caret-down: "\e05b";
-$icon-caret-left: "\e05c";
-$icon-caret-right: "\e05d";
-$icon-caret-square-o-down: "\e05e";
-$icon-caret-square-o-left: "\e05f";
-$icon-caret-square-o-right: "\e060";
-$icon-caret-square-o-up: "\e061";
-$icon-caret-up: "\e062";
-$icon-cart-arrow-down: "\e063";
-$icon-cart-plus: "\e064";
-$icon-cc: "\e065";
-$icon-cc-amex: "\e066";
-$icon-cc-diners-club: "\e067";
-$icon-cc-discover: "\e068";
-$icon-cc-jcb: "\e069";
-$icon-cc-mastercard: "\e06a";
-$icon-cc-paypal: "\e06b";
-$icon-cc-stripe: "\e06c";
-$icon-cc-visa: "\e06d";
-$icon-certificate: "\e06e";
-$icon-chain-broken: "\e06f";
-$icon-check: "\e070";
-$icon-check-circle: "\e071";
-$icon-check-circle-o: "\e072";
-$icon-check-square: "\e073";
-$icon-check-square-o: "\e074";
-$icon-chevron-circle-down: "\e075";
-$icon-chevron-circle-left: "\e076";
-$icon-chevron-circle-right: "\e077";
-$icon-chevron-circle-up: "\e078";
-$icon-chevron-down: "\e079";
-$icon-chevron-left: "\e07a";
-$icon-chevron-right: "\e07b";
-$icon-chevron-up: "\e07c";
-$icon-child: "\e07d";
-$icon-chrome: "\e07e";
-$icon-circle: "\e07f";
-$icon-circle-o: "\e080";
-$icon-circle-o-notch: "\e081";
-$icon-circle-thin: "\e082";
-$icon-clipboard: "\e083";
-$icon-clock-o: "\e084";
-$icon-clone: "\e085";
-$icon-cloud: "\e086";
-$icon-cloud-download: "\e087";
-$icon-cloud-upload: "\e088";
-$icon-code: "\e089";
-$icon-code-fork: "\e08a";
-$icon-codepen: "\e08b";
-$icon-coffee: "\e08c";
-$icon-cog: "\e08d";
-$icon-cogs: "\e08e";
-$icon-columns: "\e08f";
-$icon-comment: "\e090";
-$icon-comment-o: "\e091";
-$icon-commenting: "\e092";
-$icon-commenting-o: "\e093";
-$icon-comments: "\e094";
-$icon-comments-o: "\e095";
-$icon-compass: "\e096";
-$icon-compress: "\e097";
-$icon-connectdevelop: "\e098";
-$icon-contao: "\e099";
-$icon-copyright: "\e09a";
-$icon-creative-commons: "\e09b";
-$icon-credit-card: "\e09c";
-$icon-crop: "\e09d";
-$icon-crosshairs: "\e09e";
-$icon-css3: "\e09f";
-$icon-cube: "\e0a0";
-$icon-cubes: "\e0a1";
-$icon-cutlery: "\e0a2";
-$icon-dashcube: "\e0a3";
-$icon-database: "\e0a4";
-$icon-delicious: "\e0a5";
-$icon-desktop: "\e0a6";
-$icon-deviantart: "\e0a7";
-$icon-diamond: "\e0a8";
-$icon-digg: "\e0a9";
-$icon-dot-circle-o: "\e0aa";
-$icon-download: "\e0ab";
-$icon-dribbble: "\e0ac";
-$icon-dropbox: "\e0ad";
-$icon-drupal: "\e0ae";
-$icon-eject: "\e0af";
-$icon-ellipsis-h: "\e0b0";
-$icon-ellipsis-v: "\e0b1";
-$icon-empire: "\e0b2";
-$icon-envelope: "\e0b3";
-$icon-envelope-o: "\e0b4";
-$icon-envelope-square: "\e0b5";
-$icon-eraser: "\e0b6";
-$icon-eur: "\e0b7";
-$icon-exchange: "\e0b8";
-$icon-exclamation: "\e0b9";
-$icon-exclamation-circle: "\e0ba";
-$icon-exclamation-triangle: "\e0bb";
-$icon-expand: "\e0bc";
-$icon-expeditedssl: "\e0bd";
-$icon-external-link: "\e0be";
-$icon-external-link-square: "\e0bf";
-$icon-eye: "\e0c0";
-$icon-eye-slash: "\e0c1";
-$icon-eyedropper: "\e0c2";
-$icon-facebook: "\e0c3";
-$icon-facebook-official: "\e0c4";
-$icon-facebook-square: "\e0c5";
-$icon-fast-backward: "\e0c6";
-$icon-fast-forward: "\e0c7";
-$icon-fax: "\e0c8";
-$icon-female: "\e0c9";
-$icon-fighter-jet: "\e0ca";
-$icon-file: "\e0cb";
-$icon-file-archive-o: "\e0cc";
-$icon-file-audio-o: "\e0cd";
-$icon-file-code-o: "\e0ce";
-$icon-file-excel-o: "\e0cf";
-$icon-file-image-o: "\e0d0";
-$icon-file-o: "\e0d1";
-$icon-file-pdf-o: "\e0d2";
-$icon-file-powerpoint-o: "\e0d3";
-$icon-file-text: "\e0d4";
-$icon-file-text-o: "\e0d5";
-$icon-file-video-o: "\e0d6";
-$icon-file-word-o: "\e0d7";
-$icon-files-o: "\e0d8";
-$icon-film: "\e0d9";
-$icon-filter: "\e0da";
-$icon-fire: "\e0db";
-$icon-fire-extinguisher: "\e0dc";
-$icon-firefox: "\e0dd";
-$icon-flag: "\e0de";
-$icon-flag-checkered: "\e0df";
-$icon-flag-o: "\e0e0";
-$icon-flask: "\e0e1";
-$icon-flickr: "\e0e2";
-$icon-floppy-o: "\e0e3";
-$icon-folder: "\e0e4";
-$icon-folder-o: "\e0e5";
-$icon-folder-open: "\e0e6";
-$icon-folder-open-o: "\e0e7";
-$icon-font: "\e0e8";
-$icon-fonticons: "\e0e9";
-$icon-forumbee: "\e0ea";
-$icon-forward: "\e0eb";
-$icon-foursquare: "\e0ec";
-$icon-frown-o: "\e0ed";
-$icon-futbol-o: "\e0ee";
-$icon-gamepad: "\e0ef";
-$icon-gavel: "\e0f0";
-$icon-gbp: "\e0f1";
-$icon-genderless: "\e0f2";
-$icon-get-pocket: "\e0f3";
-$icon-gg: "\e0f4";
-$icon-gg-circle: "\e0f5";
-$icon-gift: "\e0f6";
-$icon-git: "\e0f7";
-$icon-git-square: "\e0f8";
-$icon-github: "\e0f9";
-$icon-github-alt: "\e0fa";
-$icon-github-square: "\e0fb";
-$icon-glass: "\e0fc";
-$icon-globe: "\e0fd";
-$icon-google: "\e0fe";
-$icon-google-plus: "\e0ff";
-$icon-google-plus-square: "\e100";
-$icon-google-wallet: "\e101";
-$icon-graduation-cap: "\e102";
-$icon-gratipay: "\e103";
-$icon-h-square: "\e104";
-$icon-hacker-news: "\e105";
-$icon-hand-lizard-o: "\e106";
-$icon-hand-o-down: "\e107";
-$icon-hand-o-left: "\e108";
-$icon-hand-o-right: "\e109";
-$icon-hand-o-up: "\e10a";
-$icon-hand-paper-o: "\e10b";
-$icon-hand-peace-o: "\e10c";
-$icon-hand-pointer-o: "\e10d";
-$icon-hand-rock-o: "\e10e";
-$icon-hand-scissors-o: "\e10f";
-$icon-hand-spock-o: "\e110";
-$icon-hdd-o: "\e111";
-$icon-header: "\e112";
-$icon-headphones: "\e113";
-$icon-heart: "\e114";
-$icon-heart-o: "\e115";
-$icon-heartbeat: "\e116";
-$icon-history: "\e117";
-$icon-home: "\e118";
-$icon-hospital-o: "\e119";
-$icon-hourglass: "\e11a";
-$icon-hourglass-end: "\e11b";
-$icon-hourglass-half: "\e11c";
-$icon-hourglass-o: "\e11d";
-$icon-hourglass-start: "\e11e";
-$icon-houzz: "\e11f";
-$icon-html5: "\e120";
-$icon-i-cursor: "\e121";
-$icon-ils: "\e122";
-$icon-inbox: "\e123";
-$icon-indent: "\e124";
-$icon-industry: "\e125";
-$icon-info: "\e126";
-$icon-info-circle: "\e127";
-$icon-inr: "\e128";
-$icon-instagram: "\e129";
-$icon-internet-explorer: "\e12a";
-$icon-ioxhost: "\e12b";
-$icon-italic: "\e12c";
-$icon-joomla: "\e12d";
-$icon-jpy: "\e12e";
-$icon-jsfiddle: "\e12f";
-$icon-key: "\e130";
-$icon-keyboard-o: "\e131";
-$icon-krw: "\e132";
-$icon-language: "\e133";
-$icon-laptop: "\e134";
-$icon-lastfm: "\e135";
-$icon-lastfm-square: "\e136";
-$icon-leaf: "\e137";
-$icon-leanpub: "\e138";
-$icon-lemon-o: "\e139";
-$icon-level-down: "\e13a";
-$icon-level-up: "\e13b";
-$icon-life-ring: "\e13c";
-$icon-lightbulb-o: "\e13d";
-$icon-line-chart: "\e13e";
-$icon-link: "\e13f";
-$icon-linkedin: "\e140";
-$icon-linkedin-square: "\e141";
-$icon-linux: "\e142";
-$icon-list: "\e143";
-$icon-list-alt: "\e144";
-$icon-list-ol: "\e145";
-$icon-list-ul: "\e146";
-$icon-location-arrow: "\e147";
-$icon-lock: "\e148";
-$icon-long-arrow-down: "\e149";
-$icon-long-arrow-left: "\e14a";
-$icon-long-arrow-right: "\e14b";
-$icon-long-arrow-up: "\e14c";
-$icon-magic: "\e14d";
-$icon-magnet: "\e14e";
-$icon-male: "\e14f";
-$icon-map: "\e150";
-$icon-map-marker: "\e151";
-$icon-map-o: "\e152";
-$icon-map-pin: "\e153";
-$icon-map-signs: "\e154";
-$icon-mars: "\e155";
-$icon-mars-double: "\e156";
-$icon-mars-stroke: "\e157";
-$icon-mars-stroke-h: "\e158";
-$icon-mars-stroke-v: "\e159";
-$icon-maxcdn: "\e15a";
-$icon-meanpath: "\e15b";
-$icon-medium: "\e15c";
-$icon-medkit: "\e15d";
-$icon-meh-o: "\e15e";
-$icon-mercury: "\e15f";
-$icon-microphone: "\e160";
-$icon-microphone-slash: "\e161";
-$icon-minus: "\e162";
-$icon-minus-circle: "\e163";
-$icon-minus-square: "\e164";
-$icon-minus-square-o: "\e165";
-$icon-mobile: "\e166";
-$icon-money: "\e167";
-$icon-moon-o: "\e168";
-$icon-motorcycle: "\e169";
-$icon-mouse-pointer: "\e16a";
-$icon-music: "\e16b";
-$icon-neuter: "\e16c";
-$icon-newspaper-o: "\e16d";
-$icon-object-group: "\e16e";
-$icon-object-ungroup: "\e16f";
-$icon-odnoklassniki: "\e170";
-$icon-odnoklassniki-square: "\e171";
-$icon-opencart: "\e172";
-$icon-openid: "\e173";
-$icon-opera: "\e174";
-$icon-optin-monster: "\e175";
-$icon-outdent: "\e176";
-$icon-pagelines: "\e177";
-$icon-paint-brush: "\e178";
-$icon-paper-plane: "\e179";
-$icon-paper-plane-o: "\e17a";
-$icon-paperclip: "\e17b";
-$icon-paragraph: "\e17c";
-$icon-pause: "\e17d";
-$icon-paw: "\e17e";
-$icon-paypal: "\e17f";
-$icon-pencil: "\e180";
-$icon-pencil-square: "\e181";
-$icon-pencil-square-o: "\e182";
-$icon-phone: "\e183";
-$icon-phone-square: "\e184";
-$icon-picture-o: "\e185";
-$icon-pie-chart: "\e186";
-$icon-pied-piper: "\e187";
-$icon-pied-piper-alt: "\e188";
-$icon-pinterest: "\e189";
-$icon-pinterest-p: "\e18a";
-$icon-pinterest-square: "\e18b";
-$icon-plane: "\e18c";
-$icon-play: "\e18d";
-$icon-play-circle: "\e18e";
-$icon-play-circle-o: "\e18f";
-$icon-plug: "\e190";
-$icon-plus: "\e191";
-$icon-plus-circle: "\e192";
-$icon-plus-square: "\e193";
-$icon-plus-square-o: "\e194";
-$icon-power-off: "\e195";
-$icon-print: "\e196";
-$icon-puzzle-piece: "\e197";
-$icon-qq: "\e198";
-$icon-qrcode: "\e199";
-$icon-question: "\e19a";
-$icon-question-circle: "\e19b";
-$icon-quote-left: "\e19c";
-$icon-quote-right: "\e19d";
-$icon-random: "\e19e";
-$icon-rebel: "\e19f";
-$icon-recycle: "\e1a0";
-$icon-reddit: "\e1a1";
-$icon-reddit-square: "\e1a2";
-$icon-refresh: "\e1a3";
-$icon-registered: "\e1a4";
-$icon-renren: "\e1a5";
-$icon-repeat: "\e1a6";
-$icon-reply: "\e1a7";
-$icon-reply-all: "\e1a8";
-$icon-retweet: "\e1a9";
-$icon-road: "\e1aa";
-$icon-rocket: "\e1ab";
-$icon-rss: "\e1ac";
-$icon-rss-square: "\e1ad";
-$icon-rub: "\e1ae";
-$icon-safari: "\e1af";
-$icon-scissors: "\e1b0";
-$icon-search: "\e1b1";
-$icon-search-minus: "\e1b2";
-$icon-search-plus: "\e1b3";
-$icon-sellsy: "\e1b4";
-$icon-server: "\e1b5";
-$icon-share: "\e1b6";
-$icon-share-alt: "\e1b7";
-$icon-share-alt-square: "\e1b8";
-$icon-share-square: "\e1b9";
-$icon-share-square-o: "\e1ba";
-$icon-shield: "\e1bb";
-$icon-ship: "\e1bc";
-$icon-shirtsinbulk: "\e1bd";
-$icon-shopping-cart: "\e1be";
-$icon-sign-in: "\e1bf";
-$icon-sign-out: "\e1c0";
-$icon-signal: "\e1c1";
-$icon-simplybuilt: "\e1c2";
-$icon-sitemap: "\e1c3";
-$icon-skyatlas: "\e1c4";
-$icon-skype: "\e1c5";
-$icon-slack: "\e1c6";
-$icon-sliders: "\e1c7";
-$icon-slideshare: "\e1c8";
-$icon-smile-o: "\e1c9";
-$icon-sort: "\e1ca";
-$icon-sort-alpha-asc: "\e1cb";
-$icon-sort-alpha-desc: "\e1cc";
-$icon-sort-amount-asc: "\e1cd";
-$icon-sort-amount-desc: "\e1ce";
-$icon-sort-asc: "\e1cf";
-$icon-sort-desc: "\e1d0";
-$icon-sort-numeric-asc: "\e1d1";
-$icon-sort-numeric-desc: "\e1d2";
-$icon-soundcloud: "\e1d3";
-$icon-space-shuttle: "\e1d4";
-$icon-spinner: "\e1d5";
-$icon-spoon: "\e1d6";
-$icon-spotify: "\e1d7";
-$icon-square: "\e1d8";
-$icon-square-o: "\e1d9";
-$icon-stack-exchange: "\e1da";
-$icon-stack-overflow: "\e1db";
-$icon-star: "\e1dc";
-$icon-star-half: "\e1dd";
-$icon-star-half-o: "\e1de";
-$icon-star-o: "\e1df";
-$icon-steam: "\e1e0";
-$icon-steam-square: "\e1e1";
-$icon-step-backward: "\e1e2";
-$icon-step-forward: "\e1e3";
-$icon-stethoscope: "\e1e4";
-$icon-sticky-note: "\e1e5";
-$icon-sticky-note-o: "\e1e6";
-$icon-stop: "\e1e7";
-$icon-street-view: "\e1e8";
-$icon-strikethrough: "\e1e9";
-$icon-stumbleupon: "\e1ea";
-$icon-stumbleupon-circle: "\e1eb";
-$icon-subscript: "\e1ec";
-$icon-subway: "\e1ed";
-$icon-suitcase: "\e1ee";
-$icon-sun-o: "\e1ef";
-$icon-superscript: "\e1f0";
-$icon-table: "\e1f1";
-$icon-tablet: "\e1f2";
-$icon-tachometer: "\e1f3";
-$icon-tag: "\e1f4";
-$icon-tags: "\e1f5";
-$icon-tasks: "\e1f6";
-$icon-taxi: "\e1f7";
-$icon-television: "\e1f8";
-$icon-tencent-weibo: "\e1f9";
-$icon-terminal: "\e1fa";
-$icon-text-height: "\e1fb";
-$icon-text-width: "\e1fc";
-$icon-th: "\e1fd";
-$icon-th-large: "\e1fe";
-$icon-th-list: "\e1ff";
-$icon-thumb-tack: "\e200";
-$icon-thumbs-down: "\e201";
-$icon-thumbs-o-down: "\e202";
-$icon-thumbs-o-up: "\e203";
-$icon-thumbs-up: "\e204";
-$icon-ticket: "\e205";
-$icon-times: "\e206";
-$icon-times-circle: "\e207";
-$icon-times-circle-o: "\e208";
-$icon-tint: "\e209";
-$icon-toggle-off: "\e20a";
-$icon-toggle-on: "\e20b";
-$icon-trademark: "\e20c";
-$icon-train: "\e20d";
-$icon-transgender: "\e20e";
-$icon-transgender-alt: "\e20f";
-$icon-trash: "\e210";
-$icon-trash-o: "\e211";
-$icon-tree: "\e212";
-$icon-trello: "\e213";
-$icon-tripadvisor: "\e214";
-$icon-trophy: "\e215";
-$icon-truck: "\e216";
-$icon-try: "\e217";
-$icon-tty: "\e218";
-$icon-tumblr: "\e219";
-$icon-tumblr-square: "\e21a";
-$icon-twitch: "\e21b";
-$icon-twitter: "\e21c";
-$icon-twitter-square: "\e21d";
-$icon-umbrella: "\e21e";
-$icon-underline: "\e21f";
-$icon-undo: "\e220";
-$icon-university: "\e221";
-$icon-unlock: "\e222";
-$icon-unlock-alt: "\e223";
-$icon-upload: "\e224";
-$icon-usd: "\e225";
-$icon-user: "\e226";
-$icon-user-md: "\e227";
-$icon-user-plus: "\e228";
-$icon-user-secret: "\e229";
-$icon-user-times: "\e22a";
-$icon-users: "\e22b";
-$icon-venus: "\e22c";
-$icon-venus-double: "\e22d";
-$icon-venus-mars: "\e22e";
-$icon-viacoin: "\e22f";
-$icon-video-camera: "\e230";
-$icon-vimeo: "\e231";
-$icon-vimeo-square: "\e232";
-$icon-vine: "\e233";
-$icon-vk: "\e234";
-$icon-volume-down: "\e235";
-$icon-volume-off: "\e236";
-$icon-volume-up: "\e237";
-$icon-weibo: "\e238";
-$icon-weixin: "\e239";
-$icon-whatsapp: "\e23a";
-$icon-wheelchair: "\e23b";
-$icon-wifi: "\e23c";
-$icon-wikipedia-w: "\e23d";
-$icon-windows: "\e23e";
-$icon-wordpress: "\e23f";
-$icon-wrench: "\e240";
-$icon-xing: "\e241";
-$icon-xing-square: "\e242";
-$icon-y-combinator: "\e243";
-$icon-yahoo: "\e244";
-$icon-yelp: "\e245";
-$icon-youtube: "\e246";
-$icon-youtube-play: "\e247";
-$icon-youtube-square: "\e248";
-$icon-adm-publica: "\61";
-$icon-agropecuaria: "\62";
-$icon-assistencia-social: "\64";
-$icon-cidades: "\65";
-$icon-ciencia: "\66";
-$icon-comunicacao: "\67";
-$icon-consumidor: "\68";
-$icon-cultura: "\69";
-$icon-direito-e-justica: "\6a";
-$icon-direitos-humanos: "\6b";
-$icon-documento: "\6c";
-$icon-economia: "\6d";
-$icon-esportes: "\6f";
-$icon-familia: "\70";
-$icon-industria: "\71";
-$icon-institucional: "\72";
-$icon-meio-ambiente: "\73";
-$icon-participacao-e-transparencia: "\74";
-$icon-politica: "\75";
-$icon-previdencia: "\76";
-$icon-relacoes-exteriores: "\77";
-$icon-saude: "\78";
-$icon-seguranca: "\79";
-$icon-trabalho: "\7a";
-$icon-transporte-e-transito: "\41";
-$icon-turismo: "\42";
-$icon-hackdash: "\63";
-$icon-edemocracia: "\43";
-$icon-carrot: "\46";
-$icon-lotus: "\47";
-$icon-shoes: "\44";
-$icon-battle-axe: "\45";
-$icon-holy: "\48";
-$icon-pacifier: "\49";
-$icon-reforma-politica: "\4a";
-$icon-educacao: "\6e";
-$icon-arte-cultura-informacao: "\4b";
-$icon-economia-financas-publicas: "\4c";
-$icon-trabalho-emprego: "\4d";
-$icon-comercio-consumidor: "\4e";
-$icon-direitos-humanos-minorias: "\4f";
-$icon-comunicacao-social: "\50";
-$icon-agricultura: "\51";
-$icon-viacao-transporte: "\52";
-$icon-ciencia-tecnologia: "\53";
-$icon-justica: "\54";
-$icon-esporte-lazer: "\55";
+$icons: (
+  500px: "\e000",
+  adjust: "\e001",
+  adn: "\e002",
+  align-center: "\e003",
+  align-justify: "\e004",
+  align-left: "\e005",
+  align-right: "\e006",
+  amazon: "\e007",
+  ambulance: "\e008",
+  anchor: "\e009",
+  android: "\e00a",
+  angellist: "\e00b",
+  angle-double-down: "\e00c",
+  angle-double-left: "\e00d",
+  angle-double-right: "\e00e",
+  angle-double-up: "\e00f",
+  angle-down: "\e010",
+  angle-left: "\e011",
+  angle-right: "\e012",
+  angle-up: "\e013",
+  apple: "\e014",
+  archive: "\e015",
+  area-chart: "\e016",
+  arrow-circle-down: "\e017",
+  arrow-circle-left: "\e018",
+  arrow-circle-o-down: "\e019",
+  arrow-circle-o-left: "\e01a",
+  arrow-circle-o-right: "\e01b",
+  arrow-circle-o-up: "\e01c",
+  arrow-circle-right: "\e01d",
+  arrow-circle-up: "\e01e",
+  arrow-down: "\e01f",
+  arrow-left: "\e020",
+  arrow-right: "\e021",
+  arrow-up: "\e022",
+  arrows: "\e023",
+  arrows-alt: "\e024",
+  arrows-h: "\e025",
+  arrows-v: "\e026",
+  asterisk: "\e027",
+  at: "\e028",
+  backward: "\e029",
+  balance-scale: "\e02a",
+  ban: "\e02b",
+  bar-chart: "\e02c",
+  barcode: "\e02d",
+  bars: "\e02e",
+  battery-empty: "\e02f",
+  battery-full: "\e030",
+  battery-half: "\e031",
+  battery-quarter: "\e032",
+  battery-three-quarters: "\e033",
+  bed: "\e034",
+  beer: "\e035",
+  behance: "\e036",
+  behance-square: "\e037",
+  bell: "\e038",
+  bell-o: "\e039",
+  bell-slash: "\e03a",
+  bell-slash-o: "\e03b",
+  bicycle: "\e03c",
+  binoculars: "\e03d",
+  birthday-cake: "\e03e",
+  bitbucket: "\e03f",
+  bitbucket-square: "\e040",
+  black-tie: "\e041",
+  bold: "\e042",
+  bolt: "\e043",
+  bomb: "\e044",
+  book: "\e045",
+  bookmark: "\e046",
+  bookmark-o: "\e047",
+  briefcase: "\e048",
+  btc: "\e049",
+  bug: "\e04a",
+  building: "\e04b",
+  building-o: "\e04c",
+  bullhorn: "\e04d",
+  bullseye: "\e04e",
+  bus: "\e04f",
+  buysellads: "\e050",
+  calculator: "\e051",
+  calendar: "\e052",
+  calendar-check-o: "\e053",
+  calendar-minus-o: "\e054",
+  calendar-o: "\e055",
+  calendar-plus-o: "\e056",
+  calendar-times-o: "\e057",
+  camera: "\e058",
+  camera-retro: "\e059",
+  car: "\e05a",
+  caret-down: "\e05b",
+  caret-left: "\e05c",
+  caret-right: "\e05d",
+  caret-square-o-down: "\e05e",
+  caret-square-o-left: "\e05f",
+  caret-square-o-right: "\e060",
+  caret-square-o-up: "\e061",
+  caret-up: "\e062",
+  cart-arrow-down: "\e063",
+  cart-plus: "\e064",
+  cc: "\e065",
+  cc-amex: "\e066",
+  cc-diners-club: "\e067",
+  cc-discover: "\e068",
+  cc-jcb: "\e069",
+  cc-mastercard: "\e06a",
+  cc-paypal: "\e06b",
+  cc-stripe: "\e06c",
+  cc-visa: "\e06d",
+  certificate: "\e06e",
+  chain-broken: "\e06f",
+  check: "\e070",
+  check-circle: "\e071",
+  check-circle-o: "\e072",
+  check-square: "\e073",
+  check-square-o: "\e074",
+  chevron-circle-down: "\e075",
+  chevron-circle-left: "\e076",
+  chevron-circle-right: "\e077",
+  chevron-circle-up: "\e078",
+  chevron-down: "\e079",
+  chevron-left: "\e07a",
+  chevron-right: "\e07b",
+  chevron-up: "\e07c",
+  child: "\e07d",
+  chrome: "\e07e",
+  circle: "\e07f",
+  circle-o: "\e080",
+  circle-o-notch: "\e081",
+  circle-thin: "\e082",
+  clipboard: "\e083",
+  clock-o: "\e084",
+  clone: "\e085",
+  cloud: "\e086",
+  cloud-download: "\e087",
+  cloud-upload: "\e088",
+  code: "\e089",
+  code-fork: "\e08a",
+  codepen: "\e08b",
+  coffee: "\e08c",
+  cog: "\e08d",
+  cogs: "\e08e",
+  columns: "\e08f",
+  comment: "\e090",
+  comment-o: "\e091",
+  commenting: "\e092",
+  commenting-o: "\e093",
+  comments: "\e094",
+  comments-o: "\e095",
+  compass: "\e096",
+  compress: "\e097",
+  connectdevelop: "\e098",
+  contao: "\e099",
+  copyright: "\e09a",
+  creative-commons: "\e09b",
+  credit-card: "\e09c",
+  crop: "\e09d",
+  crosshairs: "\e09e",
+  css3: "\e09f",
+  cube: "\e0a0",
+  cubes: "\e0a1",
+  cutlery: "\e0a2",
+  dashcube: "\e0a3",
+  database: "\e0a4",
+  delicious: "\e0a5",
+  desktop: "\e0a6",
+  deviantart: "\e0a7",
+  diamond: "\e0a8",
+  digg: "\e0a9",
+  dot-circle-o: "\e0aa",
+  download: "\e0ab",
+  dribbble: "\e0ac",
+  dropbox: "\e0ad",
+  drupal: "\e0ae",
+  eject: "\e0af",
+  ellipsis-h: "\e0b0",
+  ellipsis-v: "\e0b1",
+  empire: "\e0b2",
+  envelope: "\e0b3",
+  envelope-o: "\e0b4",
+  envelope-square: "\e0b5",
+  eraser: "\e0b6",
+  eur: "\e0b7",
+  exchange: "\e0b8",
+  exclamation: "\e0b9",
+  exclamation-circle: "\e0ba",
+  exclamation-triangle: "\e0bb",
+  expand: "\e0bc",
+  expeditedssl: "\e0bd",
+  external-link: "\e0be",
+  external-link-square: "\e0bf",
+  eye: "\e0c0",
+  eye-slash: "\e0c1",
+  eyedropper: "\e0c2",
+  facebook: "\e0c3",
+  facebook-official: "\e0c4",
+  facebook-square: "\e0c5",
+  fast-backward: "\e0c6",
+  fast-forward: "\e0c7",
+  fax: "\e0c8",
+  female: "\e0c9",
+  fighter-jet: "\e0ca",
+  file: "\e0cb",
+  file-archive-o: "\e0cc",
+  file-audio-o: "\e0cd",
+  file-code-o: "\e0ce",
+  file-excel-o: "\e0cf",
+  file-image-o: "\e0d0",
+  file-o: "\e0d1",
+  file-pdf-o: "\e0d2",
+  file-powerpoint-o: "\e0d3",
+  file-text: "\e0d4",
+  file-text-o: "\e0d5",
+  file-video-o: "\e0d6",
+  file-word-o: "\e0d7",
+  files-o: "\e0d8",
+  film: "\e0d9",
+  filter: "\e0da",
+  fire: "\e0db",
+  fire-extinguisher: "\e0dc",
+  firefox: "\e0dd",
+  flag: "\e0de",
+  flag-checkered: "\e0df",
+  flag-o: "\e0e0",
+  flask: "\e0e1",
+  flickr: "\e0e2",
+  floppy-o: "\e0e3",
+  folder: "\e0e4",
+  folder-o: "\e0e5",
+  folder-open: "\e0e6",
+  folder-open-o: "\e0e7",
+  font: "\e0e8",
+  fonticons: "\e0e9",
+  forumbee: "\e0ea",
+  forward: "\e0eb",
+  foursquare: "\e0ec",
+  frown-o: "\e0ed",
+  futbol-o: "\e0ee",
+  gamepad: "\e0ef",
+  gavel: "\e0f0",
+  gbp: "\e0f1",
+  genderless: "\e0f2",
+  get-pocket: "\e0f3",
+  gg: "\e0f4",
+  gg-circle: "\e0f5",
+  gift: "\e0f6",
+  git: "\e0f7",
+  git-square: "\e0f8",
+  github: "\e0f9",
+  github-alt: "\e0fa",
+  github-square: "\e0fb",
+  glass: "\e0fc",
+  globe: "\e0fd",
+  google: "\e0fe",
+  google-plus: "\e0ff",
+  google-plus-square: "\e100",
+  google-wallet: "\e101",
+  graduation-cap: "\e102",
+  gratipay: "\e103",
+  h-square: "\e104",
+  hacker-news: "\e105",
+  hand-lizard-o: "\e106",
+  hand-o-down: "\e107",
+  hand-o-left: "\e108",
+  hand-o-right: "\e109",
+  hand-o-up: "\e10a",
+  hand-paper-o: "\e10b",
+  hand-peace-o: "\e10c",
+  hand-pointer-o: "\e10d",
+  hand-rock-o: "\e10e",
+  hand-scissors-o: "\e10f",
+  hand-spock-o: "\e110",
+  hdd-o: "\e111",
+  header: "\e112",
+  headphones: "\e113",
+  heart: "\e114",
+  heart-o: "\e115",
+  heartbeat: "\e116",
+  history: "\e117",
+  home: "\e118",
+  hospital-o: "\e119",
+  hourglass: "\e11a",
+  hourglass-end: "\e11b",
+  hourglass-half: "\e11c",
+  hourglass-o: "\e11d",
+  hourglass-start: "\e11e",
+  houzz: "\e11f",
+  html5: "\e120",
+  i-cursor: "\e121",
+  ils: "\e122",
+  inbox: "\e123",
+  indent: "\e124",
+  industry: "\e125",
+  info: "\e126",
+  info-circle: "\e127",
+  inr: "\e128",
+  instagram: "\e129",
+  internet-explorer: "\e12a",
+  ioxhost: "\e12b",
+  italic: "\e12c",
+  joomla: "\e12d",
+  jpy: "\e12e",
+  jsfiddle: "\e12f",
+  key: "\e130",
+  keyboard-o: "\e131",
+  krw: "\e132",
+  language: "\e133",
+  laptop: "\e134",
+  lastfm: "\e135",
+  lastfm-square: "\e136",
+  leaf: "\e137",
+  leanpub: "\e138",
+  lemon-o: "\e139",
+  level-down: "\e13a",
+  level-up: "\e13b",
+  life-ring: "\e13c",
+  lightbulb-o: "\e13d",
+  line-chart: "\e13e",
+  link: "\e13f",
+  linkedin: "\e140",
+  linkedin-square: "\e141",
+  linux: "\e142",
+  list: "\e143",
+  list-alt: "\e144",
+  list-ol: "\e145",
+  list-ul: "\e146",
+  location-arrow: "\e147",
+  lock: "\e148",
+  long-arrow-down: "\e149",
+  long-arrow-left: "\e14a",
+  long-arrow-right: "\e14b",
+  long-arrow-up: "\e14c",
+  magic: "\e14d",
+  magnet: "\e14e",
+  male: "\e14f",
+  map: "\e150",
+  map-marker: "\e151",
+  map-o: "\e152",
+  map-pin: "\e153",
+  map-signs: "\e154",
+  mars: "\e155",
+  mars-double: "\e156",
+  mars-stroke: "\e157",
+  mars-stroke-h: "\e158",
+  mars-stroke-v: "\e159",
+  maxcdn: "\e15a",
+  meanpath: "\e15b",
+  medium: "\e15c",
+  medkit: "\e15d",
+  meh-o: "\e15e",
+  mercury: "\e15f",
+  microphone: "\e160",
+  microphone-slash: "\e161",
+  minus: "\e162",
+  minus-circle: "\e163",
+  minus-square: "\e164",
+  minus-square-o: "\e165",
+  mobile: "\e166",
+  money: "\e167",
+  moon-o: "\e168",
+  motorcycle: "\e169",
+  mouse-pointer: "\e16a",
+  music: "\e16b",
+  neuter: "\e16c",
+  newspaper-o: "\e16d",
+  object-group: "\e16e",
+  object-ungroup: "\e16f",
+  odnoklassniki: "\e170",
+  odnoklassniki-square: "\e171",
+  opencart: "\e172",
+  openid: "\e173",
+  opera: "\e174",
+  optin-monster: "\e175",
+  outdent: "\e176",
+  pagelines: "\e177",
+  paint-brush: "\e178",
+  paper-plane: "\e179",
+  paper-plane-o: "\e17a",
+  paperclip: "\e17b",
+  paragraph: "\e17c",
+  pause: "\e17d",
+  paw: "\e17e",
+  paypal: "\e17f",
+  pencil: "\e180",
+  pencil-square: "\e181",
+  pencil-square-o: "\e182",
+  phone: "\e183",
+  phone-square: "\e184",
+  picture-o: "\e185",
+  pie-chart: "\e186",
+  pied-piper: "\e187",
+  pied-piper-alt: "\e188",
+  pinterest: "\e189",
+  pinterest-p: "\e18a",
+  pinterest-square: "\e18b",
+  plane: "\e18c",
+  play: "\e18d",
+  play-circle: "\e18e",
+  play-circle-o: "\e18f",
+  plug: "\e190",
+  plus: "\e191",
+  plus-circle: "\e192",
+  plus-square: "\e193",
+  plus-square-o: "\e194",
+  power-off: "\e195",
+  print: "\e196",
+  puzzle-piece: "\e197",
+  qq: "\e198",
+  qrcode: "\e199",
+  question: "\e19a",
+  question-circle: "\e19b",
+  quote-left: "\e19c",
+  quote-right: "\e19d",
+  random: "\e19e",
+  rebel: "\e19f",
+  recycle: "\e1a0",
+  reddit: "\e1a1",
+  reddit-square: "\e1a2",
+  refresh: "\e1a3",
+  registered: "\e1a4",
+  renren: "\e1a5",
+  repeat: "\e1a6",
+  reply: "\e1a7",
+  reply-all: "\e1a8",
+  retweet: "\e1a9",
+  road: "\e1aa",
+  rocket: "\e1ab",
+  rss: "\e1ac",
+  rss-square: "\e1ad",
+  rub: "\e1ae",
+  safari: "\e1af",
+  scissors: "\e1b0",
+  search: "\e1b1",
+  search-minus: "\e1b2",
+  search-plus: "\e1b3",
+  sellsy: "\e1b4",
+  server: "\e1b5",
+  share: "\e1b6",
+  share-alt: "\e1b7",
+  share-alt-square: "\e1b8",
+  share-square: "\e1b9",
+  share-square-o: "\e1ba",
+  shield: "\e1bb",
+  ship: "\e1bc",
+  shirtsinbulk: "\e1bd",
+  shopping-cart: "\e1be",
+  sign-in: "\e1bf",
+  sign-out: "\e1c0",
+  signal: "\e1c1",
+  simplybuilt: "\e1c2",
+  sitemap: "\e1c3",
+  skyatlas: "\e1c4",
+  skype: "\e1c5",
+  slack: "\e1c6",
+  sliders: "\e1c7",
+  slideshare: "\e1c8",
+  smile-o: "\e1c9",
+  sort: "\e1ca",
+  sort-alpha-asc: "\e1cb",
+  sort-alpha-desc: "\e1cc",
+  sort-amount-asc: "\e1cd",
+  sort-amount-desc: "\e1ce",
+  sort-asc: "\e1cf",
+  sort-desc: "\e1d0",
+  sort-numeric-asc: "\e1d1",
+  sort-numeric-desc: "\e1d2",
+  soundcloud: "\e1d3",
+  space-shuttle: "\e1d4",
+  spinner: "\e1d5",
+  spoon: "\e1d6",
+  spotify: "\e1d7",
+  square: "\e1d8",
+  square-o: "\e1d9",
+  stack-exchange: "\e1da",
+  stack-overflow: "\e1db",
+  star: "\e1dc",
+  star-half: "\e1dd",
+  star-half-o: "\e1de",
+  star-o: "\e1df",
+  steam: "\e1e0",
+  steam-square: "\e1e1",
+  step-backward: "\e1e2",
+  step-forward: "\e1e3",
+  stethoscope: "\e1e4",
+  sticky-note: "\e1e5",
+  sticky-note-o: "\e1e6",
+  stop: "\e1e7",
+  street-view: "\e1e8",
+  strikethrough: "\e1e9",
+  stumbleupon: "\e1ea",
+  stumbleupon-circle: "\e1eb",
+  subscript: "\e1ec",
+  subway: "\e1ed",
+  suitcase: "\e1ee",
+  sun-o: "\e1ef",
+  superscript: "\e1f0",
+  table: "\e1f1",
+  tablet: "\e1f2",
+  tachometer: "\e1f3",
+  tag: "\e1f4",
+  tags: "\e1f5",
+  tasks: "\e1f6",
+  taxi: "\e1f7",
+  television: "\e1f8",
+  tencent-weibo: "\e1f9",
+  terminal: "\e1fa",
+  text-height: "\e1fb",
+  text-width: "\e1fc",
+  th: "\e1fd",
+  th-large: "\e1fe",
+  th-list: "\e1ff",
+  thumb-tack: "\e200",
+  thumbs-down: "\e201",
+  thumbs-o-down: "\e202",
+  thumbs-o-up: "\e203",
+  thumbs-up: "\e204",
+  ticket: "\e205",
+  times: "\e206",
+  times-circle: "\e207",
+  times-circle-o: "\e208",
+  tint: "\e209",
+  toggle-off: "\e20a",
+  toggle-on: "\e20b",
+  trademark: "\e20c",
+  train: "\e20d",
+  transgender: "\e20e",
+  transgender-alt: "\e20f",
+  trash: "\e210",
+  trash-o: "\e211",
+  tree: "\e212",
+  trello: "\e213",
+  tripadvisor: "\e214",
+  trophy: "\e215",
+  truck: "\e216",
+  try: "\e217",
+  tty: "\e218",
+  tumblr: "\e219",
+  tumblr-square: "\e21a",
+  twitch: "\e21b",
+  twitter: "\e21c",
+  twitter-square: "\e21d",
+  umbrella: "\e21e",
+  underline: "\e21f",
+  undo: "\e220",
+  university: "\e221",
+  unlock: "\e222",
+  unlock-alt: "\e223",
+  upload: "\e224",
+  usd: "\e225",
+  user: "\e226",
+  user-md: "\e227",
+  user-plus: "\e228",
+  user-secret: "\e229",
+  user-times: "\e22a",
+  users: "\e22b",
+  venus: "\e22c",
+  venus-double: "\e22d",
+  venus-mars: "\e22e",
+  viacoin: "\e22f",
+  video-camera: "\e230",
+  vimeo: "\e231",
+  vimeo-square: "\e232",
+  vine: "\e233",
+  vk: "\e234",
+  volume-down: "\e235",
+  volume-off: "\e236",
+  volume-up: "\e237",
+  weibo: "\e238",
+  weixin: "\e239",
+  whatsapp: "\e23a",
+  wheelchair: "\e23b",
+  wifi: "\e23c",
+  wikipedia-w: "\e23d",
+  windows: "\e23e",
+  wordpress: "\e23f",
+  wrench: "\e240",
+  xing: "\e241",
+  xing-square: "\e242",
+  y-combinator: "\e243",
+  yahoo: "\e244",
+  yelp: "\e245",
+  youtube: "\e246",
+  youtube-play: "\e247",
+  youtube-square: "\e248",
+  adm-publica: "\61",
+  agropecuaria: "\62",
+  assistencia-social: "\64",
+  cidades: "\65",
+  ciencia: "\66",
+  comunicacao: "\67",
+  consumidor: "\68",
+  cultura: "\69",
+  direito-e-justica: "\6a",
+  direitos-humanos: "\6b",
+  documento: "\6c",
+  economia: "\6d",
+  esportes: "\6f",
+  familia: "\70",
+  industria: "\71",
+  institucional: "\72",
+  meio-ambiente: "\73",
+  participacao-e-transparencia: "\74",
+  politica: "\75",
+  previdencia: "\76",
+  relacoes-exteriores: "\77",
+  saude: "\78",
+  seguranca: "\79",
+  trabalho: "\7a",
+  transporte-e-transito: "\41",
+  turismo: "\42",
+  hackdash: "\63",
+  edemocracia: "\43",
+  carrot: "\46",
+  lotus: "\47",
+  shoes: "\44",
+  battle-axe: "\45",
+  holy: "\48",
+  pacifier: "\49",
+  reforma-politica: "\4a",
+  educacao: "\6e",
+  arte-cultura-informacao: "\4b",
+  economia-financas-publicas: "\4c",
+  trabalho-emprego: "\4d",
+  comercio-consumidor: "\4e",
+  direitos-humanos-minorias: "\4f",
+  comunicacao-social: "\50",
+  agricultura: "\51",
+  viacao-transporte: "\52",
+  ciencia-tecnologia: "\53",
+  justica: "\54",
+  esporte-lazer: "\55"
+);
 
 
 // Classes for projects using earlier versions of our font.

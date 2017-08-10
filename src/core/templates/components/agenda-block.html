@@ -35,18 +35,20 @@
     {% endif %}
   </div>
 
-  <nav class="tab-navigation JS-tab-navigation">
-    {% for group in agenda.groups.all %}
-      {% with agenda.groups.all|first as first_group %}
-        <a class="item {% if group == first_group %}-active{% endif %} JS-tab-item" data-group-id="{{group.id}}">
-          {{group.theme.name}}
-        </a>
-      {% endwith %}
-    {% endfor %}
-    <a class="item JS-tab-item" data-group-id="finish">
-      Finalizar
-    </a>
-  </nav>
+  <div class="theme-navigation">
+    <nav class="JS-tab-navigation">
+      {% for group in agenda.groups.all %}
+        {% with agenda.groups.all|first as first_group %}
+          <a class="-{{group.theme.slug}} {% if group == first_group %}-active{% endif %} JS-tab-item" data-group-id="{{group.id}}">
+            {{group.theme.name}}
+          </a>
+        {% endwith %}
+      {% endfor %}
+      <a class="item JS-tab-item" data-group-id="finish">
+        Finalizar
+      </a>
+    </nav>
+  </div>
 
   <div class="error-message JS-error-message">
     <p>Para enviar um voto negativo é necessário que haja dois votos positivos</p>
