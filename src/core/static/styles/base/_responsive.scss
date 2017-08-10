@@ -1,0 +1,38 @@
+// Breakopints
+
+$bp-small: 640px;
+$bp-medium: 960px;
+$bp-large: 1024px;
+$bp-huge: 1920px;
+
+// Mixins
+
+@mixin breakpoint-small-only {
+  @media (max-width: $bp-small) { @content; }
+}
+@mixin breakpoint-medium-only {
+  @media (min-width: $bp-small + 1px) and (max-width: $bp-medium) { @content; }
+}
+@mixin breakpoint-large-only {
+  @media (min-width: $bp-medium + 1px) and (max-width: $bp-large) { @content; }
+}
+@mixin breakpoint-huge-only {
+  @media (min-width: $bp-large + 1px) and (max-width: $bp-huge) { @content; }
+}
+
+@mixin breakpoint-medium-up {
+  @media (min-width: $bp-medium + 1px) { @content; }
+}
+@mixin breakpoint-large-up {
+  @media (min-width: $bp-large + 1px) { @content; }
+}
+@mixin breakpoint-huge-up {
+  @media (min-width: $bp-huge + 1px) { @content; }
+}
+
+@mixin breakpoint-medium-down {
+  @media (max-width: $bp-medium) { @content; }
+}
+@mixin breakpoint-large-down {
+  @media (max-width: $bp-large) { @content; }
+}
