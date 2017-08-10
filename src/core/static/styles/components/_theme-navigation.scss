@@ -13,7 +13,7 @@
   box-shadow: 0 1px 0 0 hsl(0, 0%, 80%) inset;
 
   > nav {
-    overflow-x: scroll;
+    overflow-x: auto;
     display: flex;
 
     > a {
