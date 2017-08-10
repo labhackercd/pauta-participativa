@@ -30,7 +30,8 @@
       width: 1rem;
       margin: 0 0.25rem;
       color: white;
-      transition: background-color 0.3s $swift-out;
+      transition: background-color 0.3s $swift-out,
+                  text-shadow 0.3s $swift-out;
 
       &.-upvote {
         @include icon($icon-check);
@@ -43,7 +44,8 @@
       }
 
       &.-used {
-        background-color: hsl(0, 0%, 90%);
+        background-color: hsl(0, 0%, 80%);
+        text-shadow: 0 1px 3px rgba(black, 0.2);
       }
     }
   }
