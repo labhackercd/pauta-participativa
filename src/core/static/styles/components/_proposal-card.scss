@@ -1,3 +1,9 @@
 .proposal-card {
   @extend %card;
+
+  > .votes {
+    width: 100%;
+    display: flex;
+  }
+
 }

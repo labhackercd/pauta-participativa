@@ -1,11 +1,12 @@
-.votes {
-  width: 100%;
-  display: flex;
-}
-
 .vote-button {
-  margin: 1rem;
-  cursor: pointer;
+  flex-grow: 1;
+
+  &:first-child {
+    margin-right: 0.5rem;
+  }
+  &:last-child {
+    margin-left: 0.5rem;
+  }
 
   &.-upvote {
     color: $color-positive;
@@ -17,9 +18,20 @@
   }
 
   & > label {
+    cursor: pointer;
     color: inherit;
     border: 1px solid currentColor;
     text-align: center;
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.5rem;
+    transition: all 0.2s ease;
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 2px 8px rgba(#000, 0.1);
+    }
   }
 
   & > input {

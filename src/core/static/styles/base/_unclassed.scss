@@ -2,9 +2,14 @@ html {
   font-family: $font-family-main;
   font-size: 14px;
   font-weight: 400;
+  box-sizing: border-box;
 
   @include bp-mediumup {
     font-size: 16px;
   }
 
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }

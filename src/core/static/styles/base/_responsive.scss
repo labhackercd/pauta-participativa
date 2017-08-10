@@ -20,6 +20,9 @@ $bp-huge: 1920px;
   @media (min-width: $bp-large + 1px) and (max-width: $bp-huge) { @content; }
 }
 
+@mixin bp-smallup {
+  @media (min-width: $bp-small + 1px) { @content; }
+}
 @mixin bp-mediumup {
   @media (min-width: $bp-medium + 1px) { @content; }
 }
@@ -35,4 +38,7 @@ $bp-huge: 1920px;
 }
 @mixin bp-largedown {
   @media (max-width: $bp-large) { @content; }
+}
+@mixin bp-hugedown {
+  @media (max-width: $bp-huge) { @content; }
 }
