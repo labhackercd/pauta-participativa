@@ -1,8 +1,10 @@
 {% load pauta_participativa_tags %}
 
 <div class="agenda-block JS-agenda" data-agenda-id="{{object.id}}">
-  <img class="logo" src="" alt="">
-  <h1>{{object.title}}</h1>
+  <div class="agenda-header">
+    <img class="logo" src="" alt="">
+    <h1>{{object.title}}</h1>
+  </div>
 
   {% if not user.is_authenticated %}
     <p>Você precisa estar logado no sistema para votar.</p>
