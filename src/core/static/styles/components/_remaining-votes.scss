@@ -34,12 +34,12 @@
                   text-shadow 0.3s $swift-out;
 
       &.-upvote {
-        @include icon($icon-check);
+        @include icon('check');
         background-color: $color-positive;
       }
 
       &.-downvote {
-        @include icon($icon-times);
+        @include icon('times');
         background-color: $color-negative;
       }
 
