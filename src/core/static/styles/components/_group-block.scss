@@ -1,4 +1,10 @@
 .group-block {
+  display: none;
+
+  &.-active {
+    display: block;
+  }
+
   > .wrapper {
     max-width: 42rem;
     padding-right: 1rem;
