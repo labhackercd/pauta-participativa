@@ -119,6 +119,8 @@ var Tabs = {
     var nextGroupId = next.data('groupId');
     var nextTab = tabNavigation.find('.JS-tab-item[data-group-id="' + nextGroupId + '"]');
     nextTab.addClass('-active');
+
+    $("html, body").animate({ scrollTop: 0 }, "fast");
   },
 
   next: function(nextButton) {
@@ -137,7 +139,6 @@ var Tabs = {
     var target = $('.JS-group[data-group-id="' + targetGroupId + '"]');
     var current = $('.JS-group[data-group-id="' + currentGroupId + '"]');
     this.changeActiveGroup($(current), $(target));
-    $("html, body").animate({ scrollTop: 0 }, "fast");
   },
 
   disableAllUnless: function(groupId) {
