@@ -150,6 +150,22 @@ var Tabs = {
   }
 }
 
+var Show = {
+  more: function(target) {
+    var proposal = target.closest('.JS-proposal');
+    proposal.find('.JS-more-info').addClass('-show');
+    target.removeClass('JS-show-more');
+    target.addClass('-active JS-show-less');
+  },
+
+  less: function(target) {
+    var proposal = target.closest('.JS-proposal');
+    proposal.find('.JS-more-info').removeClass('-show');
+    target.removeClass('-active JS-show-less');
+    target.addClass('JS-show-more');
+  }
+}
+
 $('.JS-vote-input').click(function(event) {
   var target = $(event.target);
   var siblingCheckbox = Votes.siblingCheckbox(target);
@@ -212,6 +228,15 @@ $(window).scroll(function(event) {
     remainingVotes.addClass('-fixed');
   } else {
     remainingVotes.removeClass('-fixed');
+  }
+});
+
+$('.JS-show').click(function(event) {
+  var target = $(event.target);
+  if (target.hasClass('JS-show-more')) {
+    Show.more(target);
+  } else if (target.hasClass('JS-show-less')) {
+    Show.less(target);
   }
 });
 
