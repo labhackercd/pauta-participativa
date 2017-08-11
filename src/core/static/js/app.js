@@ -224,7 +224,8 @@ $('.JS-tab-item').click(function(event) {
 var remainingVotesOffset = $('.JS-remaining-votes').offset().top;
 $(window).scroll(function(event) {
   var remainingVotes = $('.JS-remaining-votes');
-  if ($(document).scrollTop() >= remainingVotesOffset) {
+  var margin = parseInt(remainingVotes.css('margin-top'))
+  if ($(document).scrollTop() >= (remainingVotesOffset - margin)) {
     remainingVotes.addClass('-fixed');
   } else {
     remainingVotes.removeClass('-fixed');
