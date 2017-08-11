@@ -2,9 +2,11 @@
 
   <h3 class="title">{{proposal.title|lower|capfirst}}</h3>
 
-  <p class="pl">{{proposal.proposal_type.initals}} {{proposal.number}}/{{proposal.year}}</p>
+  <div class="undertitle">
+    <p class="pl">{{proposal.proposal_type.initals}} {{proposal.number}}/{{proposal.year}}</p>
 
-  <a class="more">Ver mais</a>
+    <a class="more">Ver mais</a>
+  </div>
 
   <div class="moreinfo">
     <p class="description">{{proposal.description}}</p>

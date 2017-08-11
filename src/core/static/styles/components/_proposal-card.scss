@@ -3,20 +3,27 @@
 
   > .title {
     margin-bottom: 0.5rem;
-    font-size: $font-size-deca;
+    font-size: $font-size-base;
   }
 
-  > .pl {
-    margin-bottom: 0.5rem;
-    color: hsl(0, 0%, 60%);
-  }
+  > .undertitle {
+    display: flex;
+    flex-wrap: wrap;
 
-  > .more {
-    @include icon('caret-down', after);
-    margin-bottom: 0.5rem;
-    color: $color-positive;
-    cursor: pointer;
-    &:hover { border-bottom: 1px solid $color-positive; }
+    > .pl {
+      margin-bottom: 0.5rem;
+      margin-right: auto;
+      color: hsl(0, 0%, 60%);
+    }
+
+    > .more {
+      @include icon('caret-down', after);
+      margin-bottom: 0.5rem;
+      color: $color-positive;
+      cursor: pointer;
+      border-bottom: 1px solid transparent;
+      &:hover { border-bottom: 1px solid $color-positive; }
+    }
   }
 
   > .moreinfo {
