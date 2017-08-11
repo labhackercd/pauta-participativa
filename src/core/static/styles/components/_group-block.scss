@@ -17,12 +17,18 @@
     margin-left: auto;
     display: flex;
     flex-direction: column;
-    > .controls {
+    > .controls,
+    > .submit {
       display: flex;
-      justify-content: space-between;
       align-items: right;
       margin-top: 1.75rem;
       margin-bottom: 2rem;
+    }
+    > .controls {
+      justify-content: space-between;
+    }
+    > .submit {
+      flex-direction: column;
     }
   }
 

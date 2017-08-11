@@ -1,5 +1,9 @@
 .agenda-header {
   background-color: #fff;
-  box-shadow: 0, 4px 12px rgba(#000, 0.2);
+  box-shadow: 0 4px 12px rgba(#000, 0.2);
   height: $size-header;
+  position: relative;
+  padding-right: calc(0.5rem + 4vw);
+  padding-left: calc(0.5rem + 4vw);
+  overflow: hidden;
 }

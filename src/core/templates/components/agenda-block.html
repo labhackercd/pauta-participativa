@@ -22,10 +22,10 @@
             {% include "components/review-card.html" with group=group %}
           {% endfor %}
 
-          <form action="" class="JS-confirm-votes">
+          <form action="" class="submit JS-confirm-votes">
             {% csrf_token %}
             <div class="g-recaptcha" data-sitekey="{% recaptcha_site_key %}"></div>
-            <button class="JS-submit-votes-btn">Confirmar</button>
+            <button class="button JS-submit-votes-btn">Confirmar</button>
           </form>
         </div>
       </div>
