@@ -8,10 +8,12 @@
   </div>
 
   <div class="wrapper">
-    
-    <h2>Resultado parcial</h2>
 
-    <!-- <h2>Resultado</h2> -->
+    {% if not object.is_closed %}
+      <h2>Resultado parcial</h2>
+    {% else %}
+      <h2>Resultado</h2>
+    {% endif %}
 
     {% for group in object.groups.all %}
       <div class="theme-card">
@@ -32,7 +34,7 @@
         </ul>
       </div>
     {% endfor %}
-  
+
   </div>
 
 </div>
