@@ -1,0 +1,9 @@
+.theme-card {
+  @extend %card;
+
+  > .title {
+    @include theme-icon;
+    @include theme-color;
+  }
+
+}

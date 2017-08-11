@@ -14,8 +14,8 @@
     <h2>Resuldo</h2>
 
     {% for group in object.groups.all %}
-      <div class="result-card">
-        <h3>{{group.theme.name|lower|capfirst}}</h3>
+      <div class="theme-card">
+        <h3 class="title -{{group.theme.slug}}">{{group.theme.name|lower|capfirst}}</h3>
         <ul>
           {% ordered_proposals group object as proposals %}
           {% for proposal in proposals %}
