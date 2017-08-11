@@ -7,6 +7,7 @@
 @import 'ambience/colors';
 @import 'ambience/fonts';
 @import 'ambience/typography';
+@import 'ambience/sizes';
 
 // Base
 @import 'base/responsive';
@@ -24,6 +25,7 @@
 @import 'components/remaining-votes';
 @import 'components/group-block';
 @import 'components/theme-navigation';
+@import 'components/agenda-header';
 
 // Elements
 @import 'elements/button';

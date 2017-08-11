@@ -2,7 +2,8 @@
   background-color: $color-brand;
   @include theme-bgcolor;
   display: none;
-  margin-bottom: 4rem;
+  padding-bottom: $size-footer;
+  min-height: calc( 100vh - #{$size-header});
 
   &.-active {
     display: block;
