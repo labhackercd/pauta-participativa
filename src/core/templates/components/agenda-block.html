@@ -1,9 +1,10 @@
-{% load pauta_participativa_tags %}
+{% load pauta_participativa_tags staticfiles %}
 
 <div class="agenda-block JS-agenda" data-agenda-id="{{object.id}}">
   <div class="agenda-header JS-agenda-header">
-    <img class="logo" src="" alt="">
-    <h1>{{object.title}}</h1>
+    <span class="back" role="button"></span>
+    <img class="icon" src="{% static 'images/logo-icon.svg' %}" alt="Ícone da logo do Pauta participativa">
+    <h1 class="title">Pauta de Agosto</h1>
   </div>
 
   {% if not user.is_authenticated %}

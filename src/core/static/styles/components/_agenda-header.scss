@@ -1,4 +1,6 @@
 .agenda-header {
+  display: flex;
+  align-items: center;
   background-color: #fff;
   box-shadow: 0 4px 12px rgba(#000, 0.2);
   height: $size-header;
@@ -6,4 +8,21 @@
   padding-right: calc(0.5rem + 4vw);
   padding-left: calc(0.5rem + 4vw);
   overflow: hidden;
+
+  > .back {
+    @include icon('chevron-left');
+    font-size: $font-size-deca;
+    color: $color-brand;
+    margin-right: 1.2rem;
+  }
+
+  > .icon {
+    height: 2em;
+    margin-right: 1.2rem;
+  }
+
+  > .title {
+    font-size: $font-size-deca;
+    color: hsl(0, 0%, 50%);
+  }
 }
