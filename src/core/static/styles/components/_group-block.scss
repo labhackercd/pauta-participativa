@@ -9,6 +9,12 @@
     display: block;
   }
 
+  @each $theme, $color in $color-theme {
+    &.-#{$theme} > .wrapper > .title {
+      @include icon($theme);
+    }
+  }
+
   > .wrapper {
     max-width: 42rem;
     padding-right: 1rem;
