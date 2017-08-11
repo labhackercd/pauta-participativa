@@ -1,9 +1,13 @@
 .theme-card {
   @extend %card;
-
+  
   > .title {
     @include theme-icon;
     @include theme-color;
+    &::before { margin-right: 0.5rem; }
+    display: flex;
+    align-items: center;
+
   }
 
 }

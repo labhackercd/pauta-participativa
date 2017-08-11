@@ -9,9 +9,9 @@
 
   <div class="wrapper">
     
-    <h2>Resuldo parcial</h2>
+    <h2>Resultado parcial</h2>
 
-    <h2>Resuldo</h2>
+    <!-- <h2>Resultado</h2> -->
 
     {% for group in object.groups.all %}
       <div class="theme-card">
@@ -21,10 +21,10 @@
           {% for proposal in proposals %}
             <li class="proposal-result">
               <h4 class="title">{{proposal.title|lower|capfirst}}</h4>
-              <p class="pl">{{proposal.proposal_type.initals}} {{proposal.number}}/{{proposal.year}}</p>
+              <p class="pl">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</p>
               <div class="votes">
-                <span class="count">{{proposal|upvotes:object}}</span>
-                <span class="count">{{proposal|downvotes:object}}</span>
+                <span class="count -downvotes">{{proposal|upvotes:object}}</span>
+                <span class="count -upvotes">{{proposal|downvotes:object}}</span>
                 <span class="count">{{proposal|score:object}} Total</span>
               </div>
             </li>
