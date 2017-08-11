@@ -22,15 +22,13 @@
             <span class="begin">{{agenda.initial_date}}</span>
             <span class="end">{{agenda.end_date}}</span>
           </div>
+          <ul class="themes">
+            <li class="theme-tag -saude">Saúde</li>
+            <li class="theme-tag -seguranca">Segurança</li>
+            <li class="theme-tag -transporte-e-transito">Transporte</li>
+          </ul>
+          <a class="button" href="{% url 'agenda' pk=agenda.id %}">Votar</a>
         </li>
-
-        <ul class="themes">
-          <li class="theme-tag -saude">Saúde</li>
-          <li class="theme-tag -seguranca">Segurança</li>
-          <li class="theme-tag -transporte-e-transito">Transporte</li>
-        </ul>
-
-        <a class="button" href="{% url 'agenda' pk=agenda.id %}">Votar</a>
 
       {% endfor %}
     </ul>

@@ -1,23 +1,35 @@
 // Packages
+
 @import 'reset-css/reset.scss';
 @import 'normalize.css/normalize';
 
+
 // Ambience
+
 @import 'ambience/animation';
 @import 'ambience/colors';
 @import 'ambience/fonts';
 @import 'ambience/typography';
 @import 'ambience/sizes';
 
+
 // Base
+
 @import 'base/responsive';
 @import 'base/reusables';
 @import 'base/icons';
 @import 'base/unclassed';
 @import 'base/typography';
 
+
 // Components
+
+// Home
+@import 'components/agenda-item';
 @import 'components/theme-tag';
+
+// Agenda
+// Voting
 @import 'components/vote-button';
 @import 'components/proposal-card';
 @import 'components/error-message';
@@ -26,6 +38,11 @@
 @import 'components/group-block';
 @import 'components/theme-navigation';
 @import 'components/agenda-header';
+// Reults
+@import 'components/proposal-result';
+@import 'components/result-card';
+
 
 // Elements
+
 @import 'elements/button';
