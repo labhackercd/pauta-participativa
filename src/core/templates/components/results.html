@@ -23,8 +23,8 @@
               <h4 class="title">{{proposal.title|lower|capfirst}}</h4>
               <p class="pl">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</p>
               <div class="votes">
-                <span class="count -downvotes">{{proposal|upvotes:object}}</span>
-                <span class="count -upvotes">{{proposal|downvotes:object}}</span>
+                <span class="count -upvotes">{{proposal|upvotes:object}}</span>
+                <span class="count -downvotes">{{proposal|downvotes:object}}</span>
                 <span class="count">{{proposal|score:object}} Total</span>
               </div>
             </li>
