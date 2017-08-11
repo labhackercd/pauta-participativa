@@ -10,10 +10,11 @@
   padding: 0 1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   margin-bottom: 0.5rem;
-  top: 2.5rem;
+  margin-top: 0.5rem;
+  top: 2rem;
   &.-fixed {
     position: fixed;
-    top: 0.5rem;
+    top: 0;
   }
 
   > .text {
