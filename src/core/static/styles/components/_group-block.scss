@@ -23,12 +23,24 @@
     margin-left: auto;
     display: flex;
     flex-direction: column;
+
     > .controls {
       display: flex;
       justify-content: space-between;
       align-items: right;
       margin-top: 1.75rem;
       margin-bottom: 2rem;
+    }
+
+    >.title {
+      color: white;
+      margin: 0.5rem 0;
+      text-align: center;
+      font-size: $font-size-deca;
+
+      &::before {
+        margin-right: 0.5rem;
+      }
     }
   }
 
