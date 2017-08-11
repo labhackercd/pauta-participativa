@@ -9,6 +9,11 @@
   }
 }
 
+@mixin hover-style {
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(#000, 0.1);
+}
+
 @mixin theme-color{
   @each $theme, $color in $color-theme {
     &.-#{$theme} {

@@ -1,4 +1,4 @@
-<div class="group-block {% ifequal group first_group %}-active{% endifequal %} JS-group" data-group-id="{{group.id}}" data-group-theme>
+<div class="group-block -politica {% ifequal group first_group %}-active{% endifequal %} JS-group" data-group-id="{{group.id}}" data-group-theme>
   <div class="wrapper">
 
     <h2 class="title">Theme Title</h2>
@@ -23,7 +23,7 @@
       </ul>
     </form>
 
-    <div class="controls-block">
+    <div class="controls">
       {% ifnotequal group first_group %}
         <button class="button -text JS-prev-group-btn">Anterior</button>
       {% endifnotequal %}

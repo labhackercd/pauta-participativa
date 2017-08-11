@@ -1,5 +1,8 @@
 .group-block {
+  background-color: $color-brand;
+  @include theme-bgcolor;
   display: none;
+  margin-bottom: 4rem;
 
   &.-active {
     display: block;
@@ -13,5 +16,13 @@
     margin-left: auto;
     display: flex;
     flex-direction: column;
+    > .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: right;
+      margin-top: 1.75rem;
+      margin-bottom: 2rem;
+    }
   }
+
 }

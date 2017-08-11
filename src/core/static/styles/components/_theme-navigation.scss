@@ -43,7 +43,7 @@
       @include theme-icon;
 
       &.-active {
-        box-shadow: 0 6px 0 0 currentColor inset;
+        box-shadow: 0 4px 0 0 currentColor inset;
       }
 
       &.-disabled {

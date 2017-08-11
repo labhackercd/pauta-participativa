@@ -1,0 +1,20 @@
+.button {
+  appearance: none;
+  border: none;
+  outline: none;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: $font-size-deci;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 1.5rem;
+  background-color: #fff;
+  color: $color-brand;
+  transition: all 0.2s ease;
+  &:hover {
+    @include hover-style;
+  }
+}
