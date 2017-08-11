@@ -80,22 +80,27 @@ var Buttons = {
     if (voteType === 'downvote' && downvoteNotAvailable && !unvote) {
       nextButton.prop('disabled', true);
       nextButton.text('Próximo');
+      Tabs.disableAllUnless(groupId);
       errorMessage.addClass('-show');
     } else if (remainingDownvotes === 0 && remainingUpvotes === 0) {
       nextButton.prop('disabled', false);
       nextButton.text('Próximo');
+      Tabs.enableAll();
       errorMessage.removeClass('-show');
 
     } else if (remainingDownvotes === 1 && remainingUpvotes < 2) {
       nextButton.prop('disabled', false);
       nextButton.text('Próximo');
+      Tabs.enableAll();
       errorMessage.removeClass('-show');
     } else if (remainingDownvotes === 1 && remainingUpvotes === 2) {
       nextButton.prop('disabled', false);
       nextButton.text('Pular');
+      Tabs.enableAll();
       errorMessage.removeClass('-show');
     } else {
       nextButton.prop('disabled', true);
+      Tabs.disableAllUnless(groupId);
       errorMessage.addClass('-show');
     }
   },
@@ -132,7 +137,16 @@ var Tabs = {
     var target = $('.JS-group[data-group-id="' + targetGroupId + '"]');
     var current = $('.JS-group[data-group-id="' + currentGroupId + '"]');
     this.changeActiveGroup($(current), $(target));
+    $("html, body").animate({ scrollTop: 0 }, "fast");
   },
+
+  disableAllUnless: function(groupId) {
+    $('.JS-tab-item[data-group-id!="' + groupId + '"]').addClass('-disabled');
+  },
+
+  enableAll: function() {
+    $('.JS-tab-item').removeClass('-disabled');
+  }
 }
 
 $('.JS-vote-input').click(function(event) {
@@ -181,7 +195,7 @@ $('.JS-prev-group-btn').click(function(event) {
 
 $('.JS-tab-item').click(function(event) {
   var target = $(event.target);
-  if (target.hasClass('-active')) {
+  if (target.hasClass('-active') || target.hasClass('-disabled')) {
     return false;
   } else {
     var groupId = target.data('groupId');
@@ -192,8 +206,9 @@ $('.JS-tab-item').click(function(event) {
 
 $(window).scroll(function(event) {
   var headerHeight = $('.JS-agenda-header').outerHeight();
+  var titleHeight = $('.JS-group-title').outerHeight();
   var remainingVotes = $('.JS-remaining-votes');
-  if ($(document).scrollTop() > headerHeight) {
+  if ($(document).scrollTop() > (headerHeight + titleHeight)) {
     remainingVotes.addClass('-fixed');
   } else {
     remainingVotes.removeClass('-fixed');
