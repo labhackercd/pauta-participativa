@@ -1,0 +1,22 @@
+.review-list {
+  > .item {
+    color: hsl(0, 0%, 60%);
+    margin-bottom: 0.75rem;
+    padding-left: 2rem;
+    position: relative;
+    &.-upvote {
+      color: $color-positive;
+      @include icon('check');
+    }
+    &.-downvote {
+      color: $color-negative;
+      @include icon('times');
+    }
+    &::before {
+      position: absolute;
+      left: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

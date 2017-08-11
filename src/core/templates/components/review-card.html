@@ -1,9 +1,9 @@
 <div class="theme-card JS-group-review" data-group-id="{{group.id}}">
   <h3 class="title -{{group.theme.slug}}">{{group.theme.name}}</h3>
-  <ul class="JS-voted-list">
-    {% for proposal in group.proposals.all %}
-      <li class="JS-proposal-review" data-proposal-id="{{proposal.id}}">{{proposal}}</li>
-    {% endfor %}
+  <ul class="review-list JS-voted-list">
+  {% for proposal in group.proposals.all %}
+    <li class="item JS-proposal-review" data-proposal-id="{{proposal.id}}">{{proposal|lower|capfirst}}</li>
+  {% endfor %}
   </ul>
   <button class="button -dark -small">Alterar votos</button>
 </div>
