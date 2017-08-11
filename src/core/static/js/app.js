@@ -1,3 +1,17 @@
+setTimeout = (function( oldsetTimeout){
+  var registered=[],
+  f = function(a,b){
+      return registered[ registered.length ] = oldsetTimeout(a,b);
+  };
+   f.clearAll = function(){
+      var r;
+      while( r = registered.pop()) {
+        clearInterval( r );
+      }
+  };
+  return f;
+})(window.setTimeout);
+
 var Votes = {
   proposalIsVoted: function(target, sibling) {
     return sibling.prop('checked') || !target.prop('checked')
@@ -91,17 +105,19 @@ var Buttons = {
       nextButton.text('Próximo');
       Tabs.enableAll();
       errorMessage.removeClass('-show');
-
+      errorMessage.find('.JS-error-close').click();
     } else if (remainingDownvotes === 1 && remainingUpvotes < 2) {
       nextButton.prop('disabled', false);
       nextButton.text('Próximo');
       Tabs.enableAll();
       errorMessage.removeClass('-show');
+      errorMessage.find('.JS-error-close').click();
     } else if (remainingDownvotes === 1 && remainingUpvotes === 2) {
       nextButton.prop('disabled', false);
       nextButton.text('Pular');
       Tabs.enableAll();
       errorMessage.removeClass('-show');
+      errorMessage.find('.JS-error-close').click();
     } else {
       nextButton.prop('disabled', true);
       Tabs.disableAllUnless(groupId);
@@ -259,6 +275,7 @@ $('.JS-change-votes').click(function(event) {
 $('.JS-error-close').click(function(event) {
   var target = $(event.target);
   target.closest('.JS-error-message').removeClass('-show');
+  setTimeout.clearAll();
 });
 
 $('.JS-confirm-votes').submit(function(e) {
