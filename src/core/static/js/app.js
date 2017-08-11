@@ -221,16 +221,18 @@ $('.JS-tab-item').click(function(event) {
   }
 });
 
-var remainingVotesOffset = $('.JS-remaining-votes').offset().top;
-$(window).scroll(function(event) {
-  var remainingVotes = $('.JS-remaining-votes');
-  var margin = parseInt(remainingVotes.css('margin-top'))
-  if ($(document).scrollTop() >= (remainingVotesOffset - margin)) {
-    remainingVotes.addClass('-fixed');
-  } else {
-    remainingVotes.removeClass('-fixed');
-  }
-});
+if ($('.JS-remaining-votes').length) {
+  var remainingVotesOffset = $('.JS-remaining-votes').offset().top;
+  $(window).scroll(function(event) {
+    var remainingVotes = $('.JS-remaining-votes');
+    var margin = parseInt(remainingVotes.css('margin-top'))
+    if ($(document).scrollTop() >= (remainingVotesOffset - margin)) {
+      remainingVotes.addClass('-fixed');
+    } else {
+      remainingVotes.removeClass('-fixed');
+    }
+  });
+}
 
 $('.JS-show').click(function(event) {
   var target = $(event.target);
