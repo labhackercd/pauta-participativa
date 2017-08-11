@@ -3,6 +3,7 @@
   @include theme-bgcolor;
   display: none;
   padding-bottom: $size-footer;
+  padding-top: 1.5rem;
   min-height: calc( 100vh - #{$size-header});
 
   &.-active {
@@ -29,8 +30,8 @@
     > .submit {
       display: flex;
       align-items: right;
-      margin-top: 1.75rem;
-      margin-bottom: 2rem;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     > .controls {
