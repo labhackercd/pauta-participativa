@@ -30,6 +30,10 @@
       align-items: right;
       margin-top: 1.75rem;
       margin-bottom: 2rem;
+
+      > button:last-child {
+        margin-left: auto;
+      }
     }
 
     > .controls {
@@ -51,5 +55,4 @@
     }
     
   }
-
 }
