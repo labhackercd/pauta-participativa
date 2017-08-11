@@ -204,11 +204,10 @@ $('.JS-tab-item').click(function(event) {
   }
 });
 
+var remainingVotesOffset = $('.JS-remaining-votes').offset().top;
 $(window).scroll(function(event) {
-  var headerHeight = $('.JS-agenda-header').outerHeight();
-  var titleHeight = $('.JS-group-title').outerHeight();
   var remainingVotes = $('.JS-remaining-votes');
-  if ($(document).scrollTop() > (headerHeight + titleHeight)) {
+  if ($(document).scrollTop() >= remainingVotesOffset) {
     remainingVotes.addClass('-fixed');
   } else {
     remainingVotes.removeClass('-fixed');
