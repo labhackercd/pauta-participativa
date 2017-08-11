@@ -80,22 +80,27 @@ var Buttons = {
     if (voteType === 'downvote' && downvoteNotAvailable && !unvote) {
       nextButton.prop('disabled', true);
       nextButton.text('Próximo');
+      Tabs.disableAllUnless(groupId);
       errorMessage.addClass('-show');
     } else if (remainingDownvotes === 0 && remainingUpvotes === 0) {
       nextButton.prop('disabled', false);
       nextButton.text('Próximo');
+      Tabs.enableAll();
       errorMessage.removeClass('-show');
 
     } else if (remainingDownvotes === 1 && remainingUpvotes < 2) {
       nextButton.prop('disabled', false);
       nextButton.text('Próximo');
+      Tabs.enableAll();
       errorMessage.removeClass('-show');
     } else if (remainingDownvotes === 1 && remainingUpvotes === 2) {
       nextButton.prop('disabled', false);
       nextButton.text('Pular');
+      Tabs.enableAll();
       errorMessage.removeClass('-show');
     } else {
       nextButton.prop('disabled', true);
+      Tabs.disableAllUnless(groupId);
       errorMessage.addClass('-show');
     }
   },
@@ -133,6 +138,14 @@ var Tabs = {
     var current = $('.JS-group[data-group-id="' + currentGroupId + '"]');
     this.changeActiveGroup($(current), $(target));
   },
+
+  disableAllUnless: function(groupId) {
+    $('.JS-tab-item[data-group-id!="' + groupId + '"]').addClass('-disabled');
+  },
+
+  enableAll: function() {
+    $('.JS-tab-item').removeClass('-disabled');
+  }
 }
 
 $('.JS-vote-input').click(function(event) {
@@ -181,7 +194,7 @@ $('.JS-prev-group-btn').click(function(event) {
 
 $('.JS-tab-item').click(function(event) {
   var target = $(event.target);
-  if (target.hasClass('-active')) {
+  if (target.hasClass('-active') || target.hasClass('-disabled')) {
     return false;
   } else {
     var groupId = target.data('groupId');
