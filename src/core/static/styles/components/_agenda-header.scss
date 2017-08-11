@@ -11,9 +11,14 @@
 
   > .back {
     @include icon('chevron-left');
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: $font-size-deca;
+    width: 3rem;
+    height: 3rem;
     color: $color-brand;
-    margin-right: 1.2rem;
+    margin-right: 0.2rem;
   }
 
   > .icon {
