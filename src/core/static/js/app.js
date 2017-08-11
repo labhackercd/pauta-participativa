@@ -240,6 +240,12 @@ $('.JS-show').click(function(event) {
   }
 });
 
+$('.JS-change-votes').click(function(event) {
+  var target = $(event.target);
+  var groupId = target.closest('.JS-group-review').data('groupId');
+  Tabs.changeActiveGroupTo('finish', groupId);
+});
+
 $('.JS-confirm-votes').submit(function(e) {
   var csrftoken = $(this).find('[name="csrfmiddlewaretoken"]').val();
   var recaptchaResponse = $(this).find('[name="g-recaptcha-response"]').val();
