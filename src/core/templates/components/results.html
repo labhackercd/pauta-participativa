@@ -1,27 +1,38 @@
 {% load pauta_participativa_tags %}
 
-<div class="">
-  <h1>{{object.title}}</h1>
+<div class="result-page">
 
-  <p>{{object.description}}</p>
+  <div class="agenda-header JS-agenda-header">
+    <img class="logo" src="" alt="">
+    <h1>{{object.title}}</h1>
+  </div>
 
-  {% for group in object.groups.all %}
-    <div class="">
-      <h2>{{group.theme.name}}</h2>
+  <div class="wrapper">
+    
+    <h2>Resuldo parcial</h2>
 
-      <ul>
-        {% ordered_proposals group object as proposals %}
+    <h2>Resuldo</h2>
 
-        {% for proposal in proposals %}
-          <li>
-            <h3>{{proposal.title}}</h3>
-            <p>Upvotes: {{proposal|upvotes:object}}</p>
-            <p>Downvotes: {{proposal|downvotes:object}}</p>
-            <p>Score: {{proposal|score:object}}</p>
-          </li>
-        {% endfor %}
-      </ul>
+    {% for group in object.groups.all %}
+      <div class="result-card">
+        <h3>{{group.theme.name|lower|capfirst}}</h3>
+        <ul>
+          {% ordered_proposals group object as proposals %}
+          {% for proposal in proposals %}
+            <li class="proposal-result">
+              <h4 class="title">{{proposal.title|lower|capfirst}}</h4>
+              <p class="pl">{{proposal.proposal_type.initals}} {{proposal.number}}/{{proposal.year}}</p>
+              <div class="votes">
+                <span class="count">{{proposal|upvotes:object}}</span>
+                <span class="count">{{proposal|downvotes:object}}</span>
+                <span class="count">{{proposal|score:object}} Total</span>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  
+  </div>
 
-    </div>
-  {% endfor %}
 </div>
