@@ -9,6 +9,12 @@
     display: block;
   }
 
+  @each $theme, $color in $color-theme {
+    &.-#{$theme} > .wrapper > .title {
+      @include icon($theme);
+    }
+  }
+
   > .wrapper {
     max-width: 42rem;
     padding-right: 1rem;
@@ -17,6 +23,7 @@
     margin-left: auto;
     display: flex;
     flex-direction: column;
+
     > .controls,
     > .submit {
       display: flex;
@@ -24,12 +31,25 @@
       margin-top: 1.75rem;
       margin-bottom: 2rem;
     }
+
     > .controls {
       justify-content: space-between;
     }
+
     > .submit {
       flex-direction: column;
     }
+
+    >.title {
+      color: white;
+      margin: 0.5rem 0;
+      text-align: center;
+      font-size: $font-size-deca;
+      &::before {
+        margin-right: 0.5rem;
+      }
+    }
+    
   }
 
 }

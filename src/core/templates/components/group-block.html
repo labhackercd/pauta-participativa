@@ -1,7 +1,7 @@
-<div class="group-block -politica {% ifequal group first_group %}-active{% endifequal %} JS-group" data-group-id="{{group.id}}" data-group-theme>
+<div class="group-block -{{group.theme.slug}} {% ifequal group first_group %}-active{% endifequal %} JS-group" data-group-id="{{group.id}}" data-group-theme>
   <div class="wrapper">
 
-    <h2 class="title">Theme Title</h2>
+    <h2 class="title">{{group.theme.name}}</h2>
 
     {% if user.is_authenticated %}
       <div class="remaining-votes JS-remaining-votes">
