@@ -77,11 +77,15 @@ var Buttons = {
     var unvote = !checkbox.prop('checked');
     var remainingDownvotes = Votes.remainingVotes('downvote', groupId);
     var remainingUpvotes = Votes.remainingVotes('upvote', groupId);
+
     if (voteType === 'downvote' && downvoteNotAvailable && !unvote) {
       nextButton.prop('disabled', true);
       nextButton.text('Próximo');
       Tabs.disableAllUnless(groupId);
       errorMessage.addClass('-show');
+      setTimeout(function() {
+        errorMessage.find('.JS-error-close').click();
+      }, 6500);
     } else if (remainingDownvotes === 0 && remainingUpvotes === 0) {
       nextButton.prop('disabled', false);
       nextButton.text('Próximo');
@@ -102,6 +106,9 @@ var Buttons = {
       nextButton.prop('disabled', true);
       Tabs.disableAllUnless(groupId);
       errorMessage.addClass('-show');
+      setTimeout(function() {
+        errorMessage.find('.JS-error-close').click();
+      }, 6500);
     }
   },
 }
@@ -247,6 +254,11 @@ $('.JS-change-votes').click(function(event) {
   var target = $(event.target);
   var groupId = target.closest('.JS-group-review').data('groupId');
   Tabs.changeActiveGroupTo('finish', groupId);
+});
+
+$('.JS-error-close').click(function(event) {
+  var target = $(event.target);
+  target.closest('.JS-error-message').removeClass('-show');
 });
 
 $('.JS-confirm-votes').submit(function(e) {
