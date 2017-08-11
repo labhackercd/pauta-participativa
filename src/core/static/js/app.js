@@ -192,8 +192,9 @@ $('.JS-tab-item').click(function(event) {
 
 $(window).scroll(function(event) {
   var headerHeight = $('.JS-agenda-header').outerHeight();
+  var titleHeight = $('.JS-group-title').outerHeight();
   var remainingVotes = $('.JS-remaining-votes');
-  if ($(document).scrollTop() > headerHeight) {
+  if ($(document).scrollTop() > (headerHeight + titleHeight)) {
     remainingVotes.addClass('-fixed');
   } else {
     remainingVotes.removeClass('-fixed');
