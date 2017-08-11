@@ -17,6 +17,7 @@
     color: $color-positive;
     cursor: pointer;
     &:hover { border-bottom: 1px solid $color-positive; }
+      border-bottom: 1px solid transparent;
   }
 
   > .moreinfo {
