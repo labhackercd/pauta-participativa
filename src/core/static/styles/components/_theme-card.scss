@@ -1,13 +1,39 @@
 .theme-card {
   @extend %card;
+  padding-top: 3rem;
+  position: relative;
   
   > .title {
     @include theme-icon;
-    @include theme-color;
-    &::before { margin-right: 0.5rem; }
+    @include theme-bgcolor;
+    
+    height: 2rem;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    @include bp-mediumup {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    color: #fff;
+    font-size: $font-size-deci;
+    font-weight: 600;
+
+    &::before {
+      font-size: $font-size-base;
+      margin-right: 0.5rem;
+    }
 
   }
 

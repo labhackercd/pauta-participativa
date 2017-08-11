@@ -2,7 +2,10 @@
   <h3 class="title -{{group.theme.slug}}">{{group.theme.name}}</h3>
   <ul class="review-list JS-voted-list">
   {% for proposal in group.proposals.all %}
-    <li class="item JS-proposal-review" data-proposal-id="{{proposal.id}}">{{proposal|lower|capfirst}}</li>
+    <li class="item JS-proposal-review" data-proposal-id="{{proposal.id}}">
+      <h4 class="title">{{proposal|lower|capfirst}}</h4>
+      <p class="pl">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</p>
+    </li>
   {% endfor %}
   </ul>
   <button class="button -dark -small JS-change-votes">Alterar votos</button>
