@@ -137,6 +137,7 @@ var Tabs = {
     var target = $('.JS-group[data-group-id="' + targetGroupId + '"]');
     var current = $('.JS-group[data-group-id="' + currentGroupId + '"]');
     this.changeActiveGroup($(current), $(target));
+    $("html, body").animate({ scrollTop: 0 }, "fast");
   },
 
   disableAllUnless: function(groupId) {
