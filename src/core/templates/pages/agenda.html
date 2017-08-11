@@ -1,7 +1,13 @@
 {% extends "base.html" %}
-{% load pauta_participativa_tags %}
+{% load pauta_participativa_tags staticfiles %}
 
 {% block content %}
+
+  <div class="agenda-header JS-agenda-header">
+    <a class="back" role="button" href="../"></a>
+    <img class="icon" src="{% static 'images/logo-icon.svg' %}" alt="Ícone da logo do Pauta participativa">
+    <h1 class="title">Pauta de Agosto</h1>
+  </div>
 
   {% if user|already_voted:object or object.is_closed %}
     {% include "components/results.html" with object=object %}
