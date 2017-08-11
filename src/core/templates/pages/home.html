@@ -23,11 +23,17 @@
             <span class="end">{{agenda.end_date}}</span>
           </div>
           <ul class="themes">
-            <li class="theme-tag -saude">Saúde</li>
-            <li class="theme-tag -seguranca">Segurança</li>
-            <li class="theme-tag -transporte-e-transito">Transporte</li>
+            {% for group in agenda.groups.all %}
+              <li class="theme-tag -{{group.theme.slug}}">{{group.theme.name}}</li>
+            {% endfor %}
           </ul>
-          <a class="button" href="{% url 'agenda' pk=agenda.id %}">Votar</a>
+          <a class="button" href="{% url 'agenda' pk=agenda.id %}">
+            {% if agenda.is_closed %}
+              Ver Resultados
+            {% else %}
+              Votar
+            {% endif %}
+          </a>
         </li>
 
       {% endfor %}
