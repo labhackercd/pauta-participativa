@@ -18,6 +18,12 @@
     display: flex;
     flex-direction: column;
 
+    > .description {
+      font-size: $font-size-deca;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
     > .controls,
     > .submit {
       display: flex;

@@ -14,6 +14,9 @@
     {% if user.is_authenticated %}
       <div class="group-block JS-votes-review JS-group" data-group-id="finish">
         <div class="wrapper">
+
+         <p class="description">Confira os seus votos. <br> Depois de enviar, eles não poderão ser alterados!</p>
+
           {% for group in agenda.groups.all %}
             {% include "components/review-card.html" with group=group %}
           {% endfor %}
