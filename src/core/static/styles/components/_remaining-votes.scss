@@ -42,9 +42,6 @@
       text-shadow: 0 1px 3px rgba(black, 0.2);
       transition: all 0.4s ease, background-color 0.4s 0.25s ease, color 0.4s 0.25s;
 
-      box-shadow: 0 0 0 0 currentColor;
-
-
       &.-upvote {
         @include icon('check');
         box-shadow: 0 0 0 0 mix(#fff, $color-positive, 10%);
