@@ -35,8 +35,6 @@
 
       &::before { font-size: $font-size-deca;; }
 
-      &:hover, &:active { background-color: hsl(0, 0%, 95%); }
-
       @include bp-smallonly { min-width: 22vw; }
 
       @include theme-color;
@@ -44,7 +42,10 @@
 
       &.-active {
         box-shadow: 0 4px 0 0 currentColor inset;
+        background-color: hsl(0, 0%, 95%);
       }
+
+      &:hover, &:active { background-color: hsl(0, 0%, 90%); }
 
       &.-disabled {
         opacity: 0.4;
