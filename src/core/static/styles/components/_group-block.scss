@@ -42,10 +42,11 @@
     > .title {
       @include theme-icon;
       color: white;
-      margin-top: 1rem;
-      margin-bottom: 2.5rem;
+      margin-top: 0.75rem;
+      margin-bottom: 2.25rem;
       font-size: $font-size-deca;
       padding-right: 15rem;
+      line-height: 1.5rem;
       &::before {
         margin-right: 0.5rem;
       }
