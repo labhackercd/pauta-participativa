@@ -10,12 +10,6 @@
     display: block;
   }
 
-  @each $theme, $color in $color-theme {
-    &.-#{$theme} > .wrapper > .title {
-      @include icon($theme);
-    }
-  }
-
   > .wrapper {
     position: relative;
     max-width: 42rem;
@@ -45,16 +39,17 @@
       flex-direction: column;
     }
 
-    >.title {
+    > .title {
+      @include theme-icon;
       color: white;
-      margin-top: 0.5rem;
-      margin-bottom: 3rem;
-      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 2.5rem;
       font-size: $font-size-deca;
+      padding-right: 15rem;
       &::before {
         margin-right: 0.5rem;
       }
     }
-    
+
   }
 }
