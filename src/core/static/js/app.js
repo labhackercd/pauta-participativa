@@ -174,19 +174,19 @@ var Tabs = {
 }
 
 var Show = {
-  more: function(target) {
-    var proposal = target.closest('.JS-proposal');
-    proposal.find('.JS-more-info').addClass('-show');
-    target.removeClass('JS-show-more');
-    target.addClass('-active JS-show-less');
-  },
+  // more: function(target) {
+  //   var proposal = target.closest('.JS-proposal');
+  //   proposal.find('.JS-more-info').addClass('-show');
+  //   target.removeClass('JS-show-more');
+  //   target.addClass('-active JS-show-less');
+  // },
 
-  less: function(target) {
-    var proposal = target.closest('.JS-proposal');
-    proposal.find('.JS-more-info').removeClass('-show');
-    target.removeClass('-active JS-show-less');
-    target.addClass('JS-show-more');
-  }
+  // less: function(target) {
+  //   var proposal = target.closest('.JS-proposal');
+  //   proposal.find('.JS-more-info').removeClass('-show');
+  //   target.removeClass('-active JS-show-less');
+  //   target.addClass('JS-show-more');
+  // }
 }
 
 $('.JS-vote-input').click(function(event) {
