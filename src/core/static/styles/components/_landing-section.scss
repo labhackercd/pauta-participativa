@@ -1,0 +1,21 @@
+.landing-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 2rem;
+
+  > .logo {
+    max-width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  > .description {
+    margin-bottom: 1rem;
+    font-size: $font-size-base;
+    line-height: 1.2;
+    font-weight: 600;
+    color: hsl(0, 0%, 30%);
+  }
+}

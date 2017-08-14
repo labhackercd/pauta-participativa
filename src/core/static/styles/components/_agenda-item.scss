@@ -1,3 +1,46 @@
 .agenda-item {
   @extend %card;
+  display: flex;
+  flex-direction: column;
+
+  &.-closed {
+    background-color: hsl(0, 0%, 95%);
+
+    > .button {
+      background-color: white;
+      color: hsl(0, 0%, 40%);
+      border: 1px solid hsl(0, 0%, 90%);
+    }
+  }
+
+  .title {
+    font-size: $font-size-deca;
+    color: hsl(0, 0%, 30%);
+    margin-bottom: 0.5rem;
+  }
+
+  .time-frame {
+    font-size: $font-size-base;
+    color: hsl(0, 0%, 50%);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .themes {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    height: 2rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    text-decoration: none;
+    font-size: $font-size-base;
+    background-color: $color-brand;
+    color: white;
+    margin-top: 1rem;
+  }
 }
