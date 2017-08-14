@@ -1,7 +1,9 @@
 .result-page {
   > .wrapper {
-    max-width: 40rem;
-    margin-right: auto;
-    margin-left: auto;
+    @extend %wrapper;
+    padding-top: 1rem;
+    > .title {
+      margin-bottom: 1rem;
+    }
   }
 }
