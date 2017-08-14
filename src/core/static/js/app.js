@@ -34,7 +34,7 @@ var Votes = {
 
   incrementCounter: function(voteType, groupId) {
     var group = $('.JS-group[data-group-id="' + groupId + '"]');
-    var voteCounter = group.find('.-' + voteType + '.-used.JS-vote-counter').first();
+    var voteCounter = group.find('.-' + voteType + '.-used.JS-vote-counter').last();
     voteCounter.removeClass('-used');
   },
 
