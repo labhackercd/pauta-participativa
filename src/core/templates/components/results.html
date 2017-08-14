@@ -12,12 +12,12 @@
 
     {% for group in object.groups.all %}
       <div class="theme-card">
-        <h3 class="title -{{group.theme.slug}}">{{group.theme.name|lower|capfirst}}</h3>
+        <h3 class="title -{{group.theme.slug}}">{{group.theme.name}}</h3>
         <ul>
           {% ordered_proposals group object as proposals %}
           {% for proposal in proposals %}
             <li class="proposal-result">
-              <h4 class="title">{{proposal.title|lower|capfirst}}</h4>
+              <h4 class="title">{{proposal.title}}</h4>
               <p class="pl">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</p>
               <div class="votes">
                 <span class="count -upvotes">{{proposal|upvotes:object}}</span>
