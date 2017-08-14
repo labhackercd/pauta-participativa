@@ -24,44 +24,37 @@
     border-radius: 2rem;
     display: flex;
     justify-content: center;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
     border: 1px solid hsl(0, 0%, 90%);
     box-shadow: 0 4px 16px rgba(black, 0.2);
     margin: 0.5rem 0;
 
-    > .text {
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin: 0 0.5rem;
-      color: $color-brand;
-    }
-    > .counters {
-      display: flex;
-      > .counter {
-        align-items: center;
-        border-radius: 50%;
-        display: inline-flex;
-        font-size: 0.6rem;
-        height: 1rem;
-        justify-content: center;
-        text-shadow: 0 1px 3px rgba(black, 0.4);
-        width: 1rem;
-        margin: 0 0.25rem;
-        color: white;
-        transition: background-color 0.3s $swift-out,
-                    text-shadow 0.3s $swift-out;
-        &.-upvote {
-          @include icon('check');
-          background-color: $color-positive;
-        }
-        &.-downvote {
-          @include icon('times');
-          background-color: $color-negative;
-        }
-        &.-used {
-          background-color: hsl(0, 0%, 80%);
-          text-shadow: 0 1px 3px rgba(black, 0.2);
-        }
+    > .counter {
+      align-items: center;
+      display: inline-flex;
+      font-size: 1rem;
+      justify-content: center;
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      margin: 0 0.25rem;
+      color: hsl(0, 0%, 60%);
+      transition: all 0.3s $swift-out;
+      box-shadow: 0 0 0 0 currentColor;
+      &.-upvote {
+        @include icon('check');
+      }
+      &.-downvote {
+        @include icon('times');
+      }
+      &.-used.-upvote {
+        color: mix(#000, $color-positive, 10%);
+      }
+      &.-used.-downvote {
+        color: mix(#000, $color-negative, 10%);
+      }
+      &.-used {
+        box-shadow: 0 0 0 1rem transparent;
       }
     }
     
