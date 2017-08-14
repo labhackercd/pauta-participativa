@@ -1,8 +1,6 @@
 .group-block {
-  background-color: $color-brand;
-  @include theme-bgcolor;
   display: none;
-  padding-bottom: $size-footer;
+  padding-bottom: $size-navigation;
   padding-top: 1.5rem;
   min-height: calc( 100vh - #{$size-header});
 
@@ -45,7 +43,7 @@
 
     > .title {
       @include theme-icon;
-      color: white;
+      @include theme-color;
       margin-top: 0.75rem;
       margin-bottom: 2.25rem;
       font-size: $font-size-deca;

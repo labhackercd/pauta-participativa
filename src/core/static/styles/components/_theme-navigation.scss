@@ -4,7 +4,7 @@
   position: fixed;
   bottom: 0;
   
-  height: $size-footer;
+  height: $size-navigation;
   display: flex;
   justify-content: center;
 
@@ -41,8 +41,11 @@
       @include theme-icon;
 
       &.-active {
-        box-shadow: 0 4px 0 0 currentColor inset;
-        background-color: hsl(0, 0%, 95%);
+        // box-shadow: 0 $size-navigation 0 0 currentColor inset;
+        // background-color: hsl(0, 0%, 95%);
+        background-color: $color-brand;
+        @include theme-bgcolor;
+        color: #fff;
       }
 
       &:hover, &:active { background-color: hsl(0, 0%, 90%); }
