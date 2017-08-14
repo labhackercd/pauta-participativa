@@ -16,7 +16,7 @@
       <ul class="agenda-list">
         {% for agenda in object_list %}
 
-          <li class="agenda-item">
+          <li class="agenda-item {% if agenda.is_closed %}-closed{% endif %}">
             <h2 class="title">{{agenda.title}}</h2>
             <div class="time-frame">
               <span class="begin">{{agenda.initial_date}}</span>
