@@ -1,0 +1,226 @@
+[
+{
+  "model": "core.theme",
+  "pk": 1,
+  "fields": {
+    "name": "Educa\u00e7\u00e3o",
+    "slug": "educacao"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 2,
+  "fields": {
+    "name": "Com\u00e9rcio e Consumidor",
+    "slug": "comercio-consumidor"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 3,
+  "fields": {
+    "name": "Seguran\u00e7a",
+    "slug": "seguranca"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 4,
+  "fields": {
+    "name": "Pol\u00edtica",
+    "slug": "politica"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 5,
+  "fields": {
+    "name": "Fam\u00edlia",
+    "slug": "familia"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 6,
+  "fields": {
+    "name": "Meio Ambiente",
+    "slug": "meio-ambiente"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 7,
+  "fields": {
+    "name": "Documento",
+    "slug": "documento"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 8,
+  "fields": {
+    "name": "Transporte e Tr\u00e2nsito",
+    "slug": "transporte-e-transito"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 9,
+  "fields": {
+    "name": "Ind\u00fastria",
+    "slug": "industria"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 10,
+  "fields": {
+    "name": "Assist\u00eancia Social",
+    "slug": "assistencia-social"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 11,
+  "fields": {
+    "name": "Turismo",
+    "slug": "turismo"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 12,
+  "fields": {
+    "name": "Sa\u00fade",
+    "slug": "saude"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 13,
+  "fields": {
+    "name": "Institucional",
+    "slug": "institucional"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 14,
+  "fields": {
+    "name": "Cidades",
+    "slug": "cidades"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 15,
+  "fields": {
+    "name": "Economia",
+    "slug": "economia"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 16,
+  "fields": {
+    "name": "Esportes",
+    "slug": "esportes"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 17,
+  "fields": {
+    "name": "Reforma Pol\u00edtica",
+    "slug": "reforma-politica"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 18,
+  "fields": {
+    "name": "Trabalho",
+    "slug": "trabalho"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 19,
+  "fields": {
+    "name": "Administra\u00e7\u00e3o P\u00fablica",
+    "slug": "adm-publica"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 20,
+  "fields": {
+    "name": "Agropecu\u00e1ria",
+    "slug": "agropecuaria"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 21,
+  "fields": {
+    "name": "Previd\u00eancia",
+    "slug": "previdencia"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 22,
+  "fields": {
+    "name": "Comunica\u00e7\u00e3o",
+    "slug": "comunicacao"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 23,
+  "fields": {
+    "name": "Rela\u00e7\u00f5es Exteriores",
+    "slug": "relacoes-exteriores"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 24,
+  "fields": {
+    "name": "Direito e Justi\u00e7a",
+    "slug": "direito-e-justica"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 25,
+  "fields": {
+    "name": "Participa\u00e7\u00e3o e Transpar\u00eancia",
+    "slug": "participacao-e-transparencia"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 26,
+  "fields": {
+    "name": "Ci\u00eancia",
+    "slug": "ciencia"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 27,
+  "fields": {
+    "name": "Direitos Humanos",
+    "slug": "direitos-humanos"
+  }
+},
+{
+  "model": "core.theme",
+  "pk": 28,
+  "fields": {
+    "name": "Cultura",
+    "slug": "cultura"
+  }
+}
+]
