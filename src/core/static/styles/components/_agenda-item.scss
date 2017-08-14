@@ -12,19 +12,22 @@
   }
 
   &:hover {
-    background-color: hsl(0, 0%, 95%);
+    background-color: hsl(0, 0%, 97%);
   }
   &:active {
-    background-color: hsl(0, 0%, 90%);
+    background-color: hsl(0, 0%, 94%);
   }
 
   &.-closed {
-    > .title::after {
-      content: 'Encerrada';
-      color: $color-negative;
-      font-size: $font-size-deci;
-      text-transform: uppercase;
-      margin-left: 0.5rem;
+    > .title {
+      color: hsl(0, 0%, 40%);
+      &::after {
+        content: 'Encerrada';
+        color: $color-negative;
+        font-size: $font-size-deci;
+        text-transform: uppercase;
+        margin-left: 0.5rem;
+      }
     }
   }
 
