@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load staticfiles pauta_participativa_tags %}
 
 {% block content %}
 
@@ -27,8 +27,10 @@
               {% endfor %}
             </ul>
             <a class="button" href="{% url 'agenda' pk=agenda.id %}">
-              {% if agenda.is_closed %}
+              {% if agenda.is_closed or request.user|already_voted:agenda %}
                 Ver Resultados
+              {% elif not request.user.is_authenticated %}
+                Ver
               {% else %}
                 Votar
               {% endif %}
