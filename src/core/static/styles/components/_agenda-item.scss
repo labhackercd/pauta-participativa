@@ -2,45 +2,67 @@
   @extend %card;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  position: relative;
+  padding-right: 6.5rem;
+  color: hsl(0, 0%, 20%);
+
+  &::before {
+
+  }
+
+  &:hover {
+    background-color: hsl(0, 0%, 95%);
+  }
+  &:active {
+    background-color: hsl(0, 0%, 90%);
+  }
 
   &.-closed {
-    background-color: hsl(0, 0%, 95%);
-
-    > .button {
-      background-color: white;
-      color: hsl(0, 0%, 40%);
-      border: 1px solid hsl(0, 0%, 90%);
+    > .title::after {
+      content: 'Encerrada';
+      color: $color-negative;
+      font-size: $font-size-deci;
+      text-transform: uppercase;
+      margin-left: 0.5rem;
     }
   }
 
-  .title {
+  > .title {
     font-size: $font-size-deca;
-    color: hsl(0, 0%, 30%);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
-  .time-frame {
-    font-size: $font-size-base;
-    color: hsl(0, 0%, 50%);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+  > .time {
+    margin-bottom: 1rem;
+    color: hsl(0, 0%, 40%);
   }
 
-  .themes {
+  > .themes {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .button {
-    height: 2rem;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    text-decoration: none;
-    font-size: $font-size-base;
-    background-color: $color-brand;
-    color: white;
-    margin-top: 1rem;
+  > .action {
+    @include icon('angle-right', after);
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: hsl(0, 0%, 80%);
+    text-transform: uppercase;
+    padding-right: 2rem;
+    width: 6rem;
+    text-align: right;
+    font-weight: 600;
+
+    &::after {
+      position: absolute;
+      font-size: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+    }
   }
+
 }

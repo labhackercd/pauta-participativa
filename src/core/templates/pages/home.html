@@ -13,33 +13,32 @@
 
     <section class="agendas-section">
 
-      <ul class="agenda-list">
+      <div class="agenda-list">
         {% for agenda in object_list %}
 
-          <li class="agenda-item {% if agenda.is_closed %}-closed{% endif %}">
+          <a class="agenda-item {% if agenda.is_closed %}-closed{% endif %}" href="{% url 'agenda' pk=agenda.id %}">
             <h2 class="title">{{agenda.title}}</h2>
-            <div class="time-frame">
-              <span class="begin">{{agenda.initial_date}}</span>
-              <span class="end">{{agenda.end_date}}</span>
-            </div>
+            {% if agenda.is_closed or request.user|already_voted:agenda %}
+              <p class="time">Votação encerrada dia {{agenda.end_date}}</p>
+            {% else %}
+              <p class="time">Votação aberta até dia {{agenda.end_date}}</p>
+            {% endif %}
             <ul class="themes">
               {% for group in agenda.groups.all %}
                 <li class="theme-tag -{{group.theme.slug}}">{{group.theme.name}}</li>
               {% endfor %}
             </ul>
-            <a class="button" href="{% url 'agenda' pk=agenda.id %}">
-              {% if agenda.is_closed or request.user|already_voted:agenda %}
-                Ver Resultados
-              {% elif not request.user.is_authenticated %}
-                Ver
-              {% else %}
-                Votar
-              {% endif %}
-            </a>
-          </li>
+            {% if agenda.is_closed or request.user|already_voted:agenda %}
+              <h4 class="action">Ver votos</h4>
+            {% elif not request.user.is_authenticated %}
+              <h4 class="action">Ver</h4>
+            {% else %}
+              <h4 class="action">Votar</h4>
+            {% endif %}
+          </a>
 
         {% endfor %}
-      </ul>
+      </div>
 
     </section>
   </div>

@@ -1,13 +1,13 @@
-// to-do: make modifiers dynamic
-
 .theme-tag {
-  padding: 2px 6px;
   display: inline;
-  margin-right: 0.25rem;
-  margin-bottom: 0.25rem;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
   display: inline-flex;
   align-items: center;
   flex: 0 1 auto;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: $font-size-deci;
 
   &::before { margin-right: 4px; }
 
