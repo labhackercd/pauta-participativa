@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.template import Library
+from random import shuffle
 register = Library()
 
 
@@ -37,3 +38,15 @@ def ordered_proposals(group, agenda):
 @register.simple_tag()
 def recaptcha_site_key():
     return settings.RECAPTCHA_SITE_KEY
+
+
+@register.filter()
+def randomize(queryset):
+    queryset_list = list(queryset)
+    shuffle(queryset_list)
+    return queryset_list
+
+
+@register.assignment_tag()
+def randomize_queryset(queryset):
+    return randomize(queryset)
