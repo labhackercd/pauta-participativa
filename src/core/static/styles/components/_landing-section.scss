@@ -6,6 +6,11 @@
   background-color: white;
   padding: 2rem;
 
+  @include bp-mediumup {
+    flex: 0 1 50%;
+    height: 100vh;
+  }
+
   > .logo {
     max-width: 100%;
     margin-bottom: 3rem;

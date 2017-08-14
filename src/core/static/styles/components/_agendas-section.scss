@@ -1,0 +1,5 @@
+.agendas-section {
+  @include bp-mediumup {
+    flex: 0 1 50%;
+  }
+}

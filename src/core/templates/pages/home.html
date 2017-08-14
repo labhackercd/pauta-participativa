@@ -3,40 +3,42 @@
 
 {% block content %}
 
-  <section class="landing-section">
-    <img class="logo" src="{% static 'images/logo-full.svg' %}" alt="Logomarca do Pauta Participativa">
-    <p class="description">A Pauta Participativa é uma forma de você ajudar a Câmara a definir a prioridade de votações dos projetos. Para cada tema, você pode escolher até DOIS projetos que devam ser votados pelo plenário e UM que você ache que não deva ser colocado em votação.</p>
-    <p class="description">Ao final do período de consulta (15 dias), a Câmara colocará em votação os projetos de cada tema que tenham obtido o maior saldo positivo de votos, ou seja, votos favoráveis menos votos contrários. Participe!</p>
-  </section>
+  <div class="home-page">
+    <section class="landing-section">
+      <img class="logo" src="{% static 'images/logo-full.svg' %}" alt="Logomarca do Pauta Participativa">
+      <p class="description">A Pauta Participativa é uma forma de você ajudar a Câmara a definir a prioridade de votações dos projetos. Para cada tema, você pode escolher até DOIS projetos que devam ser votados pelo plenário e UM que você ache que não deva ser colocado em votação.</p>
+      <p class="description">Ao final do período de consulta (15 dias), a Câmara colocará em votação os projetos de cada tema que tenham obtido o maior saldo positivo de votos, ou seja, votos favoráveis menos votos contrários. Participe!</p>
+    </section>
 
-  <section class="agendas-section">
+    <section class="agendas-section">
 
-    <ul class="agenda-list">
-      {% for agenda in object_list %}
+      <ul class="agenda-list">
+        {% for agenda in object_list %}
 
-        <li class="agenda-item">
-          <h2 class="title">{{agenda.title}}</h2>
-          <div class="time-frame">
-            <span class="begin">{{agenda.initial_date}}</span>
-            <span class="end">{{agenda.end_date}}</span>
-          </div>
-          <ul class="themes">
-            {% for group in agenda.groups.all %}
-              <li class="theme-tag -{{group.theme.slug}}">{{group.theme.name}}</li>
-            {% endfor %}
-          </ul>
-          <a class="button" href="{% url 'agenda' pk=agenda.id %}">
-            {% if agenda.is_closed %}
-              Ver Resultados
-            {% else %}
-              Votar
-            {% endif %}
-          </a>
-        </li>
+          <li class="agenda-item">
+            <h2 class="title">{{agenda.title}}</h2>
+            <div class="time-frame">
+              <span class="begin">{{agenda.initial_date}}</span>
+              <span class="end">{{agenda.end_date}}</span>
+            </div>
+            <ul class="themes">
+              {% for group in agenda.groups.all %}
+                <li class="theme-tag -{{group.theme.slug}}">{{group.theme.name}}</li>
+              {% endfor %}
+            </ul>
+            <a class="button" href="{% url 'agenda' pk=agenda.id %}">
+              {% if agenda.is_closed %}
+                Ver Resultados
+              {% else %}
+                Votar
+              {% endif %}
+            </a>
+          </li>
 
-      {% endfor %}
-    </ul>
+        {% endfor %}
+      </ul>
 
-  </section>
+    </section>
+  </div>
 
 {% endblock content %}
