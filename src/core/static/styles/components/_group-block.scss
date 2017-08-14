@@ -44,8 +44,8 @@
     > .title {
       @include theme-icon;
       @include theme-color;
-      margin-top: 0.75rem;
-      margin-bottom: 2.25rem;
+      margin-top: 1rem;
+      margin-bottom: 2.5rem;
       font-size: $font-size-deca;
       padding-right: 6rem;
       line-height: 1.5rem;
