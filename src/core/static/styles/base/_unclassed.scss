@@ -11,6 +11,11 @@ html {
 
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
