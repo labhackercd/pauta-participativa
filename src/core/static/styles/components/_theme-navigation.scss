@@ -40,6 +40,8 @@
       @include theme-color;
       @include theme-icon;
 
+      &:hover, &:active { background-color: hsl(0, 0%, 90%); }
+
       &.-active {
         // box-shadow: 0 $size-navigation 0 0 currentColor inset;
         // background-color: hsl(0, 0%, 95%);
@@ -47,8 +49,6 @@
         @include theme-bgcolor;
         color: #fff;
       }
-
-      &:hover, &:active { background-color: hsl(0, 0%, 90%); }
 
       &.-disabled {
         opacity: 0.4;
