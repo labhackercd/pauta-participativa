@@ -22,14 +22,21 @@
       color: $color-positive;
       cursor: pointer;
       border-bottom: 1px solid transparent;
-      &:hover { border-bottom: 1px solid $color-positive; }
+      &::before { content: 'Ver mais'; }
+      &::after {
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+      &:hover { border-bottom: 1px solid currentColor; }
+      &.-active::before { content: 'Ver menos'; }
+      &.-active::after { transform: rotate(-180deg); }
     }
   }
 
   > .moreinfo {
     margin-bottom: 0.5rem;
     max-height: 0;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.3s ease-in-out;
     display: block;
     overflow: hidden;
     width: 100%;
