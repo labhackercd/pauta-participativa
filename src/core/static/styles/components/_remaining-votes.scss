@@ -39,7 +39,7 @@
       height: 1rem;
       margin: 0 0.25rem;
       color: hsl(0, 0%, 60%);
-      transition: all 0.3s $swift-out;
+      transition: all 0.4s ease;
       box-shadow: 0 0 0 0 currentColor;
       &.-upvote {
         @include icon('check');
@@ -54,7 +54,7 @@
         color: mix(#000, $color-negative, 10%);
       }
       &.-used {
-        box-shadow: 0 0 0 1rem transparent;
+        box-shadow: 0 0 0 1.5rem transparent;
       }
     }
     
