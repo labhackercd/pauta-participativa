@@ -3,9 +3,13 @@
   display: flex;
   flex-direction: column;
   align-self: flex-end;
+  margin: 0 0.25rem;
   z-index: 10;
-  top: 5.5rem;
-  transform: translateX(2rem);
+  top: 0;
+  transform: translateX(100%);
+  @include bp-mediumup {
+    flex-direction: row;
+  }
 
   &.-fixed {
     position: fixed;
@@ -20,7 +24,7 @@
     border-radius: 50%;
     width: 1.5rem;
     height: 1.5rem;
-    margin: 0.25em 0;
+    margin: 0.25em;
     color: hsl(0, 0, 60%);
     background-color: rgba(black, 0);
     text-shadow: 0 0 0 transparent;
