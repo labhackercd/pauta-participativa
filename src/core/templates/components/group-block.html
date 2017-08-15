@@ -12,8 +12,6 @@
       </div>
     {% endif %}
 
-    <h2 class="title -{{group.theme.slug}}">{{group.theme.name}}</h2>
-
     <form class="group-form JS-group-form" action="">
       <ul class="proposal-list">
         {% for proposal in group.proposals.all|randomize %}
