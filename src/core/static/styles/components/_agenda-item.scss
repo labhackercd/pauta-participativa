@@ -7,10 +7,6 @@
   padding-right: 6.5rem;
   color: hsl(0, 0%, 20%);
 
-  &::before {
-
-  }
-
   &:hover {
     background-color: hsl(0, 0%, 97%);
   }
@@ -21,6 +17,7 @@
   &.-closed {
     > .title {
       color: hsl(0, 0%, 40%);
+      font-style: italic;
       &::after {
         content: 'Encerrada';
         color: $color-negative;
