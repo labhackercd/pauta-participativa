@@ -2,17 +2,15 @@
 
 <div class="group-block -{{group.theme.slug}} {% ifequal group first_group %}-active{% endifequal %} JS-group" data-group-id="{{group.id}}" data-group-theme>
 
-  {% if user.is_authenticated %}
-    <div class="remaining-votes JS-remaining-votes">
-      <div class="bubble">
+  <div class="wrapper">
+
+    {% if user.is_authenticated %}
+      <div class="remaining-votes JS-remaining-votes">
         <span class="counter -upvote JS-vote-counter"></span>
         <span class="counter -upvote JS-vote-counter"></span>
         <span class="counter -downvote JS-vote-counter"></span>
       </div>
-    </div>
-  {% endif %}
-
-  <div class="wrapper">
+    {% endif %}
 
     <h2 class="title -{{group.theme.slug}}">{{group.theme.name}}</h2>
 

@@ -1,71 +1,66 @@
 .remaining-votes {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
   z-index: 10;
   top: 5.5rem;
-  width: 100%;
-  max-width: 42rem;
-  padding-right: 1.5rem;
-  padding-left: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: flex-end;
-  pointer-events: none;
+  transform: translateX(2rem);
 
   &.-fixed {
     position: fixed;
     top: 0;
   }
 
-  > .bubble {
+  > .counter {
     align-items: center;
-    align-self: center;
-    height: 2.5rem;
-    background-color: $color-brand;
-    border-radius: 2rem;
-    display: flex;
+    display: inline-flex;
+    font-size: 1rem;
     justify-content: center;
-    padding: 0 0.5rem;
-    box-shadow: 0 4px 16px rgba(black, 0.2);
-    margin: 0.5rem 0;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0.25em 0;
+    color: hsl(0, 0, 60%);
+    background-color: rgba(black, 0);
+    text-shadow: 0 0 0 transparent;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    transition-property: box-shadow,
+                         background-color,
+                         color,
+                         text-shadow;
+    transition-delay: 0s,
+                      0.25s,
+                      0.25s,
+                      0.25s;
 
-    > .counter {
-      align-items: center;
-      display: inline-flex;
-      font-size: 1rem;
-      justify-content: center;
-      border-radius: 50%;
-      width: 1.5rem;
-      height: 1.5rem;
-      margin: 0 0.4rem;
-      color: rgba(white, 0.6);
-      background-color: rgba(black, 0);
-      text-shadow: 0 1px 3px rgba(black, 0.2);
-      transition: all 0.4s ease, background-color 0.4s 0.25s ease, color 0.4s 0.25s;
-
-      &.-upvote {
-        @include icon('check');
-        box-shadow: 0 0 0 0 mix(#fff, $color-positive, 10%);
-      }
-      &.-downvote {
-        @include icon('times');
-        box-shadow: 0 0 0 0 mix(#fff, $color-negative, 10%);
-      }
-      &.-used.-upvote {
-        background-color: mix(#fff, $color-positive, 10%);
-      }
-      &.-used.-downvote {
-        background-color: mix(#fff, $color-negative, 10%);
-
-      }
-      &.-used {
-        box-shadow: 0 0 0 4rem transparent;
-        text-shadow: 0 1px 3px rgba(black, 0.4);
-        color: white;
-        transition: all 0.4s ease, background-color 0.4s 0s ease, color 0.4s 0s;
-      }
+    &.-upvote {
+      @include icon('check');
+      box-shadow: 0 0 0 -1px mix(#fff, $color-positive, 10%);
     }
 
-  }
+    &.-downvote {
+      @include icon('times');
+      box-shadow: 0 0 0 -1px mix(#fff, $color-negative, 10%);
+    }
 
+    &.-used.-upvote {
+      background-color: mix(#fff, $color-positive, 10%);
+    }
+
+    &.-used.-downvote {
+      background-color: mix(#fff, $color-negative, 10%);
+    }
+
+    &.-used {
+      box-shadow: 0 0 0 4rem transparent;
+      text-shadow: 0 1px 3px rgba(black, 0.4);
+      color: white;
+      transition-delay: 0s,
+                        0s,
+                        0s,
+                        0s;
+    }
+  }
 }

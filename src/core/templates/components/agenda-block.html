@@ -15,6 +15,16 @@
       <div class="group-block JS-votes-review JS-group" data-group-id="finish">
         <div class="wrapper">
 
+        {% if user.is_authenticated %}
+          <div class="remaining-votes JS-remaining-votes">
+            <div class="bubble">
+              <span class="counter -upvote JS-vote-counter"></span>
+              <span class="counter -upvote JS-vote-counter"></span>
+              <span class="counter -downvote JS-vote-counter"></span>
+            </div>
+          </div>
+        {% endif %}
+
          <p class="description">Confira os seus votos. <br> Depois de enviar, eles não poderão ser alterados!</p>
 
           {% for group in groups %}
