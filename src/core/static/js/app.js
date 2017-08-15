@@ -1,5 +1,3 @@
-console.log('oi');
-
 setTimeout = (function( oldsetTimeout){
   var registered=[],
   f = function(a,b){
@@ -191,16 +189,18 @@ var Show = {
   // }
 }
 
-$(window).scroll(function(event) {
-  var themeNavigation = $('.JS-theme-navigation');
-  var agendaHeader = $('.JS-agenda-header');
-  var headerHeight = parseInt(agendaHeader.css('height'))
-  if ($(document).scrollTop() >= (headerHeight)) {
-    themeNavigation.addClass('-fixed');
-  } else {
-    themeNavigation.removeClass('-fixed');
+var Scroll = {
+  themeNavigation: function() {
+    var themeNavigation = $('.JS-theme-navigation');
+    var agendaHeader = $('.JS-agenda-header');
+    var headerHeight = parseInt(agendaHeader.css('height'))
+    if ($(document).scrollTop() >= (headerHeight)) {
+      themeNavigation.addClass('-fixed');
+    } else {
+      themeNavigation.removeClass('-fixed');
+    }
   }
-});
+}
 
 $('.JS-vote-input').click(function(event) {
   var target = $(event.target);
@@ -259,16 +259,40 @@ $('.JS-tab-item').click(function(event) {
 
 if ($('.JS-remaining-votes').length) {
   var remainingVotesOffset = $('.JS-remaining-votes').offset().top;
-  $(window).scroll(function(event) {
+} else {
+  var remainingVotesOffset = 0;
+}
+
+$(window).scroll(function(event) {
+  Scroll.themeNavigation();
+  if ($('.JS-remaining-votes').length) {
+    var navigation = $('.JS-tab-navigation');
     var remainingVotes = $('.JS-remaining-votes');
-    var margin = parseInt(remainingVotes.css('margin-top'))
-    if ($(document).scrollTop() >= (remainingVotesOffset - margin)) {
+    var margin = parseInt(remainingVotes.css('margin-top'));
+    var height = remainingVotesOffset - margin - navigation.outerHeight();
+    if ($(document).scrollTop() >= height) {
       remainingVotes.addClass('-fixed');
+      remainingVotes.attr('style', 'top: ' + navigation.outerHeight() + 'px');
     } else {
       remainingVotes.removeClass('-fixed');
+      remainingVotes.removeAttr('style');
     }
-  });
-}
+  }
+});
+
+// if ($('.JS-remaining-votes').length) {
+//   var remainingVotesOffset = $('.JS-remaining-votes').offset().top;
+//   $(window).scroll(function(event) {
+//     Scroll.themeNavigation();
+//     var remainingVotes = $('.JS-remaining-votes');
+//     var margin = parseInt(remainingVotes.css('margin-top'))
+//     if ($(document).scrollTop() >= (remainingVotesOffset - margin)) {
+//       remainingVotes.addClass('-fixed');
+//     } else {
+//       remainingVotes.removeClass('-fixed');
+//     }
+//   });
+// }
 
 $('.JS-show').click(function(event) {
   var target = $(event.target);
