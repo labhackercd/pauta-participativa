@@ -1,8 +1,8 @@
 .theme-navigation {
   background-color: #fff;
-  
-  position: fixed;
-  bottom: 0;
+
+  position: absolute;
+  top: 4rem;
   
   height: $size-navigation;
   display: flex;
@@ -10,7 +10,14 @@
 
   width: 100%;
 
-  box-shadow: 0 1px 0 0 hsl(0, 0%, 80%) inset;
+  box-shadow: 0 4px 12px 0 rgba(#000, 0.2);
+
+  z-index: 8;
+
+  &.-fixed {
+    position: fixed;
+    top: 0;
+  }
 
   > nav {
     overflow-x: auto;
@@ -19,7 +26,6 @@
     > a {
       flex: 1;
       width: 8rem;
-      box-shadow: 0 1px 0 0 hsl(0, 0%, 80%) inset;
       cursor: pointer;
       text-align: center;
       display: flex;
@@ -28,7 +34,7 @@
       font-size: $font-size-centi;
       padding-top: 0.4rem;
       padding-bottom: 0.3rem;
-      transition: box-shadow 0.3s ease;
+      transition: all 0.3s ease;
       font-weight: 600;
       color: $color-brand;
       @include icon('flag-checkered');
@@ -48,6 +54,7 @@
         background-color: $color-brand;
         @include theme-bgcolor;
         color: #fff;
+        cursor: default;
       }
 
       &.-disabled {

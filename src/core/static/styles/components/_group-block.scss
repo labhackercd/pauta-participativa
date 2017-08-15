@@ -1,7 +1,7 @@
 .group-block {
   display: none;
-  padding-bottom: $size-navigation;
-  padding-top: 1.5rem;
+  padding-top: calc(1.5rem + #{$size-navigation});
+  padding-bottom: 2rem;
   min-height: calc( 100vh - #{$size-header});
 
   &.-active {
@@ -41,18 +41,6 @@
       flex-direction: column;
     }
 
-    > .title {
-      @include theme-icon;
-      @include theme-color;
-      margin-top: 1rem;
-      margin-bottom: 2.5rem;
-      font-size: $font-size-deca;
-      padding-right: 6rem;
-      line-height: 1.5rem;
-      &::before {
-        margin-right: 0.5rem;
-      }
-    }
-
   }
+
 }

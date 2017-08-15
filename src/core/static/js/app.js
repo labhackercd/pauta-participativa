@@ -1,3 +1,5 @@
+console.log('oi');
+
 setTimeout = (function( oldsetTimeout){
   var registered=[],
   f = function(a,b){
@@ -188,6 +190,17 @@ var Show = {
   //   target.addClass('JS-show-more');
   // }
 }
+
+$(window).scroll(function(event) {
+  var themeNavigation = $('.JS-theme-navigation');
+  var agendaHeader = $('.JS-agenda-header');
+  var headerHeight = parseInt(agendaHeader.css('height'))
+  if ($(document).scrollTop() >= (headerHeight)) {
+    themeNavigation.addClass('-fixed');
+  } else {
+    themeNavigation.removeClass('-fixed');
+  }
+});
 
 $('.JS-vote-input').click(function(event) {
   var target = $(event.target);

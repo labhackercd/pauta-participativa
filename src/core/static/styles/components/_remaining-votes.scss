@@ -10,6 +10,7 @@
   transform: translateX(-50%);
   display: flex;
   justify-content: flex-end;
+  pointer-events: none;
 
   &.-fixed {
     position: fixed;
