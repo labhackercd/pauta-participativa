@@ -18,12 +18,25 @@
     <main class="main-content">
       {% block content %}
       {% endblock content %}
+
+      {% block modal %}
+        <div class="JS-modal">
+          <a class="JS-close-modal">x</a>
+        </div>
+      {% endblock modal %}
     </main>
 
-    <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script src="{% static 'django_js_reverse/js/reverse.js' %}"></script>
-    <script src="{% static 'js/app.js' %}"></script>
+    {% compress js %}
+      <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+      <script src="{% static 'django_js_reverse/js/reverse.js' %}"></script>
+      <script src="{% static 'js/utils.js' %}"></script>
+      <script src="{% static 'js/modules/votes.js' %}"></script>
+      <script src="{% static 'js/modules/buttons.js' %}"></script>
+      <script src="{% static 'js/modules/tabs.js' %}"></script>
+      <script src="{% static 'js/modules/scroll.js' %}"></script>
+      <script src="{% static 'js/app.js' %}"></script>
+    {% endcompress %}
 
     {% block extra_js %}
     {% endblock extra_js %}
