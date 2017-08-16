@@ -135,7 +135,7 @@ $('.JS-confirm-votes').submit(function(e) {
     url: window.Urls.agenda(agendaId),
     data: {data: JSON.stringify(data)},
     success: function(data) {
-      location.reload();
+      window.location.href = window.location.href;
     },
     error: function(data) {
       alert(data.responseJSON.message);
