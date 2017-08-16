@@ -1,0 +1,11 @@
+.note-message {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+
+  > .text {
+    font-size: $font-size-deca;
+    color: hsl(0, 0, 30%);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+}

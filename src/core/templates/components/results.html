@@ -5,7 +5,10 @@
   <div class="wrapper">
 
     {% if not object.is_closed %}
-      <p class="description">Obrigada por participar! <br> Veja abaixo o resultado parcial:</p>
+      <div class="note-message">
+        <p class="text">Obrigada por participar!</p>
+        <p class="text">Veja abaixo o resultado parcial:</p>
+      </div>
     {% else %}
       <h2 class="title">Resultado</h2>
     {% endif %}
