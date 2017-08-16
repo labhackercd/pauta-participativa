@@ -1,0 +1,38 @@
+[data-tooltip] {
+  position: relative;
+}
+
+.tooltip-box {
+  position: absolute;
+  display: none;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  min-width: 10rem;
+  max-width: 20rem;
+  background-color: rgba(60, 50, 95, 0.9);
+  color: white;
+  padding: 0.5rem;
+  box-sizing: content-box;
+  font-size: 0.8rem;
+  border-radius: 0.5rem;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 8px 0 8px;
+    border-color: rgba(60, 50, 95, 0.9) transparent transparent transparent;
+  }
+
+  &.-show {
+    display: block;
+  }
+}
