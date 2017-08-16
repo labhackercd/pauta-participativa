@@ -8,10 +8,16 @@
     display: block;
   }
 
+  &:not(.-review) {
+    > .wrapper {
+      padding-right: 2.5rem;
+    }
+  }
+
   > .wrapper {
     @extend %wrapper;
     position: relative;
-    padding-right: 2.5rem;
+    padding-right: 1rem;
     padding-left: 1rem;
     display: flex;
     flex-direction: column;
