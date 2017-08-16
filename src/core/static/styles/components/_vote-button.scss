@@ -28,9 +28,10 @@
     justify-content: center;
     border-radius: 1rem;
     transition: all 0.2s ease;
-    &:hover {
-      @include hover-style;
-    }
+  }
+  
+  & > input:not(:disabled) + label:hover {
+    @include hover-style;
   }
 
   & > input {
@@ -45,7 +46,7 @@
   & > input:disabled + label {
     color: hsl(0, 0%, 60%);
     background-color: rgba(#000, 0.1);
-    pointer-events: none;
+    cursor: default;
   }
 
 }
