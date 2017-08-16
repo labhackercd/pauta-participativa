@@ -19,11 +19,10 @@
       {% block content %}
       {% endblock content %}
 
-      {% block modal %}
-        <div class="JS-modal">
-          <a class="JS-close-modal">x</a>
-        </div>
-      {% endblock modal %}
+      <div class="modal-box JS-modal">
+        {% block modal %}
+        {% endblock modal %}
+      </div>
     </main>
 
     <script src='https://www.google.com/recaptcha/api.js'></script>
