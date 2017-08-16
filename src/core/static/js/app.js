@@ -30,7 +30,7 @@ $('.JS-vote-input').click(function(event) {
   }
 
   Votes.checkUnvoted(voteType, groupId);
-  Buttons.changeNextButtonState(target, groupId);
+  Buttons.changeButtonsState(target, groupId);
 })
 
 $('.JS-next-group-btn').click(function(event) {
@@ -159,10 +159,4 @@ $('.JS-modal-close').click(function(event) {
   var target = $(event.target);
   target.closest('.JS-modal').removeClass('-show');
   Cookie.create('hideTutorial', true);
-});
-
-$('.JS-tickbox').hover(function() {
-  console.log('entrou')
-}, function() {
-  console.log('saiu')
 });
