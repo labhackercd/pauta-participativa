@@ -15,11 +15,11 @@
 
   {% if user.is_authenticated %}
     <div class="votes">
-      <div class="vote-button -upvote JS-tickbox">
+      <div class="vote-button -upvote JS-tickbox" data-tooltip="Você já usou seus votos a favor">
         <input class="JS-vote-input" id="group{{group.id}}-upvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="upvote" data-vote-type="upvote">
         <label for="group{{group.id}}-upvote{{proposal.id}}"></label>
       </div>
-      <div class="vote-button -downvote JS-tickbox">
+      <div class="vote-button -downvote JS-tickbox" data-tooltip="Você já usou seu voto contra">
         <input class="JS-vote-input" id="group{{group.id}}-downvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="downvote" data-vote-type="downvote">
         <label for="group{{group.id}}-downvote{{proposal.id}}"></label>
       </div>
