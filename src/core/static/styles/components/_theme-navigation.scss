@@ -39,7 +39,7 @@
       color: $color-brand;
       @include icon('flag-checkered');
 
-      &::before { font-size: $font-size-deca; }
+      &::before { font-size: $font-size-hecto; }
 
       &::after {
         content: '';
