@@ -34,14 +34,20 @@ var Votes = {
     var group = $('.JS-group[data-group-id="' + groupId + '"]');
     var selector = '.JS-vote-input[data-vote-type="' + voteType +
                    '"]:not(:checked)';
-    group.find(selector).attr('disabled', true);
+    var voteInputs = group.find(selector);
+    voteInputs.attr('disabled', true);
+
+    voteInputs.closest('.JS-tickbox').addClass('JS-show-tooltip');
   },
 
   enableUnvoted: function(voteType, groupId) {
     var group = $('.JS-group[data-group-id="' + groupId + '"]');
     var selector = '.JS-vote-input[data-vote-type="' + voteType +
                    '"]:not(:checked)';
-    group.find(selector).removeAttr('disabled');
+    var voteInputs = group.find(selector);
+    voteInputs.removeAttr('disabled');
+
+    voteInputs.closest('.JS-tickbox').removeClass('JS-show-tooltip');
   },
 
   checkUnvoted: function(voteType, groupId) {

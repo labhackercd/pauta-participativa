@@ -160,3 +160,9 @@ $('.JS-modal-close').click(function(event) {
   target.closest('.JS-modal').removeClass('-show');
   Cookie.create('hideTutorial', true);
 });
+
+$('.JS-tickbox').hover(function() {
+  console.log('entrou')
+}, function() {
+  console.log('saiu')
+});
