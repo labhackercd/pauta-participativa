@@ -2,7 +2,6 @@ var Buttons = {
   changeButtonsState: function(checkbox, groupId) {
     var nextButton = checkbox.closest('.JS-group').find('.JS-next-group-btn');
     var prevButton = checkbox.closest('.JS-group').find('.JS-prev-group-btn');
-    var errorMessage = $('.JS-error-message');
     var voteType = Votes.getVoteType(checkbox);
     var downvoteNotAvailable = !Votes.downvoteIsAvailable(groupId);
     var unvote = !checkbox.prop('checked');
@@ -14,39 +13,30 @@ var Buttons = {
       nextButton.text('Próximo');
       prevButton.prop('disabled', true);
       Tabs.disableAllUnless(groupId);
-      errorMessage.addClass('-show');
-      setTimeout(function() {
-        errorMessage.find('.JS-error-close').click();
-      }, 6500);
+      ErrorMessage.show();
     } else if (remainingDownvotes === 0 && remainingUpvotes === 0) {
       nextButton.prop('disabled', false);
       nextButton.text('Próximo');
       prevButton.prop('disabled', false);
       Tabs.enableAll();
-      errorMessage.removeClass('-show');
-      errorMessage.find('.JS-error-close').click();
+      ErrorMessage.hide();
     } else if (remainingDownvotes === 1 && remainingUpvotes < 2) {
       nextButton.prop('disabled', false);
       nextButton.text('Próximo');
       prevButton.prop('disabled', false);
       Tabs.enableAll();
-      errorMessage.removeClass('-show');
-      errorMessage.find('.JS-error-close').click();
+      ErrorMessage.hide();
     } else if (remainingDownvotes === 1 && remainingUpvotes === 2) {
       nextButton.prop('disabled', false);
       nextButton.text('Pular');
       prevButton.prop('disabled', false);
       Tabs.enableAll();
-      errorMessage.removeClass('-show');
-      errorMessage.find('.JS-error-close').click();
+      ErrorMessage.hide();
     } else {
       nextButton.prop('disabled', true);
       prevButton.prop('disabled', true);
       Tabs.disableAllUnless(groupId);
-      errorMessage.addClass('-show');
-      setTimeout(function() {
-        errorMessage.find('.JS-error-close').click();
-      }, 6500);
+      ErrorMessage.show();
     }
   },
 }

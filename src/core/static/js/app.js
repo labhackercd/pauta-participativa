@@ -45,7 +45,10 @@ $('.JS-prev-group-btn').click(function(event) {
 
 $('.JS-tab-item').click(function(event) {
   var target = $(event.target);
-  if (target.hasClass('-active') || target.hasClass('-disabled')) {
+  if (target.hasClass('-active')) {
+    return false;
+  } else if (target.hasClass('-disabled')) {
+    ErrorMessage.show();
     return false;
   } else {
     var groupId = target.data('groupId');
@@ -159,4 +162,12 @@ $('.JS-modal-close').click(function(event) {
   var target = $(event.target);
   target.closest('.JS-modal').removeClass('-show');
   Cookie.create('hideTutorial', true);
+});
+
+$('.JS-navigation-btn').click(function(event) {
+  var target = $(event.target);
+  var btn = target.find('.JS-prev-group-btn,.JS-next-group-btn');
+  if (btn.prop('disabled')) {
+    ErrorMessage.show();
+  }
 });
