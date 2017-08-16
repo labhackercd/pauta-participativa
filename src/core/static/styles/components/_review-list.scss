@@ -6,11 +6,11 @@
     position: relative;
     &.-upvote {
       color: $color-positive;
-      @include icon('check');
+      @include icon('plus');
     }
     &.-downvote {
       color: $color-negative;
-      @include icon('times');
+      @include icon('minus');
     }
     &::before {
       position: absolute;

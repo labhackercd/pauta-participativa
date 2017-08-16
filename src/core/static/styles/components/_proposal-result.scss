@@ -25,11 +25,11 @@
       align-items: center;
       &.-upvotes {
         color: $color-positive;
-        @include icon('check', after);
+        @include icon('plus', after);
       }
       &.-downvotes {
         color: $color-negative;
-        @include icon('times', after);
+        @include icon('minus', after);
       }
       &::after {
         margin-left: 0.25rem;

@@ -12,12 +12,12 @@
   &.-upvote {
     color: $color-positive;
     border-color: $color-positive;
-    > label { @include icon('check', after); }
+    > label { @include icon('plus', after); }
   }
   &.-downvote {
     color: $color-negative;
     border-color: $color-negative;
-    > label { @include icon('times', after); }
+    > label { @include icon('minus', after); }
   }
 
   & > label {

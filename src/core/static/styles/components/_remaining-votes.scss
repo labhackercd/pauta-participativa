@@ -40,12 +40,12 @@
                       0.25s;
 
     &.-upvote {
-      @include icon('check');
+      @include icon('plus');
       box-shadow: 0 0 0 -1px mix(#fff, $color-positive, 10%);
     }
 
     &.-downvote {
-      @include icon('times');
+      @include icon('minus');
       box-shadow: 0 0 0 -1px mix(#fff, $color-negative, 10%);
     }
 
