@@ -34,7 +34,7 @@
   }
 
   > .time {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     color: hsl(0, 0%, 40%);
   }
 
@@ -49,7 +49,7 @@
     right: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
-    color: hsl(0, 0%, 80%);
+    color: $color-positive;
     text-transform: uppercase;
     padding-right: 2rem;
     width: 6rem;
