@@ -27,6 +27,8 @@
     p {
       margin-bottom: 1rem;
     }
+    > * { display: none; }
+    > .-active { display: block; }
   }
 
   &.-show {
