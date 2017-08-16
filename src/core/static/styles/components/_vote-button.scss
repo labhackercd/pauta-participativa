@@ -27,12 +27,12 @@
     border-style: solid;
     text-align: center;
     display: flex;
-    height: 2rem;
     align-items: center;
     justify-content: center;
-    border-radius: 1rem;
+    border-radius: 3rem;
     transition: all 0.2s ease;
     font-size: $font-size-deci;
+    padding: 0.5rem;
     &::after {
       margin-left: 0.5rem;
       font-size: $font-size-base;
