@@ -141,3 +141,22 @@ $('.JS-confirm-votes').submit(function(e) {
 
   return false;
 })
+
+var hideTutorial = Cookie.read('hideTutorial');
+if (!hideTutorial || hideTutorial == 'false') {
+  $('.JS-modal').addClass('-show');
+}
+
+$('.JS-modal-next').click(function(event) {
+  var target = $(event.target);
+  var tutorial = target.closest('.JS-tutorial');
+  tutorial.removeClass('-active');
+  var next = tutorial.next('.JS-tutorial');
+  next.addClass('-active');
+});
+
+$('.JS-modal-close').click(function(event) {
+  var target = $(event.target);
+  target.closest('.JS-modal').removeClass('-show');
+  Cookie.create('hideTutorial', true);
+});

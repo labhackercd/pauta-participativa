@@ -18,7 +18,7 @@
 {% endblock content %}
 
 {% block modal %}
-  <div class="tutorial1">
+  <div class="tutorial1 -active JS-tutorial">
     <h3 class="title">Bem vindo!</h3>
     <p>Você pode marcar mais de um projeto em cada tema</p>
     <p>
@@ -31,11 +31,11 @@
       </strong>
     </p>
     <p>Você não precisa votar em todos os temas, ou em todos projetos de cada tema</p>
-    <button class="button -dark">Próximo</button>
+    <button class="button -dark JS-modal-next">Próximo</button>
   </div>
-  <div class="tutorial2">
+  <div class="tutorial2 JS-tutorial">
     <h3 class="title">Votos Contra</h3>
     <p>Para marcar <strong>um voto contra</strong>, você precisa marcar <strong>dois votos a favor</strong></p>
-    <button class="button -dark">Entendi</button>
+    <button class="button -dark JS-modal-close">Entendi</button>
   </div>
 {% endblock modal %}
