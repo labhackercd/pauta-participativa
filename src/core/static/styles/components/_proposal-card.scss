@@ -43,6 +43,12 @@
     &.-show {
       max-height: 80vh;
     }
+    > .description {
+      font-size: $font-size-deci;
+      line-height: 1.25rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
   }
 
   > .votes {

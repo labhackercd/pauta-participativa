@@ -1,5 +1,6 @@
 .vote-button {
-  flex-grow: 1;
+  // flex-grow: 1;
+  width: calc(50% - 0.5rem);
 
   &:first-child {
     margin-right: 0.5rem;
@@ -10,17 +11,20 @@
 
   &.-upvote {
     color: $color-positive;
-    > label { @include icon('check'); }
+    border-color: $color-positive;
+    > label { @include icon('check', after); }
   }
   &.-downvote {
     color: $color-negative;
-    > label { @include icon('times'); }
+    border-color: $color-negative;
+    > label { @include icon('times', after); }
   }
 
   & > label {
     cursor: pointer;
     color: inherit;
-    border: 1px solid currentColor;
+    border-width: 1px;
+    border-style: solid;
     text-align: center;
     display: flex;
     height: 2rem;
@@ -28,6 +32,11 @@
     justify-content: center;
     border-radius: 1rem;
     transition: all 0.2s ease;
+    font-size: $font-size-deci;
+    &::after {
+      margin-left: 0.5rem;
+      font-size: $font-size-base;
+    }
   }
   
   & > input:not(:disabled) + label:hover {
@@ -38,15 +47,15 @@
     display: none;
   }
 
-  & > input:checked + label {
-    background-color: currentColor;
-    &::before { color: #fff; }
-  }
+  & > input:checked + label { color: #fff; }
+  &.-upvote > input:checked + label { background-color: $color-positive; }
+  &.-downvote > input:checked + label { background-color: $color-negative; }
 
   & > input:disabled + label {
     color: hsl(0, 0%, 60%);
     background-color: rgba(#000, 0.1);
     cursor: default;
+    border: none;
   }
 
 }

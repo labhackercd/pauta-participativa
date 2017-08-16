@@ -4,7 +4,6 @@
 
   <div class="undertitle">
     <p class="pl">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</p>
-
     <!-- <a class="more JS-show JS-show-more"></a> -->
   </div>
 
@@ -17,11 +16,11 @@
     <div class="votes">
       <div class="vote-button -upvote JS-tickbox" data-tooltip="Você já usou seus votos a favor">
         <input class="JS-vote-input" id="group{{group.id}}-upvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="upvote" data-vote-type="upvote">
-        <label for="group{{group.id}}-upvote{{proposal.id}}"></label>
+        <label for="group{{group.id}}-upvote{{proposal.id}}">Quero isto na pauta</label>
       </div>
       <div class="vote-button -downvote JS-tickbox" data-tooltip="Você já usou seu voto contra">
         <input class="JS-vote-input" id="group{{group.id}}-downvote{{proposal.id}}" type="checkbox" name="{{proposal.id}}" value="downvote" data-vote-type="downvote">
-        <label for="group{{group.id}}-downvote{{proposal.id}}"></label>
+        <label for="group{{group.id}}-downvote{{proposal.id}}">Não quero isto na pauta</label>
       </div>
     </div>
   {% endif %}
