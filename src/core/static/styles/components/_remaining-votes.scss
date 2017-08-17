@@ -17,7 +17,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    right: 0.5rem;
+    right: 0.25rem;
 
     @include bp-mediumup {
       right: 1rem;
