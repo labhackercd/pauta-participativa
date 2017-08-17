@@ -167,7 +167,7 @@ $('.JS-modal-close').click(function(event) {
 $('.JS-navigation-btn').click(function(event) {
   var target = $(event.target);
   var btn = target.find('.JS-prev-group-btn,.JS-next-group-btn');
-  if (btn.prop('disabled')) {
+  if (btn.hasClass('-disabled')) {
     ErrorMessage.show();
   }
 });

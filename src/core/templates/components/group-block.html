@@ -14,16 +14,7 @@
 
   <div class="wrapper">
 
-    <div class="controls">
-      {% ifnotequal group first_group %}
-        <div class="JS-navigation-btn">
-          <button class="button -text JS-prev-group-btn">Anterior</button>
-        </div>
-      {% endifnotequal %}
-      <div class="JS-navigation-btn">
-        <button class="button JS-next-group-btn {% ifequal group last_group %}JS-populate-review{% endifequal %}">Pular</button>
-      </div>
-    </div>
+    {% include "components/navigation-controls.html" with group=group first_group=first_group %}
 
     <form class="group-form JS-group-form" action="">
       <ul class="proposal-list">
@@ -33,16 +24,7 @@
       </ul>
     </form>
 
-    <div class="controls">
-      {% ifnotequal group first_group %}
-        <div class="JS-navigation-btn">
-          <button class="button -text JS-prev-group-btn">Anterior</button>
-        </div>
-      {% endifnotequal %}
-      <div class="JS-navigation-btn">
-        <button class="button JS-next-group-btn {% ifequal group last_group %}JS-populate-review{% endifequal %}">Pular</button>
-      </div>
-    </div>
+    {% include "components/navigation-controls.html" with group=group first_group=first_group %}
 
   </div>
 </div>

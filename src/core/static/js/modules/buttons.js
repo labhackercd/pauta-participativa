@@ -9,32 +9,32 @@ var Buttons = {
     var remainingUpvotes = Votes.remainingVotes('upvote', groupId);
 
     if (voteType === 'downvote' && downvoteNotAvailable && !unvote) {
-      nextButton.prop('disabled', true);
+      nextButton.addClass('-disabled');
       nextButton.text('Próximo');
-      prevButton.prop('disabled', true);
+      prevButton.addClass('-disabled');
       Tabs.disableAllUnless(groupId);
       ErrorMessage.show();
     } else if (remainingDownvotes === 0 && remainingUpvotes === 0) {
-      nextButton.prop('disabled', false);
+      nextButton.removeClass('-disabled');
       nextButton.text('Próximo');
-      prevButton.prop('disabled', false);
+      prevButton.removeClass('-disabled');
       Tabs.enableAll();
       ErrorMessage.hide();
     } else if (remainingDownvotes === 1 && remainingUpvotes < 2) {
-      nextButton.prop('disabled', false);
+      nextButton.removeClass('-disabled');
       nextButton.text('Próximo');
-      prevButton.prop('disabled', false);
+      prevButton.removeClass('-disabled');
       Tabs.enableAll();
       ErrorMessage.hide();
     } else if (remainingDownvotes === 1 && remainingUpvotes === 2) {
-      nextButton.prop('disabled', false);
+      nextButton.removeClass('-disabled');
       nextButton.text('Pular');
-      prevButton.prop('disabled', false);
+      prevButton.removeClass('-disabled');
       Tabs.enableAll();
       ErrorMessage.hide();
     } else {
-      nextButton.prop('disabled', true);
-      prevButton.prop('disabled', true);
+      nextButton.addClass('-disabled');
+      prevButton.addClass('-disabled');
       Tabs.disableAllUnless(groupId);
       ErrorMessage.show();
     }

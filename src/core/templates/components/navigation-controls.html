@@ -1,0 +1,6 @@
+<div class="controls">
+  {% ifnotequal group first_group %}
+    <button class="button -text JS-prev-group-btn JS-navigation-btn">Anterior</button>
+  {% endifnotequal %}
+  <button class="button JS-next-group-btn JS-navigation-btn {% ifequal group last_group %}JS-populate-review{% endifequal %}">Pular</button>
+</div>
