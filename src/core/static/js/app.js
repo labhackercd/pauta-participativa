@@ -171,3 +171,7 @@ $('.JS-navigation-btn').click(function(event) {
     ErrorMessage.show();
   }
 });
+
+$('.JS-share-lnk').click(function(event) {
+  Share.results(event.target);
+});

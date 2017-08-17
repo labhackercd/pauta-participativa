@@ -13,6 +13,12 @@
       <h2 class="title">Resultado</h2>
     {% endif %}
 
+    <div class="JS-share" data-share-path="/teste">
+      <a class="JS-share-lnk" data-social="facebook">Facebook</a>
+      <a class="JS-share-lnk" data-social="twitter">Twitter</a>
+      <a class="JS-share-lnk" data-social="whatsapp">Whatsapp</a>
+    </div>
+
     {% for group in object.groups.all %}
       <div class="theme-card">
         <h3 class="title -{{group.theme.slug}}">{{group.theme.name}}</h3>
