@@ -1,7 +1,7 @@
-.vote-button {
+[data-tooltip] {
   position: relative;
 
-  &:hover > input[disabled] ~ .tooltip-box {
+  &:hover > .tooltip-box {
     visibility: visible;
     opacity: 1;
     transform: translate(-50%, -10px);

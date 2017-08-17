@@ -37,7 +37,9 @@ var Votes = {
     var voteInputs = group.find(selector);
     voteInputs.attr('disabled', true);
 
-    voteInputs.closest('.JS-tickbox').addClass('JS-show-tooltip');
+    var tickbox = voteInputs.closest('.JS-tickbox');
+    tickbox.attr('data-hide-tooltip', false);
+    tickbox.tooltip();
   },
 
   enableUnvoted: function(voteType, groupId) {
@@ -47,7 +49,9 @@ var Votes = {
     var voteInputs = group.find(selector);
     voteInputs.removeAttr('disabled');
 
-    voteInputs.closest('.JS-tickbox').removeClass('JS-show-tooltip');
+    var tickbox = voteInputs.closest('.JS-tickbox');
+    tickbox.attr('data-hide-tooltip', true);
+    tickbox.removeTooltip();
   },
 
   checkUnvoted: function(voteType, groupId) {
