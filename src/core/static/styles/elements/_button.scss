@@ -13,15 +13,12 @@
   background-color: #fff;
   color: $color-brand;
   transition: all 0.2s ease;
-  &:hover {
+  &:not(.-disabled):hover {
     @include hover-style;
   }
-  &[disabled],
-  &.-disabled,
-  &:disabled
-  {
+  &.-disabled {
     opacity: 0.4;
-    pointer-events: none;
+    cursor: default;
   }
   &.-dark {
     background-color: $color-brand;
