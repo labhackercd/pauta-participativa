@@ -17,6 +17,7 @@
     @include hover-style;
   }
   &[disabled],
+  &.-disabled,
   &:disabled
   {
     opacity: 0.4;
