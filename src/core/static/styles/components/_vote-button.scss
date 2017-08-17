@@ -31,14 +31,20 @@
     justify-content: center;
     border-radius: 3rem;
     transition: all 0.2s ease;
-    font-size: $font-size-deci;
+    font-size: $font-size-centi;
     padding: 0.5rem;
-    &::after {
-      margin-left: 0.5rem;
+    @include bp-smallup {
       font-size: $font-size-base;
     }
+    &::after {
+      margin-left: 0.25rem;
+      font-size: $font-size-centi;
+      @include bp-smallup {
+        font-size: $font-size-base;
+      }
+    }
   }
-  
+
   & > input:not(:disabled) + label:hover {
     @include hover-style;
   }
