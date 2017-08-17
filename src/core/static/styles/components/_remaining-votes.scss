@@ -5,6 +5,10 @@
   transform: translateX(-50%);
   z-index: 10;
 
+  @include bp-smallup {
+    margin-top: 0.75rem;  
+  }
+
   &.-fixed {
     position: fixed;
   }
@@ -16,7 +20,6 @@
     flex-direction: column;
 
     @include bp-smallup {
-      margin-top: 0.75rem;
       transform: translateX(calc(100% + 0.75rem));
       flex-direction: row;
     }
