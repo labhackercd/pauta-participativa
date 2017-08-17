@@ -1,70 +1,76 @@
 .remaining-votes {
+  @extend %wrapper;
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-self: flex-end;
-  margin: 0 0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
-  top: -0.5rem;
-  transform: translateX(100%);
-  @include bp-mediumup {
-    flex-direction: row;
-    margin-left: 0.75rem;
-  }
 
   &.-fixed {
     position: fixed;
   }
 
-  > .counter {
-    align-items: center;
-    display: inline-flex;
-    font-size: 1rem;
-    justify-content: center;
-    border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    margin: 0.5rem 0.25em;
-    color: hsl(0, 0, 60%);
-    background-color: rgba(black, 0);
-    text-shadow: 0 0 0 transparent;
-    transition-duration: 0.4s;
-    transition-timing-function: ease;
-    transition-property: box-shadow,
-                         background-color,
-                         color,
-                         text-shadow;
-    transition-delay: 0s,
-                      0.25s,
-                      0.25s,
-                      0.25s;
+  > .wrapper {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
 
-    &.-upvote {
-      @include icon('plus');
-      box-shadow: 0 0 0 -1px mix(#fff, $color-positive, 10%);
+    @include bp-smallup {
+      margin-top: 0.75rem;
+      transform: translateX(calc(100% + 0.75rem));
+      flex-direction: row;
     }
 
-    &.-downvote {
-      @include icon('minus');
-      box-shadow: 0 0 0 -1px mix(#fff, $color-negative, 10%);
-    }
-
-    &.-used.-upvote {
-      background-color: mix(#fff, $color-positive, 10%);
-    }
-
-    &.-used.-downvote {
-      background-color: mix(#fff, $color-negative, 10%);
-    }
-
-    &.-used {
-      box-shadow: 0 0 0 4rem transparent;
-      text-shadow: 0 1px 3px rgba(black, 0.4);
-      color: white;
+    > .counter {
+      align-items: center;
+      display: inline-flex;
+      font-size: 1rem;
+      justify-content: center;
+      border-radius: 50%;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 0.25em;
+      color: hsl(0, 0, 60%);
+      background-color: rgba(black, 0);
+      text-shadow: 0 0 0 transparent;
+      transition-duration: 0.4s;
+      transition-timing-function: ease;
+      transition-property: box-shadow,
+                           background-color,
+                           color,
+                           text-shadow;
       transition-delay: 0s,
-                        0s,
-                        0s,
-                        0s;
+                        0.25s,
+                        0.25s,
+                        0.25s;
+
+      &.-upvote {
+        @include icon('plus');
+        box-shadow: 0 0 0 -1px mix(#fff, $color-positive, 10%);
+      }
+
+      &.-downvote {
+        @include icon('minus');
+        box-shadow: 0 0 0 -1px mix(#fff, $color-negative, 10%);
+      }
+
+      &.-used.-upvote {
+        background-color: mix(#fff, $color-positive, 10%);
+      }
+
+      &.-used.-downvote {
+        background-color: mix(#fff, $color-negative, 10%);
+      }
+
+      &.-used {
+        box-shadow: 0 0 0 4rem transparent;
+        text-shadow: 0 1px 3px rgba(black, 0.4);
+        color: white;
+        transition-delay: 0s,
+                          0s,
+                          0s,
+                          0s;
+      }
     }
   }
 }

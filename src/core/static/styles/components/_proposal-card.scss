@@ -1,6 +1,10 @@
 .proposal-card {
   @extend %card;
 
+  &:last-child {
+    margin-bottom: 1rem;
+  }
+
   > .title {
     margin-bottom: 0.5rem;
     font-size: $font-size-deca;

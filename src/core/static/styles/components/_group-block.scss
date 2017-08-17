@@ -8,28 +8,16 @@
     display: block;
   }
 
-  &:not(.-review) {
-    > .wrapper {
-      padding-right: 2.5rem;
-    }
-  }
-
   > .wrapper {
     @extend %wrapper;
     position: relative;
-    padding-right: 1rem;
-    padding-left: 1rem;
     display: flex;
     flex-direction: column;
-    @include bp-smallup {
-      padding-right: 1rem;
-    }
 
     > .controls,
     > .submit {
       display: flex;
       align-items: right;
-      margin-top: 1rem;
       margin-bottom: 1.5rem;
     }
 
@@ -46,4 +34,11 @@
 
   }
 
+  @include bp-smallonly {
+    &:not(.-review) {
+      > .wrapper {
+        padding-right: 2rem;
+      }
+    }
+  }
 }

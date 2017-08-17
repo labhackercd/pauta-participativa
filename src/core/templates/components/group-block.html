@@ -2,6 +2,16 @@
 
 <div class="group-block -{{group.theme.slug}} {% ifequal group first_group %}-active{% endifequal %} JS-group" data-group-id="{{group.id}}" data-group-theme>
 
+  {% if user.is_authenticated %}
+    <div class="remaining-votes JS-remaining-votes">
+      <div class="wrapper">
+        <span class="counter -upvote JS-vote-counter"></span>
+        <span class="counter -upvote JS-vote-counter"></span>
+        <span class="counter -downvote JS-vote-counter"></span>
+      </div>
+    </div>
+  {% endif %}
+
   <div class="wrapper">
 
     <div class="controls">
@@ -14,14 +24,6 @@
         <button class="button JS-next-group-btn {% ifequal group last_group %}JS-populate-review{% endifequal %}">Pular</button>
       </div>
     </div>
-
-    {% if user.is_authenticated %}
-      <div class="remaining-votes JS-remaining-votes">
-        <span class="counter -upvote JS-vote-counter"></span>
-        <span class="counter -upvote JS-vote-counter"></span>
-        <span class="counter -downvote JS-vote-counter"></span>
-      </div>
-    {% endif %}
 
     <form class="group-form JS-group-form" action="">
       <ul class="proposal-list">
