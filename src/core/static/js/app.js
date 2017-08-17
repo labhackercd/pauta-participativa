@@ -35,11 +35,17 @@ $('.JS-vote-input').click(function(event) {
 
 $('.JS-next-group-btn').click(function(event) {
   var target = $(event.target);
+  if (target.hasClass('-disabled')) {
+    return false;
+  }
   Tabs.next(target);
 });
 
 $('.JS-prev-group-btn').click(function(event) {
   var target = $(event.target);
+  if (target.hasClass('-disabled')) {
+    return false;
+  }
   Tabs.previous(target);
 });
 
