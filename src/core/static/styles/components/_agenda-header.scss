@@ -1,34 +1,39 @@
 .agenda-header {
-  display: flex;
-  align-items: center;
   background-color: #fff;
-  height: $size-header;
-  position: relative;
-  padding-right: calc(0.5rem + 4vw);
-  padding-left: calc(0.5rem + 4vw);
   overflow: hidden;
   z-index: 9;
 
-  > .back {
-    @include icon('chevron-left');
+  > .wrapper {
+    @extend %wrapper;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: $font-size-hecto;
-    width: 3rem;
-    height: 3rem;
-    color: $color-brand;
-    margin-right: 0.2rem;
-    text-decoration: none;
-  }
+    justify-content: center;
+    height: $size-header;
+    position: relative;
+    padding-left: 3rem;
 
-  > .icon {
-    height: 2em;
-    margin-right: 1.2rem;
-  }
+    > .back {
+      @include icon('chevron-left');
+      position: absolute;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: $font-size-hecto;
+      width: 3rem;
+      height: 3rem;
+      color: $color-brand;
+      text-decoration: none;
+    }
 
-  > .title {
-    font-size: $font-size-hecto;
-    color: hsl(0, 0%, 50%);
+    > .icon {
+      height: 2em;
+      margin-right: 1.2rem;
+    }
+
+    > .title {
+      font-size: $font-size-hecto;
+      color: hsl(0, 0%, 50%);
+    }
   }
 }
