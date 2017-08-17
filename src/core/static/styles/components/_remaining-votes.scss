@@ -5,7 +5,7 @@
   transform: translateX(-50%);
   z-index: 10;
 
-  @include bp-smallup {
+  @include bp-mediumup {
     margin-top: 0.75rem;  
   }
 
@@ -15,11 +15,12 @@
 
   > .wrapper {
     position: absolute;
-    right: 0;
     display: flex;
     flex-direction: column;
+    right: 0.5rem;
 
-    @include bp-smallup {
+    @include bp-mediumup {
+      right: 1rem;
       transform: translateX(calc(100% + 0.75rem));
       flex-direction: row;
     }
