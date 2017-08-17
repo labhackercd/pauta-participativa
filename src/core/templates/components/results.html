@@ -13,7 +13,7 @@
       <h2 class="title">Resultado</h2>
     {% endif %}
 
-    <div class="JS-share" data-share-path="/teste">
+    <div class="JS-share" data-share-path="{% url 'share_agenda' pk=object.id %}">
       <a class="JS-share-lnk" data-social="facebook">Facebook</a>
       <a class="JS-share-lnk" data-social="twitter">Twitter</a>
       <a class="JS-share-lnk" data-social="whatsapp">Whatsapp</a>

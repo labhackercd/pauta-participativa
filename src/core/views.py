@@ -1,3 +1,4 @@
+from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
 from django.http import Http404, JsonResponse
 from django.views.generic import ListView, DetailView
@@ -9,6 +10,16 @@ class HomeView(ListView):
     template_name = 'pages/home.html'
     model = models.Agenda
     queryset = models.Agenda.objects.filter(is_visible=True)
+
+
+class ShareAgendaView(DetailView):
+    model = models.Agenda
+    template_name = 'share/agenda.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ShareAgendaView, self).get_context_data(**kwargs)
+        context['domain'] = Site.objects.get_current().domain
+        return context
 
 
 class AgendaView(DetailView):
