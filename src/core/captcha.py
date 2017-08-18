@@ -25,5 +25,5 @@ def verify(captcha_response, remote_ip=None):
     if remote_ip:
         params['remoteip'] = remote_ip
 
-    verify_response = requests.get(url, params=params, verify=True)
+    verify_response = requests.get(url, params=params, verify=False)
     return verify_response.json()
