@@ -11,6 +11,9 @@
     {% compress css %}
       <link type="text/x-scss" rel="stylesheet" href="{% static '/styles/app.scss' %}"/>
     {% endcompress %}
+
+    {% block metatags %}
+    {% endblock metatags %}
   </head>
 
   <body>

@@ -1,10 +1,7 @@
 var Share = {
   results: function(shareButton) {
     var socialNetwork = $(shareButton).data('social');
-    var agendaPath = $(shareButton).closest('.JS-share').data('sharePath');
-    var agendaUrl =  location.href
-      .replace(location.hash, '')
-      .replace(location.pathname, agendaPath)
+    var agendaUrl =  location.href;
 
     var windowOptions = 'height=500,width=1000,left=100,top=100,resizable=yes,' +
       'scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes';

@@ -12,16 +12,6 @@ class HomeView(ListView):
     queryset = models.Agenda.objects.filter(is_visible=True)
 
 
-class ShareAgendaView(DetailView):
-    model = models.Agenda
-    template_name = 'share/agenda.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(ShareAgendaView, self).get_context_data(**kwargs)
-        context['domain'] = Site.objects.get_current().domain
-        return context
-
-
 class AgendaView(DetailView):
     model = models.Agenda
     template_name = 'pages/agenda.html'
@@ -32,6 +22,11 @@ class AgendaView(DetailView):
             raise Http404
         else:
             return obj
+
+    def get_context_data(self, **kwargs):
+        context = super(AgendaView, self).get_context_data(**kwargs)
+        context['domain'] = Site.objects.get_current().domain
+        return context
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated():
