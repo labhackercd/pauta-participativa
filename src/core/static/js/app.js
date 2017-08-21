@@ -36,7 +36,7 @@ $('.JS-vote-input').click(function(event) {
 $('.JS-next-group-btn').click(function(event) {
   var target = $(event.target);
   if (target.hasClass('-disabled')) {
-    ErrorMessage.show();
+    AlertMessage.remainingVotesError();
     return false;
   }
   Tabs.next(target);
@@ -45,7 +45,7 @@ $('.JS-next-group-btn').click(function(event) {
 $('.JS-prev-group-btn').click(function(event) {
   var target = $(event.target);
   if (target.hasClass('-disabled')) {
-    ErrorMessage.show();
+    AlertMessage.remainingVotesError();
     return false;
   }
   Tabs.previous(target);
@@ -56,7 +56,7 @@ $('.JS-tab-item').click(function(event) {
   if (target.hasClass('-active')) {
     return false;
   } else if (target.hasClass('-disabled')) {
-    ErrorMessage.show();
+    AlertMessage.remainingVotesError();
     return false;
   } else {
     var groupId = target.data('groupId');
@@ -182,7 +182,7 @@ $('.JS-navigation-btn').click(function(event) {
   var target = $(event.target);
   var btn = target.find('.JS-prev-group-btn,.JS-next-group-btn');
   if (btn.hasClass('-disabled')) {
-    ErrorMessage.show();
+    AlertMessage.remainingVotesError();
   }
 });
 
@@ -190,6 +190,9 @@ $('.JS-share-lnk').click(function(event) {
   Share.results(event.target);
 });
 
+$('.JS-alert-close').click(function(event) {
+  AlertMessage.hide();
+});
 window.onbeforeunload = function(e) {
   if ($('.JS-vote-input:checked').length) {
     var confirmationMessage = 'Ao deixar a página você perderá todos os seus votos. ' +
