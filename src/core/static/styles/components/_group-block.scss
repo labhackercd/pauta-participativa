@@ -32,8 +32,15 @@
 
     > .controls {
       justify-content: space-between;
-      > .button:last-child {
-        margin-left: auto;
+
+      > .button {
+        &:last-child {
+          margin-left: auto;
+        }
+
+        @at-root .-review#{&} {
+          margin-left: 0;
+        }
       }
     }
 
