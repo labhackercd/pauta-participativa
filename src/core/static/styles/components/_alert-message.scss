@@ -1,6 +1,6 @@
-.error-message {
-  background-color: $color-negative;
-  color: #fff;
+.alert-message {
+  background-color: #fff;
+  color: $color-brand;
   visibility: hidden;
   display: flex;
   align-items: center;
@@ -18,6 +18,11 @@
   opacity: 0;
   transition: all 0.3s 0s $swift-out,
               visibility 0s 0.3s;
+
+  &.-error {
+    background-color: $color-negative;
+    color: #fff;
+  }
 
   &.-show {
     visibility: visible;
