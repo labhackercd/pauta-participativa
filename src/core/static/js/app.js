@@ -158,6 +158,12 @@ if (!hideTutorial || hideTutorial == 'false') {
   $('.JS-modal').addClass('-show');
 }
 
+$('.JS-help-button').click(function(event) {
+  $('.JS-tutorial.-active').removeClass('-active');
+  $('.JS-modal').find('.JS-tutorial').first().addClass('-active');
+  $('.JS-modal').addClass('-show');
+});
+
 $('.JS-modal-next').click(function(event) {
   var target = $(event.target);
   var tutorial = target.closest('.JS-tutorial');
