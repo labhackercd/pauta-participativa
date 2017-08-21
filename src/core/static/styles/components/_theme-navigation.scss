@@ -75,10 +75,19 @@
         cursor: default;
         z-index: 2;
         color: transparent;
+
         &::before {
-          transform: scale(1.4);
+          transform: scale(1.5);
           color: #fff;
         }
+
+        @at-root .-fixed#{&} {
+          color: #fff;
+          &::before {
+            transform: scale(1);
+          }
+        }
+
       }
 
       &.-disabled {
