@@ -30,12 +30,16 @@
           {% ordered_proposals group object as proposals %}
           {% for proposal in proposals %}
             <li class="proposal-result">
-              <h4 class="title">{{proposal.title}}</h4>
-              <p class="pl">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</p>
-              <div class="votes">
-                <span class="count -upvotes">{{proposal|upvotes:object}}</span>
-                <span class="count -downvotes">{{proposal|downvotes:object}}</span>
-                <span class="count">{{proposal|score:object}} Saldo</span>
+              <div class="info">
+                <h4 class="title">{{proposal.title}}</h4>
+                <p class="pl">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</p>
+              </div>
+              <div class="stats">
+                <div class="bars">
+                  <span class="infavor">{{proposal|upvotes:object}}</span>
+                  <span class="against">{{proposal|downvotes:object}}</span>
+                </div>
+                <span class="balance">Saldo: {{proposal|score:object}}</span>
               </div>
             </li>
           {% endfor %}
