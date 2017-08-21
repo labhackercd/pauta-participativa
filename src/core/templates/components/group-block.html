@@ -12,7 +12,11 @@
     </div>
   {% endif %}
 
+  <div class="help-button JS-help-button"></div>
+
   <div class="wrapper">
+
+    <h2 class="title -{{group.theme.slug}}">{{group.theme.name}}</h2>
 
     {% include "components/navigation-controls.html" with group=group first_group=first_group %}
 

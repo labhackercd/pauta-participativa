@@ -10,25 +10,25 @@ var Buttons = {
 
     if (voteType === 'downvote' && downvoteNotAvailable && !unvote) {
       nextButton.addClass('-disabled');
-      nextButton.text('Próximo');
+      nextButton.text('Próximo tema');
       prevButton.addClass('-disabled');
       Tabs.disableAllUnless(groupId);
       ErrorMessage.show();
     } else if (remainingDownvotes === 0 && remainingUpvotes === 0) {
       nextButton.removeClass('-disabled');
-      nextButton.text('Próximo');
+      nextButton.text('Próximo tema');
       prevButton.removeClass('-disabled');
       Tabs.enableAll();
       ErrorMessage.hide();
     } else if (remainingDownvotes === 1 && remainingUpvotes < 2) {
       nextButton.removeClass('-disabled');
-      nextButton.text('Próximo');
+      nextButton.text('Próximo tema');
       prevButton.removeClass('-disabled');
       Tabs.enableAll();
       ErrorMessage.hide();
     } else if (remainingDownvotes === 1 && remainingUpvotes === 2) {
       nextButton.removeClass('-disabled');
-      nextButton.text('Pular');
+      nextButton.text('Pular tema');
       prevButton.removeClass('-disabled');
       Tabs.enableAll();
       ErrorMessage.hide();

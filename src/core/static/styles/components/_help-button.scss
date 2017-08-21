@@ -1,0 +1,14 @@
+.help-button {
+  @include icon('question-circle');
+  width: 1.25rem;
+  height: 1.25rem;
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(#000, 0.4);
+  &::before { font-size: $font-size-deca; }
+}

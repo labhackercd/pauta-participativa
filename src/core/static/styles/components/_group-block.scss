@@ -14,6 +14,15 @@
     display: flex;
     flex-direction: column;
 
+    > .title {
+      @include theme-color;
+      display: flex;
+      flex-align: center;
+      justify-content: center;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
     > .controls,
     > .submit {
       display: flex;
@@ -23,8 +32,15 @@
 
     > .controls {
       justify-content: space-between;
-      > .button:last-child {
-        margin-left: auto;
+
+      > .button {
+        &:last-child {
+          margin-left: auto;
+        }
+
+        @at-root .-review#{&} {
+          margin-left: 0;
+        }
       }
     }
 
