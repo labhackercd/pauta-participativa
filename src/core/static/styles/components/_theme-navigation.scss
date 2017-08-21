@@ -28,6 +28,7 @@
       @include theme-color;
       @include theme-icon;
       @include icon('flag-checkered');
+
       flex: 1;
       width: 8rem;
       cursor: pointer;
@@ -36,14 +37,19 @@
       flex-direction: column;
       justify-content: space-around;
       font-size: $font-size-centi;
-      padding-top: 0.35rem;
-      padding-bottom: 0.45rem;
-      transition: all 0.3s ease;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
       font-weight: 600;
       color: $color-brand;
       z-index: 1;
+      
+      transition: all 0.2s ease;
 
-      &::before { font-size: $font-size-hecto; }
+      &::before {
+        font-size: $font-size-hecto;
+        transition: all 0.2s ease;
+        transform-origin: 50% 0;
+      }
 
       &::after {
         content: '';
@@ -64,13 +70,24 @@
       &:hover, &:active { background-color: hsl(0, 0%, 90%); }
 
       &.-active {
-        // box-shadow: 0 $size-navigation 0 0 currentColor inset;
-        // background-color: hsl(0, 0%, 95%);
-        background-color: $color-brand;
         @include theme-bgcolor;
-        color: #fff;
+        background-color: $color-brand;
         cursor: default;
         z-index: 2;
+        color: transparent;
+
+        &::before {
+          transform: scale(1.5);
+          color: #fff;
+        }
+
+        @at-root .-fixed#{&} {
+          color: #fff;
+          &::before {
+            transform: scale(1);
+          }
+        }
+
       }
 
       &.-disabled {
