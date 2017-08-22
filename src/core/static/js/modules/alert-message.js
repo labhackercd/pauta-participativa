@@ -28,7 +28,7 @@ var AlertMessage = {
   },
 
   remainingVotesError: function() {
-    this.error('Para retirar um projeto da pauta, você precisa incluir outros dois.');
+    this.error('Se você quer retriar da pauta um projeto deste tema, você precisa incluir outros dois no mesmo tema');
   },
 
   tutorial: function(voteType, unvote, groupId) {
