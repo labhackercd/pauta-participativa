@@ -11,6 +11,8 @@
     height: $size-header;
     position: relative;
     padding-left: 3rem;
+    padding-top: 0;
+    padding-bottom: 0;
 
     > .back {
       @include icon('chevron-left');
