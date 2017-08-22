@@ -23,11 +23,12 @@
       <p class="text">Veja abaixo o resultado parcial:</p>
     </div>
 
+    {% maximum_votes object as max_votes %}
     {% for group in object.groups.all %}
       <div class="theme-card">
         <h3 class="title -{{group.theme.slug}}">{{group.theme.name}}</h3>
         <ul>
-          {% ordered_proposals group object as proposals %}
+          {% ordered_proposals group as proposals %}
           {% for proposal in proposals %}
             <li class="proposal-result">
               <div class="info">
@@ -36,18 +37,18 @@
               </div>
               <div class="stats">
                 <div class="graph">
-                  <div class="label -against">{{proposal|upvotes:object}}</div>
+                  <div class="label -against">{{proposal|downvotes:group}}</div>
                   <div class="bars">
                     <div class="bar">
-                      <div class="fill -against" style="width: 14%"></div>
+                      <div class="fill -against" style="width: {% downvote_percentage proposal group max_votes %}%"></div>
                     </div>
                     <div class="bar">
-                      <div class="fill -infavor" style="width: 61%"></div>
+                      <div class="fill -infavor" style="width: {% upvote_percentage proposal group max_votes %}%"></div>
                     </div>
                   </div>
-                  <div class="label -infavor">{{proposal|downvotes:object}}</div>
+                  <div class="label -infavor">{{proposal|upvotes:group}}</div>
                 </div>
-                <span class="balance">{{proposal|score:object}}</span>
+                <span class="balance">{{proposal|score:group}}</span>
               </div>
             </li>
           {% endfor %}

@@ -13,26 +13,28 @@ def already_voted(user, agenda):
 
 
 @register.filter()
-def upvotes(proposal, agenda):
-    return proposal.votes.filter(vote=True, agenda=agenda).count()
+def upvotes(proposal, group):
+    return proposal.upvotes_count(group.id)
 
 
 @register.filter()
-def downvotes(proposal, agenda):
-    return proposal.votes.filter(vote=False, agenda=agenda).count()
+def downvotes(proposal, group):
+    return proposal.downvotes_count(group.id)
 
 
 @register.filter()
-def score(proposal, agenda):
-    proposal_upvotes = upvotes(proposal, agenda)
-    proposal_downvotes = downvotes(proposal, agenda)
+def score(proposal, group):
+    proposal_upvotes = upvotes(proposal, group)
+    proposal_downvotes = downvotes(proposal, group)
     return proposal_upvotes - proposal_downvotes
 
 
 @register.assignment_tag()
-def ordered_proposals(group, agenda):
+def ordered_proposals(group):
     queryset = group.proposals.all()
-    return sorted(queryset, key=lambda x: score(x, agenda), reverse=True)
+    order_by_upvote = sorted(queryset, key=lambda x: upvotes(x, group),
+                             reverse=True)
+    return sorted(order_by_upvote, key=lambda x: score(x, group), reverse=True)
 
 
 @register.simple_tag()
@@ -50,3 +52,36 @@ def randomize(queryset):
 @register.assignment_tag()
 def randomize_queryset(queryset):
     return randomize(queryset)
+
+
+@register.assignment_tag()
+def maximum_votes(agenda):
+    votes_counts = [
+        max(proposal.upvotes_count(group.id),
+            proposal.downvotes_count(group.id))
+        for group in agenda.groups.all()
+        for proposal in group.proposals.all()
+    ]
+    return max(votes_counts)
+
+
+@register.simple_tag()
+def downvote_percentage(proposal, group, max_votes):
+    votes_count = proposal.downvotes_count(group.id)
+    try:
+        percentage = (votes_count / max_votes)
+    except ZeroDivisionError:
+        percentage = 0
+
+    return percentage * 100
+
+
+@register.simple_tag()
+def upvote_percentage(proposal, group, max_votes):
+    votes_count = proposal.upvotes_count(group.id)
+    try:
+        percentage = (votes_count / max_votes)
+    except ZeroDivisionError:
+        percentage = 0
+
+    return percentage * 100
