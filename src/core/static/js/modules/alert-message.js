@@ -45,7 +45,7 @@ var AlertMessage = {
     }
 
     if (remainingUpvotes === 0 && remainingDownvotes === 0) {
-      this.success('mensagem C');
+      this.success('Você já usou todos os seus votos neste tema, se não quiser alterar nenhum vá para o próximo tema');
     } else if (voteType === 'downvote' && remainingUpvotes === 1) {
       this.remainingVotesError();
     } else if (voteType === 'upvote' && remainingUpvotes === 1 && remainingDownvotes === 0) {
@@ -53,11 +53,11 @@ var AlertMessage = {
     } else if (voteType === 'downvote' && remainingUpvotes === 2) {
       this.remainingVotesError();
     } else if (voteType === 'upvote' && remainingUpvotes === 0) {
-      this.success('mensagem B');
+      this.success('Você já usou seus voto positivos, se qusier ainda pode usar um voto negativo neste tema');
     } else if (voteType === 'downvote') {
       this.remainingVotesError();
     } else {
-      this.success('mensagem A');
+      this.success('Você ainda pode votar a favor de um projeto neste tema, ou avançar para o póximo');
     }
   }
 }
