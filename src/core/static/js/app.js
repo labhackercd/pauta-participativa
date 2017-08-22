@@ -143,6 +143,7 @@ $('.JS-confirm-votes').submit(function(e) {
     url: window.Urls.agenda(agendaId),
     data: {data: JSON.stringify(data)},
     success: function(data) {
+      window.onbeforeunload = null;
       window.location.href = window.location.href;
     },
     error: function(data) {
@@ -193,6 +194,7 @@ $('.JS-share-lnk').click(function(event) {
 $('.JS-alert-close').click(function(event) {
   AlertMessage.hide();
 });
+
 window.onbeforeunload = function(e) {
   if ($('.JS-vote-input:checked').length) {
     var confirmationMessage = 'Ao deixar a página você perderá todos os seus votos. ' +
