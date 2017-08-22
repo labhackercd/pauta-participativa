@@ -36,9 +36,8 @@ var AlertMessage = {
     var remainingDownvotes = Votes.remainingVotes('downvote', groupId);
 
     if (unvote) {
-      if (voteType === 'downvote') {
-        this.hide();
-      } else if (remainingUpvotes < 2 && remainingDownvotes === 0) {
+      this.hide();
+      if (remainingUpvotes <= 2 && remainingDownvotes === 0) {
         this.remainingVotesError();
       }
       return false;
