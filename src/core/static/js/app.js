@@ -189,3 +189,12 @@ $('.JS-navigation-btn').click(function(event) {
 $('.JS-share-lnk').click(function(event) {
   Share.results(event.target);
 });
+
+window.onbeforeunload = function(e) {
+  if ($('.JS-vote-input:checked').length) {
+    var confirmationMessage = 'Ao deixar a página você perderá todos os seus votos. ' +
+                              'Tem certeza que quer sair?';
+    (e || window.event).returnValue = confirmationMessage;
+    return confirmationMessage;
+  }
+};
