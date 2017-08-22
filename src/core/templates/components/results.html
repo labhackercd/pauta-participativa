@@ -7,16 +7,20 @@
     {% if not object.is_closed %}
       <div class="note-message">
         <p class="text">Obrigada por participar!</p>
-        <p class="text">Veja abaixo o resultado parcial:</p>
+        <p class="text">Compartilhe com seus amigos:</p>
       </div>
     {% else %}
       <h2 class="title">Resultado</h2>
     {% endif %}
 
-    <div>
-      <a class="JS-share-lnk" data-social="facebook">Facebook</a>
-      <a class="JS-share-lnk" data-social="twitter">Twitter</a>
-      <a class="JS-share-lnk" data-social="whatsapp">Whatsapp</a>
+    <div class="share">
+      <a class="link -facebook JS-share-lnk" data-social="facebook" title="Facebook"></a>
+      <a class="link -twitter JS-share-lnk" data-social="twitter" title="Twitter"></a>
+      <a class="link -whatsapp JS-share-lnk" data-social="whatsapp" title="Whatsapp"></a>
+    </div>
+
+    <div class="note-message">
+      <p class="text">Veja abaixo o resultado parcial:</p>
     </div>
 
     {% for group in object.groups.all %}
