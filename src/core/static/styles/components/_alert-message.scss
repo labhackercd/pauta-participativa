@@ -1,23 +1,32 @@
-.error-message {
-  background-color: $color-negative;
-  color: #fff;
+.alert-message {
+  position: relative;
+  background-color: #fff;
+  color: $color-brand;
   visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: fixed;
   min-height: 4rem;
-  padding: 1rem 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: calc(1rem + 10vw);
+  padding-left: calc(1rem + 10vw);
   line-height: 1.2;
-  top: 1rem;
-  right: 1rem;
-  left: 1rem;
+  top: 0.5rem;
+  right: 0.5rem;
+  left: 0.5rem;
   z-index: 11;
   box-shadow: 0 8px 32px rgba(#000, 0.2);
   transform: translateY(-100%);
   opacity: 0;
   transition: all 0.3s 0s $swift-out,
               visibility 0s 0.3s;
+
+  &.-error {
+    background-color: $color-negative;
+    color: #fff;
+  }
 
   &.-show {
     visibility: visible;
@@ -36,6 +45,10 @@
     height: 2rem;
     flex: 0 0 auto;
     cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
 }
