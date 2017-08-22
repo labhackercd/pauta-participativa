@@ -53,7 +53,7 @@ var AlertMessage = {
     } else if (voteType === 'downvote' && remainingUpvotes === 2) {
       this.remainingVotesError();
     } else if (voteType === 'upvote' && remainingUpvotes === 0) {
-      this.success('Você já usou seus voto positivos, se qusier ainda pode usar um voto negativo neste tema');
+      this.success('Você já usou seus votos positivos, se quiser ainda pode usar um voto negativo neste tema');
     } else if (voteType === 'downvote') {
       this.remainingVotesError();
     } else {

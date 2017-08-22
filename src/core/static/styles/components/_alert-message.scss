@@ -7,7 +7,7 @@
   justify-content: space-between;
   position: fixed;
   min-height: 4rem;
-  padding: 1rem 3rem;
+  padding: 1rem calc(1rem + 10vw);
   line-height: 1.2;
   top: 1rem;
   right: 1rem;
