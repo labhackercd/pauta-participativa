@@ -36,16 +36,16 @@
               </div>
               <div class="stats">
                 <div class="graph">
-                  <div class="label -infavor">{{proposal|upvotes:object}}</div>
+                  <div class="label -against">{{proposal|upvotes:object}}</div>
                   <div class="bars">
                     <div class="bar">
-                      <div class="fill"></div>
+                      <div class="fill -against" style="width: 14%"></div>
                     </div>
                     <div class="bar">
-                      <div class="fill"></div>
+                      <div class="fill -infavor" style="width: 61%"></div>
                     </div>
                   </div>
-                  <div class="label -against">{{proposal|downvotes:object}}</div>
+                  <div class="label -infavor">{{proposal|downvotes:object}}</div>
                 </div>
                 <span class="balance">{{proposal|score:object}}</span>
               </div>

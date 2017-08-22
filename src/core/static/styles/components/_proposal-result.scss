@@ -31,32 +31,10 @@
   > .stats {
     display: flex;
     justify-content: space-between;
-    > .graph {
-      background-color: pink;
-      flex-grow: 1;
-      display: flex;
-      > .label {
-        width: 1rem;
-        white-space: nowrap;
-        &.-infavor { color: $color-positive ; }
-        &.-against { color: $color-negative ; }
-      }
-      > .bars {
-        background-color: rgba(red, 0.3);
-        flex-grow: 1;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        > .bar {
-          height: 4px;
-          width: calc(50% - 1px);
-          background-color: rgba(blue, 0.3);
-        }
-      }
-    }
+
     > .balance {
-      background-color: gold;
-      width: 3rem;
+      min-width: 4rem;
+      margin-left: 0.5rem;
       text-align: right;
       white-space: nowrap;
       color: $color-brand;
@@ -67,6 +45,65 @@
         text-transform: uppercase;
         font-size: $font-size-mili;
         font-weight: 700;
+      }
+    }
+
+    > .graph {
+      flex-grow: 1;
+      display: flex;
+      > .label {
+        min-width: 2rem;
+        white-space: nowrap;
+        font-weight: 700;
+        font-size: $font-size-centi;
+        &.-infavor {
+          color: $color-positive ;
+          text-align: left;
+        }
+        &.-against {
+          color: $color-negative ;
+          text-align: right;
+        }
+        &::after {
+          font-size: $font-size-mili;
+        }
+      }
+      > .bars {
+        margin: 0 0.5rem;
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        > .bar {
+          height: 4px;
+          width: calc(50% - 1px);
+          position: relative;
+          &::before {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: hsl(0, 0, 90%);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 0;
+          }
+          > .fill {
+            width: 50%;
+            height: 100%;
+            z-index: 1;
+            position: absolute;
+            &.-infavor {
+              left: 0;
+              background-color: $color-positive;
+            }
+            &.-against {
+              right: 0;
+              background-color: $color-negative;
+            }
+          }
+        }
       }
     }
   }
