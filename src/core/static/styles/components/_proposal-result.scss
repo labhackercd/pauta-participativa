@@ -1,7 +1,19 @@
 .proposal-result {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid hsl(0, 0%, 80%);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  > * {
+    width: 100%;
+  }
+  @include bp-mediumup {
+    flex-direction: row;
+    > * {
+      width: 50%;
+    }
+  }
+
   &:first-child { padding-top: 0.25rem; }
   &:last-child { border-bottom: none; }
 
@@ -12,6 +24,50 @@
     }
     > .pl {
       color: hsl(0, 0%, 60%);
+    }
+  }
+
+
+  > .stats {
+    display: flex;
+    justify-content: space-between;
+    > .graph {
+      background-color: pink;
+      flex-grow: 1;
+      display: flex;
+      > .label {
+        width: 1rem;
+        white-space: nowrap;
+        &.-infavor { color: $color-positive ; }
+        &.-against { color: $color-negative ; }
+      }
+      > .bars {
+        background-color: rgba(red, 0.3);
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        > .bar {
+          height: 4px;
+          width: calc(50% - 1px);
+          background-color: rgba(blue, 0.3);
+        }
+      }
+    }
+    > .balance {
+      background-color: gold;
+      width: 3rem;
+      text-align: right;
+      white-space: nowrap;
+      color: $color-brand;
+      font-weight: 500;
+      font-size: $font-size-deci;
+      &::before {
+        content: 'Saldo: ';
+        text-transform: uppercase;
+        font-size: $font-size-mili;
+        font-weight: 700;
+      }
     }
   }
 
