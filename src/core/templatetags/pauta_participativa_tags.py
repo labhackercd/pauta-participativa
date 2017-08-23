@@ -85,3 +85,19 @@ def upvote_percentage(proposal, group, max_votes):
         percentage = 0
 
     return percentage * 100
+
+
+def agenda_score_limits(agenda):
+    scores = [
+        score(proposal, group)
+        for group in agenda.groups.all()
+        for proposal in group.proposals.all()
+    ]
+    return (max(scores), min(scores))
+
+
+@register.simple_tag()
+def score_percentage(proposal, group, max_votes):
+    max_score = upvote_percentage(proposal, group, max_votes)
+    min_score = downvote_percentage(proposal, group, max_votes)
+    return (max_score - min_score + 100) / 2

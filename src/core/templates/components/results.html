@@ -39,7 +39,7 @@
                 <div class="graph">
                   <div class="label -against">{{proposal|downvotes:group}}</div>
                   <div class="bars">
-                    <div class="balance" style="left: 71%;"></div>
+                    <div class="balance" style="left: {% score_percentage proposal group max_votes %}%;"></div>
                     <div class="bar">
                       <div class="fill -against" style="width: {% downvote_percentage proposal group max_votes %}%"></div>
                     </div>
