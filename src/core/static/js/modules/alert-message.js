@@ -12,7 +12,7 @@ var AlertMessage = {
     setTimeout.clearAll();
     setTimeout(function() {
       AlertMessage.hide();
-    }, 6500);
+    }, 7500);
   },
 
   error: function(text) {
