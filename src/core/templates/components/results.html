@@ -23,19 +23,33 @@
       <p class="text">Veja abaixo o resultado parcial:</p>
     </div>
 
+    {% maximum_votes object as max_votes %}
     {% for group in object.groups.all %}
       <div class="theme-card">
         <h3 class="title -{{group.theme.slug}}">{{group.theme.name}}</h3>
         <ul>
-          {% ordered_proposals group object as proposals %}
+          {% ordered_proposals group as proposals %}
           {% for proposal in proposals %}
             <li class="proposal-result">
-              <h4 class="title">{{proposal.title}}</h4>
-              <p class="pl">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</p>
-              <div class="votes">
-                <span class="count -upvotes">{{proposal|upvotes:object}}</span>
-                <span class="count -downvotes">{{proposal|downvotes:object}}</span>
-                <span class="count">{{proposal|score:object}} Saldo</span>
+              <div class="info">
+                <h4 class="title">{{proposal.title}}</h4>
+                <p class="pl">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</p>
+              </div>
+              <div class="stats">
+                <div class="graph">
+                  <div class="label -against">{{proposal|downvotes:group}}</div>
+                  <div class="bars">
+                    <div class="balance" style="left: {% score_percentage proposal group max_votes %}%;"></div>
+                    <div class="bar">
+                      <div class="fill -against" style="width: {% downvote_percentage proposal group max_votes %}%"></div>
+                    </div>
+                    <div class="bar">
+                      <div class="fill -infavor" style="width: {% upvote_percentage proposal group max_votes %}%"></div>
+                    </div>
+                  </div>
+                  <div class="label -infavor">{{proposal|upvotes:group}}</div>
+                </div>
+                <span class="balance">{{proposal|score:group}}</span>
               </div>
             </li>
           {% endfor %}

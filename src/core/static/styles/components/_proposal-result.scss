@@ -1,41 +1,121 @@
 .proposal-result {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid hsl(0, 0%, 80%);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  > * {
+    width: 100%;
+  }
+  @include bp-mediumup {
+    flex-direction: row;
+    > * {
+      width: 50%;
+    }
+  }
+
   &:first-child { padding-top: 0.25rem; }
   &:last-child { border-bottom: none; }
 
-  > .title,
-  > .pl {
-    margin-bottom: 0.5rem;
+  > .info {
+    > .title,
+    > .pl {
+      margin-bottom: 0.5rem;
+    }
+    > .pl {
+      color: hsl(0, 0%, 60%);
+    }
   }
 
-  > .pl {
-    color: hsl(0, 0%, 60%);
-  }
 
-  > .votes {
+  > .stats {
     display: flex;
+    justify-content: space-between;
 
-    > .count {
-      font-weight: 600;
+    > .balance {
+      min-width: 4rem;
+      margin-left: 0.5rem;
+      text-align: right;
+      white-space: nowrap;
+      color: $color-brand;
+      font-weight: 500;
       font-size: $font-size-deci;
-      margin-right: 0.75rem;
-      display: flex;
-      align-items: center;
-      &.-upvotes {
-        color: $color-positive;
-        @include icon('plus', after);
-      }
-      &.-downvotes {
-        color: $color-negative;
-        @include icon('minus', after);
-      }
-      &::after {
-        margin-left: 0.25rem;
+      &::before {
+        content: 'Saldo: ';
+        text-transform: uppercase;
+        font-size: $font-size-mili;
+        font-weight: 700;
       }
     }
 
+    > .graph {
+      flex-grow: 1;
+      display: flex;
+      > .label {
+        min-width: 2rem;
+        white-space: nowrap;
+        font-weight: 700;
+        font-size: $font-size-centi;
+        &.-infavor {
+          color: $color-positive ;
+          text-align: left;
+        }
+        &.-against {
+          color: $color-negative ;
+          text-align: right;
+        }
+        &::after {
+          font-size: $font-size-mili;
+        }
+      }
+      > .bars {
+        margin: 0 0.5rem;
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        > .balance {
+          position: absolute;
+          width: 2px;
+          background-color: $color-brand;
+          height: 8px;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          z-index: 2;
+        }
+        > .bar {
+          height: 4px;
+          width: calc(50% - 1px);
+          position: relative;
+          &::before {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: hsl(0, 0, 90%);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 0;
+          }
+          > .fill {
+            width: 50%;
+            height: 100%;
+            z-index: 1;
+            position: absolute;
+            &.-infavor {
+              left: 0;
+              background-color: $color-positive;
+            }
+            &.-against {
+              right: 0;
+              background-color: $color-negative;
+            }
+          }
+        }
+      }
+    }
   }
 
 }
