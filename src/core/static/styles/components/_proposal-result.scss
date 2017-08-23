@@ -74,6 +74,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
+        > .balance {
+          position: absolute;
+          width: 2px;
+          background-color: $color-brand;
+          height: 8px;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          z-index: 2;
+        }
         > .bar {
           height: 4px;
           width: calc(50% - 1px);
