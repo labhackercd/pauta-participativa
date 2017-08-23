@@ -103,3 +103,7 @@ node_modules/
 src/public/
 *.sqlite3
 settings.ini
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
