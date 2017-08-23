@@ -1,7 +1,7 @@
 .alert-message {
   position: relative;
-  background-color: #fff;
-  color: $color-brand;
+  background-color: $color-brand;
+  color: #fff;
   visibility: hidden;
   display: flex;
   align-items: center;
@@ -10,27 +10,30 @@
   min-height: 4rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  padding-right: calc(1rem + 10vw);
-  padding-left: calc(1rem + 10vw);
+  padding-right: 3rem;
+  padding-left: 1.5rem;
   line-height: 1.2;
-  top: 0.5rem;
+  bottom: 0.5rem;
   right: 0.5rem;
-  left: 0.5rem;
   z-index: 11;
   box-shadow: 0 8px 32px rgba(#000, 0.2);
-  transform: translateY(-100%);
+  transform: translateX(100%);
   opacity: 0;
+  max-width: calc(100% - 1rem);
   transition: all 0.3s 0s $swift-out,
               visibility 0s 0.3s;
 
+  @include bp-mediumup {
+    max-width: 60%;
+  }
+
   &.-error {
     background-color: $color-negative;
-    color: #fff;
   }
 
   &.-show {
     visibility: visible;
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
     transition: all 0.3s 0s $swift-out,
                 visibility 0s 0s;
