@@ -1,9 +1,67 @@
 .result-page {
   > .wrapper {
     @extend %wrapper;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
     > .title {
       margin-bottom: 1rem;
+    }
+
+    > .share {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 2.5rem;
+      margin-bottom: 1.5rem;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100vw;
+        height: 2.5rem;
+        left: 0;
+        background-color: white;
+        z-index: -1;
+      }
+
+      > .link {
+        font-size: 1.5rem;
+        padding: 0.5rem 1.5rem;
+        cursor: pointer;
+        transition-property: color, background-color;
+        transition-timing-function: ease;
+        transition-duration: 0.3s;
+
+        &.-facebook {
+          @include icon(facebook);
+          color: $color-facebook;
+
+          &:hover {
+            background-color: $color-facebook;
+          }
+        }
+
+        &.-twitter {
+          @include icon(twitter);
+          color: $color-twitter;
+
+          &:hover {
+            background-color: $color-twitter;
+          }
+        }
+
+        &.-whatsapp {
+          @include icon(whatsapp);
+          color: $color-whatsapp;
+
+          &:hover {
+            background-color: $color-whatsapp;
+          }
+        }
+
+        &:hover {
+          color: white;
+        }
+      }
     }
   }
 }

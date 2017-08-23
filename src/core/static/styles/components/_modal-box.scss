@@ -23,12 +23,22 @@
     text-align: center;
     @include bp-mediumup { max-width: calc(24rem + 8vw); }
     @include bp-smallonly { width: 90vw; }
+
     .title,
     p {
       margin-bottom: 1rem;
     }
+
     > * { display: none; }
-    > .-active { display: block; }
+
+    > .tutorial {
+
+      &.-active { display: block; }
+
+      > .themes {
+        margin-bottom: 0.5rem;
+      }
+    }
   }
 
   &.-show {
@@ -39,11 +49,5 @@
     > .modal {
       transform: scale(1) translate(-50%, -50%);
     }
-
   }
-
-  &::before {
-
-  }
-
 }
