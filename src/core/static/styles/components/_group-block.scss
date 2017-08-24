@@ -10,6 +10,8 @@
 
   > .wrapper {
     @extend %wrapper;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     position: relative;
     display: flex;
     flex-direction: column;
