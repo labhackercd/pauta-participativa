@@ -5,20 +5,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta property="twitter:card" content="summary" />
-  <meta property="twitter:title" content="Pauta Participativa" />
+  <meta property="twitter:title" content="{{object.title}}" />
   <meta property="twitter:description" content="Escolha projetos que serão votados em plenário na {{object.title|lower}}. Nesta edição, você pode incluir propostas dos temas {% for group in object.groups.all %}{% if forloop.first %}{{group.theme.name|title}}{% elif forloop.last %} e {{group.theme.name|title}}{% else %}, {{group.theme.name|title}}{% endif %}{% endfor %}." />
   <meta property="twitter:site" content="@edemocracia" />
   <meta property="twitter:creator" content="@edemocracia" />
-  <meta property="twitter:image" content="{{request.scheme}}://{{domain}}{% static 'images/share-logo.png' %}" />
+  <meta property="twitter:image" content="{{request.scheme}}://{{domain}}{% static 'images/twitter-share-image.jpg' %}" />
 
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Pauta Participativa" />
+  <meta property="og:title" content="{{object.title}}" />
   <meta property="og:site_name" content="Pauta Participativa" />
   <meta property="og:description" content="Escolha projetos que serão votados em plenário na {{object.title|lower}}. Nesta edição, você pode incluir propostas dos temas {% for group in object.groups.all %}{% if forloop.first %}{{group.theme.name|title}}{% elif forloop.last %} e {{group.theme.name|title}}{% else %}, {{group.theme.name|title}}{% endif %}{% endfor %}." />
-  <meta property="og:image" content="{{request.scheme}}://{{domain}}{% static 'images/share-logo.png' %}" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="500" />
-  <meta property="og:image:height" content="500" />
+  <meta property="og:image" content="{{request.scheme}}://{{domain}}{% static 'images/facebook-share-image.jpg' %}" />
+  <meta property="og:image:type" content="image/jpg" />
+  <meta property="og:image:width" content="560" />
+  <meta property="og:image:height" content="292" />
   <meta property="og:type" content="website" />
 {% endblock metatags %}
 
