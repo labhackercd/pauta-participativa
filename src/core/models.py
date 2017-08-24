@@ -3,6 +3,7 @@ from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
 from datetime import date
+from pygov_br.camara_deputados import cd
 
 
 class Theme(models.Model):
@@ -94,8 +95,25 @@ class Proposal(models.Model):
         verbose_name_plural = _("Proposals")
         unique_together = ('proposal_type', 'year', 'number')
 
+    def votes_count(self, group_id):
+        return self.votes.filter(proposal_group_id=group_id).count()
+
+    def upvotes_count(self, group_id):
+        return self.votes.filter(proposal_group_id=group_id, vote=True).count()
+
+    def downvotes_count(self, group_id):
+        return self.votes.filter(proposal_group_id=group_id,
+                                 vote=False).count()
+
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        proposal = cd.proposals.get(self.proposal_type.initials,
+                                    self.number,
+                                    self.year)
+        self.url = proposal['LinkInteiroTeor']
+        return super(Proposal, self).save(*args, **kwargs)
 
 
 class Vote(models.Model):
