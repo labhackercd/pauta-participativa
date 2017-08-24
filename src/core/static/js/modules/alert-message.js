@@ -28,7 +28,7 @@ var AlertMessage = {
   },
 
   remainingVotesError: function() {
-    this.error('Se você quer retriar da pauta um projeto deste tema, você precisa incluir outros dois no mesmo tema');
+    this.error('Para votar contra um projeto, você precisa votar a favor de outros dois do mesmo tema.');
   },
 
   tutorial: function(voteType, unvote, groupId) {
@@ -44,7 +44,7 @@ var AlertMessage = {
     }
 
     if (remainingUpvotes === 0 && remainingDownvotes === 0) {
-      this.success('Você já usou todos os seus votos neste tema, se não quiser alterar nenhum vá para o próximo tema');
+      this.success('Você já usou todos os seus votos neste tema. Vá para o próximo.');
     } else if (voteType === 'downvote' && remainingUpvotes === 1) {
       this.remainingVotesError();
     } else if (voteType === 'upvote' && remainingUpvotes === 1 && remainingDownvotes === 0) {
@@ -52,11 +52,11 @@ var AlertMessage = {
     } else if (voteType === 'downvote' && remainingUpvotes === 2) {
       this.remainingVotesError();
     } else if (voteType === 'upvote' && remainingUpvotes === 0) {
-      this.success('Você já usou seus votos positivos, se quiser ainda pode usar um voto negativo neste tema');
+      this.success('Você usou todos os seus votos a favor. Se quiser, ainda pode usar um voto contrário neste mesmo tema.');
     } else if (voteType === 'downvote') {
       this.remainingVotesError();
     } else {
-      this.success('Você ainda pode votar a favor de um projeto neste tema, ou avançar para o póximo');
+      this.success('Se quiser, você pode votar a favor de mais um projeto neste tema. Se não, avance para o próximo tema.');
     }
   }
 }
