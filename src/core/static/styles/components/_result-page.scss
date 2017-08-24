@@ -1,7 +1,8 @@
 .result-page {
   > .wrapper {
     @extend %wrapper;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     > .title {
       margin-bottom: 1rem;
     }
