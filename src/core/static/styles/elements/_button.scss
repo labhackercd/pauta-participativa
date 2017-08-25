@@ -7,7 +7,7 @@
   height: 2.5rem;
   font-size: $font-size-deci;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   border-radius: 1.75rem;
   background-color: #fff;
@@ -27,6 +27,5 @@
   &.-small {
     height: 1.5rem;
     font-size: $font-size-centi;
-    font-weight: 400;
   }
 }

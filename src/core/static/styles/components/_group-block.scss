@@ -18,6 +18,8 @@
 
     > .title {
       @include theme-color;
+      font-size: $font-size-kilo;
+      font-weight: 500;
       display: flex;
       flex-align: center;
       justify-content: center;
