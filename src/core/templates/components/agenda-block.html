@@ -53,3 +53,34 @@
     </nav>
   </div>
 </div>
+
+<div class="modal-box JS-modal">
+  <div class="modal">
+    <div class="tutorial -active JS-tutorial">
+      <h3 class="title">Bem-vindo!</h3>
+      <p>Esta pauta contém 3 temas:</p>
+      <ul class="themes">
+        {% for group in object.groups.all %}
+          <li class="theme-tag -{{group.theme.slug}}">{{group.theme.name}}</li>
+        {% endfor %}
+      </ul>
+      <p>Você não precisa votar em todos os temas.</p>
+      <button class="button -dark JS-modal-next">Próximo</button>
+    </div>
+    <div class="tutorial JS-tutorial">
+      <h3 class="title">Usando seus votos</h3>
+      <p>Em cada tema, você pode votar para:</p>
+      <p>
+        <strong>
+          <span>incluir até 2 projetos na pauta</span>
+        </strong>
+        <br>
+        <strong>
+          <span>retirar 1 projeto da pauta</span>
+        </strong>
+      </p>
+      <p>Para <strong>retirar</strong> um projeto da pauta, você <strong>precisa incluir</strong> outros dois.</p>
+      <button class="button -dark JS-modal-close">Entendi</button>
+    </div>
+  </div>
+</div>
