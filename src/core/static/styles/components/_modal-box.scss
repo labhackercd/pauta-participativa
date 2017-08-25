@@ -1,13 +1,17 @@
 .modal-box {
   position: fixed;
-  top: 0;
+  // top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  background-color: rgba($color-brand, 0.8);
+  // left: 0;
+  width: 2rem;
+  height: 2rem;
+  // background-color: rgba($color-brand, 0.8);
   z-index: 19;
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: opacity 0.3s ease 0.2s,
+              width 0.3s ease,
+              height 0.3s ease;
   pointer-events: none;
   visibility: hidden;
 
@@ -19,7 +23,7 @@
     top: 50%;
     left: 50%;
     transform: scale(0.1) translate(-50%, -50%);
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     text-align: center;
     @include bp-mediumup { max-width: calc(24rem + 8vw); }
     @include bp-smallonly { width: 90vw; }
@@ -45,6 +49,8 @@
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
+    width: 100vw;
+    height: 100vh;
 
     > .modal {
       transform: scale(1) translate(-50%, -50%);
