@@ -1,14 +1,61 @@
 .help-button {
-  @include icon('question-circle');
-  width: 1.25rem;
-  height: 1.25rem;
+  @extend %wrapper;
   position: fixed;
-  right: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
   bottom: 0.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(#000, 0.4);
-  &::before { font-size: $font-size-deca; }
+
+  > .help {
+    @include icon('question-circle', after);
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(#000, 0.8);
+    z-index: 18;
+    opacity: 0.5;
+    bottom: 0;
+    position: absolute;
+    transition: all 0.2s ease;
+    right: 0.5rem;
+    @include bp-mediumup {
+      right: -0.75rem;
+    }
+    &:hover { opacity: 1; }
+    &::after {
+      font-size: $font-size-deca;
+      transition: all 0.7s ease-out;
+    }
+    &::before {
+      content: '';
+      pointer-events: none;
+      display: block;
+      border-radius: 50%;
+      width: 999%;
+      height: 999%;
+      background-color: rgba($color-brand, 0.8);
+      position: absolute;
+      transform: scale(1);
+      opacity: 0;
+      transition: transform 0.6s ease-out,
+                  opacity 0.1s ease-out 0.5s;
+    }
+    &.-active {
+      opacity: 1;
+      &::after {
+        color: transparent;
+        transform: scale(9);
+        transition: all 0.3s ease-in;
+      }
+      &::before {
+        transform: scale(29);
+        opacity: 1;
+        transition: transform 0.5s ease-in,
+                    opacity 0.1s ease-in;
+      }
+    }
+  }
 }
