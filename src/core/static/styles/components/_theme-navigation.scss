@@ -10,14 +10,15 @@
 
   width: 100%;
 
-  box-shadow: 0 2px 16px 0 rgba(#000, 0.1),
-              0 1px 0 0 rgba(#000, 0.1);
-
   z-index: 8;
+
+  transition: box-shadow 0.3s ease;
 
   &.-fixed {
     position: fixed;
     top: 0;
+    box-shadow: 0 2px 16px 0 rgba(#000, 0.1),
+                0 1px 0 0 rgba(#000, 0.1);
   }
 
   > nav {
@@ -61,6 +62,7 @@
         position: absolute;
         bottom: 0;
         background-color: transparent;
+        transition: background-color 0.2s ease;
       }
 
       &:hover, &:active { background-color: hsl(0, 0%, 95%); }
