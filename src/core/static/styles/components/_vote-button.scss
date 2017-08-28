@@ -33,16 +33,16 @@
     justify-content: center;
     border-radius: 3rem;
     transition: all 0.2s ease;
-    font-size: $font-size-centi;
+    font-size: $font-size-mili;
     padding: 0.5rem;
     @include bp-smallup {
-      font-size: $font-size-base;
+      font-size: $font-size-deci;
     }
     &::after {
       margin-left: 0.25rem;
-      font-size: $font-size-centi;
+      font-size: $font-size-mili;
       @include bp-smallup {
-        font-size: $font-size-base;
+        font-size: $font-size-deci;
       }
     }
   }

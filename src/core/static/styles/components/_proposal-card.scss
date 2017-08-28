@@ -7,7 +7,7 @@
 
   > .title {
     margin-bottom: 0.5rem;
-    font-size: $font-size-deca;
+    font-size: $font-size-base;
   }
 
   > .undertitle {
@@ -15,6 +15,7 @@
     flex-wrap: wrap;
 
     > .pl {
+      font-size: $font-size-deci;
       margin-bottom: 0.5rem;
       margin-right: auto;
       color: hsl(0, 0%, 60%);
@@ -26,6 +27,7 @@
       color: $color-positive;
       cursor: pointer;
       border-bottom: 1px solid transparent;
+      font-size: $font-size-deci;
       &::before { content: 'Ver mais'; }
       &::after {
         display: inline-block;

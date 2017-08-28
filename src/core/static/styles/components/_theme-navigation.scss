@@ -38,7 +38,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      font-size: $font-size-centi;
+      font-size: $font-size-mili;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
       font-weight: 500;
@@ -50,7 +50,7 @@
       transition: all 0.2s ease;
 
       &::before {
-        font-size: $font-size-hecto;
+        font-size: $font-size-deca;
         transition: all 0.2s ease;
         transform-origin: 50% 0;
       }
@@ -62,7 +62,7 @@
         position: absolute;
         bottom: 0;
         background-color: transparent;
-        transition: background-color 0.2s ease;
+        transition: background-color 0.6s ease;
       }
 
       &:hover, &:active { background-color: hsl(0, 0%, 95%); }
