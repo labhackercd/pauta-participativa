@@ -1,6 +1,6 @@
 .group-block {
   display: none;
-  padding-top: calc(1.5rem + #{$size-navigation});
+  padding-top: $size-navigation;
   padding-bottom: 2rem;
   min-height: calc( 100vh - #{$size-header});
 
@@ -10,19 +10,25 @@
 
   > .wrapper {
     @extend %wrapper;
-    padding-top: 2rem;
     padding-bottom: 2rem;
     position: relative;
     display: flex;
     flex-direction: column;
 
     > .title {
-      @include theme-color;
+      background-color: $color-brand;
+      @include theme-bgcolor;
+      color: #fff;
+      font-size: $font-size-hecto;
+      font-weight: 500;
       display: flex;
       flex-align: center;
       justify-content: center;
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin: 0;
+      margin-bottom: 1rem;
+      font-weight: 400;
     }
 
     > .controls,

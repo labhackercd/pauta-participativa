@@ -2,7 +2,7 @@
   background-color: #fff;
 
   position: absolute;
-  top: 4rem;
+  top: 6rem;
 
   height: $size-navigation;
   display: flex;
@@ -10,13 +10,15 @@
 
   width: 100%;
 
-  box-shadow: 0 4px 12px 0 rgba(#000, 0.2);
-
   z-index: 8;
+
+  transition: box-shadow 0.3s ease;
 
   &.-fixed {
     position: fixed;
     top: 0;
+    box-shadow: 0 2px 16px 0 rgba(#000, 0.1),
+                0 1px 0 0 rgba(#000, 0.1);
   }
 
   > nav {
@@ -36,18 +38,19 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      font-size: $font-size-centi;
+      font-size: $font-size-mili;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
       font-weight: 500;
       color: $color-brand;
       z-index: 1;
       overflow: hidden;
+      position: relative;
       
       transition: all 0.2s ease;
 
       &::before {
-        font-size: $font-size-hecto;
+        font-size: $font-size-deca;
         transition: all 0.2s ease;
         transform-origin: 50% 0;
       }
@@ -55,35 +58,41 @@
       &::after {
         content: '';
         width: 100%;
-        height: 4px;
+        height: 6px;
         position: absolute;
         bottom: 0;
-        left: 0;
-        background-color: $color-brand;
+        background-color: transparent;
+        transition: background-color 0.6s ease;
       }
 
-      @each $theme, $color in $color-theme {
-        &.-#{$theme}::after {
-          background-color: $color;
-        }
-      }
+      > span { pointer-events: none; }
 
-      &:hover, &:active { background-color: hsl(0, 0%, 90%); }
+      &:hover, &:active { background-color: hsl(0, 0%, 95%); }
 
       &.-active {
-        @include theme-bgcolor;
-        background-color: $color-brand;
         cursor: default;
         z-index: 2;
-        color: transparent;
+        > span {
+          color: transparent;
+        }
 
         &::before {
-          transform: scale(1.5);
-          color: #fff;
+          transform: scale(1.4);
+        }
+
+        &::after {
+          background-color: $color-brand;
+        }
+        @each $theme, $color in $color-theme {
+          &.-#{$theme}::after {
+            background-color: $color;
+          }
         }
 
         @at-root .-fixed#{&} {
-          color: #fff;
+          span {
+            color: inherit;
+          }
           &::before {
             transform: scale(1);
           }

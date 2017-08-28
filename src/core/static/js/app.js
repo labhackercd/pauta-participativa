@@ -88,15 +88,6 @@ $(window).scroll(function(event) {
   }
 });
 
-$('.JS-show').click(function(event) {
-  var target = $(event.target);
-  if (target.hasClass('JS-show-more')) {
-    Show.more(target);
-  } else if (target.hasClass('JS-show-less')) {
-    Show.less(target);
-  }
-});
-
 $('.JS-change-votes').click(function(event) {
   var target = $(event.target);
   var groupId = target.closest('.JS-group-review').data('groupId');
