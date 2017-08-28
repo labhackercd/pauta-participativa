@@ -5,9 +5,9 @@
   padding-right: 1.5rem;
   padding-left: 1.5rem;
   height: 2.5rem;
-  font-size: $font-size-deci;
+  font-size: $font-size-centi;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   border-radius: 1.75rem;
   background-color: #fff;
@@ -26,7 +26,6 @@
   }
   &.-small {
     height: 1.5rem;
-    font-size: $font-size-centi;
-    font-weight: 400;
+    font-size: $font-size-mili;
   }
 }

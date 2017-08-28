@@ -7,12 +7,13 @@
 
   > .title {
     margin-bottom: 0.5rem;
-    font-size: $font-size-deca;
+    font-size: $font-size-base;
   }
 
   > .undertitle {
     display: flex;
     flex-wrap: wrap;
+    font-size: $font-size-deci;
 
     > .pl {
       margin-bottom: 0.5rem;
@@ -20,48 +21,20 @@
       color: hsl(0, 0%, 60%);
     }
 
-    > .more {
-      @include icon('caret-down', after);
-      margin-bottom: 0.5rem;
-      color: $color-positive;
-      cursor: pointer;
-      border-bottom: 1px solid transparent;
-      &::before { content: 'Ver mais'; }
-      &::after {
-        display: inline-block;
-        transition: transform 0.3s ease;
-      }
-      &:hover { border-bottom: 1px solid currentColor; }
-      &.-active::before { content: 'Ver menos'; }
-      &.-active::after { transform: rotate(-180deg); }
-    }
-  }
-
-  > .moreinfo {
-    margin-bottom: 1rem;
-    max-height: 0;
-    transition: max-height 0.3s ease-in-out;
-    display: block;
-    overflow: hidden;
-    width: 100%;
-    &.-show {
-      max-height: 80vh;
-    }
-    > .description,
-    > .link {
-      font-size: $font-size-deci;
-      line-height: 1.25rem;
-      margin-top: 0.25rem;
-      margin-bottom: 0.25rem;
-    }
-    > .description {
-    }
     > .link {
       color: $color-positive;
       text-decoration: underline;
       cursor: pointer;
       &:hover { color: mix(#000, $color-positive, 20%); }
     }
+
+  }
+
+  > .description {
+    font-size: $font-size-deci;
+    line-height: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   > .votes {

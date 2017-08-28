@@ -2,9 +2,20 @@
 {% randomize_queryset object.groups.all as groups %}
 <div class="agenda-block JS-agenda" data-agenda-id="{{object.id}}">
 
-  {% if not user.is_authenticated %}
-    <p>Você precisa estar logado no sistema para votar.</p>
-  {% endif %}
+  <div class="theme-navigation JS-theme-navigation">
+    <nav class="JS-tab-navigation">
+      {% for group in groups %}
+        {% with groups|first as first_group %}
+          <a class="-{{group.theme.slug}} {% if group == first_group %}-active{% endif %} JS-tab-item" data-group-id="{{group.id}}">
+            <span>{{group.theme.name}}</span>
+          </a>
+        {% endwith %}
+      {% endfor %}
+      <a class="item JS-tab-item" data-group-id="finish">
+        <span>Finalizar</span>
+      </a>
+    </nav>
+  </div>
 
   <div class="interaction-block">
     {% for group in groups %}
@@ -14,6 +25,8 @@
     {% if user.is_authenticated %}
       <div class="group-block -review JS-votes-review JS-group" data-group-id="finish">
         <div class="wrapper">
+
+        <div class="title">Finalizar</div>
 
          <div class="note-message">
            <p class="text">Confira os seus votos.</p>
@@ -38,18 +51,35 @@
     {% endif %}
   </div>
 
-  <div class="theme-navigation JS-theme-navigation">
-    <nav class="JS-tab-navigation">
-      {% for group in groups %}
-        {% with groups|first as first_group %}
-          <a class="-{{group.theme.slug}} {% if group == first_group %}-active{% endif %} JS-tab-item" data-group-id="{{group.id}}">
-            {{group.theme.name}}
-          </a>
-        {% endwith %}
-      {% endfor %}
-      <a class="item JS-tab-item" data-group-id="finish">
-        Finalizar
-      </a>
-    </nav>
+<div class="modal-box JS-modal">
+  <div class="modal">
+    <div class="tutorial -active JS-tutorial">
+      <h3 class="title">Bem-vindo!</h3>
+      <p>Esta pauta contém 3 temas:</p>
+      <ul class="themes">
+        {% for group in object.groups.all %}
+          <li class="theme-tag -{{group.theme.slug}}">{{group.theme.name}}</li>
+        {% endfor %}
+      </ul>
+      <p>Você não precisa votar em todos os temas.</p>
+      <button class="button -dark JS-modal-next">Próximo</button>
+    </div>
+    <div class="tutorial JS-tutorial">
+      <h3 class="title">Usando seus votos</h3>
+      <p>Em cada tema, você pode votar para:</p>
+      <p>
+        <strong>
+          <span>incluir até 2 projetos na pauta</span>
+        </strong>
+        <br>
+        <strong>
+          <span>retirar 1 projeto da pauta</span>
+        </strong>
+      </p>
+      <p>Para <strong>retirar</strong> um projeto da pauta, você <strong>precisa incluir</strong> outros dois.</p>
+      <button class="button -dark JS-modal-close">Entendi</button>
+    </div>
   </div>
+
 </div>
+

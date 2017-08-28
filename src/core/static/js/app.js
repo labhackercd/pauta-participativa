@@ -88,15 +88,6 @@ $(window).scroll(function(event) {
   }
 });
 
-$('.JS-show').click(function(event) {
-  var target = $(event.target);
-  if (target.hasClass('JS-show-more')) {
-    Show.more(target);
-  } else if (target.hasClass('JS-show-less')) {
-    Show.less(target);
-  }
-});
-
 $('.JS-change-votes').click(function(event) {
   var target = $(event.target);
   var groupId = target.closest('.JS-group-review').data('groupId');
@@ -157,9 +148,11 @@ $('.JS-confirm-votes').submit(function(e) {
 var hideTutorial = Cookie.read('hideTutorial');
 if (!hideTutorial || hideTutorial == 'false') {
   $('.JS-modal').addClass('-show');
+  $('.JS-help-button').addClass('-active');
 }
 
 $('.JS-help-button').click(function(event) {
+  $(this).addClass('-active');
   $('.JS-tutorial.-active').removeClass('-active');
   $('.JS-modal').find('.JS-tutorial').first().addClass('-active');
   $('.JS-modal').addClass('-show');
@@ -176,6 +169,7 @@ $('.JS-modal-next').click(function(event) {
 $('.JS-modal-close').click(function(event) {
   var target = $(event.target);
   target.closest('.JS-modal').removeClass('-show');
+  $('.JS-help-button').removeClass('-active');
   Cookie.create('hideTutorial', true);
 });
 

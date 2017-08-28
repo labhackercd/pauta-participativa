@@ -10,7 +10,7 @@
     justify-content: center;
     height: $size-header;
     position: relative;
-    padding-left: 3rem;
+    height: 6rem;
 
     > .back {
       @include icon('chevron-left');
@@ -22,18 +22,16 @@
       font-size: $font-size-hecto;
       width: 3rem;
       height: 3rem;
-      color: $color-brand;
+      color: hsl(0, 0, 60%);
       text-decoration: none;
-    }
-
-    > .icon {
-      height: 2em;
-      margin-right: 1.2rem;
     }
 
     > .title {
       font-size: $font-size-hecto;
-      color: hsl(0, 0%, 50%);
+      color: $color-brand;
+      font-weight: 500;
+      text-align: center;
     }
+
   }
 }
