@@ -65,6 +65,8 @@
         transition: background-color 0.6s ease;
       }
 
+      > span { pointer-events: none; }
+
       &:hover, &:active { background-color: hsl(0, 0%, 95%); }
 
       &.-active {

@@ -2,10 +2,6 @@
 {% randomize_queryset object.groups.all as groups %}
 <div class="agenda-block JS-agenda" data-agenda-id="{{object.id}}">
 
-  {% if not user.is_authenticated %}
-    <p>Você precisa estar logado no sistema para votar.</p>
-  {% endif %}
-
   <div class="theme-navigation JS-theme-navigation">
     <nav class="JS-tab-navigation">
       {% for group in groups %}
