@@ -1,7 +1,7 @@
 .group-block {
   display: none;
   padding-top: $size-navigation;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
   min-height: calc( 100vh - #{$size-header});
 
   &.-active {
@@ -65,4 +65,13 @@
       }
     }
   }
+
+
+  &.-review > .wrapper > .submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > * { margin-bottom: 1rem; }
+  }
+
 }

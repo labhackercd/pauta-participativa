@@ -28,4 +28,10 @@
     height: 1.5rem;
     font-size: $font-size-mili;
   }
+  &.-large {
+    height: 3rem;
+    font-size: $font-size-mili;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
 }
