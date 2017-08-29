@@ -1,7 +1,9 @@
 .review-list {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   > .item {
-    color: hsl(0, 0%, 60%);
-    margin-bottom: 0.75rem;
+    color: hsl(0, 0%, 50%);
+    margin-bottom: 1.5rem;
     padding-left: 2rem;
     position: relative;
     &.-upvote {
@@ -18,5 +20,7 @@
       top: 50%;
       transform: translateY(-50%);
     }
+    > .title { margin-bottom: 0.5rem; }
+    > .pl { font-size: $font-size-deci; }
   }
 }
