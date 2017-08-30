@@ -20,7 +20,7 @@
       font-style: italic;
       &::after {
         content: 'Encerrada';
-        color: $color-negative;
+        color: $color-positive;
         font-size: $font-size-deci;
         text-transform: uppercase;
         margin-left: 0.5rem;
@@ -49,7 +49,7 @@
     right: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
-    color: $color-positive;
+    color: $color-link;
     text-transform: uppercase;
     padding-right: 2rem;
     width: 6rem;
