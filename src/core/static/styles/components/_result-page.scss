@@ -1,67 +1,86 @@
 .result-page {
+
   > .wrapper {
     @extend %wrapper;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    
     > .title {
+      color: $color-brand;
+      font-size: $font-size-hecto;
+      font-weight: 500;
+      display: flex;
+      flex-align: center;
+      justify-content: center;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin: 0;
       margin-bottom: 1rem;
+      font-weight: 400;
     }
 
     > .share {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: bottom;
       height: 2.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
 
-      &::after {
-        content: '';
-        position: absolute;
-        width: 100vw;
-        height: 2.5rem;
-        left: 0;
-        background-color: white;
-        z-index: -1;
+      &:last-child {
+        margin-top: 2rem;
       }
 
       > .link {
         font-size: 1.5rem;
         padding: 0.5rem 1.5rem;
         cursor: pointer;
-        transition-property: color, background-color;
+        border-radius: 4px;
+        margin: 0 0.5rem;
+        transition-property: all;
         transition-timing-function: ease;
         transition-duration: 0.3s;
+        border-bottom-width: 4px;
+        border-bottom-style: solid;
+        display: flex;
+        align-items: center;
+
+        &:active {
+          border-bottom-width: 2px;
+        }
 
         &.-facebook {
           @include icon(facebook);
-          color: $color-facebook;
+          background-color: $color-facebook;
+          color: #fff;
+          border-bottom-color: mix(#000, $color-facebook, 30%);
 
           &:hover {
-            background-color: $color-facebook;
+            background-color: mix(#000, $color-facebook, 15%);
           }
         }
 
         &.-twitter {
           @include icon(twitter);
-          color: $color-twitter;
+          background-color: $color-twitter;
+          color: #fff;
+          border-bottom-color: mix(#000, $color-twitter, 30%);
 
           &:hover {
-            background-color: $color-twitter;
+            background-color: mix(#000, $color-twitter, 15%);
           }
         }
 
         &.-whatsapp {
           @include icon(whatsapp);
-          color: $color-whatsapp;
+          background-color: $color-whatsapp;
+          color: #fff;
+          border-bottom-color: mix(#000, $color-whatsapp, 30%);
 
           &:hover {
-            background-color: $color-whatsapp;
+            background-color: mix(#000, $color-whatsapp, 15%);
           }
         }
 
-        &:hover {
-          color: white;
-        }
       }
     }
   }
