@@ -20,6 +20,12 @@
       <a class="link -whatsapp JS-share-lnk" data-social="whatsapp" title="Whatsapp"></a>
     </div>
 
+    <div class="legend">
+      <h5>Votos positivos</h5>
+      <h5>Votos negativos</h5>
+      <h5>Saldo: votos positivos menos votos negativos</h5>
+    </div>
+
     {% maximum_votes object as max_votes %}
     {% for group in object.groups.all %}
       <div class="theme-card">
