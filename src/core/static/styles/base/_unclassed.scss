@@ -18,3 +18,8 @@ main {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+p > a {
+  color: $color-link;
+  &:hover { color: mix(#000, $color-link, 20%); }
+}

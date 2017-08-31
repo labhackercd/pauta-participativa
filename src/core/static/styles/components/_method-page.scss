@@ -11,10 +11,6 @@
       line-height: 1.4;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: "liga1" on;
-      > a {
-        color: $color-link;
-        &:hover { color: mix(#000, $color-link, 20%); }
-      }
     }
   }
 }
