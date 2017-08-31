@@ -1,4 +1,4 @@
-.landing-section {
+.hero-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,11 +12,12 @@
   }
 
   > .logo {
-    max-width: 100%;
+    width: 60%;
     margin-bottom: 3rem;
   }
 
-  > .greeting > .description {
+  > .description {
+    width: calc(70% + 4rem);
     margin-bottom: 1rem;
     font-size: $font-size-base;
     line-height: 1.2;
