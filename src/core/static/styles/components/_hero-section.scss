@@ -1,51 +1,33 @@
 .hero-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: white;
+  padding: 3rem 1.5rem;
 
   @include bp-mediumup {
     flex: 0 1 50%;
     height: 100vh;
   }
 
-  > .top,
-  > .bottom {
-    padding: 3rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
-    align-items: center;
-    
+  > .logo {
+    width: calc(70% + 4rem);
+    max-width: 45rem;
+    margin-bottom: 2.5rem;
   }
 
-  > .top {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background-color: $color-link;
-    background-image: url("../images/background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    > .logo {
-      width: 60%;
-    }
+  > .description {
+    width: calc(70% + 4rem);
+    margin-bottom: 1rem;
+    font-size: $font-size-base;
+    line-height: 1.2;
+    font-weight: 400;
+    color: hsl(0, 0%, 30%);
+    max-width: 45rem;
   }
-  
-  > .bottom {
-    > .description {
-      width: calc(70% + 4rem);
-      margin-bottom: 1rem;
-      font-size: $font-size-base;
-      line-height: 1.2;
-      font-weight: 400;
-      color: $color-brand;
-      max-width: 45rem;
-    }
-    > .cd {
-      max-width: 12rem;
-      margin: 1.5rem;
-    }
+  > .cd {
+    max-width: 12rem;
+    margin: 1.5rem;
   }
-
-
 }
