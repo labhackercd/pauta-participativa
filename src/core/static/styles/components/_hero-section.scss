@@ -1,27 +1,33 @@
-.landing-section {
+.hero-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background-color: white;
-  padding: 2rem;
+  padding: 3rem 1.5rem;
 
   @include bp-mediumup {
     flex: 0 1 50%;
-    height: 100vh;
+    min-height: 100vh;
   }
 
   > .logo {
-    max-width: 100%;
-    margin-bottom: 3rem;
+    width: calc(70% + 4rem);
+    max-width: 45rem;
+    margin-bottom: 2.5rem;
   }
 
-  > .greeting > .description {
+  > .description {
+    width: calc(70% + 4rem);
     margin-bottom: 1rem;
     font-size: $font-size-base;
     line-height: 1.2;
-    font-weight: 500;
+    font-weight: 400;
     color: hsl(0, 0%, 30%);
     max-width: 45rem;
+  }
+  > .cd {
+    max-width: 12rem;
+    margin: 1.5rem;
   }
 }

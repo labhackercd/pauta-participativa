@@ -1,4 +1,9 @@
 .agenda-list {
   padding: 1rem;
   padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  flex-basis: 50%;
 }

@@ -4,43 +4,41 @@
 {% block content %}
 
   <div class="home-page">
-    <section class="landing-section">
-      <img class="logo" src="{% static 'images/logo-full.svg' %}" alt="Logomarca do Pauta Participativa">
-      <div class="greeting">
-        <p class="description">A Pauta Participativa é uma forma de você ajudar a Câmara a definir a prioridade de votações dos projetos.</p>
-        <p class="description">Ao final do período de consulta (15 dias), a Câmara colocará em votação os projetos de cada tema que tenham obtido o maior saldo positivo de votos, ou seja, votos favoráveis menos votos contrários. Participe!</p>
-        <p class="description"><a href="{% url 'method' %}">Clique aqui</a> para entender a metodologia utilizada.</p>
-      </div>
+
+    <section class="hero-section">
+      <img class="logo" src="{% static 'images/logo-full.svg' %}" alt="Marca da Pauta Participativa">
+      <p class="description">A Pauta Participativa é uma forma de você ajudar a Câmara a definir a prioridade de votações dos projetos.</p>
+      <p class="description">Ao final do período de consulta (15 dias), a Câmara colocará em votação os projetos de cada tema que tenham obtido o maior saldo positivo de votos, ou seja, votos favoráveis menos votos contrários. Participe!</p>
+      <p class="description"><a href="{% url 'method' %}">Acesse aqui</a> para entender a metodologia utilizada.</p>
+      <img class="cd" src="{% static 'images/marca-cd.svg' %}" alt="Marca da Câmara do Deputados">
     </section>
 
-    <section class="agendas-section">
+    <section class="agenda-list">
 
-      <div class="agenda-list">
         {% for agenda in object_list %}
 
-          <a class="agenda-item {% if agenda.is_closed %}-closed{% endif %}" href="{% url 'agenda' pk=agenda.id %}">
-            <h2 class="title">{{agenda.title}}</h2>
-            {% if agenda.is_closed or request.user|already_voted:agenda %}
-              <p class="time">Votação encerrada dia {{agenda.end_date}}</p>
-            {% else %}
-              <p class="time">Votação aberta até dia {{agenda.end_date}}</p>
-            {% endif %}
-            <ul class="themes">
-              {% for group in agenda.groups.all %}
-                <li class="theme-tag -{{group.theme.slug}}">{{group.theme.name}}</li>
-              {% endfor %}
-            </ul>
-            {% if agenda.is_closed or request.user|already_voted:agenda %}
-              <h4 class="action">Ver votos</h4>
-            {% elif not request.user.is_authenticated %}
-              <h4 class="action">Ver</h4>
-            {% else %}
-              <h4 class="action">Votar</h4>
-            {% endif %}
-          </a>
+        <a class="agenda-item {% if agenda.is_closed %}-closed{% endif %}" href="{% url 'agenda' pk=agenda.id %}">
+          <h2 class="title">{{agenda.title}}</h2>
+          {% if agenda.is_closed or request.user|already_voted:agenda %}
+            <p class="time">Votação encerrada dia {{agenda.end_date}}</p>
+          {% else %}
+            <p class="time">Votação aberta até dia {{agenda.end_date}}</p>
+          {% endif %}
+          <ul class="themes">
+            {% for group in agenda.groups.all %}
+              <li class="theme-tag -{{group.theme.slug}}">{{group.theme.name}}</li>
+            {% endfor %}
+          </ul>
+          {% if agenda.is_closed or request.user|already_voted:agenda %}
+            <h4 class="action">Ver votos</h4>
+          {% elif not request.user.is_authenticated %}
+            <h4 class="action">Ver</h4>
+          {% else %}
+            <h4 class="action">Votar</h4>
+          {% endif %}
+        </a>
 
-        {% endfor %}
-      </div>
+      {% endfor %}
 
     </section>
   </div>
