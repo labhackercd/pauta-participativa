@@ -26,8 +26,9 @@ class AgendaView(DetailView):
             return obj
 
     def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated():
-            messages.error(request, _('You must be logged to do this action'))
+        agenda = self.get_object()
+        if not request.user.is_authenticated() and not agenda.is_closed:
+            messages.error(request, _('You must be logged to vote'))
             return HttpResponseRedirect(
                 reverse('home')
             )
