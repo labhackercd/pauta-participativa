@@ -22,33 +22,31 @@
       {% include "components/group-block.html" with groups=group last_group=groups|last first_group=groups|first %}
     {% endfor %}
 
-    {% if user.is_authenticated %}
-      <div class="group-block -review JS-votes-review JS-group" data-group-id="finish">
-        <div class="wrapper">
+    <div class="group-block -review JS-votes-review JS-group" data-group-id="finish">
+      <div class="wrapper">
 
-        <div class="title">Finalizar</div>
+      <div class="title">Finalizar</div>
 
-         <div class="note-message">
-           <p class="text">Confira os seus votos.</p>
-           <p class="text">Depois de enviar, eles não poderão ser alterados!</p>
-         </div>
+       <div class="note-message">
+         <p class="text">Confira os seus votos.</p>
+         <p class="text">Depois de enviar, eles não poderão ser alterados!</p>
+       </div>
 
-          <div class="controls">
-            <button class="button -text JS-prev-group-btn JS-navigation-btn">Tema anterior</button>
-          </div>
-
-          {% for group in groups %}
-            {% include "components/review-card.html" with group=group %}
-          {% endfor %}
-
-          <form action="" class="submit JS-confirm-votes">
-            {% csrf_token %}
-            <div class="g-recaptcha" data-sitekey="{% recaptcha_site_key %}"></div>
-            <button class="button -dark -large JS-submit-votes-btn">Enviar</button>
-          </form>
+        <div class="controls">
+          <button class="button -text JS-prev-group-btn JS-navigation-btn">Tema anterior</button>
         </div>
+
+        {% for group in groups %}
+          {% include "components/review-card.html" with group=group %}
+        {% endfor %}
+
+        <form action="" class="submit JS-confirm-votes">
+          {% csrf_token %}
+          <div class="g-recaptcha" data-sitekey="{% recaptcha_site_key %}"></div>
+          <button class="button -dark -large JS-submit-votes-btn">Enviar</button>
+        </form>
       </div>
-    {% endif %}
+    </div>
   </div>
 
 <div class="modal-box JS-modal">
