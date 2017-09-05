@@ -33,8 +33,6 @@
           </ul>
           {% if agenda.is_closed or request.user|already_voted:agenda %}
             <h4 class="action">Ver votos</h4>
-          {% elif not request.user.is_authenticated %}
-            <h4 class="action">Ver</h4>
           {% else %}
             <h4 class="action">Votar</h4>
           {% endif %}
