@@ -1,7 +1,9 @@
+from django.contrib import messages
 from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
-from django.http import Http404, JsonResponse
+from django.http import Http404, JsonResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView
+from django.urls import reverse
 from core import models, captcha
 import json
 
@@ -22,6 +24,15 @@ class AgendaView(DetailView):
             raise Http404
         else:
             return obj
+
+    def dispatch(self, request, *args, **kwargs):
+        agenda = self.get_object()
+        if not request.user.is_authenticated() and not agenda.is_closed:
+            messages.error(request, _('You must be logged to vote'))
+            return HttpResponseRedirect(
+                reverse('home')
+            )
+        return super(AgendaView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(AgendaView, self).get_context_data(**kwargs)

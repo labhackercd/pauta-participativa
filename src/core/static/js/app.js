@@ -197,3 +197,8 @@ window.onbeforeunload = function(e) {
     return confirmationMessage;
   }
 };
+
+$('.JS-unlogged-user').click(function(event) {
+  AlertMessage.error('Você precisa fazer login para votar');
+  return false;
+});
