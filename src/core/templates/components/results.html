@@ -4,14 +4,15 @@
 
   <div class="wrapper">
 
-    {% if not object.is_closed %}
-      <div class="note-message">
-        <p class="text">Obrigada por participar!</p>
-        <p class="text">Compartilhe com seus amigos:</p>
-      </div>
-    {% else %}
+    {% if object.is_closed %}
       <h2 class="title">Resultado</h2>
+    {% else %}
+      <h2 class="title">Resultado Parcial</h2>
     {% endif %}
+
+    <div class="note-message">
+      <p class="text">Compartilhe esta pauta para mais pessoas votarem</p>
+    </div>
 
     <div class="share">
       <a class="link -facebook JS-share-lnk" data-social="facebook" title="Facebook"></a>
@@ -19,8 +20,11 @@
       <a class="link -whatsapp JS-share-lnk" data-social="whatsapp" title="Whatsapp"></a>
     </div>
 
-    <div class="note-message">
-      <p class="text">Veja abaixo o resultado parcial:</p>
+    <div class="legend">
+      <div class="wrapper">
+        <span class="item -positive">Votos positivos</span>
+        <span class="item -negative">Votos negativos</span>
+      </div>
     </div>
 
     {% maximum_votes object as max_votes %}
@@ -56,6 +60,16 @@
         </ul>
       </div>
     {% endfor %}
+
+    <div class="share">
+      <a class="link -facebook JS-share-lnk" data-social="facebook" title="Facebook"></a>
+      <a class="link -twitter JS-share-lnk" data-social="twitter" title="Twitter"></a>
+      <a class="link -whatsapp JS-share-lnk" data-social="whatsapp" title="Whatsapp"></a>
+    </div>
+
+    <div class="note-message">
+      <p class="text"><a href="{% url 'method' %}">Clique aqui</a> para entender a metodologia utilizada.</p>
+    </div>
 
   </div>
 

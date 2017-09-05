@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles pauta_participativa_tags %}
+
+{% block content %}
+
+  <div class="method-page">
+    <div class="wrapper">
+      <p class="link"><a href="{% url 'home' %}">Voltar para a Pauta Participativa</a></p>
+      <h1 id="deondeveioametodologiaadotadapelapautaparticipativa">De onde veio a metodologia adotada pela Pauta Participativa</h1>
+      <p>O sistema de votação adotado pela Pauta Participativa é inspirado em um trabalho realizado pelo matemático <a href="http://www.kareljanecek.com/en">Karel Janeček</a> (site em inglês), que propôs um método inovador de votação, denominado “Democracia 2.1”.</p>
+      <p>O método defende a tese de que um processo de votação deve dar aos participantes a oportunidade de escolher múltiplas opções. Por exemplo, se o processo tem por objetivo escolher um vencedor, deve permitir a cada pessoa escolher pelo menos duas opções. A ideia é que as segundas opções tendem a ser mais consensuais dentro do grupo, enquanto as primeiras tendem a ser mais particulares a cada indivíduo.</p>
+      <p>Adicionalmente, o método prevê que, além de escolherem suas opções prediletas, os participantes possam indicar opções que rejeitam. Assim, as opções selecionadas são aquelas que apresentem melhor saldo de votos. Por exemplo, uma opção que tenha 1000 votos favoráveis e 1000 votos contrários teria saldo nulo e perderia para uma outra com 10 votos favoráveis e nenhum contra.</p>
+      <p>Há, entretanto, uma ressalva para o registro de votos contrários: como se trata de um processo seletivo, o método prevê que o número de votos contrários de cada participante seja sempre inferior ao número de votos favoráveis. Logo, para ter direito a rejeitar um item, o participante deve apoiar pelo menos outros dois itens. Essa abordagem garante que o resultado final da pesquisa seja positivo e haja, de fato, um ou mais escolhidos.</p>
+      <p>Mais detalhes sobre o método podem ser obtidos em <a href="https://www.d21.me/assets/d21.pdf">artigo publicado pelo autor em agosto de 2016</a> (site em inglês).</p>
+      <p>A Pauta Participativa foi construída com base nesses conceitos. O objetivo é identificar, para diferentes temas legislativos, os projetos de lei que tenham maior consenso entre a população para serem colocados em votação na Câmara dos Deputados. Para tanto, cada participante tem o direito de escolher até dois projetos em cada tema colocado em consulta; se escolher dois, ganha o direito de indicar um projeto que, em sua avaliação, não deve ser colocado em pauta. O projeto vencedor em cada tema é aquele que conseguir o maior saldo de votos.</p>
+      <p class="logo">
+        <a href="https://www.d21.me/" target="_blank">
+          <img src="{% static 'images/d21.png' %}" alt="Marca Democracia 2.1">
+        </a>
+      </p>
+      <p class="link"><a href="{% url 'home' %}">Voltar para a Pauta Participativa</a></p>
+    </div>
+  </div>
+
+{% endblock content %}

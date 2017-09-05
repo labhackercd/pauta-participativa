@@ -22,10 +22,10 @@
     }
 
     > .link {
-      color: $color-positive;
+      color: $color-link;
       text-decoration: underline;
       cursor: pointer;
-      &:hover { color: mix(#000, $color-positive, 20%); }
+      &:hover { color: mix(#000, $color-link, 20%); }
     }
 
   }

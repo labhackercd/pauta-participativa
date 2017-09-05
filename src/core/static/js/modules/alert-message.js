@@ -3,22 +3,27 @@ var alertMessage = $('.JS-alert-message');
 var AlertMessage = {
   hide: function() {
     alertMessage.removeClass('-show -error -success');
-    alertMessage.find('.JS-alert-text').text('');
   },
 
-  show: function(text) {
+  show: function(text, autoClose) {
+    if (typeof autoClose === "undefined" || autoClose === null) {
+      autoClose = true;
+    }
+
     alertMessage.addClass('-show');
     alertMessage.find('.JS-alert-text').text(text);
-    setTimeout.clearAll();
-    setTimeout(function() {
-      AlertMessage.hide();
-    }, 7500);
+    if (autoClose) {
+      setTimeout.clearAll();
+      setTimeout(function() {
+        AlertMessage.hide();
+      }, 7500);
+    }
   },
 
   error: function(text) {
     alertMessage.removeClass('-success');
     alertMessage.addClass('-error');
-    this.show(text);
+    this.show(text, false);
   },
 
   success: function(text) {
