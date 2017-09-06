@@ -8,13 +8,13 @@
     }
     > p {
       margin-top: 1.5rem;
-      line-height: 1.4;
+      line-height: 1.5;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: "liga1" on;
       &.pd21 {
-        padding-right: calc(4rem + 1vw);
+        padding-right: calc(4.5rem + 1vw);
         background-image: url("../images/d21.png");
-        background-position: right center;
+        background-position: calc(100% - 0.5rem) center;
         background-repeat: no-repeat;
         background-size: calc(3.5rem + 1vw) auto;
       }
