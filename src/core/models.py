@@ -89,6 +89,7 @@ class Proposal(models.Model):
     number = models.IntegerField(verbose_name=_("Number"))
     year = models.IntegerField(verbose_name=_("Year"))
     url = models.CharField(max_length=250, verbose_name=_("URL"))
+    custom_url = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = _("Proposal")
@@ -109,10 +110,14 @@ class Proposal(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        proposal = cd.proposals.get(self.proposal_type.initials,
-                                    self.number,
-                                    self.year)
-        self.url = proposal['LinkInteiroTeor']
+        if not self.custom_url:
+            proposal = cd.proposals.get(self.proposal_type.initials,
+                                        self.number,
+                                        self.year)
+
+            self.url = ('http://www.camara.gov.br/'
+                        'proposicoesWeb/fichadetramitacao'
+                        '?idProposicao={}'.format(proposal['idProposicao']))
         return super(Proposal, self).save(*args, **kwargs)
 
 
