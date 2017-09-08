@@ -15,7 +15,7 @@ class ProposalTypeAdmin(admin.ModelAdmin):
 
 @admin.register(models.Proposal)
 class ProposalAdmin(admin.ModelAdmin):
-    readonly_fields = ('url', )
+    pass
 
 
 @admin.register(models.Vote)
