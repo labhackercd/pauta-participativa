@@ -4,15 +4,21 @@ html {
   font-weight: 400;
   box-sizing: border-box;
   background-color: hsl(0, 0%, 95%);
+  height: 100%;
   @include bp-mediumup {
     font-size: 16px;
   }
+}
+
+body {
+  height: 100%;
 }
 
 main {
   display: flex;
   flex-direction: column;
   position: relative;
+  height: 100%;
 }
 
 *, *:before, *:after {

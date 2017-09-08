@@ -6,16 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta property="twitter:card" content="summary" />
   <meta property="twitter:title" content="{{object.title}}" />
-  <meta property="twitter:description" content="Escolha projetos que serão votados em plenário na {{object.title|lower}}. Nesta edição, você pode incluir propostas dos temas {% for group in object.groups.all %}{% if forloop.first %}{{group.theme.name|title}}{% elif forloop.last %} e {{group.theme.name|title}}{% else %}, {{group.theme.name|title}}{% endif %}{% endfor %}." />
   <meta property="twitter:site" content="@edemocracia" />
   <meta property="twitter:creator" content="@edemocracia" />
-  <meta property="twitter:image" content="{{request.scheme}}://{{domain}}{% static 'images/twitter-share-image.jpg' %}" />
+  <meta property="twitter:image" content="{{request.scheme}}://{{domain}}{% static 'images/share-image-twitter.jpg' %}" />
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{{object.title}}" />
   <meta property="og:site_name" content="Pauta Participativa" />
-  <meta property="og:description" content="Escolha projetos que serão votados em plenário na {{object.title|lower}}. Nesta edição, você pode incluir propostas dos temas {% for group in object.groups.all %}{% if forloop.first %}{{group.theme.name|title}}{% elif forloop.last %} e {{group.theme.name|title}}{% else %}, {{group.theme.name|title}}{% endif %}{% endfor %}." />
-  <meta property="og:image" content="{{request.scheme}}://{{domain}}{% static 'images/facebook-share-image.jpg' %}" />
+
+  {% if object.is_closed %}
+    <meta property="og:description" content="Veja os projetos que a população escolheu para serem votados pela Câmara dos Deputados." />
+    <meta property="twitter:description" content="Veja os projetos que a população escolheu para serem votados pela Câmara dos Deputados." />
+  {% else %}
+    <meta property="og:description" content="Ajude a Câmara dos Deputados a escolher os projetos que serão votados. Nesta edição, você pode selecionar propostas dos temas {% for group in object.groups.all %}{% if forloop.first %}{{group.theme.name|title}}{% elif forloop.last %} e {{group.theme.name|title}}{% else %}, {{group.theme.name|title}}{% endif %}{% endfor %}." />
+    <meta property="twitter:description" content="Ajude a Câmara dos Deputados a escolher os projetos que serão votados. Nesta edição, você pode selecionar propostas dos temas {% for group in object.groups.all %}{% if forloop.first %}{{group.theme.name|title}}{% elif forloop.last %} e {{group.theme.name|title}}{% else %}, {{group.theme.name|title}}{% endif %}{% endfor %}." />
+  {% endif %}
+
+  <meta property="og:image" content="{{request.scheme}}://{{domain}}{% static 'images/share-image-facebook.jpg' %}" />
   <meta property="og:image:type" content="image/jpg" />
   <meta property="og:image:width" content="560" />
   <meta property="og:image:height" content="292" />

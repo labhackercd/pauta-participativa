@@ -104,6 +104,10 @@
           color: #fff;
           border-bottom-color: mix(#000, $color-whatsapp, 30%);
 
+          @include bp-mediumup {
+            display: none;
+          }
+
           &:hover {
             background-color: mix(#000, $color-whatsapp, 15%);
           }

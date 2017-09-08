@@ -10,19 +10,19 @@ var Buttons = {
 
     if (voteType === 'downvote' && downvoteNotAvailable && !unvote) {
       nextButton.addClass('-disabled');
-      nextButton.text('Próximo tema');
+      nextButton.text('Avançar');
       prevButton.addClass('-disabled');
       Tabs.disableAllUnless(groupId);
       AlertMessage.tutorial(voteType, unvote, groupId);
     } else if (remainingDownvotes === 0 && remainingUpvotes === 0) {
       nextButton.removeClass('-disabled');
-      nextButton.text('Próximo tema');
+      nextButton.text('Avançar');
       prevButton.removeClass('-disabled');
       Tabs.enableAll();
       AlertMessage.tutorial(voteType, unvote, groupId);
     } else if (remainingDownvotes === 1 && remainingUpvotes < 2) {
       nextButton.removeClass('-disabled');
-      nextButton.text('Próximo tema');
+      nextButton.text('Avançar');
       prevButton.removeClass('-disabled');
       Tabs.enableAll();
       AlertMessage.tutorial(voteType, unvote, groupId);
