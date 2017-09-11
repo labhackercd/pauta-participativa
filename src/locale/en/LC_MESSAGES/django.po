@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-05 16:29-0300\n"
+"POT-Creation-Date: 2017-09-11 15:43-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,7 +98,7 @@ msgstr ""
 msgid "Agendas"
 msgstr ""
 
-#: core/models.py:57 core/models.py:95
+#: core/models.py:57 core/models.py:96
 msgid "Proposals"
 msgstr ""
 
@@ -122,46 +122,46 @@ msgstr ""
 msgid "URL"
 msgstr ""
 
-#: core/models.py:94 core/models.py:123
+#: core/models.py:95 core/models.py:128
 msgid "Proposal"
 msgstr ""
 
-#: core/models.py:121
+#: core/models.py:126
 msgid "User"
 msgstr ""
 
-#: core/models.py:126 core/models.py:128
+#: core/models.py:131 core/models.py:133
 msgid "Proposal Group"
 msgstr ""
 
-#: core/models.py:130
+#: core/models.py:135
 msgid "Datetime"
 msgstr ""
 
-#: core/models.py:131 core/models.py:134
+#: core/models.py:136 core/models.py:139
 msgid "Vote"
 msgstr ""
 
-#: core/models.py:135
+#: core/models.py:140
 msgid "Votes"
 msgstr ""
 
 #: core/views.py:31
-msgid "You must be logged to vote"
+msgid "You must be <a href=\"/home\">logged</a> to vote"
 msgstr ""
 
-#: core/views.py:47
+#: core/views.py:48
 msgid "You must be logged to do this action"
 msgstr ""
 
-#: core/views.py:63
+#: core/views.py:64
 msgid "You can vote at most three times"
 msgstr ""
 
-#: core/views.py:71
+#: core/views.py:72
 msgid "You have to vote at least in one group"
 msgstr ""
 
-#: core/views.py:75
+#: core/views.py:76
 msgid "Ok"
 msgstr ""
