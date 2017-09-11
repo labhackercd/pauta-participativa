@@ -12,11 +12,11 @@ var Share = {
         window.open(facebookUrl, 'popUpWindow', windowOptions);
         break;
       case 'twitter':
-        var twitterUrl = 'http://twitter.com/share?text=Escolha a pauta!&url=' + agendaUrl;
+        var twitterUrl = 'http://twitter.com/share?text=Eu já votei. Dê sua opinião também! &url=' + agendaUrl;
         window.open(twitterUrl, 'popUpWindow', windowOptions);
         break;
       case 'whatsapp':
-        var whatsappUrl = encodeURIComponent('Escolha a pauta! Acesse em ') + encodeURIComponent(agendaUrl);
+        var whatsappUrl = encodeURIComponent('Eu já votei. Dê sua opinião também! ') + encodeURIComponent(agendaUrl);
         window.open('whatsapp://send?text=' + whatsappUrl, 'popUpWindow', windowOptions);
         break;
       default:

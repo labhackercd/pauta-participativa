@@ -1,5 +1,6 @@
 .home-page {
   @include bp-mediumup {
+    height: 100%;
     display: flex;
   }
 }
