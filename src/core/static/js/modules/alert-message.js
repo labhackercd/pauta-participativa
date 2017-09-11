@@ -11,7 +11,7 @@ var AlertMessage = {
     }
 
     alertMessage.addClass('-show');
-    alertMessage.find('.JS-alert-text').text(text);
+    alertMessage.find('.JS-alert-text').html(text);
     if (autoClose) {
       setTimeout.clearAll();
       setTimeout(function() {

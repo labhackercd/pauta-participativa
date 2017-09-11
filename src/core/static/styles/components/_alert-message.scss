@@ -39,6 +39,11 @@
                 visibility 0s 0s;
   }
 
+  > p > a {
+    color: #fff;
+    cursor: pointer;
+  }
+
   > .close {
     @include icon('times');
     display: flex;

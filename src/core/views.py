@@ -28,7 +28,8 @@ class AgendaView(DetailView):
     def dispatch(self, request, *args, **kwargs):
         agenda = self.get_object()
         if not request.user.is_authenticated() and not agenda.is_closed:
-            messages.error(request, _('You must be logged to vote'))
+            messages.error(request, _('You must be <a href="/home">logged</a>'
+                                      ' to vote'))
             return HttpResponseRedirect(
                 reverse('home')
             )
@@ -57,7 +58,7 @@ class AgendaView(DetailView):
             for group in data['groups']:
                 votes = group['votes']
                 if len(votes) <= 3:
-                    self.create_votes(user, votes, group['groupId'])
+                    self.create_votes(user, votes, group['groupId'], request)
                 elif len(votes) > 3:
                     return JsonResponse(
                         {'message': _('You can vote at most three times')},
@@ -81,13 +82,14 @@ class AgendaView(DetailView):
             return JsonResponse({'message': message},
                                 status=400)
 
-    def create_votes(self, user, votes, group_id):
+    def create_votes(self, user, votes, group_id, request):
         for vote in votes:
             models.Vote.objects.create(
                 user=user,
                 proposal_id=vote["name"],
                 proposal_group_id=group_id,
                 vote=self.get_vote_type(vote["value"]),
+                ip=request.META.get('HTTP_X_REAL_IP', None),
                 agenda=self.get_object()
             )
 

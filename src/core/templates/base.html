@@ -29,7 +29,7 @@
       <span class="tooltip-box JS-tooltip" role="tooltip">Eu sou um tooltip \o/</span>
 
       <div class="alert-message JS-alert-message {% if messages %}-show -error{% endif %}">
-        <p class="JS-alert-text">{% for message in messages %}{{message}}. {% endfor %}</p>
+        <p class="JS-alert-text">{% for message in messages %}{{message|safe}} {% endfor %}</p>
         <a class="close JS-alert-close"></a>
       </div>
     </main>
