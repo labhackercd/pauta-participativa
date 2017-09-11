@@ -133,6 +133,7 @@ class Vote(models.Model):
     agenda = models.ForeignKey('core.Agenda', verbose_name=_("Proposal Group"),
                                related_name='participants')
     datetime = models.DateTimeField(auto_now=True, verbose_name=_("Datetime"))
+    ip = models.CharField(max_length=15, null=True, blank=True)
     vote = models.BooleanField(verbose_name=_("Vote"))
 
     class Meta:
