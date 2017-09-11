@@ -20,7 +20,7 @@ class ProposalAdmin(admin.ModelAdmin):
 
 @admin.register(models.Vote)
 class VoteAdmin(admin.ModelAdmin):
-    pass
+    readonly_fields = ('ip', )
 
 
 class ProposalGroupInline(nested_admin.NestedStackedInline):
