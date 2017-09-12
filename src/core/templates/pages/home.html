@@ -21,7 +21,7 @@
 
         <a class="agenda-item {% if agenda.is_closed %}-closed{% elif not request.user.is_authenticated %}JS-unlogged-user{% endif %}" href="{% url 'agenda' pk=agenda.id %}">
           <h2 class="title">{{agenda.title}}</h2>
-          {% if agenda.is_closed or request.user|already_voted:agenda %}
+          {% if agenda.is_closed %}
             <p class="time">Votação encerrada dia {{agenda.end_date}}</p>
           {% else %}
             <p class="time">Votação aberta até dia {{agenda.end_date}}</p>
