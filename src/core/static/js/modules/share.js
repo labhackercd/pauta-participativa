@@ -2,7 +2,7 @@ var Share = {
   results: function(shareButton) {
     var socialNetwork = $(shareButton).data('social');
     var agendaId = $(shareButton).closest('.JS-agenda-wrapper').data('agendaId');
-    var agendaUrl =  window.Urls.agenda_meta(agendaId);
+    var agendaUrl = window.location.origin + window.Urls.agenda_meta(agendaId);
 
     var windowOptions = 'height=500,width=1000,left=100,top=100,resizable=yes,' +
       'scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes';
