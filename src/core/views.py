@@ -14,6 +14,16 @@ class HomeView(ListView):
     queryset = models.Agenda.objects.filter(is_visible=True)
 
 
+class AgendaMetaView(DetailView):
+    model = models.Agenda
+    template_name = 'pages/agenda_meta.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AgendaMetaView, self).get_context_data(**kwargs)
+        context['domain'] = Site.objects.get_current().domain
+        return context
+
+
 class AgendaView(DetailView):
     model = models.Agenda
     template_name = 'pages/agenda.html'
