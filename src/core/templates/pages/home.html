@@ -1,27 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles pauta_participativa_tags %}
 
-{% block metatags %}
-  <meta property="twitter:card" content="summary" />
-  <meta property="twitter:title" content="{{object.title}}" />
-  <meta property="twitter:site" content="@edemocracia" />
-  <meta property="twitter:creator" content="@edemocracia" />
-  <meta property="twitter:image" content="{{request.scheme}}://{{domain}}{% static 'images/share-image-twitter.jpg' %}" />
-
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Pauta Participativa" />
-  <meta property="og:site_name" content="Pauta Participativa" />
-
-  <meta property="og:description" content="Ao final do período de consulta (2 semanas), a Câmara colocará em pauta os projetos de cada tema que tenham obtido o maior saldo positivo de votos, ou seja, votos favoráveis menos votos contrários. Participe!" />
-  <meta property="twitter:description" content="Ao final do período de consulta (2 semanas), a Câmara colocará em pauta os projetos de cada tema que tenham obtido o maior saldo positivo de votos, ou seja, votos favoráveis menos votos contrários. Participe!" />
-
-  <meta property="og:image" content="{{request.scheme}}://{{domain}}{% static 'images/share-image-facebook.jpg' %}" />
-  <meta property="og:image:type" content="image/jpg" />
-  <meta property="og:image:width" content="560" />
-  <meta property="og:image:height" content="292" />
-  <meta property="og:type" content="website" />
-{% endblock metatags %}
-
 {% block content %}
 
   <div class="home-page">

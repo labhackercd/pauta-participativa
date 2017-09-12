@@ -20,7 +20,7 @@
     <meta property="twitter:description" content="Ajude a Câmara dos Deputados a escolher os projetos que serão votados. Nesta edição, você pode selecionar propostas dos temas {% for group in object.groups.all %}{% if forloop.first %}{{group.theme.name|title}}{% elif forloop.last %} e {{group.theme.name|title}}{% else %}, {{group.theme.name|title}}{% endif %}{% endfor %}." />
   {% endif %}
 
-  <meta property="og:image" content="{{request.scheme}}://{{domain}}{% static 'images/share-image-facebook.jpg' %}" />
+  <meta property="og:image" itemprop="image" content="{{request.scheme}}://{{domain}}{% static 'images/share-image-facebook.jpg' %}" />
   <meta property="og:image:type" content="image/jpg" />
   <meta property="og:image:width" content="560" />
   <meta property="og:image:height" content="292" />
