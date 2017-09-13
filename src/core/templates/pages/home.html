@@ -20,22 +20,31 @@
         {% for agenda in object_list %}
 
         <a class="agenda-item {% if agenda.is_closed %}-closed{% elif not request.user.is_authenticated %}JS-unlogged-user{% endif %}" href="{% url 'agenda' pk=agenda.id %}">
+          
           <h2 class="title">{{agenda.title}}</h2>
+
           {% if agenda.is_closed %}
             <p class="time">Votação encerrada dia {{agenda.end_date}}</p>
           {% else %}
             <p class="time">Votação aberta até dia {{agenda.end_date}}</p>
           {% endif %}
+
+          {% if request.user|already_voted:agenda %}
+            <p class="voted">Você já votou nesta pauta</p>
+          {% endif %}
+
           <ul class="themes">
             {% for group in agenda.groups.all %}
               <li class="theme-tag -{{group.theme.slug}}">{{group.theme.name}}</li>
             {% endfor %}
           </ul>
+
           {% if agenda.is_closed or request.user|already_voted:agenda %}
             <h4 class="action">Ver votos</h4>
           {% else %}
             <h4 class="action">Votar</h4>
           {% endif %}
+
         </a>
 
       {% endfor %}
