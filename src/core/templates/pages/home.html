@@ -30,7 +30,7 @@
           {% endif %}
 
           {% if request.user|already_voted:agenda %}
-            <p class="voted">Votação aberta até dia {{agenda.end_date}}</p>
+            <p class="voted">Você já votou nesta pauta</p>
           {% endif %}
 
           <ul class="themes">
@@ -44,7 +44,7 @@
           {% else %}
             <h4 class="action">Votar</h4>
           {% endif %}
-          
+
         </a>
 
       {% endfor %}
