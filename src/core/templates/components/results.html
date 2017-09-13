@@ -38,7 +38,6 @@
               <div class="info">
                 <h4 class="title">{{proposal.title}}</h4>
                 <p class="pl">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</p>
-
                 {% get_vote request.user proposal group object as user_vote %}
                 {% if user_vote != None %}
                   {% if user_vote %}
@@ -47,6 +46,9 @@
                     <p class="vote -against">Você votou contra este projeto</p>
                   {% endif %}
                 {% endif %}
+                <p class="link" >
+                  <a href="{{proposal.url}}" target="_blank">Acompanhar projeto</a>
+                </p>
               </div>
               <div class="stats">
                 <div class="graph">
