@@ -25,15 +25,9 @@
     }
     > .title {
       font-size: $font-size-base;
-      margin-bottom: 0.75rem;
     }
     > .pl {
-      color: hsl(0, 0%, 60%);
       font-size: $font-size-deci;
-    }
-    > .link {
-      font-size: $font-size-centi;
-      line-height: 1.3;
     }
     > .vote {
       font-size: $font-size-centi;
