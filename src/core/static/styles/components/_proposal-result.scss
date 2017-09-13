@@ -14,16 +14,31 @@
     }
   }
 
-  &:first-child { padding-top: 0.25rem; }
   &:last-child { border-bottom: none; }
 
   > .info {
     > .title,
-    > .pl {
+    > .pl,
+    > .vote {
       margin-bottom: 0.5rem;
     }
     > .pl {
       color: hsl(0, 0%, 60%);
+    }
+    > .vote {
+      font-size: $font-size-centi;
+      font-weight: 500;
+      &::before {
+        margin-right: 0.25rem;
+      }
+      &.-infavor {
+        @include icon('plus')
+        color: $color-positive;
+      }
+      &.-against {
+        @include icon('minus')
+        color: $color-negative;
+      }
     }
   }
 
