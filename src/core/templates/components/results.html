@@ -37,7 +37,15 @@
             <li class="proposal-result">
               <div class="info">
                 <h4 class="title">{{proposal.title}}</h4>
-                <p class="pl">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</p>
+                <p class="pl"><a href="{{proposal.url}}" target="_blank">{{proposal.proposal_type.initials}} {{proposal.number}}/{{proposal.year}}</a></p>
+                {% get_vote request.user proposal group object as user_vote %}
+                {% if user_vote != None %}
+                  {% if user_vote %}
+                    <p class="vote -infavor">Você votou a favor deste projeto</p>
+                  {% else %}
+                    <p class="vote -against">Você votou contra este projeto</p>
+                  {% endif %}
+                {% endif %}
               </div>
               <div class="stats">
                 <div class="graph">
@@ -68,7 +76,7 @@
     </div>
 
     <div class="note-message">
-      <p class="text"><a href="{% url 'method' %}">Clique aqui</a> para entender a metodologia utilizada.</p>
+      <p class="text"><a href="https://labhacker.typeform.com/to/WL1Q8m">Nos dê seu feedback.</a></p>
     </div>
 
   </div>

@@ -38,6 +38,13 @@
     color: hsl(0, 0%, 40%);
   }
 
+  > .voted {
+    margin-bottom: 1.25rem;
+    font-size: $font-size-deci;
+    font-weight: 700;
+    color: $color-positive;
+  }
+
   > .themes {
     display: flex;
     flex-wrap: wrap;

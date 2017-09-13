@@ -1,3 +1,4 @@
+from core import models
 from django.conf import settings
 from django.template import Library
 from random import shuffle
@@ -10,6 +11,22 @@ def already_voted(user, agenda):
         return agenda.participants.filter(user=user).exists()
     else:
         return False
+
+
+@register.assignment_tag()
+def get_vote(user, proposal, group, agenda):
+    if user.is_authenticated():
+        try:
+            vote = proposal.votes.get(
+                user=user,
+                proposal_group=group,
+                agenda=agenda
+            )
+            return vote.vote
+        except models.Vote.DoesNotExist:
+            return None
+    else:
+        return None
 
 
 @register.filter()

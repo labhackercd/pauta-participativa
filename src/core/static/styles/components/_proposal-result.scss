@@ -14,16 +14,35 @@
     }
   }
 
-  &:first-child { padding-top: 0.25rem; }
   &:last-child { border-bottom: none; }
 
   > .info {
     > .title,
-    > .pl {
+    > .pl,
+    > .vote,
+    > .link {
       margin-bottom: 0.5rem;
     }
+    > .title {
+      font-size: $font-size-base;
+    }
     > .pl {
-      color: hsl(0, 0%, 60%);
+      font-size: $font-size-deci;
+    }
+    > .vote {
+      font-size: $font-size-centi;
+      font-weight: 500;
+      &::before {
+        margin-right: 0.25rem;
+      }
+      &.-infavor {
+        @include icon('plus')
+        color: $color-positive;
+      }
+      &.-against {
+        @include icon('minus')
+        color: $color-negative;
+      }
     }
   }
 
@@ -33,7 +52,7 @@
     justify-content: space-between;
 
     > .balance {
-      min-width: 4rem;
+      min-width: calc(3rem + 4ch);
       margin-left: 0.5rem;
       text-align: right;
       white-space: nowrap;
@@ -52,7 +71,7 @@
       flex-grow: 1;
       display: flex;
       > .label {
-        min-width: 2rem;
+        min-width: 4ch;
         white-space: nowrap;
         font-weight: 700;
         font-size: $font-size-centi;
