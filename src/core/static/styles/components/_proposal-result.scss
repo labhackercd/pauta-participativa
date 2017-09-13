@@ -19,11 +19,15 @@
   > .info {
     > .title,
     > .pl,
-    > .vote {
+    > .vote,
+    > .link {
       margin-bottom: 0.5rem;
     }
+    > .title {
+      font-size: $font-size-base;
+    }
     > .pl {
-      color: hsl(0, 0%, 60%);
+      font-size: $font-size-deci;
     }
     > .vote {
       font-size: $font-size-centi;
@@ -48,7 +52,7 @@
     justify-content: space-between;
 
     > .balance {
-      min-width: 4rem;
+      min-width: calc(3rem + 4ch);
       margin-left: 0.5rem;
       text-align: right;
       white-space: nowrap;
@@ -67,7 +71,7 @@
       flex-grow: 1;
       display: flex;
       > .label {
-        min-width: 2rem;
+        min-width: 4ch;
         white-space: nowrap;
         font-weight: 700;
         font-size: $font-size-centi;
