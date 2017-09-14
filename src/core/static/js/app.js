@@ -101,11 +101,12 @@ $('.JS-error-close').click(function(event) {
 });
 
 $('.JS-confirm-votes').submit(function(e) {
+  var submitButton = $(this).find('.JS-submit-votes-btn');
   var csrftoken = $(this).find('[name="csrfmiddlewaretoken"]').val();
   var recaptchaResponse = $(this).find('[name="g-recaptcha-response"]').val();
   var agendaId = $(this).closest('.JS-agenda').data('agendaId');
   if (!recaptchaResponse) {
-    alert('Tem que marcar o reCaptcha');
+    AlertMessage.error('Para enviar, diga que não é um robô.');
     return false;
   }
 
@@ -129,6 +130,8 @@ $('.JS-confirm-votes').submit(function(e) {
     }
   });
 
+  submitButton.addClass('-loading');
+  submitButton.attr('disabled', 'true');
   $.ajax({
     method: 'POST',
     url: window.Urls.agenda(agendaId),
@@ -138,7 +141,9 @@ $('.JS-confirm-votes').submit(function(e) {
       window.location.href = window.location.href;
     },
     error: function(data) {
-      alert(data.responseJSON.message);
+      submitButton.removeAttr('disabled');
+      submitButton.removeClass('-loading');
+      console.log(data);
     }
   })
 
