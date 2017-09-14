@@ -78,6 +78,10 @@
         color: transparent;
         width: 3rem;
         transition: width 0.4s ease;
+        background-color: hsl(0, 0, 40%);
+        box-shadow: none;
+        cursor: default;
+        transform: none;
         &::before {
           content: '';
           width: 1.5rem;
