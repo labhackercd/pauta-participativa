@@ -5,21 +5,30 @@ import nested_admin
 
 @admin.register(models.Theme)
 class ThemeAdmin(admin.ModelAdmin):
+    search_fields = ('name', )
     exclude = ('slug', )
 
 
 @admin.register(models.ProposalType)
 class ProposalTypeAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('initials', 'description')
+    search_fields = ('initials', 'description')
 
 
 @admin.register(models.Proposal)
 class ProposalAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'proposal_type', 'number', 'year')
+    list_filter = ('proposal_type', 'number', 'year', 'custom_url')
+    search_fields = ('title', 'description')
 
 
 @admin.register(models.Vote)
 class VoteAdmin(admin.ModelAdmin):
+    list_display = ('user', 'proposal', 'proposal_group', 'agenda', 'vote')
+    list_filter = ('proposal', 'proposal_group', 'agenda', 'vote')
+    search_fields = (
+        'user__email', 'user__first_name', 'agenda__title',
+        'proposal__title', 'proposal_group__theme__name')
     readonly_fields = ('ip', )
 
 
