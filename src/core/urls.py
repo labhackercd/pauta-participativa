@@ -5,6 +5,8 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^method/?$', TemplateView.as_view(template_name='pages/method.html'),
         name='method'),
+    url(r'^relatorio-pauta-1/?$', TemplateView.as_view(template_name='pages/relatorio-pauta-1.html'),
+        name='relatorio-pauta-1'),
     url(r'^$', views.HomeView.as_view(), name='home'),
     url(r'^pauta/(?P<pk>\d+)/?$', views.AgendaView.as_view(),
         name='agenda'),
