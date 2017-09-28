@@ -3,17 +3,31 @@
   padding-bottom: 5rem;
   > .wrapper {
     @extend %wrapper;
-    > h1 {
-      margin-top: 3rem;
-    }
-    > p {
-      margin-top: 1.5rem;
+    > h1 { margin-top: 3rem; }
+    > h2 { margin-top: 2.5rem; }
+    > p { margin-top: 0.75rem; }
+    > ul { margin-top: 0.75rem; }
+    > ul > li { margin-top: 0.5rem; }
+    > p,
+    > ul {
       line-height: 1.5;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: "liga1" on;
+      font-size: $font-size-base;
+    }
+    > ul > li {
+      padding-left: 1rem;
+      position: relative;
+      &::before {
+        content: '•';
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
     }
     > .link {
       text-align: center;
+      &:last-child { margin-top: 3rem; }
     }
   }
 }
