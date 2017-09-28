@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles pauta_participativa_tags %}
+
+{% block content %}
+
+  <div class="report-page">
+
+    <div class="wrapper">
+
+      <p class="link"><a href="{% url 'home' %}">Voltar para a Pauta Participativa</a></p>
+
+      <h1>Pauta Participativa - 12 a 27/09/2017</h1>
+
+      <h2>I – Resultados:</h2>
+      <h3>Política: consenso</h3>
+      <p>Os dois projetos que tratam de Iniciativa Popular (PRC 235/2017 e PL 7574/2017) foram os mais votados (saldos de 3.534 e 2.898) e também apresentaram a menor rejeição em toda a consulta.</p>
+      <h3>Segurança: polêmica</h3>
+      <p>A Revisão do Estatuto do Desarmamento destacou-se por receber o maior número de votos (6.031) e pelo maior saldo de votos (5.284). Porém, foi o tema que obteve maior volume de críticas e manifestações de participantes e de entidades contrárias.</p>
+      <h3>Saúde: equilíbrio</h3>
+      <p>Os três projetos com maior número de votos tiveram saldos semelhantes: Revalida, com 1.971 votos; Lúpus e Epilepsia, com 1.894; e Planos de Saúde, com 1.893. Por outro lado, Saúde teve o projeto com maior rejeição desta edição, inclusive sendo o único com saldo negativo: obesidade infantil, com -245 votos.</p>
+
+      <h2>II – Avaliação dos participantes:</h2>
+      <p>O Laboratório Hacker recebeu 174 avaliações (2,2% do total de participantes) pelo formulário disponível no final da votação. Os principais comentários foram:</p>
+      <ul>
+        <li>85% informaram que não houve dificuldade para votar; </li>
+        <li>12% reclamaram da obrigação de 2 votos positivos para usar 1 negativo; </li>
+        <li>11% elogiaram a iniciativa; e</li>
+        <li>8% pediram maior divulgação da Pauta Participativa.</li>
+      </ul>
+
+      <h2>III – Avaliação preliminar dos observadores:</h2>
+      <p>Os três observadores convidados para acompanhar o processo consideraram a iniciativa da Câmara importante para ampliar a participação da sociedade no processo legislativo, com impacto real. Entre as críticas, destacam-se:</p>
+      <ul>
+        <li>Seleção prévia de projetos associada à metodologia do voto limita a participação. Existência de projetos de uma só linha ideológica;</li>
+        <li>Dificuldade para divulgar à população e ter uma participação "representativa" dos brasileiros.</li>
+      </ul>
+ 
+      <h2>IV – Sugestões dos observadores:</h2>
+      <ul>
+        <li>Projetos: aumentar a transparência no processo de seleção, inclusive com divulgação das propostas escolhidas antes da etapa de votação; aumentar o número de propostas por tema; observar para não estarem na mesma linha ideológica; evitar temas muito polêmicos; permitir sugestão dos cidadãos; incluir os nomes dos autores; </li>
+        <li>Metodologia: permitir o voto negativo sem a necessidade de incluir os dois votos positivos;  </li>
+        <li>Ferramenta: não exigir o cadastro do participante antes de ele conhecer os projetos da pauta (para saber se tem realmente interesse em participar); pedir mais dados para buscar a representatividade necessária.</li>
+      </ul>
+    
+      <p class="link"><a href="{% url 'home' %}">Voltar para a Pauta Participativa</a></p>
+    
+    </div>
+
+  </div>
+
+{% endblock content %}
