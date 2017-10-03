@@ -3,6 +3,20 @@
   padding-bottom: 5rem;
   > .wrapper {
     @extend %wrapper;
+    > h2 {
+      color: $color-brand;
+      position: relative;
+      @include theme-icon;
+      @include theme-color;
+      &::before {
+        font-size: 0.5em;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2rem;
+        left: -2.5rem;
+      }
+    }
     > h1 { margin-top: 3rem; }
     > h2 { margin-top: 2.5rem; }
     > p { margin-top: 0.75rem; }
