@@ -1,5 +1,4 @@
-// We assume any project using these icons is using NPM so that
-// our relative paths called here will work properly.
+// This projects needs NPM so that relative paths below can work
 @font-face {
   font-family: "fontastic-labhacker";
   src:url("../fontastic-labhacker/fonts/fontastic-labhacker.eot");
@@ -11,7 +10,7 @@
   font-style: normal;
 }
 
-// Mixin to add icons by using SASS variables. No markup shit.
+// Mixin to insert icons
 @mixin icon($icon, $precedence: before) {
   &::#{$precedence} {
     content: map-get($icons, $icon);
@@ -21,7 +20,6 @@
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
-    line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -30,8 +28,7 @@
   }
 }
 
-// All of our beautiful icons stored in variables here.
-// Remember to always update this list after adding new icons to Fontastic.
+// Update this list when adding new characters to the icon font
 $icons: (
   500px: "\e000",
   adjust: "\e001",

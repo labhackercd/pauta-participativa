@@ -7,6 +7,8 @@ urlpatterns = [
         name='method'),
     url(r'^relatorio-pauta-1/?$', TemplateView.as_view(template_name='pages/relatorio-pauta-1.html'),
         name='relatorio-pauta-1'),
+    url(r'^relatorio-pauta-1-observadores/?$', TemplateView.as_view(template_name='pages/relatorio-pauta-1-observadores.html'),
+        name='relatorio-pauta-1-observadores'),
     url(r'^$', views.HomeView.as_view(), name='home'),
     url(r'^pauta/(?P<pk>\d+)/?$', views.AgendaView.as_view(),
         name='agenda'),
