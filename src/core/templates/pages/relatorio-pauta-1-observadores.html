@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load staticfiles pauta_participativa_tags %}
+
+{% block content %}
+
+  <div class="report-page">
+
+    <div class="wrapper">
+
+      <p class="link"><a href="{% url 'home' %}">Voltar para a Pauta Participativa</a></p>
+
+      <h1>Avaliação dos observadores</h1>
+
+      <h2>Fabiano Angélico</h2>
+      <h4>ONG Transparência Internacional</h4>
+      <p>Experiência super válida, é importante que o cidadão sinta que sua participação faz sentido, tem impacto real</p>
+      <p>Ferramenta intuitiva, fácil de entender e de usar</p>
+      <p>Recomendação 1: é preciso assegurar que o login via redes sociais não possibilite duplicidade de votos -- bots e outras ferramentas estão destruindo o debate público, criando artificialidades. Toda e qualquer ferramenta atualmente precisa atuar fortemente para garantir que a participação seja real e não fabricada</p>
+      <p>Recomendação 2: dada a importância de se buscar representatividade, é preciso os dados estatísticos dos participantes em tempo real e de forma a mais granularizada possível: UF de origem, cidade, gênero, escolaridade (se e quando for possível captar esses dados, evidentemente). Nessa linha, é possível criar uma regra: caso um PL não tenha sido votado por participantes de todas as UFs, ele fica inabilitado pois não representa o pensamento de maneira mais pulverizada (só uma ideia, a se aprimorar)</p>
+      <p>Recomendação 3: na mesma linha, é importante apresentar os dados sobre a navegação (a que hora acessou a ferramenta, de que forma chegou ao link, que dispositivo usou etc)  para que esses dados possam informar pesquisas empíricas sobre participação digital</p>
+      <p>Recomendação 4: é muito importante, para garantir a legitimidade e o engajamento, que os temas sejam discutidos com anterioridade -- e que temas polêmicos ou PLs com abordagem contramajoritária sejam evitados. Nessa linha, também acho que poderiam ser selecionados mais projetos por tema, porque às vezes de fato fica difícil apoiar dois... </p>
+      <p>Recomendação 5: é FUNDAMENTAL que a Pauta Participativa seja também uma Pauta Transparente. No sentido de que a pauta precisa ser publicizada com ao menos uma semana de antecedência.</p>
+
+      <h2>Marisa von Bülow</h2>
+      <h4>Instituto de Ciência Política da Universidade de Brasília</h4>
+      <p>A iniciativa é muito importante, não apenas porque amplia as formas de participação digital dos cidadãos, mas especificamente porque aponta para a possibilidade de influenciar o agendamento da Câmara dos Deputados.</p>
+      <p>Também gostei do design e do sistema de votação, ancorado em um debate sobre qual é a melhor forma de decisão em plataformas de voto virtuais.</p>
+      <p>A iniciativa enfrenta desafios que são comuns a outros projetos do e-democracia, como a dificuldade para divulgar para a população de forma ampla e também a impossibilidade de ter uma participação "representativa" da população brasileira. </p>
+      <p>No entanto, acho que o mais interessante é apontar desafios específicos da iniciativa e propor melhorias. Nesse sentido, sem dúvida para mim o mais importante é a questão da seleção prévia de projetos nos quais é possível votar. Essa seleção prévia, associada à metodologia do voto, afunila e limita de forma importante as possibilidades de expressão dos participantes.</p>
+      <p>Minhas propostas preliminares, para debater com vocês, seriam as seguintes:</p>
+      <p>1. Como vários usuários já comentaram, é preciso dar maior transparência para o processo de seleção desses projetos. Quem fez a seleção, por quê no caso de segurança temos 6 propostas e nos outros apenas 5, etc. ?</p>
+      <p>2. Além disso, seria oportuno aumentar o número de projetos. No caso da segurança pública, por exemplo, pode ser difícil encontrar dois projetos para apoiar entre os seis elencados.</p>
+      <p>3. Outra possibilidade, não contraditória com a proposta de aumentar o número de projetos, é inserir a possibilidade de não votar em nenhuma das propostas apresentadas. Daria aos usuários a possibilidade de expressar sua rejeição geral.</p>
+      <p>4. Finalmente, outra proposta no mesmo sentido é abrir a possibilidade de que os usuários insiram um projeto não elencado.</p>
+
+      <h2>Rafael Cardoso Sampaio</h2>
+      <h4>Grupo de Pesquisa Comunicação e Participação Política</h4>
+      <p>O Pauta Participativa é uma relevante inovação democrática possibilitada pelo Laboratório Hacker da Câmara dos Deputados. Trata-se de uma ferramenta especialmente interessante por permitir a participação cidadã em um diferente momento do processo legislativo, que seria na decisão sobre a pauta do plenário. Portanto, já surge como uma pertinente inovação na democracia digital brasileira.</p>
+      <p>Os integrantes do Grupo Comunicação e Participação Política da Universidade Federal do Paraná (COMPA-UFPR) se cadastraram, testaram e participaram da plataforma. No geral, constatamos que é uma plataforma bem intuitiva, amigável e de fácil utilização, portanto não há muitas sugestões para sua melhoria. Não obstante, cremos que: a) o usuário pode ficar na dúvida se seu voto foi computado ou não, uma vez que há a necessidade de confirmar o voto na última tela (logo, algum aviso poderia ser dado para que o voto seja confirmado) e b) seria importante que houve uma conexão maior com outras ferramentas do portal e-Democracia. Assim, como há um tutorial no começo, poderia haver algo similar ao fim, convidando os participantes a também interagir em outras ferramentas da plataforma. Finalmente, ficamos na dúvida se o login por redes sociais/e-mail garante dados sócio demográficos dos participantes para futura avaliação.</p>
+      <p>De maneira geral, os membros do Compa concordam que foram as pautas os pontos mais carentes de algumas reflexões. Primeiramente, tivemos a impressão que as pautas não estão disponíveis sem o registro na plataforma. Em termos de publicidade e de respeito à privacidade dos cidadãos, avaliamos que as pautas deveriam ser facilmente acessíveis e não pedir um login inicial. Em segundo lugar, julgamos que o cidadão participante com baixo interesse e/ou conhecimento político pode se sentir pouco subsidiado para realizar uma decisão qualificada. Dito de outra forma, a plataforma oferece poucas informações e insumos que possam ajudar o cidadão menos engajado a tomar sua decisão. Atualmente, há apenas um resumo excessivamente breve e insuficiente da pauta e um link para mais informações na página da Câmara dos Deputados, o que por sua vez exigiria bastante tempo ou conhecimento sobre o processo legislativo. Entre outras possibilidades, acreditamos que haja algumas opções simples que poderiam ajudar o cidadão em sua decisão, nomeadamente: I) ser facilmente acessível o proponente do projeto de lei e seu partido (assim como o relator, se for o caso); II) além do resumo, existir uma espécie de “resumo expandido” da pauta deixando mais claro o que o projeto de lei vai alterar; III) pensar sobre a possibilidade de colocarem textos e/ou vídeos que tratem das possíveis consequências no caso do projeto se tornar uma lei efetiva ou ainda “motivos para apoiar (ou não) esta pauta”, que resumisse algumas visões sobre o projeto; IV) deixar mais claro que os PLs estão em diferentes fases da tramitação e que poderão chegar à pauta do plenário em diferentes momentos.</p>
+      <p>Ademais, ainda no tema das pautas, é importante ter em vista uma maior diversidade ideológicas dos projetos de lei. A maioria dos participantes do Compa acabou não conseguindo votar em nenhum projeto de um determinado tema por não se ver contemplado em nenhum dos projetos de lei apresentados. Ou ainda, mesmo desejando barrar certas pautas de entrar na discussão, não havia outros projetos para apoiar no mesmo tema. Enquanto entendemos a aplicação do método da “Democracia 2.1”, ficamos pensando se seria possível aumentar o número de pautas (votando em 4 opções e barrando 2) ou ainda se seria cabível  que os votos positivos e negativos fossem distribuídos em temáticas diferentes.</p>
+      <p>Cientes que se tratam de pedidos complexos, reforçamos nossos parabéns à equipe do Laboratório Hacker e ansiamos pela nova etapa de consultas.</p>
+
+      <p class="link"><a href="{% url 'home' %}">Voltar para a Pauta Participativa</a></p>
+
+    </div>
+
+  </div>
+
+{% endblock content %}
