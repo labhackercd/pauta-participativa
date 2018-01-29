@@ -64,6 +64,7 @@ class AgendaResource(ModelResource):
             'end_date': ALL,
             'title': ALL,
         }
+        ordering = ['end_date', 'initial_date']
 
     def dehydrate(self, bundle):
         bundle.data['is_closed'] = bundle.obj.is_closed
