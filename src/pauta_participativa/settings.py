@@ -191,7 +191,7 @@ if not DEBUG:
 
 # STATICFILES SETTINGS
 STATIC_URL = config('STATIC_URL', default='/static/')
-STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'public'))
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'public', 'static'))
 
 STATICFILES_FINDERS = default.STATICFILES_FINDERS + [
     'npm.finders.NpmFinder',

@@ -1,0 +1,45 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: root
+
+  nginx:
+    image: nginx
+    depends_on:
+      - web
+    volumes:
+      - data:/var/labhacker/pauta-participativa
+      - ./config/etc/nginx/conf.d/:/etc/nginx/conf.d/:z
+    ports:
+      - "8000:80"
+
+  web:
+    build: .
+    command: ./start.sh
+    restart: on-failure
+    links:
+      - db
+    volumes:
+      - data:/var/labhacker/pauta-participativa
+    environment:
+      ADMIN_PASSWORD: 123
+      ADMIN_EMAIL: admin@admin.com
+      DATABASE_ENGINE: postgresql_psycopg2
+      DATABASE_NAME: pauta
+      DATABASE_PASSWORD: root
+      DATABASE_USER: root
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DEBUG: 'False'
+    expose:
+      - "8000"
+    depends_on:
+      - db
+
+volumes:
+  data:
+    driver: local
