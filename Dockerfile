@@ -14,10 +14,7 @@ RUN pip3 install -r requirements.txt psycopg2 gunicorn && \
 RUN npm install
 
 WORKDIR /var/labhacker/pauta-participativa/src
-RUN python3 manage.py collectstatic_js_reverse && \
-    python3 manage.py compress --force && \
-    python3 manage.py collectstatic --no-input && \
-    python3 manage.py compilemessages
+RUN python3 manage.py compilemessages
 
 EXPOSE 8000
 CMD ./start.sh
