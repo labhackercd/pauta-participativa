@@ -12,6 +12,8 @@ urlpatterns = [
     url(r'^$', views.HomeView.as_view(), name='home'),
     url(r'^pauta/(?P<pk>\d+)/?$', views.AgendaView.as_view(),
         name='agenda'),
+    url(r'^pauta/(?P<pk>\d+)/download-csv/?$', views.download_csv_results,
+        name='download-csv'),
     url(r'^pauta/(?P<pk>\d+)/metas/?$', views.AgendaMetaView.as_view(),
         name='agenda_meta'),
 ]
