@@ -26,6 +26,7 @@ class Theme(models.Model):
 class Agenda(models.Model):
 
     initial_date = models.DateField(verbose_name=_("Initial date"))
+    video_id = models.CharField(_('youtube id'), max_length=200, blank=True, null=True)
     end_date = models.DateField(verbose_name=_("End date"))
     title = models.CharField(max_length=100, verbose_name=_("Title"))
     description = models.TextField(verbose_name=_("Description"))
