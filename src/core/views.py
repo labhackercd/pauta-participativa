@@ -35,16 +35,6 @@ class AgendaView(DetailView):
         else:
             return obj
 
-    def dispatch(self, request, *args, **kwargs):
-        agenda = self.get_object()
-        if not request.user.is_authenticated() and not agenda.is_closed:
-            messages.error(request, _('You must be <a href="/home">logged</a>'
-                                      ' to vote'))
-            return HttpResponseRedirect(
-                reverse('home')
-            )
-        return super(AgendaView, self).dispatch(request, *args, **kwargs)
-
     def get_context_data(self, **kwargs):
         context = super(AgendaView, self).get_context_data(**kwargs)
         context['domain'] = Site.objects.get_current().domain
