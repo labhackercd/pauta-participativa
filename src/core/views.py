@@ -1,11 +1,12 @@
 from django.contrib import messages
 from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
-from django.http import Http404, JsonResponse, HttpResponseRedirect
+from django.http import Http404, JsonResponse, HttpResponseRedirect, HttpResponse
 from django.views.generic import ListView, DetailView
 from django.urls import reverse
 from core import models, captcha
 import json
+import csv
 
 
 class HomeView(ListView):
@@ -98,3 +99,25 @@ class AgendaView(DetailView):
             return True
         else:
             return False
+
+
+def download_csv_results(request, pk):
+    agenda = models.Agenda.objects.get(id=pk)
+    proposal_groups = models.ProposalGroup.objects.filter(agenda=agenda)
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="%s.csv"' % agenda.title
+
+    writer = csv.writer(response)
+    writer.writerow([_('Theme'), _('Proposal'), _('Up Votes'), _('Down Votes'), _('Score')])
+    for group in proposal_groups:
+        for proposal in group.proposals.all():
+            score = proposal.upvotes_count(group.id) - proposal.downvotes_count(group.id)
+            writer.writerow([
+                group.theme.name,
+                proposal.title,
+                proposal.upvotes_count(group.id),
+                proposal.downvotes_count(group.id),
+                score
+            ])
+
+    return response
