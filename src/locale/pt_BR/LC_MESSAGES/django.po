@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-20 15:59-0200\n"
+"POT-Creation-Date: 2019-11-20 16:40-0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,7 +178,3 @@ msgstr "Votos contra"
 #: core/views.py:111
 msgid "Score"
 msgstr "Total"
-
-#, fuzzy
-#~ msgid "You must be <a href=\"/home\">logged</a> to vote"
-#~ msgstr "Você precisa <a href=\"/home\">fazer login</a> para votar"
