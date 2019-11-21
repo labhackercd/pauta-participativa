@@ -53,7 +53,7 @@
   <div class="modal">
     <div class="tutorial -active JS-tutorial">
       <h3 class="title">Bem-vindo!</h3>
-      <p>Esta pauta contém 3 temas:</p>
+      <p>Esta pauta contém {{ object.groups.count }} tema(s):</p>
       <ul class="themes">
         {% for group in object.groups.all %}
           <li class="theme-tag -{{group.theme.slug}}">{{group.theme.name}}</li>
