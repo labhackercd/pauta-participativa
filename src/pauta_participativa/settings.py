@@ -143,7 +143,6 @@ LOCALE_PATHS = [
 ]
 
 LANGUAGES = (
-    ('en', 'English'),
     ('pt-br', 'Brazilian Portuguese'),
 )
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 15:43-0300\n"
+"POT-Creation-Date: 2019-11-20 16:40-0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgstr "Nome"
 msgid "Slug"
 msgstr "Slug"
 
-#: core/models.py:15 core/models.py:53
+#: core/models.py:15 core/models.py:54 core/views.py:111
 msgid "Theme"
 msgstr "Tema"
 
@@ -68,102 +68,113 @@ msgid "Initial date"
 msgstr "Data inicial"
 
 #: core/models.py:29
+msgid "youtube id"
+msgstr "id do youtube"
+
+#: core/models.py:30
 msgid "End date"
 msgstr "Data final"
 
-#: core/models.py:30 core/models.py:84
+#: core/models.py:31 core/models.py:85
 msgid "Title"
 msgstr "Título"
 
-#: core/models.py:31 core/models.py:70 core/models.py:85
+#: core/models.py:32 core/models.py:71 core/models.py:86
 msgid "Description"
 msgstr "Descrição"
 
-#: core/models.py:32
+#: core/models.py:33
 msgid "Visible"
 msgstr "Visível"
 
-#: core/models.py:33
+#: core/models.py:34
 msgid "Votes count"
 msgstr "Quantidade de votos"
 
-#: core/models.py:35
+#: core/models.py:36
 msgid "Participants count"
 msgstr "Quantidade de participantes"
 
-#: core/models.py:39 core/models.py:55
+#: core/models.py:40 core/models.py:56
 msgid "Agenda"
 msgstr "Pauta"
 
-#: core/models.py:40
+#: core/models.py:41
 msgid "Agendas"
 msgstr "Pautas"
 
-#: core/models.py:57 core/models.py:96
+#: core/models.py:58 core/models.py:97
 msgid "Proposals"
 msgstr "Proposições"
 
-#: core/models.py:72
+#: core/models.py:73
 msgid "Initials"
 msgstr "Sigla"
 
-#: core/models.py:88
+#: core/models.py:89
 msgid "Proposal type"
 msgstr "Tipo de proposição"
 
-#: core/models.py:89
+#: core/models.py:90
 msgid "Number"
 msgstr "Número"
 
-#: core/models.py:90
+#: core/models.py:91
 msgid "Year"
 msgstr "Ano"
 
-#: core/models.py:91
+#: core/models.py:92
 msgid "URL"
 msgstr "URL"
 
-#: core/models.py:95 core/models.py:128
+#: core/models.py:96 core/models.py:129 core/views.py:111
 msgid "Proposal"
 msgstr "Proposição"
 
-#: core/models.py:126
+#: core/models.py:127
 msgid "User"
 msgstr "Usuário"
 
-#: core/models.py:131 core/models.py:133
+#: core/models.py:132 core/models.py:134
 msgid "Proposal Group"
 msgstr "Grupo de Proposições"
 
-#: core/models.py:135
+#: core/models.py:136
 msgid "Datetime"
 msgstr "Data/hora"
 
-#: core/models.py:136 core/models.py:139
+#: core/models.py:138 core/models.py:141
 msgid "Vote"
 msgstr "Voto"
 
-#: core/models.py:140
+#: core/models.py:142
 msgid "Votes"
 msgstr "Votos"
 
-#: core/views.py:31
-#, fuzzy
-msgid "You must be <a href=\"/home\">logged</a> to vote"
-msgstr "Você precisa <a href=\"/home\">fazer login</a> para votar"
-
-#: core/views.py:48
+#: core/views.py:49
 msgid "You must be logged to do this action"
 msgstr "Você precisa estar logado para realizar essa ação"
 
-#: core/views.py:64
+#: core/views.py:65
 msgid "You can vote at most three times"
 msgstr "Você pode votar no máximo três vezes"
 
-#: core/views.py:72
+#: core/views.py:73
 msgid "You have to vote at least in one group"
 msgstr "Você tem que votar no mínimo em um grupo"
 
-#: core/views.py:76
+#: core/views.py:77
 msgid "Ok"
 msgstr "Ok"
+
+#: core/views.py:111
+msgid "Up Votes"
+msgstr "Votos a favor"
+
+#: core/views.py:111
+msgid "Down Votes"
+msgstr "Votos contra"
+
+#: core/views.py:111
+msgid "Score"
+msgstr "Total"
