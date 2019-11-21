@@ -32,14 +32,31 @@
   <div class="agenda-header JS-agenda-header">
     <div class="wrapper">
       <a class="back" role="button" href="../"></a>
-      <h1 class="title">{{agenda.title}}</h1>
+      <h1 class="section-title">{{agenda.title}}</h1>
     </div>
   </div>
+
+<!--         <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{agenda.video_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="description">
+        {{agenda.description}}
+      </div> -->
 
   {% if user|already_voted:object or object.is_closed %}
     {% include "components/results.html" with object=object %}
   {% else %}
     {% include "components/agenda-block.html" with object=object %}
   {% endif %}
+
+  <section class="description">
+    <h1 class="section-title">Sobre esta Pauta</h1>
+    <div class="video">
+      <iframe width="auto" height="auto" src="https://www.youtube.com/embed/{{agenda.video_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>       
+    </div>
+    <p>
+      {{agenda.description}}
+    </p>
+  </section>
 
 {% endblock content %}

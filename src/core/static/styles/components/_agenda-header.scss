@@ -25,6 +25,18 @@
       text-decoration: none;
     }
 
+    > .video {
+      height: 100%;
+      position: absolute;
+      display: flex;
+    }
+
+    > .description {
+      display: flex;
+      position: absolute;
+      right: 0;
+    }
+
     > .title {
       font-size: $font-size-hecto;
       color: $color-brand;

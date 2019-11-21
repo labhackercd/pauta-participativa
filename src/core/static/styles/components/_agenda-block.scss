@@ -1,0 +1,29 @@
+.agenda-block {
+	& > .description {
+	    background-color: #fff;
+	    padding-bottom: 4rem;
+	}
+
+  & > .description > .section-title {
+    padding: 3rem 0;
+  }
+
+	& > .description > .video {
+	    max-width: 42rem;
+	    margin: 0 auto;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+	}
+
+	& > .description > .video > iframe {
+	    width: 100%;
+	    height: 22rem;
+	}
+
+	& > .description > p {
+	    max-width: 42rem;
+	    margin: 0 auto;
+	    line-height: 1.75;
+      padding: 0 1rem;
+	}
+}

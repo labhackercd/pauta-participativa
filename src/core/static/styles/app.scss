@@ -23,8 +23,8 @@
 
 
 // Components
-
 @import 'components/tooltip-box';
+@import 'components/section-title';
 
 // Home
 @import 'components/home-page';
@@ -34,6 +34,7 @@
 @import 'components/theme-tag';
 
 // Agenda
+@import 'components/agenda-block';
 // Voting
 @import 'components/modal-box';
 @import 'components/vote-button';
