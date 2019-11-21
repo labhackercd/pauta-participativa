@@ -117,8 +117,8 @@ class Proposal(models.Model):
                                         self.year)
 
             self.url = ('http://www.camara.gov.br/'
-                        'proposicoesWeb/fichadetramitacao'
-                        '?idProposicao={}'.format(proposal['idProposicao']))
+                        'propostas-legislativas/{}'.format(
+                            proposal['idProposicao']))
         return super(Proposal, self).save(*args, **kwargs)
 
 
