@@ -12,7 +12,8 @@ import csv
 class HomeView(ListView):
     template_name = 'pages/home.html'
     model = models.Agenda
-    queryset = models.Agenda.objects.filter(is_visible=True)
+    queryset = models.Agenda.objects.filter(
+        is_visible=True).order_by('-initial_date')
 
 
 class AgendaMetaView(DetailView):
