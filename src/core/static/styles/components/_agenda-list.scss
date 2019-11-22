@@ -6,4 +6,17 @@
   justify-content: center;
   align-items: stretch;
   flex-basis: 50%;
+
+
+  & > .description {
+    margin-top: auto;
+    align-self: flex-end;
+    font-size: 1rem;
+    padding: 1rem 0;
+
+  	@include bp-mediumup {
+  	  padding-bottom: 0
+  	}
+  }
+ 
 }
