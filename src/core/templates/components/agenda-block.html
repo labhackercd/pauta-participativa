@@ -28,8 +28,8 @@
       <div class="title">Concluir</div>
 
        <div class="note-message">
-         <p class="text">Confira os seus votos.</p>
-         <p class="text">Depois de enviar, eles não poderão ser alterados!</p>
+         <p class="text">Confira seus votos.</p>
+         <p class="text">Depois de enviá-los, eles não poderão ser alterados!</p>
        </div>
 
         <div class="controls">
@@ -53,7 +53,7 @@
   <div class="modal">
     <div class="tutorial -active JS-tutorial">
       <h3 class="title">Bem-vindo!</h3>
-      <p>Esta pauta contém 3 temas:</p>
+      <p>Esta pauta contém {{ object.groups.count }} tema(s):</p>
       <ul class="themes">
         {% for group in object.groups.all %}
           <li class="theme-tag -{{group.theme.slug}}">{{group.theme.name}}</li>
