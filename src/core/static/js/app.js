@@ -1,5 +1,5 @@
 
-$('.JS-vote-input').click(function(event) {
+$('.JS-vote-input').click(function (event) {
   var target = $(event.target);
   var siblingCheckbox = Votes.siblingCheckbox(target);
   var voteType = Votes.getVoteType(target);
@@ -33,7 +33,7 @@ $('.JS-vote-input').click(function(event) {
   Buttons.changeButtonsState(target, groupId);
 })
 
-$('.JS-next-group-btn').click(function(event) {
+$('.JS-next-group-btn').click(function (event) {
   var target = $(event.target);
   if (target.hasClass('-disabled')) {
     AlertMessage.remainingVotesError();
@@ -42,7 +42,7 @@ $('.JS-next-group-btn').click(function(event) {
   Tabs.next(target);
 });
 
-$('.JS-prev-group-btn').click(function(event) {
+$('.JS-prev-group-btn').click(function (event) {
   var target = $(event.target);
   if (target.hasClass('-disabled')) {
     AlertMessage.remainingVotesError();
@@ -51,7 +51,7 @@ $('.JS-prev-group-btn').click(function(event) {
   Tabs.previous(target);
 });
 
-$('.JS-tab-item').click(function(event) {
+$('.JS-tab-item').click(function (event) {
   var target = $(event.target);
   if (target.hasClass('-active')) {
     return false;
@@ -71,7 +71,7 @@ if ($('.JS-remaining-votes').length) {
   var remainingVotesOffset = 0;
 }
 
-$(window).scroll(function(event) {
+$(window).scroll(function (event) {
   Scroll.themeNavigation();
   if ($('.JS-remaining-votes').length) {
     var navigation = $('.JS-tab-navigation');
@@ -88,19 +88,19 @@ $(window).scroll(function(event) {
   }
 });
 
-$('.JS-change-votes').click(function(event) {
+$('.JS-change-votes').click(function (event) {
   var target = $(event.target);
   var groupId = target.closest('.JS-group-review').data('groupId');
   Tabs.changeActiveGroupTo('finish', groupId);
 });
 
-$('.JS-error-close').click(function(event) {
+$('.JS-error-close').click(function (event) {
   var target = $(event.target);
   target.closest('.JS-error-message').removeClass('-show');
   setTimeout.clearAll();
 });
 
-$('.JS-confirm-votes').submit(function(e) {
+$('.JS-confirm-votes').submit(function (e) {
   var submitButton = $(this).find('.JS-submit-votes-btn');
   var csrftoken = $(this).find('[name="csrfmiddlewaretoken"]').val();
   var recaptchaResponse = $(this).find('[name="g-recaptcha-response"]').val();
@@ -115,7 +115,7 @@ $('.JS-confirm-votes').submit(function(e) {
     groups: []
   };
 
-  $('.JS-group-form').each(function() {
+  $('.JS-group-form').each(function () {
     var groupId = $(this).closest('.JS-group').data('groupId');
     var groupData = {
       groupId: groupId,
@@ -125,7 +125,7 @@ $('.JS-confirm-votes').submit(function(e) {
   })
 
   $.ajaxSetup({
-    beforeSend: function(xhr, settings) {
+    beforeSend: function (xhr, settings) {
       xhr.setRequestHeader("X-CSRFToken", csrftoken);
     }
   });
@@ -135,12 +135,12 @@ $('.JS-confirm-votes').submit(function(e) {
   $.ajax({
     method: 'POST',
     url: window.Urls.agenda(agendaId),
-    data: {data: JSON.stringify(data)},
-    success: function(data) {
+    data: { data: JSON.stringify(data) },
+    success: function (data) {
       window.onbeforeunload = null;
       window.location.href = window.location.href;
     },
-    error: function(data) {
+    error: function (data) {
       submitButton.removeAttr('disabled');
       submitButton.removeClass('-loading');
       console.log(data);
@@ -156,14 +156,14 @@ if (!hideTutorial || hideTutorial == 'false') {
   $('.JS-help-button').addClass('-active');
 }
 
-$('.JS-help-button').click(function(event) {
+$('.JS-help-button').click(function (event) {
   $(this).addClass('-active');
   $('.JS-tutorial.-active').removeClass('-active');
   $('.JS-modal').find('.JS-tutorial').first().addClass('-active');
   $('.JS-modal').addClass('-show');
 });
 
-$('.JS-modal-next').click(function(event) {
+$('.JS-modal-next').click(function (event) {
   var target = $(event.target);
   var tutorial = target.closest('.JS-tutorial');
   tutorial.removeClass('-active');
@@ -171,14 +171,14 @@ $('.JS-modal-next').click(function(event) {
   next.addClass('-active');
 });
 
-$('.JS-modal-close').click(function(event) {
+$('.JS-modal-close').click(function (event) {
   var target = $(event.target);
   target.closest('.JS-modal').removeClass('-show');
   $('.JS-help-button').removeClass('-active');
   Cookie.create('hideTutorial', true);
 });
 
-$('.JS-navigation-btn').click(function(event) {
+$('.JS-navigation-btn').click(function (event) {
   var target = $(event.target);
   var btn = target.find('.JS-prev-group-btn,.JS-next-group-btn');
   if (btn.hasClass('-disabled')) {
@@ -186,24 +186,26 @@ $('.JS-navigation-btn').click(function(event) {
   }
 });
 
-$('.JS-share-lnk').click(function(event) {
+$('.JS-share-lnk').click(function (event) {
   Share.results(event.target);
 });
 
-$('.JS-alert-close').click(function(event) {
+$('.JS-alert-close').click(function (event) {
   AlertMessage.hide();
 });
 
-window.onbeforeunload = function(e) {
+window.onbeforeunload = function (e) {
   if ($('.JS-vote-input:checked').length) {
     var confirmationMessage = 'Ao deixar a página você perderá todos os seus votos. ' +
-                              'Tem certeza que quer sair?';
+      'Tem certeza que quer sair?';
     (e || window.event).returnValue = confirmationMessage;
     return confirmationMessage;
   }
 };
 
-$('.JS-unlogged-user').click(function(event) {
-  AlertMessage.error('Você precisa fazer login para votar');
+$('.JS-unlogged-user').click(function (event) {
+  AlertMessage.error(
+    '<a href="https://edemocracia.camara.leg.br/accounts/login/camara_deputados/?next=/pautaparticipativa/pauta/2">' +
+    'Você precisa fazer login para votar! </a>');
   return false;
 });
