@@ -27,6 +27,7 @@
   <meta property="og:type" content="website" />
 {% endblock metatags %}
 
+
 {% block content %}
 
   <div class="agenda-header JS-agenda-header">
@@ -36,10 +37,13 @@
     </div>
   </div>
 
+
+
   {% if user|already_voted:object or object.is_closed %}
     {% include "components/results.html" with object=object %}
   {% else %}
     {% include "components/agenda-block.html" with object=object %}
   {% endif %}
+
 
 {% endblock content %}
