@@ -9,7 +9,6 @@
       <img class="logo" src="{% static 'images/logo-full.svg' %}" alt="Marca da Pauta Participativa">
       <p class="description">A Pauta Participativa é uma forma de você ajudar a Câmara a definir a prioridade de votações dos projetos. Nesta edição, você pode ajudar a Comissão de Trabalho, Administração e Serviço Público a definir sua pauta de votações.</p>
       <p class="description">Ao final do período de consulta (duas semanas), a comissão votará os projetos de cada tema que tenham obtido o maior saldo positivo de votos, ou seja, votos favoráveis menos votos contrários. Participe!</p>
-      <p class="description"><a href="{% url 'method' %}">Entenda a metodologia utilizada</a></p>
       <a class="cd" href="http://www2.camara.leg.br/">
         <img src="{% static 'images/marca-cd.svg' %}" alt="Marca da Câmara do Deputados">
       </a>
@@ -48,6 +47,7 @@
         </a>
 
       {% endfor %}
+  <p class="description"><a href="{% url 'method' %}">Entenda a metodologia utilizada</a></p>
 
     </section>
   </div>
