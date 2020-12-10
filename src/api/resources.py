@@ -113,3 +113,25 @@ class ProposalGroupResource(ModelResource):
             'id': ALL,
             'agenda': ALL_WITH_RELATIONS,
         }
+
+
+class VoteResource(ModelResource):
+
+    agenda = fields.ToOneField(AgendaResource, 'agenda', full=True, null=True)
+    proposal = fields.ToOneField(ProposalResource, 'proposal',
+                                 full=True, null=True)
+    proposal_group = fields.ToOneField(ProposalGroupResource, 'proposal_group',
+                                       full=True, null=True)
+
+    class Meta:
+        queryset = models.Vote.objects.filter(agenda__is_visible=True)
+        allowed_methods = ['get']
+        filtering = {
+            'id': ALL,
+            'agenda': ALL_WITH_RELATIONS,
+            'proposal': ALL_WITH_RELATIONS,
+            'proposal_group': ALL_WITH_RELATIONS,
+            'datetime': ALL,
+            'vote': ALL,
+        }
+        ordering = ['datetime', 'vote']
