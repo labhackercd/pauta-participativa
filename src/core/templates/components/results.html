@@ -14,8 +14,14 @@
       <p class="text">Compartilhe esta pauta para mais pessoas votarem</p>
     </div>
 
+    {% if object.id == 1 %}
     <div class="note-message">
       <p class="text">Veja uma <a href="{% url 'relatorio-pauta-1' %}">análise do processo participativo</a>.</p>
+    </div>
+    {% endif %}
+
+    <div class="note-message">
+      <p class="text"><a href="{% url 'download-csv' object.id %}">Baixe o resultado em csv</a></p>
     </div>
 
     <div class="share">

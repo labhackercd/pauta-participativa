@@ -1,0 +1,14 @@
+.not-logged-in-card {
+  @extend %card;
+
+  background-color: #d55c4d;
+
+  &:last-child {
+    margin-bottom: 1rem;
+  }
+
+  > a {
+    color: #FFFFFF;
+  }
+
+}

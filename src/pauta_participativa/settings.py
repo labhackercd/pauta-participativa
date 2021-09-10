@@ -62,6 +62,7 @@ THIRD_PARTY_APPS = [
     'tastypie',
     'django_js_reverse',
     'livereload',
+    'corsheaders',
 ]
 
 MAIN_APPS = [
@@ -76,6 +77,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MAIN_APPS
 DJANGO_MIDDLEWARES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -143,7 +145,6 @@ LOCALE_PATHS = [
 ]
 
 LANGUAGES = (
-    ('en', 'English'),
     ('pt-br', 'Brazilian Portuguese'),
 )
 
@@ -250,3 +251,11 @@ TEMPLATES = [
         },
     },
 ]
+
+#CORS
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_METHODS = (
+    'GET',
+    'OPTIONS'
+)

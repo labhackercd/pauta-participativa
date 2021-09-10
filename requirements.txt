@@ -1,4 +1,4 @@
-Django==1.11.3
+Django==1.11.29
 python-decouple>=3.0
 django-compressor>=2.1
 django-compressor-toolkit>=0.6.0
@@ -9,3 +9,4 @@ django-js-reverse>=0.7.3
 requests>=2.18.3
 django-livereload-server>=0.2.3
 git+https://github.com/tenhodito/pygov-br.git
+django-cors-headers==3.1.0
