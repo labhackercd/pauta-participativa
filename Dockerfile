@@ -8,7 +8,7 @@ RUN mkdir -p /var/labhacker/pauta-participativa
 ADD . /var/labhacker/pauta-participativa
 WORKDIR /var/labhacker/pauta-participativa
 
-RUN pip3 install -r requirements.txt psycopg2 gunicorn && \
+RUN pip3 install -r requirements.txt psycopg2==2.8.6 gunicorn && \
     rm -r /root/.cache
 
 RUN npm install
