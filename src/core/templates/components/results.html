@@ -6,13 +6,17 @@
 
     {% if object.is_closed %}
       <h2 class="title">Resultado</h2>
+
+      <div class="note-message">
+        <p class="text">Votação encerrada dia {{object.end_date}}</p>
+      </div>
     {% else %}
       <h2 class="title">Resultado Parcial</h2>
+      
+      <div class="note-message">
+        <p class="text">Compartilhe esta pauta para mais pessoas votarem</p>
+      </div>
     {% endif %}
-
-    <div class="note-message">
-      <p class="text">Compartilhe esta pauta para mais pessoas votarem</p>
-    </div>
 
     {% if object.id == 1 %}
     <div class="note-message">
